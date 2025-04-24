@@ -27,38 +27,45 @@ const Hero = () => {
   }, []);
   return (
     <section className='relative min-h-screen flex items-center justify-center px-4 bg-gray-900 text-white overflow-hidden'>
-      <div className='absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-black opacity-90'></div>
-      <div className='relative z-10 text-center'>
-        <h1 className='text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary'>
-          Hi, I'm <span className='text-primary'>Kirito</span>
-        </h1>
-        <h2 className='text-2xl md:text-4xl mb-8 text-gray-300'>
-          I'm a <span ref={typedRef} className='text-primary'></span>
-        </h2>
-        <p className='text-lg md:text-xl max-w-2xl mx-auto mb-12 text-gray-400'>
-          Passionate about creating beautiful, functional, and user-friendly websites and applications.
-        </p>
-        <div className='flex justify-center space-x-4'>
-          {/* Primary Button */}
-          <Link
-            to='contact'
-            smooth={true}
-            duration={500}
-            className='relative inline-block px-6 py-3 bg-primary text-white rounded-md shadow-md overflow-hidden cursor-pointer transition-all duration-300 group'
-          >
-            <span className='relative z-10'>Contact Me</span>
-            <span className='absolute inset-0 w-0 h-0 bg-white rounded opacity-50 group-hover:w-full group-hover:h-full transition-all duration-500'></span>
-          </Link>
+      {/* Animated gradient background */}
+      <div className='absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-95'>
+        <div className='absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(28,25,25,0.8)_0%,_transparent_70%)] animate-pulse-slow'></div>
+      </div>
 
-          {/* Secondary Button */}
+      <div className='relative z-10 text-center max-w-4xl px-4'>
+        <h1 className='text-5xl md:text-7xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 animate-gradient'>
+          Hi, I'm <span className='text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]'>Kirito</span>
+        </h1>
+
+        <h2 className='text-2xl md:text-4xl mb-8 text-gray-300 font-medium'>
+          I'm a <span ref={typedRef} className='text-cyan-300 font-semibold'></span>
+        </h2>
+
+        <p className='text-lg md:text-xl max-w-2xl mx-auto mb-12 text-gray-300 leading-relaxed'>
+          Crafting <span className='text-cyan-300'>scalable solutions</span> with clean code and intuitive design.
+          Full-stack developer specializing in <span className='text-blue-300'>React</span> and{' '}
+          <span className='text-emerald-300'>Node.js</span>.
+        </p>
+
+        <div className='flex flex-col sm:flex-row justify-center gap-4'>
           <Link
             to='skills'
             smooth={true}
             duration={500}
-            className='relative inline-block px-6 py-3 bg-gray-800 text-gray-300 rounded-md shadow-md overflow-hidden cursor-pointer transition-all duration-300 group'
+            className='relative inline-flex items-center justify-center px-8 py-3.5 bg-transparent border-2 border-cyan-400 text-cyan-400 rounded-lg shadow-lg overflow-hidden cursor-pointer transition-all duration-300 group hover:bg-cyan-400/10 hover:shadow-cyan-400/20'
           >
-            <span className='relative z-10'>Learn More</span>
-            <span className='absolute inset-0 w-0 h-0 bg-gray-300 rounded opacity-50 group-hover:w-full group-hover:h-full transition-all duration-500'></span>
+            <span className='relative z-10 font-medium'>Explore Skills</span>
+            <span className='absolute inset-0 bg-cyan-400/0 group-hover:bg-cyan-400/5 transition-all duration-500'></span>
+          </Link>
+
+          <Link
+            to='projects'
+            smooth={true}
+            duration={500}
+            className='relative inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-cyan-400 to-blue-500 font-medium rounded-lg shadow-lg overflow-hidden cursor-pointer transition-all duration-300 group hover:shadow-cyan-400/30'
+          >
+            <span className='relative z-10'>View Projects</span>
+            <span className='absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-all duration-500'></span>
           </Link>
         </div>
       </div>

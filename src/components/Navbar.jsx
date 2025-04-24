@@ -45,13 +45,20 @@ const Navbar = ({ theme, toggleTheme }) => {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'py-3 bg-white/90 dark:bg-gray-900/90 shadow-lg backdrop-blur-sm' : 'py-5 bg-transparent'
+        scrolled
+          ? 'py-3 bg-white/90 dark:bg-gray-900/90 shadow-lg backdrop-blur-sm dark:border-gray-700'
+          : 'py-5 bg-transparent'
       }`}
     >
       <div className='container mx-auto px-4'>
         <div className='flex justify-between items-center'>
-          <Link to='home' smooth duration={500} className='text-2xl font-bold text-primary cursor-pointer'>
-            Portfolio
+          <Link
+            to='home'
+            smooth
+            duration={500}
+            className='text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent cursor-pointer'
+          >
+            Kirito
           </Link>
 
           {/* Desktop Navigation */}
@@ -64,14 +71,16 @@ const Navbar = ({ theme, toggleTheme }) => {
                 smooth
                 offset={-70}
                 duration={500}
-                className={`cursor-pointer hover:text-primary transition-all relative pb-1 ${
-                  activeLink === link.to ? 'text-primary' : 'text-gray-800 dark:text-gray-200'
+                className={`cursor-pointer transition-all relative pb-1 ${
+                  activeLink === link.to
+                    ? 'text-cyan-400 font-medium'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-cyan-400 dark:hover:text-cyan-300'
                 }`}
                 onSetActive={() => setActiveLink(link.to)}
               >
                 {link.name}
                 <span
-                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary transform transition-all duration-300 ${
+                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 transform transition-all duration-300 ${
                     activeLink === link.to ? 'scale-x-100' : 'scale-x-0'
                   }`}
                 ></span>
@@ -83,22 +92,54 @@ const Navbar = ({ theme, toggleTheme }) => {
           {/* Mobile Menu Button */}
           <div className='md:hidden flex items-center'>
             <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-            <button onClick={() => setIsOpen(!isOpen)} className='ml-4 focus:outline-none'>
-              <div className='relative w-6 h-5'>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`
+        ml-4 flex items-center justify-center w-10 h-10
+        backdrop-blur-sm border
+        bg-white/80 dark:bg-gray-800/80
+        border-gray-300/50 dark:border-gray-600/50
+        rounded-lg focus:outline-none
+        hover:bg-white/90 dark:hover:bg-gray-700/90
+        hover:shadow-lg hover:shadow-cyan-400/10
+        transition-all duration-300
+        group
+      `}
+              aria-label='Toggle menu'
+            >
+              <div
+                className={`
+        relative w-6 h-5 flex flex-col justify-center items-center
+        ${isOpen ? 'rotate-180' : ''}
+        transition-all duration-500
+      `}
+              >
                 <span
-                  className={`absolute h-0.5 w-6 bg-gray-800 dark:bg-white transition-all duration-300 ${
-                    isOpen ? 'rotate-45 top-2' : 'top-0'
-                  }`}
+                  className={`
+            absolute h-0.5
+            bg-cyan-500 dark:bg-cyan-400
+            group-hover:bg-cyan-600 dark:group-hover:bg-cyan-300
+            transition-all duration-300
+            ${isOpen ? 'w-6 rotate-45 top-2' : 'w-4 -translate-y-2 -translate-x-1'}
+          `}
                 ></span>
                 <span
-                  className={`absolute h-0.5 bg-gray-800 dark:bg-white transition-all duration-300 ${
-                    isOpen ? 'opacity-0' : 'w-6 top-2'
-                  }`}
+                  className={`
+            absolute h-0.5
+            bg-cyan-500 dark:bg-cyan-400
+            group-hover:bg-cyan-600 dark:group-hover:bg-cyan-300
+            transition-all duration-300
+            ${isOpen ? 'w-0' : 'w-6'}
+          `}
                 ></span>
                 <span
-                  className={`absolute h-0.5 w-6 bg-gray-800 dark:bg-white transition-all duration-300 ${
-                    isOpen ? '-rotate-45 top-2' : 'top-4'
-                  }`}
+                  className={`
+            absolute h-0.5
+            bg-cyan-500 dark:bg-cyan-400
+            group-hover:bg-cyan-600 dark:group-hover:bg-cyan-300
+            transition-all duration-300
+            ${isOpen ? 'w-6 -rotate-45 top-2' : 'w-4 translate-y-2 translate-x-1'}
+          `}
                 ></span>
               </div>
             </button>
@@ -111,7 +152,7 @@ const Navbar = ({ theme, toggleTheme }) => {
             isOpen ? 'max-h-60 opacity-100 mt-4' : 'max-h-0 opacity-0 overflow-hidden'
           }`}
         >
-          <div className='flex flex-col space-y-2 py-3 bg-white dark:bg-gray-800 rounded-lg shadow-lg'>
+          <div className='flex flex-col space-y-2 py-3 bg-white/95 dark:bg-gray-800/95 rounded-lg shadow-xl backdrop-blur-sm border border-gray-200 dark:border-gray-700'>
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -120,14 +161,18 @@ const Navbar = ({ theme, toggleTheme }) => {
                 smooth
                 offset={-70}
                 duration={500}
-                className={`py-2 text-center cursor-pointer ${
+                className={`py-2 px-4 text-center cursor-pointer rounded-md transition-colors ${
                   activeLink === link.to
-                    ? 'text-primary'
-                    : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
+                    ? 'bg-gradient-to-r from-cyan-400/10 to-blue-500/10 text-cyan-400 font-medium'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50'
                 }`}
                 onClick={() => setIsOpen(false)}
+                onSetActive={() => setActiveLink(link.to)}
               >
                 {link.name}
+                {activeLink === link.to && (
+                  <span className='block mx-auto w-1/4 h-0.5 mt-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full'></span>
+                )}
               </Link>
             ))}
           </div>
