@@ -63,7 +63,6 @@ const Contact = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-    // Validate on change if the field has been touched
     if (touched[name]) {
       validate();
     }
@@ -71,10 +70,12 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: 'fas fa-map-marker-alt',
-      title: 'Location',
-      content: 'Tokyo, Japan',
-      color: 'text-cyan-400',
+      icon: 'fab fa-telegram',
+      title: 'Telegram',
+      content: '@kirito',
+      color: 'text-blue-500',
+      isLink: true,
+      href: 'https://t.me/kirito'
     },
     {
       icon: 'fas fa-envelope',
@@ -147,27 +148,26 @@ const Contact = () => {
                     {
                       icon: 'fab fa-github',
                       url: 'https://github.com',
-                      className:
-                        'text-gray-800 dark:text-gray-200 hover:text-white hover:bg-gray-800 dark:hover:bg-gray-200',
-                      bg: 'bg-gray-200 dark:bg-gray-700',
+                      className: 'text-gray-800 dark:text-gray-200 hover:text-white',
+                      bg: 'bg-gray-200 dark:bg-gray-700 hover:bg-black dark:hover:bg-black transition-all duration-300',
                     },
                     {
                       icon: 'fab fa-linkedin-in',
                       url: 'https://linkedin.com',
-                      className: 'text-[#0A66C2] hover:text-white hover:bg-[#0A66C2]',
-                      bg: 'bg-[#0A66C2]/10',
+                      className: 'text-[#0A66C2] hover:text-white',
+                      bg: 'bg-[#0A66C2]/10 hover:bg-[#0A66C2] transition-all duration-300',
                     },
                     {
                       icon: 'fab fa-x-twitter',
                       url: 'https://twitter.com',
-                      className: 'text-gray-800 dark:text-gray-200 hover:text-white hover:bg-gray-800',
-                      bg: 'bg-gray-200 dark:bg-gray-700',
+                      className: 'text-gray-800 dark:text-gray-200 hover:text-white',
+                      bg: 'bg-gray-200 dark:bg-gray-700 hover:bg-black dark:hover:bg-black transition-all duration-300',
                     },
                     {
                       icon: 'fab fa-instagram',
                       url: 'https://instagram.com',
-                      className: 'hover:text-white',
-                      bg: 'bg-gradient-to-r from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]',
+                      className: 'text-white opacity-90 hover:opacity-100',
+                      bg: 'bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:shadow-lg hover:shadow-[#ee2a7b]/50 transition-all duration-300',
                     },
                   ].map((social, i) => (
                     <a

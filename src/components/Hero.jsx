@@ -38,7 +38,7 @@ const Hero = () => {
         </h1>
 
         <h2 className='text-2xl md:text-4xl mb-8 text-gray-300 font-medium'>
-          I'm a <span ref={typedRef} className='text-cyan-300 font-semibold'></span>
+          I'm a <span ref={typedRef} className='text-cyan-300 font-thin'></span>
         </h2>
 
         <p className='text-lg md:text-xl max-w-2xl mx-auto mb-12 text-gray-300 leading-relaxed'>

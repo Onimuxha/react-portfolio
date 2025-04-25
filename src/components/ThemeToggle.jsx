@@ -3,8 +3,8 @@ const ThemeToggle = ({ theme, toggleTheme }) => {
     <button
       onClick={toggleTheme}
       className='w-10 h-10 rounded-full flex items-center justify-center 
-       dark:bg-gray-800/80 backdrop-blur-sm
-      border border-gray-300/50 dark:border-gray-600/50
+      dark:bg-gray-800/80 backdrop-blur-sm
+      border border-gray-600/50
       hover:shadow-md hover:shadow-cyan-400/20
       transition-all duration-300'
       aria-label='Toggle Dark Mode'
@@ -16,7 +16,7 @@ const ThemeToggle = ({ theme, toggleTheme }) => {
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          className={`absolute h-5 w-5 text-gray-700 dark:text-cyan-300
+          className={`absolute h-5 w-5 text-cyan-300
           transition-opacity duration-300 ${theme === 'light' ? 'opacity-100' : 'opacity-0'}`}
           fill='none'
           viewBox='0 0 24 24'
