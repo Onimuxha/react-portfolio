@@ -1,4 +1,3 @@
-import './App.css';
 import React, { useEffect, useState } from "react";
 import { Element } from "react-scroll";
 import Navbar from "./components/Navbar";
@@ -6,6 +5,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
+import Projects from "./components/Projects"
 import Footer from "./components/Footer";
 import ParticleBackground from "./components/ParticleBackground";
 import AOS from 'aos';
@@ -68,6 +68,9 @@ const App = () => {
         </Element>
         <Element name="skills">
           <Skills />
+        </Element>
+        <Element name="projects">
+          <Projects />
         </Element>
         <Element name="contact">
           <Contact />

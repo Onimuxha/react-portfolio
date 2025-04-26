@@ -75,7 +75,7 @@ const Contact = () => {
       content: '@kirito',
       color: 'text-blue-500',
       isLink: true,
-      href: 'https://t.me/kirito'
+      href: 'https://t.me/kirito',
     },
     {
       icon: 'fas fa-envelope',
@@ -86,7 +86,7 @@ const Contact = () => {
       color: 'text-blue-400',
     },
     {
-      icon: 'fas fa-phone',
+      icon: 'fas fa-mobile',
       title: 'Phone',
       content: '+81 70-1234-5678',
       isLink: true,
@@ -102,7 +102,7 @@ const Contact = () => {
     >
       <div className='container mx-auto px-4 max-w-6xl'>
         <div className='text-center mb-16' data-aos='fade-up'>
-          <h2 className='text-4xl font-bold mb-4 text-gray-800 dark:text-white'>
+          <h2 className='text-4xl font-semibold mb-4 text-gray-800 dark:text-white'>
             Get In{' '}
             <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>Touch</span>
           </h2>
@@ -115,7 +115,7 @@ const Contact = () => {
           {/* Contact Info */}
           <div className='lg:w-2/5' data-aos='fade-up'>
             <div className='bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-8 h-full border border-gray-200/50 dark:border-gray-700/50'>
-              <h3 className='text-2xl font-bold mb-8 text-gray-800 dark:text-white'>Contact Information</h3>
+              <h3 className='text-2xl font-semibold mb-8 text-gray-800 dark:text-white'>Contact Information</h3>
               <div className='space-y-6'>
                 {contactInfo.map((item, i) => (
                   <div key={i} className='flex items-start'>
@@ -158,10 +158,10 @@ const Contact = () => {
                       bg: 'bg-[#0A66C2]/10 hover:bg-[#0A66C2] transition-all duration-300',
                     },
                     {
-                      icon: 'fab fa-x-twitter',
-                      url: 'https://twitter.com',
-                      className: 'text-gray-800 dark:text-gray-200 hover:text-white',
-                      bg: 'bg-gray-200 dark:bg-gray-700 hover:bg-black dark:hover:bg-black transition-all duration-300',
+                      icon: 'fab fa-facebook-f',  // Facebook icon
+                      url: 'https://facebook.com',
+                      className: 'text-white hover:text-white',  // Always white text
+                      bg: 'bg-[#1877f2] hover:bg-[#166fe5] transition-all duration-300',  // Official Facebook blue
                     },
                     {
                       icon: 'fab fa-instagram',
@@ -221,7 +221,7 @@ const Contact = () => {
                         />
                       </svg>
                     </motion.div>
-                    <h3 className='text-2xl font-bold mb-2 text-gray-800 dark:text-white'>Message Sent!</h3>
+                    <h3 className='text-2xl font-semibold mb-2 text-gray-800 dark:text-white'>Message Sent!</h3>
                     <p className='text-gray-600 dark:text-gray-300 mb-8'>
                       Thank you for reaching out! I'll get back to you within 24 hours.
                     </p>
@@ -234,7 +234,7 @@ const Contact = () => {
                   </motion.div>
                 ) : (
                   <div className='p-8'>
-                    <h3 className='text-2xl font-bold mb-6 text-gray-800 dark:text-white'>Send Me a Message</h3>
+                    <h3 className='text-2xl font-semibold mb-6 text-gray-800 dark:text-white'>Send Me a Message</h3>
                     <form onSubmit={handleSubmit} noValidate>
                       <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                         {['name', 'email'].map((field) => (

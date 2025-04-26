@@ -1,12 +1,29 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-scroll';
 import Typed from 'typed.js';
 
 const Hero = () => {
   const typedRef = useRef(null);
   const typedInstance = useRef(null);
+  const [greeting, setGreeting] = useState('Hello');
+
   useEffect(() => {
-    console.log(typedRef.current);
+    // Set time-based greeting
+    const getTimeBasedGreeting = () => {
+      const hour = new Date().getHours();
+      if (hour < 12) return 'Good morning';
+      if (hour < 18) return 'Good afternoon';
+      return 'Good evening';
+    };
+
+    setGreeting(getTimeBasedGreeting());
+
+    // Update greeting every hour
+    const greetingInterval = setInterval(() => {
+      setGreeting(getTimeBasedGreeting());
+    }, 3600000); // Update every hour
+
+    // Typed.js initialization
     if (typedRef.current) {
       typedInstance.current = new Typed(typedRef.current, {
         strings: ['Web Developer', 'UI/UX Designer', 'Frontend Engineer', 'JavaScript Enthusiast'],
@@ -17,14 +34,16 @@ const Hero = () => {
         showCursor: true,
         cursorChar: '|',
       });
-
-      return () => {
-        if (typedInstance.current) {
-          typedInstance.current.destroy();
-        }
-      };
     }
+
+    return () => {
+      clearInterval(greetingInterval);
+      if (typedInstance.current) {
+        typedInstance.current.destroy();
+      }
+    };
   }, []);
+
   return (
     <section className='relative min-h-screen flex items-center justify-center px-4 bg-gray-900 text-white overflow-hidden'>
       {/* Animated gradient background */}
@@ -33,8 +52,9 @@ const Hero = () => {
       </div>
 
       <div className='relative z-10 text-center max-w-4xl px-4'>
-        <h1 className='text-5xl md:text-7xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 animate-gradient'>
-          Hi, I'm <span className='text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]'>Kirito</span>
+        <h1 className='text-[2.5rem] xs:text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[4rem] font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 animate-gradient pb-3 leading-[1.1]'>
+          <span className='inline-block transition-all duration-500 ease-in-out'>{greeting}</span>, I'm{' '}
+          <span className='text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]'>Kirito</span>
         </h1>
 
         <h2 className='text-2xl md:text-4xl mb-8 text-gray-300 font-medium'>

@@ -24,7 +24,7 @@ const Timeline = ({ items }) => {
               {/* Gradient accent bar */}
               <div className='absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-cyan-400 to-blue-500 rounded-l-lg'></div>
 
-              <h3 className='text-xl font-bold text-gray-800 dark:text-white mb-1'>{item.title}</h3>
+              <h3 className='text-xl font-semibold text-gray-800 dark:text-white mb-1'>{item.title}</h3>
               <p className='text-cyan-500 dark:text-cyan-400 text-sm mb-3 font-medium'>{item.period}</p>
               <p className='text-gray-700 dark:text-gray-300'>{item.description}</p>
             </div>
@@ -57,7 +57,7 @@ const About = () => {
   return (
     <section id='about' className='py-16 bg-gray-50 dark:bg-gray-900 min-h-screen'>
       <div className='container mx-auto px-4'>
-        <h3 className='text-4xl font-bold mb-12 text-gray-800 dark:text-white text-center' data-aos='fade-up'>
+        <h3 className='text-4xl font-semibold mb-12 text-gray-800 dark:text-white text-center' data-aos='fade-up'>
           About <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>Me</span>
         </h3>
 
@@ -73,7 +73,7 @@ const About = () => {
 
           {/* About content */}
           <div className='md:w-2/3'>
-            <h3 className='text-2xl font-bold mb-4 text-gray-800 dark:text-white'>Who am I?</h3>
+            <h3 className='text-2xl font-semibold mb-4 text-gray-800 dark:text-white'>Who am I?</h3>
             <p className='text-gray-600 dark:text-gray-300 mb-4 leading-relaxed'>
               I'm a <span className='text-cyan-500 dark:text-cyan-400 font-medium'>Full Stack Developer</span> with
               expertise in modern JavaScript frameworks. I specialize in creating high-performance web applications with
@@ -113,18 +113,19 @@ const About = () => {
               to='contact'
               smooth={true}
               duration={500}
-              className='inline-flex items-center bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-cyan-400/30'
+              className='inline-flex items-center cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-cyan-400/30 group'
             >
               Contact Me
-              <svg className='w-4 h-4 ml-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M14 5l7 7m0 0l-7 7m7-7H3' />
-              </svg>
+              <i className='fas fa-arrow-right ml-0 w-0 opacity-0 group-hover:ml-2 group-hover:w-4 group-hover:opacity-100 transition-all duration-300 ease-out'></i>
             </Link>
           </div>
         </div>
 
-        <h3 className='text-4xl font-bold mt-20 mb-12 text-gray-800 dark:text-white text-center' data-aos='fade-right'>
-          My <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>Journey</span>
+        <h3
+          className='text-4xl font-semibold mt-20 mb-12 text-gray-800 dark:text-white text-center'
+          data-aos='fade-right'
+        >
+          My <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>Educational</span>
         </h3>
 
         {/* Mobile timeline */}
@@ -135,7 +136,7 @@ const About = () => {
                 {index + 1}
               </div>
               <div className='bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-700'>
-                <h3 className='text-xl font-bold text-gray-800 dark:text-white'>{item.title}</h3>
+                <h3 className='text-xl font-seisemibold text-gray-800 dark:text-white'>{item.title}</h3>
                 <p className='text-cyan-500 dark:text-cyan-400 text-sm mb-2 font-medium'>{item.period}</p>
                 <p className='text-gray-700 dark:text-gray-300'>{item.description}</p>
               </div>

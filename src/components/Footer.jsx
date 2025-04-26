@@ -1,26 +1,47 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-scroll';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isAtTop, setIsAtTop] = useState(true);
+  const animating = useRef(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    // Animation function using lerp (linear interpolation)
+    const animate = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
+      const targetProgress = (scrollY / (documentHeight - windowHeight)) * 100;
 
-      const progress = (scrollY / (documentHeight - windowHeight)) * 100;
-      setScrollProgress(progress);
+      // Apply smooth transition with easing
+      setScrollProgress((prev) => {
+        const newValue = prev + (targetProgress - prev) * 0.12;
+        return Math.abs(targetProgress - newValue) < 0.1 ? targetProgress : newValue;
+      });
 
-      setIsAtTop(scrollY < 100); 
+      // Continue animation loop
+      if (Math.abs(scrollProgress - targetProgress) > 0.1) {
+        requestAnimationFrame(animate);
+      } else {
+        animating.current = false;
+      }
+    };
+
+    // Start animation on scroll
+    const handleScroll = () => {
+      setIsAtTop(window.scrollY < 100);
+
+      if (!animating.current) {
+        animating.current = true;
+        requestAnimationFrame(animate);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [scrollProgress]);
 
   return (
     <footer className='bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white py-12 relative overflow-hidden'>
@@ -30,7 +51,6 @@ const Footer = () => {
       <div className='container mx-auto px-6 relative z-10'>
         {/* Centered main content */}
         <div className='flex flex-col items-center text-center mb-8'>
-          {/* Brand */}
           <Link
             to='home'
             smooth={true}
@@ -103,7 +123,7 @@ const Footer = () => {
                 a 15.9155 15.9155 0 0 1 0 31.831
                 a 15.9155 15.9155 0 0 1 0 -31.831'
               fill='none'
-              stroke='rgba(55, 65, 81, 0.5)' // gray-700/50
+              stroke='rgba(55, 65, 81, 0.5)'
               strokeWidth='2'
             />
             {/* Progress circle (gradient) */}
@@ -116,7 +136,6 @@ const Footer = () => {
               strokeWidth='2'
               strokeDasharray={`${scrollProgress}, 100`}
               strokeLinecap='round'
-              style={{ transition: 'stroke-dasharray 0.1s linear' }}
             />
             <defs>
               <linearGradient id='progressGradient' x1='0%' y1='0%' x2='100%' y2='0%'>
