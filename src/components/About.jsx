@@ -113,19 +113,19 @@ const About = () => {
               to='contact'
               smooth={true}
               duration={500}
-              className='inline-flex items-center cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-cyan-400/30 group'
+              className='inline-block align-middle cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-cyan-400/30 group'
             >
               Contact Me
-              <i className='fas fa-arrow-right ml-0 w-0 opacity-0 group-hover:ml-2 group-hover:w-4 group-hover:opacity-100 transition-all duration-300 ease-out'></i>
+              <i className='fas fa-envelope ml-0 w-0 opacity-0 group-hover:ml-2 group-hover:w-4 group-hover:opacity-100 transition-all duration-300 ease-out'></i>
             </Link>
           </div>
         </div>
 
         <h3
-          className='text-4xl font-semibold mt-20 mb-12 text-gray-800 dark:text-white text-center'
-          data-aos='fade-right'
+          className='text-3xl mt-20 font-semibold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'
+          data-aos='fade-up'
         >
-          My <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>Educational</span>
+          My Educational
         </h3>
 
         {/* Mobile timeline */}

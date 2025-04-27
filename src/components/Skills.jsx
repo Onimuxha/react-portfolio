@@ -119,10 +119,11 @@ const Skills = () => {
       <div className='container mx-auto px-4 max-w-6xl'>
         <div className='text-center mb-16'>
           <h3
-            className='text-4xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'
-            data-aos='fade-up'
+            className='text-4xl font-semibold mb-12 text-gray-800 dark:text-white text-center'
+            data-aos='fade-right'
           >
-            Technical Skills
+            My Technical{' '}
+            <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>Skills</span>
           </h3>
           <p
             className='text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed'

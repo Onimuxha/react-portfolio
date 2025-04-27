@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-scroll';
 
 const Projects = () => {
+  // const isMounted = useRef(false);
   const projects = {
     academy: [
       {
@@ -29,6 +31,58 @@ const Projects = () => {
         languages: ['Next.js', 'Tailwind CSS', 'Stable Diffusion API'],
         isDeployed: false,
       },
+      {
+        name: 'Smart Home IoT Dashboard',
+        period: '1 Jan 24 - 28 Feb 24',
+        purpose: 'Centralized control system for IoT devices with real-time monitoring',
+        role: 'IoT Frontend Developer',
+        responsibilities: [
+          'Built real-time device monitoring dashboard',
+          'Implemented MQTT protocol integration',
+          'Created custom IoT device widgets',
+        ],
+        github: 'https://github.com/yourusername/smart-home-dashboard',
+        deploy: 'https://smart-home-demo.vercel.app',
+        languages: ['React', 'MQTT.js', 'ThreeJS', 'Socket.io'],
+        isDeployed: true,
+      },
+      {
+        name: 'Learning Management System',
+        period: '1 Dec 23 - 15 Jan 24',
+        purpose: 'Modern educational platform with interactive learning features',
+        role: 'Full Stack Developer',
+        responsibilities: [
+          'Developed video streaming system',
+          'Created interactive quiz module',
+          'Implemented progress tracking',
+        ],
+        github: 'https://github.com/yourusername/edu-platform',
+        deploy: null,
+        languages: ['Next.js', 'PostgreSQL', 'Redis', 'TailwindCSS'],
+        isDeployed: false,
+      },
+      {
+        name: 'Health Tracking App',
+        period: '15 Nov 23 - 30 Dec 23',
+        purpose: 'Mobile-first health monitoring application with data visualization',
+        role: 'Frontend Developer',
+        responsibilities: ['Built responsive dashboard', 'Integrated health data APIs', 'Developed PWA features'],
+        github: 'https://github.com/yourusername/health-tracker',
+        deploy: 'https://health-tracker-demo.netlify.app',
+        languages: ['React Native', 'D3.js', 'Firebase', 'Redux'],
+        isDeployed: true,
+      },
+      {
+        name: 'AI Code Review Assistant',
+        period: '1 Oct 23 - 15 Nov 23',
+        purpose: 'Automated code review tool powered by machine learning',
+        role: 'ML Frontend Engineer',
+        responsibilities: ['Created code diff viewer', 'Integrated OpenAI API', 'Built suggestion system'],
+        github: 'https://github.com/yourusername/ai-code-reviewer',
+        deploy: 'https://code-review-ai.demo.app',
+        languages: ['TypeScript', 'OpenAI API', 'Monaco Editor', 'Express'],
+        isDeployed: true,
+      },
     ],
     company: [
       {
@@ -45,7 +99,7 @@ const Projects = () => {
       {
         name: 'NeonVPN Dashboard',
         period: '15 Mar 24 - 30 Apr 24',
-        purpose: 'Management console for VPN service',
+        purpose: 'Management console for VPN service with data visualization tools ',
         role: 'UI Developer',
         responsibilities: [
           'Created data visualization components',
@@ -64,43 +118,41 @@ const Projects = () => {
 
   const ExternalLinkIcon = () => <i className='fas fa-laptop w-4 h-4 mr-2' />;
 
-  const ProjectCard = ({ project, index }) => {
+  const ProjectCard = ({ project, index, category }) => {
     return (
-      <div
-        className='relative group bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl overflow-hidden hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/10'
-        data-aos='fade-up'
-        data-aos-delay={index * 100}
-        data-aos-duration='600'
-      >
+      <div className='h-full relative group bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl overflow-hidden hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/10'>
         <div className='absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(34,211,238,0.1)_0%,_transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
 
-        <div className='relative z-10 p-6 h-full flex flex-col'>
+        <div className='relative z-10 p-6 flex flex-col h-full'>
+          {/* Header */}
           <div className='flex justify-between items-start mb-4'>
             <h3 className='text-xl font-semibold text-cyan-300'>{project.name}</h3>
-            <span className='text-sm text-gray-400 bg-gray-700/50 px-2 py-1 rounded'>{project.period}</span>
+            <span className='select-none text-sm text-gray-400 bg-gray-700/50 px-2 py-1 rounded'>{project.period}</span>
           </div>
-
           <p className='text-gray-300 mb-4'>{project.purpose}</p>
-
-          <div className='mb-4'>
-            <h4 className='text-sm font-semibold text-blue-300 mb-1'>Role:</h4>
-            <p className='text-gray-300'>{project.role}</p>
-          </div>
-
-          <div className='mb-4'>
-            <h4 className='text-sm font-semibold text-emerald-300 mb-1'>Responsibilities:</h4>
-            <ul className='list-disc list-inside text-gray-300 space-y-1'>
-              {project.responsibilities.map((item, i) => (
-                <li key={i} className='text-sm'>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className='mt-auto'>
+          {/* Content wrapper - using flex-1 to allow content to grow */}
+          <div className='flex-1 flex flex-col'>
             <div className='mb-4'>
-              <h4 className='text-sm font-semictext-purple-300 mb-1'>Technologies:</h4>
+              <h4 className='text-sm font-semibold text-blue-300 mb-1'>Role:</h4>
+              <p className='text-gray-300'>{project.role}</p>
+            </div>
+
+            <div className='mb-4'>
+              <h4 className='text-sm font-semibold text-emerald-300 mb-1'>Responsibilities:</h4>
+              <ul className='list-disc list-inside text-gray-300 space-y-1'>
+                {project.responsibilities.map((item, i) => (
+                  <li key={i} className='text-sm'>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Footer section - using mt-auto to push to bottom */}
+          <div className='mt-auto pt-4'>
+            <div className='mb-4'>
+              <h4 className='text-sm font-semibold text-purple-300 mb-1'>Technologies:</h4>
               <div className='flex flex-wrap gap-2'>
                 {project.languages.map((lang, i) => (
                   <span key={i} className='text-xs bg-gray-700/50 text-cyan-300 px-2 py-1 rounded'>
@@ -111,31 +163,26 @@ const Projects = () => {
             </div>
 
             <div className='flex gap-3'>
-              {/* Conditionally show GitHub link */}
               {project.github && (
                 <a
                   href={project.github}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='inline-blox align-middle items-center text-cyan-400 hover:text-cyan-300 transition-colors text-sm border border-cyan-400/30 hover:border-cyan-300/50 px-3 py-1.5 rounded-lg'
-                  data-aos='fade-up'
-                  data-aos-delay={index * 100 + 200}
-                  >
-                  <GithubIcon />Code
+                  className='inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors text-sm border border-cyan-400/30 hover:border-cyan-300/50 px-3 py-1.5 rounded-lg'
+                >
+                  <GithubIcon />
+                  Code
                 </a>
               )}
-
-              {/* Conditionally show Live Demo link */}
               {project.deploy && (
                 <a
                   href={project.deploy}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='inline-blox align-middle items-center text-green-400 hover:text-green-300 transition-colors text-sm border border-green-400/30 hover:border-green-300/50 px-3 py-1.5 rounded-lg'
-                  data-aos='fade-up'
-                  data-aos-delay={index * 100 + 300}
+                  className='inline-flex items-center text-green-400 hover:text-green-300 transition-colors text-sm border border-green-400/30 hover:border-green-300/50 px-3 py-1.5 rounded-lg'
                 >
-                  <ExternalLinkIcon />Demo
+                  <ExternalLinkIcon />
+                  Demo
                 </a>
               )}
             </div>
@@ -146,7 +193,7 @@ const Projects = () => {
   };
 
   return (
-    <section id='projects' className='relative py-20 px-4 bg-gray-900 text-white overflow-hidden' data-aos='fade'>
+    <section id='projects' className='relative py-20 px-4 bg-gray-900 text-white overflow-hidden'>
       {/* Animated background */}
       <div className='absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-95'>
         <div className='absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(34,211,238,0.1)_0%,_transparent_70%)] animate-pulse-slow'></div>
@@ -163,32 +210,58 @@ const Projects = () => {
             Showcasing my technical journey through <span className='text-cyan-300'>innovative solutions</span> and{' '}
             <span className='text-blue-300'>cutting-edge</span> implementations
           </p>
+
+          {/* Navigation links */}
+          <div className='flex justify-center gap-6 mt-6'>
+            <Link
+              to='company-projects'
+              smooth={true}
+              duration={500}
+              offset={-100}
+              className='px-4 py-2 text-blue-400 hover:text-blue-300 border border-blue-400/30 hover:border-blue-300/50 rounded-lg transition-colors cursor-pointer'
+            >
+              Company Projects
+            </Link>
+            <Link
+              to='academy-projects'
+              smooth={true}
+              duration={500}
+              offset={-100}
+              className='px-4 py-2 text-cyan-400 hover:text-cyan-300 border border-cyan-400/30 hover:border-cyan-300/50 rounded-lg transition-colors cursor-pointer'
+            >
+              Academy Projects
+            </Link>
+          </div>
         </div>
 
         {/* Company Projects */}
-        <div className='mb-20'>
-          <div className='flex items-center mb-8' data-aos='fade-up' data-aos-delay='150'>
+        <div className='mb-20' id='company-projects'>
+          <div className='flex items-center mb-8' data-aos='fade-up' data-aos-duration='600'>
             <h3 className='text-2xl md:text-3xl font-semibold text-blue-400 mr-4'>Company Projects</h3>
             <div className='flex-1 h-px bg-gradient-to-r from-blue-400/30 to-blue-400/0'></div>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {projects.company.map((project, index) => (
-              <ProjectCard key={`company-${index}`} project={project} index={index + projects.academy.length} />
+              <div key={`company-${index}`} data-aos='fade-up' data-aos-delay={index * 100} data-aos-duration='600'>
+                <ProjectCard project={project} index={index} category='company' />
+              </div>
             ))}
           </div>
         </div>
 
         {/* Academy Projects */}
-        <div>
-          <div className='flex items-center mb-8' data-aos='fade-up' data-aos-delay='150'>
+        <div id='academy-projects'>
+          <div className='flex items-center mb-8' data-aos='fade-up' data-aos-duration='600'>
             <h3 className='text-2xl md:text-3xl font-semibold text-cyan-400 mr-4'>Academy Projects</h3>
             <div className='flex-1 h-px bg-gradient-to-r from-cyan-400/30 to-cyan-400/0'></div>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {projects.academy.map((project, index) => (
-              <ProjectCard key={`academy-${index}`} project={project} index={index} />
+              <div key={`academy-${index}`} data-aos='fade-up' data-aos-delay={index * 100} data-aos-duration='600'>
+                <ProjectCard project={project} index={index} category='academy' />
+              </div>
             ))}
           </div>
         </div>

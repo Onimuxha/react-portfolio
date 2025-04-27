@@ -46,8 +46,7 @@ const Footer = () => {
   return (
     <footer className='bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white py-12 relative overflow-hidden'>
       {/* Glowing gradient accent line */}
-      <div className='absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 shadow-[0_0_8px_rgba(34,211,238,0.5)]'></div>
-
+      <div className='absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-pulse shadow-[0_0_15px_rgba(34,211,238,0.7)] after:shadow-[0_0_25px_rgba(96,165,250,0.5)]'></div>
       <div className='container mx-auto px-6 relative z-10'>
         {/* Centered main content */}
         <div className='flex flex-col items-center text-center mb-8'>

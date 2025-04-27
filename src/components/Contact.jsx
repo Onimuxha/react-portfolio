@@ -1,71 +1,66 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { handleTelegramSubmission } from './telegramService';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', telegram: '', subject: '', message: '' });
   const [status, setStatus] = useState({ isSubmitting: false, isSubmitted: false, error: null });
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
 
   const validate = () => {
     const newErrors = {};
+    const fields = {
+      name: 'Name is required',
+      telegram: 'Telegram username is required',
+      subject: 'Subject is required',
+      message: 'Message is required',
+    };
 
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-
-    if (!formData.subject.trim()) {
-      newErrors.subject = 'Subject is required';
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    }
+    Object.entries(fields).forEach(([key, errorMsg]) => {
+      if (!formData[key].trim()) newErrors[key] = errorMsg;
+    });
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Mark all fields as touched to show validation messages
-    const allTouched = {};
-    Object.keys(formData).forEach((key) => {
-      allTouched[key] = true;
-    });
+    const allTouched = Object.keys(formData).reduce((acc, key) => ({ ...acc, [key]: true }), {});
     setTouched(allTouched);
 
     if (validate()) {
       setStatus({ isSubmitting: true, isSubmitted: false, error: null });
-      // Simulate form submission
-      setTimeout(() => {
-        setStatus({ isSubmitting: false, isSubmitted: true, error: null });
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setTouched({});
-      }, 1500);
+
+      try {
+        await handleTelegramSubmission(
+          formData,
+          () => {
+            setStatus({ isSubmitting: false, isSubmitted: true, error: null });
+            setFormData({ name: '', telegram: '', subject: '', message: '' });
+            setTouched({});
+          },
+          (error) => {
+            setStatus({ isSubmitting: false, isSubmitted: false, error: error.message || 'Failed to send message' });
+          },
+          validate
+        );
+      } catch (error) {
+        setStatus({ isSubmitting: false, isSubmitted: false, error: 'An unexpected error occurred' });
+      }
     }
   };
 
   const handleBlur = (e) => {
-    const { name } = e.target;
-    setTouched((prev) => ({ ...prev, [name]: true }));
+    setTouched((prev) => ({ ...prev, [e.target.name]: true }));
     validate();
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-
-    if (touched[name]) {
-      validate();
-    }
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    if (touched[e.target.name]) validate();
   };
 
   const contactInfo = [
@@ -95,6 +90,84 @@ const Contact = () => {
     },
   ];
 
+  const socialLinks = [
+    {
+      icon: 'fab fa-github',
+      url: 'https://github.com',
+      className: 'text-gray-800 dark:text-gray-200 hover:text-white',
+      bg: 'bg-gray-200 dark:bg-gray-700 hover:bg-black dark:hover:bg-black',
+    },
+    {
+      icon: 'fab fa-linkedin-in',
+      url: 'https://linkedin.com',
+      className: 'text-[#0A66C2] hover:text-white',
+      bg: 'bg-[#0A66C2]/10 hover:bg-[#0A66C2]',
+    },
+    {
+      icon: 'fab fa-facebook-f',
+      url: 'https://facebook.com',
+      className: 'text-white hover:text-white',
+      bg: 'bg-[#1877f2] hover:bg-[#166fe5]',
+    },
+    {
+      icon: 'fab fa-instagram',
+      url: 'https://instagram.com',
+      className: 'text-white opacity-90 hover:opacity-100',
+      bg: 'bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:shadow-lg hover:shadow-[#ee2a7b]/50',
+    },
+  ];
+
+  const renderField = (name, label, isTextarea = false) => (
+    <div className={`relative z-0 ${!['name', 'telegram'].includes(name) ? 'mt-6' : ''}`}>
+      {isTextarea ? (
+        <textarea
+          id={name}
+          name={name}
+          value={formData[name]}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          rows='5'
+          className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none dark:text-white focus:outline-none focus:ring-0 peer ${
+            touched[name] && errors[name]
+              ? 'border-red-500 focus:border-red-500'
+              : 'border-gray-300 dark:border-gray-600 focus:border-cyan-400 dark:focus:border-cyan-400'
+          }`}
+          placeholder=' '
+        />
+      ) : (
+        <input
+          type='text'
+          id={name}
+          name={name}
+          value={formData[name]}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none dark:text-white focus:outline-none focus:ring-0 peer ${
+            touched[name] && errors[name]
+              ? 'border-red-500 focus:border-red-500'
+              : 'border-gray-300 dark:border-gray-600 focus:border-cyan-400 dark:focus:border-cyan-400'
+          }`}
+          placeholder=' '
+        />
+      )}
+      <label
+        htmlFor={name}
+        className={`absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${
+          touched[name] && errors[name]
+            ? 'text-red-500'
+            : 'text-gray-500 dark:text-gray-400 peer-focus:text-cyan-400 peer-focus:dark:text-cyan-400'
+        }`}
+      >
+        {label}
+      </label>
+      {touched[name] && errors[name] && (
+        <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className='mt-1 text-xs text-red-500'>
+          {errors[name]}
+        </motion.p>
+      )}
+    </div>
+  );
+
   return (
     <section
       id='contact'
@@ -114,8 +187,16 @@ const Contact = () => {
         <div className='flex flex-col lg:flex-row gap-8'>
           {/* Contact Info */}
           <div className='lg:w-2/5' data-aos='fade-up'>
-            <div className='bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-8 h-full border border-gray-200/50 dark:border-gray-700/50'>
-              <h3 className='text-2xl font-semibold mb-8 text-gray-800 dark:text-white'>Contact Information</h3>
+            <div
+              className='backdrop-blur-xl bg-gray-900/70  rounded-xl p-8 h-full relative group 
+              transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/20'
+              style={{
+                background: 'linear-gradient(135deg, rgba(21, 94, 117, 0.15) 0%, rgba(8, 51, 68, 0.25) 100%)',
+              }}
+            >
+              <h3 className='text-2xl font-semibold mb-8 text-white'>Contact Information</h3>
+
+              {/* Keep existing contact info content */}
               <div className='space-y-6'>
                 {contactInfo.map((item, i) => (
                   <div key={i} className='flex items-start'>
@@ -141,35 +222,11 @@ const Contact = () => {
                 ))}
               </div>
 
+              {/* Keep existing social links section */}
               <div className='mt-12'>
                 <h4 className='text-lg font-semibold mb-4 text-gray-800 dark:text-white'>Follow Me</h4>
                 <div className='flex space-x-4'>
-                  {[
-                    {
-                      icon: 'fab fa-github',
-                      url: 'https://github.com',
-                      className: 'text-gray-800 dark:text-gray-200 hover:text-white',
-                      bg: 'bg-gray-200 dark:bg-gray-700 hover:bg-black dark:hover:bg-black transition-all duration-300',
-                    },
-                    {
-                      icon: 'fab fa-linkedin-in',
-                      url: 'https://linkedin.com',
-                      className: 'text-[#0A66C2] hover:text-white',
-                      bg: 'bg-[#0A66C2]/10 hover:bg-[#0A66C2] transition-all duration-300',
-                    },
-                    {
-                      icon: 'fab fa-facebook-f',  // Facebook icon
-                      url: 'https://facebook.com',
-                      className: 'text-white hover:text-white',  // Always white text
-                      bg: 'bg-[#1877f2] hover:bg-[#166fe5] transition-all duration-300',  // Official Facebook blue
-                    },
-                    {
-                      icon: 'fab fa-instagram',
-                      url: 'https://instagram.com',
-                      className: 'text-white opacity-90 hover:opacity-100',
-                      bg: 'bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:shadow-lg hover:shadow-[#ee2a7b]/50 transition-all duration-300',
-                    },
-                  ].map((social, i) => (
+                  {socialLinks.map((social, i) => (
                     <a
                       key={i}
                       href={social.url}
@@ -184,12 +241,22 @@ const Contact = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Add animated border */}
+              <div className='absolute inset-0 rounded-xl border border-cyan-400/20 group-hover:border-cyan-400/50 animate-pulse pointer-events-none'></div>
             </div>
           </div>
 
           {/* Contact Form */}
           <div className='lg:w-3/5' data-aos='fade-up'>
-            <div className='bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden border border-gray-200/50 dark:border-gray-700/50'>
+            <div
+              className='backdrop-blur-xl bg-gray-900/70 rounded-xl overflow-hidden relative group 
+              transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/20'
+              style={{
+                background: 'linear-gradient(135deg, rgba(21, 94, 117, 0.15) 0%, rgba(8, 51, 68, 0.25) 100%)',
+              }}
+            >
+              {/* Keep existing form content */}
               <AnimatePresence>
                 {status.isSubmitted ? (
                   <motion.div
@@ -233,103 +300,27 @@ const Contact = () => {
                     </button>
                   </motion.div>
                 ) : (
-                  <div className='p-8'>
+                  <div className='p-8 text-white'>
                     <h3 className='text-2xl font-semibold mb-6 text-gray-800 dark:text-white'>Send Me a Message</h3>
+
+                    {status.error && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className='mb-6 p-3 bg-red-100 border border-red-300 text-red-600 rounded-md'
+                      >
+                        <p>{status.error}</p>
+                      </motion.div>
+                    )}
+
                     <form onSubmit={handleSubmit} noValidate>
                       <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-                        {['name', 'email'].map((field) => (
-                          <div key={field} className='relative z-0'>
-                            <input
-                              type={field === 'email' ? 'email' : 'text'}
-                              id={field}
-                              name={field}
-                              value={formData[field]}
-                              onChange={handleChange}
-                              onBlur={handleBlur}
-                              className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none dark:text-white focus:outline-none focus:ring-0 peer ${
-                                touched[field] && errors[field]
-                                  ? 'border-red-500 focus:border-red-500'
-                                  : 'border-gray-300 dark:border-gray-600 focus:border-cyan-400 dark:focus:border-cyan-400'
-                              }`}
-                              placeholder=' '
-                            />
-                            <label
-                              htmlFor={field}
-                              className={`absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${
-                                touched[field] && errors[field]
-                                  ? 'text-red-500'
-                                  : 'text-gray-500 dark:text-gray-400 peer-focus:text-cyan-400 peer-focus:dark:text-cyan-400'
-                              }`}
-                            >
-                              {field === 'name' ? 'Your Name' : 'Your Email'}
-                            </label>
-                            {touched[field] && errors[field] && (
-                              <motion.p
-                                initial={{ opacity: 0, y: -10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className='mt-1 text-xs text-red-500'
-                              >
-                                {errors[field]}
-                              </motion.p>
-                            )}
-                          </div>
-                        ))}
+                        {renderField('name', 'Your Name')}
+                        {renderField('telegram', 'Your Telegram Username')}
                       </div>
 
-                      {['subject', 'message'].map((field, i) => (
-                        <div key={field} className='relative z-0 mt-6'>
-                          {field === 'message' ? (
-                            <textarea
-                              id={field}
-                              name={field}
-                              value={formData[field]}
-                              onChange={handleChange}
-                              onBlur={handleBlur}
-                              rows='5'
-                              className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none dark:text-white focus:outline-none focus:ring-0 peer ${
-                                touched[field] && errors[field]
-                                  ? 'border-red-500 focus:border-red-500'
-                                  : 'border-gray-300 dark:border-gray-600 focus:border-cyan-400 dark:focus:border-cyan-400'
-                              }`}
-                              placeholder=' '
-                            />
-                          ) : (
-                            <input
-                              type='text'
-                              id={field}
-                              name={field}
-                              value={formData[field]}
-                              onChange={handleChange}
-                              onBlur={handleBlur}
-                              className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none dark:text-white focus:outline-none focus:ring-0 peer ${
-                                touched[field] && errors[field]
-                                  ? 'border-red-500 focus:border-red-500'
-                                  : 'border-gray-300 dark:border-gray-600 focus:border-cyan-400 dark:focus:border-cyan-400'
-                              }`}
-                              placeholder=' '
-                            />
-                          )}
-                          <label
-                            htmlFor={field}
-                            className={`absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${
-                              touched[field] && errors[field]
-                                ? 'text-red-500'
-                                : 'text-gray-500 dark:text-gray-400 peer-focus:text-cyan-400 peer-focus:dark:text-cyan-400'
-                            }`}
-                          >
-                            {field === 'message' ? 'Your Message' : 'Subject'}
-                          </label>
-                          {touched[field] && errors[field] && (
-                            <motion.p
-                              initial={{ opacity: 0, y: -10 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              className='mt-1 text-xs text-red-500'
-                            >
-                              {errors[field]}
-                            </motion.p>
-                          )}
-                        </div>
-                      ))}
+                      {renderField('subject', 'Subject')}
+                      {renderField('message', 'Your Message', true)}
 
                       <button
                         type='submit'
@@ -370,6 +361,8 @@ const Contact = () => {
                   </div>
                 )}
               </AnimatePresence>
+              {/* Add animated border */}
+              <div className='absolute inset-0 rounded-xl border border-cyan-400/20 group-hover:border-cyan-400/50 animate-pulse pointer-events-none'></div>
             </div>
           </div>
         </div>
