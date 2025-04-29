@@ -171,7 +171,7 @@ const Contact = () => {
   return (
     <section
       id='contact'
-      className='py-20 bg-gradient-to-b from-gray-50 via-gray-100 to-gray-200 dark:from-gray-800 dark:via-gray-900 dark:to-gray-950'
+      className='py-20 bg-gradient-to-b from-gray-50 via-gray-100 to-gray-200 dark:from-gray-800 dark:via-gray-900 dark:to-gray-900'
     >
       <div className='container mx-auto px-4 max-w-6xl'>
         <div className='text-center mb-16' data-aos='fade-up'>
@@ -263,14 +263,21 @@ const Contact = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
                     className='text-center p-12'
                   >
                     <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 260,
+                        damping: 20,
+                        delay: 0.1,
+                      }}
                       className='inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/20 text-cyan-400 mb-6'
                     >
-                      <svg
+                      <motion.svg
                         width='32'
                         height='32'
                         viewBox='0 0 24 24'
@@ -284,20 +291,43 @@ const Contact = () => {
                           d='M20 6L9 17l-5-5'
                           initial={{ pathLength: 1, pathOffset: 1 }}
                           animate={{ pathLength: 1, pathOffset: 0 }}
-                          transition={{ delay: 0.2, duration: 0.6 }}
+                          transition={{
+                            duration: 0.8,
+                            ease: 'easeInOut',
+                            delay: 0.4,
+                            times: [0, 1],
+                            direction: 'reverse',
+                          }}
                         />
-                      </svg>
+                      </motion.svg>
                     </motion.div>
-                    <h3 className='text-2xl font-semibold mb-2 text-gray-800 dark:text-white'>Message Sent!</h3>
-                    <p className='text-gray-600 dark:text-gray-300 mb-8'>
+                    <motion.h3
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.6 }}
+                      className='text-2xl font-semibold mb-2 text-gray-800 dark:text-white'
+                    >
+                      Message Sent!
+                    </motion.h3>
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.7 }}
+                      className='text-gray-600 dark:text-gray-300 mb-8'
+                    >
                       Thank you for reaching out! I'll get back to you within 24 hours.
-                    </p>
-                    <button
+                    </motion.p>
+                    <motion.button
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.8 }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                       onClick={() => setStatus({ ...status, isSubmitted: false })}
                       className='px-6 py-3 bg-gradient-to-r from-cyan-400 to-blue-500 text-white rounded-lg hover:from-cyan-500 hover:to-blue-600 transition-all duration-300 shadow-md'
                     >
                       Send Another Message
-                    </button>
+                    </motion.button>
                   </motion.div>
                 ) : (
                   <div className='p-8 text-white'>
@@ -354,7 +384,7 @@ const Contact = () => {
                             Sending...
                           </span>
                         ) : (
-                          'Send Message'
+                          <p>Send Message</p>
                         )}
                       </button>
                     </form>

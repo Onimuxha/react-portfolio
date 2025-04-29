@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import ThemeToggle from './ThemeToggle';
+import MobileMenuButton from './MobileMenuButton';
 
 const Navbar = ({ theme, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,6 +43,8 @@ const Navbar = ({ theme, toggleTheme }) => {
     { name: 'Projects', to: 'projects', icon: 'fas fa-project-diagram' },
     { name: 'Contact', to: 'contact', icon: 'fas fa-envelope' },
   ];
+
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
     <nav
@@ -90,59 +93,10 @@ const Navbar = ({ theme, toggleTheme }) => {
             <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Controls */}
           <div className='md:hidden flex items-center'>
             <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={`
-                ml-4 flex items-center justify-center w-10 h-10
-                backdrop-blur-sm border
-                bg-gray-800/80
-                border-gray-600/50
-                rounded-lg focus:outline-none
-                hover:shadow-lg hover:shadow-cyan-400/10
-                transition-all duration-300
-                group
-              `}
-              aria-label='Toggle menu'
-            >
-              <div
-                className={`
-                  relative w-6 h-5 flex flex-col justify-center items-center
-                  ${isOpen ? 'rotate-180' : ''}
-                  transition-all duration-500
-                `}
-              >
-                <span
-                  className={`
-                    absolute h-0.5
-                    bg-cyan-500 dark:bg-cyan-400
-                    group-hover:bg-cyan-600 dark:group-hover:bg-cyan-300
-                    transition-all duration-300
-                    ${isOpen ? 'w-6 rotate-45 top-2' : 'w-4 -translate-y-2 -translate-x-1'}
-                  `}
-                ></span>
-                <span
-                  className={`
-                    absolute h-0.5
-                    bg-cyan-500 dark:bg-cyan-400
-                    group-hover:bg-cyan-600 dark:group-hover:bg-cyan-300
-                    transition-all duration-300
-                    ${isOpen ? 'w-0' : 'w-6'}
-                  `}
-                ></span>
-                <span
-                  className={`
-                    absolute h-0.5
-                    bg-cyan-500 dark:bg-cyan-400
-                    group-hover:bg-cyan-600 dark:group-hover:bg-cyan-300
-                    transition-all duration-300
-                    ${isOpen ? 'w-6 -rotate-45 top-2' : 'w-4 translate-y-2 translate-x-1'}
-                  `}
-                ></span>
-              </div>
-            </button>
+            <MobileMenuButton isOpen={isOpen} toggleOpen={toggleMenu} />
           </div>
         </div>
 
@@ -152,7 +106,7 @@ const Navbar = ({ theme, toggleTheme }) => {
             isOpen ? 'max-h-60 opacity-100 mt-4' : 'max-h-0 opacity-0 overflow-hidden'
           }`}
         >
-          <div className='flex flex-col space-y-2 py-3 px-2 bg-white/95 dark:bg-gray-800/95 rounded-lg shadow-xl backdrop-blur-sm border border-gray-200 dark:border-gray-700'>
+          <div className='flex flex-col space-y-1 py-3 bg-white/95 dark:bg-gray-800/95 rounded-lg shadow-xl backdrop-blur-sm border border-gray-200 dark:border-gray-700'>
             {navLinks.map((link) => (
               <Link
                 key={link.name}

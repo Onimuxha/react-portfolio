@@ -122,7 +122,6 @@ const Projects = () => {
     return (
       <div className='h-full relative group bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl overflow-hidden hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/10'>
         <div className='absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(34,211,238,0.1)_0%,_transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
-
         <div className='relative z-10 p-6 flex flex-col h-full'>
           {/* Header */}
           <div className='flex justify-between items-start mb-4'>
@@ -193,7 +192,7 @@ const Projects = () => {
   };
 
   return (
-    <section id='projects' className='relative py-20 px-4 bg-gray-900 text-white overflow-hidden'>
+    <section id='projects' className='relative py-20 px-4 bg-gray-100 text-white overflow-hidden'>
       {/* Animated background */}
       <div className='absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-95'>
         <div className='absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(34,211,238,0.1)_0%,_transparent_70%)] animate-pulse-slow'></div>

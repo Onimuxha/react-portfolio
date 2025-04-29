@@ -1,62 +1,67 @@
 import React from 'react';
 import { Link } from 'react-scroll';
+import cvFile from '../assets/kirito.pdf';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className='relative'>
-      {/* Background with gradient */}
-      <div className='absolute inset-0 bg-gradient-to-b from-gray-900/0 via-gray-900 to-gray-900'></div>
-
+    <footer className='relative bg-gradient-to-br from-gray-900 to-blue-900 text-white'>
       {/* Main Footer Content with glassmorphism */}
-      <div className='container mx-auto px-6 pt-24 pb-12 relative z-10'>
-        <div className='backdrop-blur-xl bg-gray-900/70 rounded-2xl border border-gray-700/50 p-8 shadow-lg'>
+      <div className='container mx-auto px-6 pt-12 pb-8'>
+        <div className='backdrop-blur-sm bg-white/5 rounded-2xl p-8 shadow-xl border border-white/10'>
           {/* Footer Links Grid */}
-          <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-12 gap-y-8 mb-8'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8'>
             {/* Brand Column */}
-            <div className='flex flex-col md:col-span-2 lg:col-span-2'>
-              <Link
-                to='home'
-                smooth={true}
-                duration={500}
-                className='text-3xl font-semibold bg-gradient-to-r cursor-pointer from-cyan-400 to-blue-500 bg-clip-text text-transparent hover:from-cyan-300 hover:to-blue-400 transition-all duration-300 mb-4'
-              >
+            <div className='col-span-1 lg:col-span-2'>
+              <h2 className='text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-400 mb-4'>
                 Kirito
-              </Link>
-              <p className='text-gray-400 text-sm leading-relaxed max-w-md mb-6'>
+              </h2>
+              <p className='text-gray-300 mb-5 max-w-md'>
                 Crafting exceptional digital experiences with modern web technologies. Focused on building scalable and
                 performant applications.
               </p>
+              <div className='h-1 w-20 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full'></div>
             </div>
 
             {/* Quick Links Column */}
-            <div className='flex flex-col'>
-              <h3 className='text-white font-semibold text-lg mb-4'>Quick Links</h3>
+            <div className='col-span-1'>
+              <h3 className='text-xl font-semibold mb-4 text-blue-200'>Quick Links</h3>
               <ul className='space-y-2'>
                 {['home', 'about', 'skills', 'contact'].map((item) => (
-                  <li key={item}>
+                  <li key={item} className='transition-all duration-300'>
                     <Link
                       to={item}
                       smooth={true}
                       duration={500}
-                      className='text-gray-400 cursor-pointer hover:text-cyan-300 transition-colors duration-300 text-sm flex items-center gap-2 group'
+                      className='text-gray-300 hover:text-blue-300 cursor-pointer inline-block py-1 transition-all duration-300 hover:translate-x-2'
                     >
-                      <i className='fas fa-angle-right text-cyan-400 opacity-0 group-hover:opacity-100 transition-all duration-300'></i>
                       {item.charAt(0).toUpperCase() + item.slice(1)}
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
 
-          {/* Bottom Bar */}
-          <div className='border-t border-gray-700/50 pt-8 mt-8 text-center'>
-            <p className='text-gray-500 text-sm'>
-              &copy; {currentYear} <span className='text-cyan-300'>Kirito</span>. All rights reserved.
-            </p>
+            {/* Contact Column */}
+            <div className='col-span-1'>
+              <h3 className='text-xl font-semibold mb-4 text-blue-200'>Download CV</h3>
+              <p className='text-gray-300 mb-4'>Want to know more? Download my Curriculum Vitae.</p>
+              <a
+                href={cvFile}
+                className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white rounded-lg transition-all duration-300 shadow-lg group'
+                download='kiritoss.pdf'
+              >
+                Download CV
+                <i className='fas fa-file-arrow-down ml-3 group-hover:translate-y-1 transition-transform duration-300'></i>
+              </a>
+            </div>
           </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className='pt-8 mt-8 border-t border-white/10 text-center'>
+          <p className='text-sm text-gray-400'>&copy; {currentYear} Kirito. All rights reserved.</p>
         </div>
       </div>
     </footer>
