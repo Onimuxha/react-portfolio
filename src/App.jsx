@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
+import ScrollToTopButton from './components/ScrollToTopButton';
 import ParticleBackground from './components/ParticleBackground';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -121,6 +122,9 @@ const App = () => {
           </Element>
         ))}
       </main>
+
+      {/* Add ScrollToTopButton component */}
+      <ScrollToTopButton />
 
       <Footer />
     </div>

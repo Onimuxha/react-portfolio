@@ -21,8 +21,11 @@ const Timeline = ({ items }) => {
                 index % 2 === 0 ? 'ml-10' : 'mr-10'
               } group hover:shadow-cyan-400/20 transition-all duration-300`}
             >
-              {/* Gradient accent bar */}
-              <div className='absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-cyan-400 to-blue-500 rounded-l-lg'></div>
+              {/* Gradient accent bar - changes position based on index */}
+              <div
+                className={`absolute top-0 h-full bg-gradient-to-b from-cyan-400 to-blue-500 w-1
+                ${index % 2 === 0 ? 'left-0 rounded-l-lg' : 'right-0 rounded-r-lg'}`}
+              ></div>
 
               <h3 className='text-xl font-semibold text-gray-800 dark:text-white mb-1'>{item.title}</h3>
               <p className='text-cyan-500 dark:text-cyan-400 text-sm mb-3 font-medium'>{item.period}</p>
@@ -46,11 +49,6 @@ const About = () => {
       title: 'Frontend Developer',
       period: '2022 - 2023',
       description: 'Worked as a Frontend Developer at ABC Company, building responsive web applications with React.',
-    },
-    {
-      title: 'Senior Full-Stack Developer',
-      period: '2023 - Present',
-      description: 'Leading development teams at DEF Corp, architecting scalable solutions across the stack.',
     },
   ];
 
