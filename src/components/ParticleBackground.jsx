@@ -1,6 +1,6 @@
-import React, { useCallback } from "react";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
+import React, { useCallback } from 'react';
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
 
 const ParticleBackground = ({ theme }) => {
   const particlesInit = useCallback(async (engine) => {
@@ -9,66 +9,124 @@ const ParticleBackground = ({ theme }) => {
 
   return (
     <Particles
-      id="tsparticles"
+      id='tsparticles'
       init={particlesInit}
       options={{
         fullScreen: {
           enable: true,
           zIndex: -1,
         },
+        fpsLimit: 120,
         particles: {
           number: {
-            value: 80,
+            value: 60,
             density: {
               enable: true,
-              value_area: 800,
+              value_area: 900,
             },
           },
           color: {
-            value: theme === "light" ? "#3b82f6" : "#60a5fa",
+            value: theme === 'light' ? '#3b82f6' : '#60a5fa',
           },
           shape: {
-            type: "circle",
+            type: ['circle', 'triangle', 'square'],
+            options: {
+              polygon: {
+                sides: 6,
+              },
+            },
           },
           opacity: {
             value: 0.5,
             random: true,
+            animation: {
+              enable: true,
+              speed: 1,
+              minimumValue: 0.1,
+              sync: false,
+            },
           },
           size: {
-            value: 3,
+            value: { min: 1, max: 3 },
             random: true,
+            animation: {
+              enable: true,
+              speed: 2,
+              minimumValue: 0.1,
+              sync: false,
+            },
           },
           move: {
             enable: true,
-            speed: 1,
-            direction: "none",
+            speed: 1.5,
+            direction: 'none',
             random: true,
             straight: false,
-            out_mode: "out",
+            outModes: {
+              default: 'bounce',
+            },
+            attract: {
+              enable: true,
+              rotateX: 600,
+              rotateY: 1200,
+            },
           },
-          line_linked: {
+          links: {
             enable: true,
             distance: 150,
-            color: theme === "light" ? "#3b82f6" : "#60a5fa",
+            color: theme === 'light' ? '#3b82f6' : '#60a5fa',
             opacity: 0.4,
             width: 1,
+            triangles: {
+              enable: true,
+              opacity: 0.05,
+            },
           },
         },
         interactivity: {
-          detect_on: "canvas",
+          detect_on: 'window',
           events: {
-            onhover: {
+            onHover: {
               enable: true,
-              mode: "grab",
+              mode: ['grab', 'bubble'],
+              parallax: {
+                enable: true,
+                force: 60,
+                smooth: 10,
+              },
             },
-            onclick: {
+            onClick: {
               enable: true,
-              mode: "push",
+              mode: 'push',
             },
             resize: true,
           },
+          modes: {
+            grab: {
+              distance: 200,
+              links: {
+                opacity: 0.8,
+              },
+            },
+            bubble: {
+              distance: 200,
+              size: 6,
+              duration: 0.3,
+              opacity: 0.8,
+            },
+            push: {
+              quantity: 4,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+            },
+          },
         },
-        retina_detect: true,
+        background: {
+          color: 'transparent',
+        },
+        detectRetina: true,
       }}
     />
   );
