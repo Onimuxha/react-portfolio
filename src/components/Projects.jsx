@@ -114,9 +114,9 @@ const Projects = () => {
     ],
   };
 
-  const GithubIcon = () => <i className='fab fa-github w-4 h-4 mr-2' />;
+  const GithubIcon = () => <i className='bx bxl-github mt-1 mr-1'></i>;
 
-  const ExternalLinkIcon = () => <i className='fas fa-laptop w-4 h-4 mr-2' />;
+  const ExternalLinkIcon = () => <i className='bx bx-laptop mt-1 mr-1'></i>;
 
   const ProjectCard = ({ project, index, category }) => {
     return (

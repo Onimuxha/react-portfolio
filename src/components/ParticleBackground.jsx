@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
-import Particles from 'react-tsparticles';
-import { loadFull } from 'tsparticles';
+import React, { useCallback } from "react";
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
 
 const ParticleBackground = ({ theme }) => {
   const particlesInit = useCallback(async (engine) => {
@@ -9,7 +9,7 @@ const ParticleBackground = ({ theme }) => {
 
   return (
     <Particles
-      id='tsparticles'
+      id="tsparticles"
       init={particlesInit}
       options={{
         fullScreen: {
@@ -26,10 +26,10 @@ const ParticleBackground = ({ theme }) => {
             },
           },
           color: {
-            value: theme === 'light' ? '#3b82f6' : '#60a5fa',
+            value: theme === "light" ? "#3b82f6" : "#60a5fa",
           },
           shape: {
-            type: ['circle', 'triangle', 'square'],
+            type: ["circle", "triangle", "square"],
             options: {
               polygon: {
                 sides: 6,
@@ -58,12 +58,12 @@ const ParticleBackground = ({ theme }) => {
           },
           move: {
             enable: true,
-            speed: 1.5,
-            direction: 'none',
+            speed: 1,
+            direction: "none",
             random: true,
             straight: false,
             outModes: {
-              default: 'bounce',
+              default: "bounce",
             },
             attract: {
               enable: true,
@@ -74,7 +74,7 @@ const ParticleBackground = ({ theme }) => {
           links: {
             enable: true,
             distance: 150,
-            color: theme === 'light' ? '#3b82f6' : '#60a5fa',
+            color: theme === "light" ? "#3b82f6" : "#60a5fa",
             opacity: 0.4,
             width: 1,
             triangles: {
@@ -84,11 +84,11 @@ const ParticleBackground = ({ theme }) => {
           },
         },
         interactivity: {
-          detect_on: 'window',
+          detect_on: "window",
           events: {
             onHover: {
               enable: true,
-              mode: ['grab', 'bubble'],
+              mode: ["grab", "bubble"],
               parallax: {
                 enable: true,
                 force: 60,
@@ -97,7 +97,7 @@ const ParticleBackground = ({ theme }) => {
             },
             onClick: {
               enable: true,
-              mode: 'push',
+              mode: "push",
             },
             resize: true,
           },
@@ -124,7 +124,7 @@ const ParticleBackground = ({ theme }) => {
           },
         },
         background: {
-          color: 'transparent',
+          color: "transparent",
         },
         detectRetina: true,
       }}

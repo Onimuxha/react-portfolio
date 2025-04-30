@@ -37,11 +37,11 @@ const Navbar = ({ theme, toggleTheme }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', to: 'home', icon: 'fas fa-home' },
-    { name: 'About', to: 'about', icon: 'fas fa-user' },
-    { name: 'Skills', to: 'skills', icon: 'fas fa-code' },
-    { name: 'Projects', to: 'projects', icon: 'fas fa-project-diagram' },
-    { name: 'Contact', to: 'contact', icon: 'fas fa-envelope' },
+    { name: 'Home', to: 'home', icon: 'bx bxs-home' },
+    { name: 'About', to: 'about', icon: 'bx bxs-user' },
+    { name: 'Skills', to: 'skills', icon: 'bx bx-code-curly' },
+    { name: 'Projects', to: 'projects', icon: 'bx bxs-briefcase' },
+    { name: 'Contact', to: 'contact', icon: 'bx bxs-envelope' },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);

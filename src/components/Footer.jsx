@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className='relative bg-gradient-to-br from-gray-900 to-blue-900 text-white'>
       {/* Main Footer Content with glassmorphism */}
-      <div className='container mx-auto px-6 pt-12 pb-8'>
+      <div className='container mx-auto px-6 pt-8 pb-6'>
         <div className='backdrop-blur-sm bg-white/5 rounded-2xl p-8 shadow-xl border border-white/10'>
           {/* Footer Links Grid */}
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8'>
@@ -53,7 +53,7 @@ const Footer = () => {
                 download='kiritoss.pdf'
               >
                 Download CV
-                <i className='fas fa-file-arrow-down ml-3 group-hover:translate-y-1 transition-transform duration-300'></i>
+                <i className='bx bxs-download ml-2 text-xl group-hover:translate-y-1 transition-transform duration-300'></i>
               </a>
             </div>
           </div>

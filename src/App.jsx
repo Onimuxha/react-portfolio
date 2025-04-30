@@ -12,6 +12,7 @@ import Alert from './components/Alert';
 import ParticleBackground from './components/ParticleBackground';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import 'boxicons/css/boxicons.min.css';
 
 const App = () => {
   const [theme, setTheme] = useState('light');
@@ -57,7 +58,6 @@ const App = () => {
       {alertVisible && <Alert message='Right-click disabled' subtitle='Content protection is active.' />}
       <ParticleBackground theme={theme} />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-
       <main>
         {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
           <Element key={section} name={section}>

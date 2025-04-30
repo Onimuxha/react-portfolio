@@ -96,37 +96,37 @@ const Skills = () => {
   const skillsData = [
     {
       skill: 'JavaScript',
-      icon: 'fab fa-js',
+      icon: 'bx bxl-javascript',
       description: 'Modern ES6+, async/await, functional programming',
       percentage: 90,
     },
     {
       skill: 'React.js',
-      icon: 'fab fa-react',
+      icon: 'bx bxl-react',
       description: 'Hooks, Context API, Redux, Next.js',
       percentage: 85,
     },
     {
       skill: 'Node.js',
-      icon: 'fab fa-node-js',
+      icon: 'bx bxl-nodejs',
       description: 'Express, RESTful APIs, MongoDB integration',
       percentage: 75,
     },
     {
       skill: 'CSS/Tailwind',
-      icon: 'fab fa-css3-alt',
+      icon: 'bx bxl-css3',
       description: 'Responsive design, animations, custom themes',
       percentage: 90,
     },
     {
       skill: 'TypeScript',
-      icon: 'fas fa-code',
+      icon: 'bx bxl-typescript',
       description: 'Type safety, interfaces, generics',
       percentage: 80,
     },
     {
       skill: 'Git/GitHub',
-      icon: 'fab fa-git-alt',
+      icon: 'bx bxl-git',
       description: 'Version control, collaboration, CI/CD',
       percentage: 85,
     },
@@ -134,67 +134,68 @@ const Skills = () => {
 
   const cardData = [
     {
-      icon: 'fab fa-react',
+      icon: 'bx bxl-react',
       title: 'React.js',
       description: 'Building modern and performant UI components with hooks and context API',
     },
     {
-      icon: 'fab fa-js',
+      icon: 'bx bxl-javascript',
       title: 'JavaScript',
       description: 'ES6+ syntax, async programming, and functional patterns',
     },
     {
-      icon: 'fas fa-code',
+      icon: 'bx bxl-tailwind-css',
       title: 'Tailwind CSS',
       description: 'Utility-first CSS framework for rapid UI development',
     },
     {
-      icon: 'fab fa-node-js',
+      icon: 'bx bxl-nodejs',
       title: 'Node.js',
       description: 'Building scalable server-side applications and APIs',
-    },
+    }
   ];
 
   const toolsData = [
     {
-      icon: 'fab fa-github',
+      icon: 'bx bxl-github',
       title: 'GitHub',
       description: 'Version control and collaborative development workflow',
     },
     {
-      icon: 'fas fa-code',
+      icon: 'bx bxl-visual-studio',  
       title: 'VS Code',
       description: 'Advanced code editing with extensive plugin ecosystem',
     },
     {
-      icon: 'fab fa-figma',
+      icon: 'bx bxl-figma',
       title: 'Figma',
       description: 'UI/UX design, prototyping, and design system management',
     },
     {
-      icon: 'fab fa-jira',
-      title: 'Jira',
-      description: 'Agile project management and issue tracking',
-    },
-    {
-      icon: 'fab fa-docker',
-      title: 'Docker',
-      description: 'Containerization and deployment automation',
-    },
-    {
-      icon: 'fab fa-gitlab',
+      icon: 'bx bxl-gitlab',
       title: 'GitLab',
       description: 'CI/CD pipelines and DevOps workflows',
     },
     {
-      icon: 'fas fa-database',
-      title: 'MongoDB',
-      description: 'NoSQL database for scalable applications',
+      icon: 'bx bxs-data',
+      title: 'MySQL',
+      description: 'Relational database system for structured data and SQL queries',
+    },    
+    {
+      icon: 'bx bxl-wordpress',
+      title: 'WordPress',
+      description: 'Open-source CMS used to build websites and manage content easily',
     },
     {
-      icon: 'fas fa-terminal',
-      title: 'Terminal',
-      description: 'Command line tools and shell scripting',
+      icon: 'bx bxl-bootstrap',
+      title: 'Bootstrap',
+      description: 'Responsive front-end framework for designing websites and interfaces',
+    },
+    
+    {
+      icon: 'bx bxl-tailwind-css',
+      title: 'Tailwind CSS (Basic)',
+      description: 'Utility-first CSS framework for building custom designs quickly',
     },
   ];
 

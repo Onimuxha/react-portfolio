@@ -87,15 +87,7 @@ const ScrollToTopButton = () => {
 
       {/* Button center with hover effect */}
       <div className='absolute inset-0 m-1 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-gradient-to-br from-cyan-400/10 to-blue-500/10 transition-all duration-300'>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          className='h-5 w-5 text-gray-300 group-hover:text-cyan-300 transition-colors duration-300'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke='currentColor'
-        >
-          <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M5 10l7-7m0 0l7 7m-7-7v18' />
-        </svg>
+        <i class='bx bxs-to-top' ></i>
       </div>
     </Link>
   );

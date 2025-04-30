@@ -65,7 +65,7 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: 'fab fa-telegram',
+      icon: 'bx bxl-telegram',
       title: 'Telegram',
       content: '@kirito',
       color: 'text-blue-500',
@@ -73,15 +73,15 @@ const Contact = () => {
       href: 'https://t.me/kirito',
     },
     {
-      icon: 'fas fa-envelope',
-      title: 'Email',
+      icon: 'bx bxl-gmail',
+      title: 'Gmail',
       content: 'hello@kirito.dev',
       isLink: true,
       href: 'mailto:hello@kirito.dev',
       color: 'text-blue-400',
     },
     {
-      icon: 'fas fa-mobile',
+      icon: 'bx bxs-mobile',
       title: 'Phone',
       content: '+81 70-1234-5678',
       isLink: true,
@@ -92,25 +92,25 @@ const Contact = () => {
 
   const socialLinks = [
     {
-      icon: 'fab fa-github',
+      icon: 'bx bxl-github',
       url: 'https://github.com',
       className: 'text-gray-800 dark:text-gray-200 hover:text-white',
       bg: 'bg-gray-200 dark:bg-gray-700 hover:bg-black dark:hover:bg-black',
     },
     {
-      icon: 'fab fa-linkedin-in',
+      icon: 'bx bxl-linkedin',
       url: 'https://linkedin.com',
       className: 'text-[#0A66C2] hover:text-white',
       bg: 'bg-[#0A66C2]/10 hover:bg-[#0A66C2]',
     },
     {
-      icon: 'fab fa-facebook-f',
+      icon: 'bx bxl-facebook',
       url: 'https://facebook.com',
       className: 'text-white hover:text-white',
       bg: 'bg-[#1877f2] hover:bg-[#166fe5]',
     },
     {
-      icon: 'fab fa-instagram',
+      icon: 'bx bxl-instagram',
       url: 'https://instagram.com',
       className: 'text-white opacity-90 hover:opacity-100',
       bg: 'bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:shadow-lg hover:shadow-[#ee2a7b]/50',
@@ -236,7 +236,7 @@ const Contact = () => {
                       data-aos='zoom-in'
                       data-aos-delay={i * 100}
                     >
-                      <i className={`${social.icon} text-lg`}></i>
+                      <i className={`${social.icon} text-2xl`}></i>
                     </a>
                   ))}
                 </div>

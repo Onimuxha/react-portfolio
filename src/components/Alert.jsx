@@ -40,7 +40,8 @@ const Alert = ({ message, subtitle }) => {
         }}
       >
         <div className='flex items-center gap-3'>
-          <i class='fa-solid fa-circle-exclamation text-cyan-300/80'></i>
+          {/* <i class='fa-solid fa-circle-exclamation text-cyan-300/80'></i> */}
+          <i class='bx bx-error-circle text-xl text-cyan-300/80'></i>
           <div className='flex flex-col'>
             <p className='font-semibold text-emerald-300 flex items-center'>{message}</p>
             <p className='text-sm text-cyan-200/80'>{subtitle}</p>
