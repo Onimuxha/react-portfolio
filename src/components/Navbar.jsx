@@ -37,11 +37,11 @@ const Navbar = ({ theme, toggleTheme }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', to: 'home', icon: 'bx bxs-home' },
-    { name: 'About', to: 'about', icon: 'bx bxs-user' },
+    { name: 'Home', to: 'home', icon: 'bx bx-home-alt-2' },
+    { name: 'About', to: 'about', icon: 'bx bx-user' },
     { name: 'Skills', to: 'skills', icon: 'bx bx-code-curly' },
-    { name: 'Projects', to: 'projects', icon: 'bx bxs-briefcase' },
-    { name: 'Contact', to: 'contact', icon: 'bx bxs-envelope' },
+    { name: 'Projects', to: 'projects', icon: 'bx bx-briefcase' },
+    { name: 'Contact', to: 'contact', icon: 'bx bxl-gmail' },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -49,7 +49,7 @@ const Navbar = ({ theme, toggleTheme }) => {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'py-3 bg-gray-900/90 shadow-lg backdrop-blur-sm dark:border-gray-700' : 'py-5 bg-transparent'
+        scrolled ? 'py-5 bg-gray-900/90 shadow-lg backdrop-blur-sm dark:border-gray-700' : 'py-5 bg-transparent'
       }`}
     >
       <div className='container mx-auto px-4'>

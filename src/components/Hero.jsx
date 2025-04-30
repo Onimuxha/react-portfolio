@@ -11,9 +11,9 @@ const Hero = () => {
     // Set time-based greeting
     const getTimeBasedGreeting = () => {
       const hour = new Date().getHours();
-      if (hour < 12) return 'Good morning';
-      if (hour < 18) return 'Good afternoon';
-      return 'Good evening';
+      if (hour < 12) return 'morning';
+      if (hour < 18) return 'afternoon';
+      return 'evening';
     };
 
     setGreeting(getTimeBasedGreeting());
@@ -32,7 +32,8 @@ const Hero = () => {
         backDelay: 2000,
         loop: true,
         showCursor: true,
-        cursorChar: '|',
+        // cursorChar: '|',
+        cursorChar: '<div class="inline-block w-[2px] h-8 -mb-1 bg-sky-50"></div>',
       });
     }
 
@@ -53,7 +54,7 @@ const Hero = () => {
 
       <div className='relative z-10 text-center max-w-4xl px-4'>
         <h1 className='text-[2.5rem] xs:text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[4rem] font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 animate-gradient pb-3 leading-[1.1]'>
-          <span className='inline-block transition-all duration-500 ease-in-out'>{greeting}</span>, I'm{' '}
+          <span className='inline-block transition-all duration-500 ease-in-out'>Good {greeting}</span>, I'm{' '}
           <span className='text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]'>Kirito</span>
         </h1>
 
