@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-scroll';
 import cvFile from '../assets/kirito.pdf';
+import { useTranslation } from 'react-i18next';
+import LocalizedText from './LocalizedText';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -16,6 +19,7 @@ const Footer = () => {
             <div className='col-span-1 lg:col-span-2'>
               <h2 className='text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-400 mb-4'>
                 Kirito
+                {/* <LocalizedText>{t('skill.title-skill')}</LocalizedText> */}
               </h2>
               <p className='text-gray-300 mb-5 max-w-md'>
                 Crafting exceptional digital experiences with modern web technologies. Focused on building scalable and

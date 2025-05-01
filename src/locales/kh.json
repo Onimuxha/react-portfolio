@@ -1,0 +1,23 @@
+{
+  "navbar": {
+    "home": "ទំព័រដើម",
+    "about": "អំពីខ្ញុំ",
+    "skills": "ជំនាញ",
+    "projects": "គម្រោង",
+    "contact": "ទំនាក់ទំនង"
+  },
+  "hero": {
+    "good-morning": "អរុណសួស្ដី",
+    "good-afternoon": "សាយ័ណ្ហសួស្ដី",
+    "good-evening": "សាយ័ណ្ហសួស្ដី",
+    "i'm": "ខ្ញុំគឺ"
+  },
+  "about": {
+    "about": "អំពី",
+    "me": "ខ្ញុំ",
+    "who-i'm": "តើខ្ញុំជាអ្នកណា?"
+  },
+  "skill": {
+    "title-skill": "ជំនាញ"
+  }
+}

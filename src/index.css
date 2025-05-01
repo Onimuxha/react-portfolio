@@ -22,7 +22,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* Khmer font  */
+@font-face {
+  font-family: 'OS Siemreap';
+  src: url('../public/fonts/OSSiemreap-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
+.font-khmer {
+  font-family: 'OS Siemreap', sans-serif !important;
+}
 /* Light Mode */
 @media (prefers-color-scheme: light) {
   body {

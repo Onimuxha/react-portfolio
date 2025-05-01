@@ -11,9 +11,9 @@ const Hero = () => {
     // Set time-based greeting
     const getTimeBasedGreeting = () => {
       const hour = new Date().getHours();
-      if (hour < 12) return 'morning';
-      if (hour < 18) return 'afternoon';
-      return 'evening';
+      if (hour < 12) return 'morning'; //អរុណសួស្ដី
+      if (hour < 18) return 'afternoon'; //សាយណ្ណសួស្ដី  //ទិវាសួស្ដី
+      return 'evening'; //សាយ័ណ្ហសួស្ដី 
     };
 
     setGreeting(getTimeBasedGreeting());
@@ -23,7 +23,6 @@ const Hero = () => {
       setGreeting(getTimeBasedGreeting());
     }, 3600000); // Update every hour
 
-    // Typed.js initialization
     if (typedRef.current) {
       typedInstance.current = new Typed(typedRef.current, {
         strings: ['Web Developer', 'UI/UX Designer', 'Frontend Engineer', 'JavaScript Enthusiast'],
@@ -32,7 +31,6 @@ const Hero = () => {
         backDelay: 2000,
         loop: true,
         showCursor: true,
-        // cursorChar: '|',
         cursorChar: '<div class="inline-block w-[2px] h-8 -mb-1 bg-sky-50"></div>',
       });
     }

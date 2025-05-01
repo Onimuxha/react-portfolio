@@ -1,0 +1,12 @@
+{
+    "navbar": {
+      "home": "首页",
+      "about": "关于我",
+      "skills": "技能",
+      "projects": "项目",
+      "contact": "联系"
+    },
+    "hero": {
+      "hello": "你好，我是"
+    }
+  }

@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { handleTelegramSubmission } from './telegramService';
+import { useTranslation } from 'react-i18next';
+import LocalizedText from './LocalizedText';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', telegram: '', subject: '', message: '' });
   const [status, setStatus] = useState({ isSubmitting: false, isSubmitted: false, error: null });
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
+  const { t } = useTranslation();
 
   const validate = () => {
     const newErrors = {};
@@ -177,6 +180,7 @@ const Contact = () => {
         <div className='text-center mb-16' data-aos='fade-up'>
           <h2 className='text-4xl font-semibold mb-4 text-gray-800 dark:text-white'>
             Get In{' '}
+            {/* <LocalizedText>{t('skill.title-skill')}</LocalizedText> */}
             <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>Touch</span>
           </h2>
           <p className='text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto'>

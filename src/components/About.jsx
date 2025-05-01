@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-scroll';
+import { useTranslation } from 'react-i18next';
+import LocalizedText from './LocalizedText';
 
 const Timeline = ({ items }) => {
   return (
@@ -39,6 +41,7 @@ const Timeline = ({ items }) => {
 };
 
 const About = () => {
+  const { t } = useTranslation();
   const timelineItems = [
     {
       title: 'Computer Science Degree',
@@ -56,7 +59,10 @@ const About = () => {
     <section id='about' className='py-16 bg-gray-50 dark:bg-gray-900 min-h-screen'>
       <div className='container mx-auto px-4'>
         <h3 className='text-4xl font-semibold mb-12 text-gray-800 dark:text-white text-center' data-aos='fade-up'>
-          About <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>Me</span>
+          <LocalizedText>{t('about.about')}</LocalizedText>{' '}
+          <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 pb-4'>
+            <LocalizedText>{t('about.me')}</LocalizedText>
+          </span>
         </h3>
 
         <div className='flex flex-col md:flex-row md:space-x-12'>
@@ -71,7 +77,9 @@ const About = () => {
 
           {/* About content */}
           <div className='md:w-2/3'>
-            <h3 className='text-2xl font-semibold mb-4 text-gray-800 dark:text-white'>Who am I?</h3>
+            <h3 className='text-2xl font-semibold mb-4 text-gray-800 dark:text-white'>
+              <LocalizedText>{t("about.who-i'm")}</LocalizedText>
+            </h3>
             <p className='text-gray-600 dark:text-gray-300 mb-4 leading-relaxed'>
               I'm a <span className='text-cyan-500 dark:text-cyan-400 font-medium'>Full Stack Developer</span> with
               expertise in modern JavaScript frameworks. I specialize in creating high-performance web applications with

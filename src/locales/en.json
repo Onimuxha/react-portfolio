@@ -1,0 +1,25 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "good-morning": "Good morning",
+    "good-afternoon": "Good afternoon",
+    "good-evening": "Good evening",
+    "i'm": "I'm"
+  },
+  "about": {
+    "about": "About",
+    "me": "Me",
+    "who-i'm": "Who am I?"
+  },
+  "skill": {
+    "my": "My",
+    "technical": "Technical",
+    "skill": "Skills"
+  }
+}

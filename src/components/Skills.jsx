@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
+import LocalizedText from './LocalizedText';
 
 const SkillBar = ({ skill, icon, description, percentage }) => {
   const progressRef = useRef(null);
@@ -93,6 +95,7 @@ const SkillCard = ({ icon, title, description }) => {
 };
 
 const Skills = () => {
+  const { t } = useTranslation();
   const skillsData = [
     {
       skill: 'JavaScript',
@@ -152,7 +155,7 @@ const Skills = () => {
       icon: 'bx bxl-nodejs',
       title: 'Node.js',
       description: 'Building scalable server-side applications and APIs',
-    }
+    },
   ];
 
   const toolsData = [
@@ -162,7 +165,7 @@ const Skills = () => {
       description: 'Version control and collaborative development workflow',
     },
     {
-      icon: 'bx bxl-visual-studio',  
+      icon: 'bx bxl-visual-studio',
       title: 'VS Code',
       description: 'Advanced code editing with extensive plugin ecosystem',
     },
@@ -180,7 +183,7 @@ const Skills = () => {
       icon: 'bx bxs-data',
       title: 'MySQL',
       description: 'Relational database system for structured data and SQL queries',
-    },    
+    },
     {
       icon: 'bx bxl-wordpress',
       title: 'WordPress',
@@ -191,7 +194,7 @@ const Skills = () => {
       title: 'Bootstrap',
       description: 'Responsive front-end framework for designing websites and interfaces',
     },
-    
+
     {
       icon: 'bx bxl-tailwind-css',
       title: 'Tailwind CSS (Basic)',
@@ -204,7 +207,7 @@ const Skills = () => {
       <div className='container mx-auto px-4 max-w-6xl'>
         <div className='text-center mb-16'>
           <h3 className='text-4xl font-semibold mb-12 text-gray-800 dark:text-white text-center' data-aos='fade-right'>
-            My Technical{' '}
+            <LocalizedText>{t('skill.title-skill')}</LocalizedText>{' '}
             <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>Skills</span>
           </h3>
           <p

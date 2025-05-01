@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import ThemeToggle from './ThemeToggle';
 import MobileMenuButton from './MobileMenuButton';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
+import LocalizedText from './LocalizedText';
 
 const Navbar = ({ theme, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,11 +41,11 @@ const Navbar = ({ theme, toggleTheme }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', to: 'home', icon: 'bx bx-home-alt-2' },
-    { name: 'About', to: 'about', icon: 'bx bx-user' },
-    { name: 'Skills', to: 'skills', icon: 'bx bx-code-curly' },
-    { name: 'Projects', to: 'projects', icon: 'bx bx-briefcase' },
-    { name: 'Contact', to: 'contact', icon: 'bx bxl-gmail' },
+    { name: <LocalizedText>{t('navbar.home')}</LocalizedText>, to: 'home', icon: 'bx bx-home-alt-2' },
+    { name: <LocalizedText>{t('navbar.about')}</LocalizedText>, to: 'about', icon: 'bx bx-user' },
+    { name: <LocalizedText>{t('navbar.skills')}</LocalizedText>, to: 'skills', icon: 'bx bx-code-curly' },
+    { name: <LocalizedText>{t('navbar.projects')}</LocalizedText>, to: 'projects', icon: 'bx bx-briefcase' },
+    { name: <LocalizedText>{t('navbar.contact')}</LocalizedText>, to: 'contact', icon: 'bx bxl-gmail' },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -90,11 +94,13 @@ const Navbar = ({ theme, toggleTheme }) => {
                 ></span>
               </Link>
             ))}
+            <LanguageSwitcher />
             <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
           </div>
 
           {/* Mobile Menu Controls */}
-          <div className='md:hidden flex items-center'>
+          <div className='md:hidden flex items-center space-x-4'>
+            <LanguageSwitcher />
             <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
             <MobileMenuButton isOpen={isOpen} toggleOpen={toggleMenu} />
           </div>

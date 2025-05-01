@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-scroll';
+import { useTranslation } from 'react-i18next';
+import LocalizedText from './LocalizedText';
 
 const Projects = () => {
-  // const isMounted = useRef(false);
+  const { t } = useTranslation();
   const projects = {
     academy: [
       {
@@ -133,6 +135,7 @@ const Projects = () => {
           <div className='flex-1 flex flex-col'>
             <div className='mb-4'>
               <h4 className='text-sm font-semibold text-blue-300 mb-1'>Role:</h4>
+              {/* <LocalizedText>{t('skill.title-skill')}</LocalizedText> */}
               <p className='text-gray-300'>{project.role}</p>
             </div>
 
