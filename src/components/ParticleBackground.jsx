@@ -96,7 +96,7 @@ const ParticleBackground = ({ theme }) => {
               },
             },
             onClick: {
-              enable: true,
+              enable: false,
               mode: "push",
             },
             resize: true,

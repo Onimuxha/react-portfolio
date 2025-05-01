@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Element } from 'react-scroll';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -16,7 +16,8 @@ import 'boxicons/css/boxicons.min.css';
 
 const App = () => {
   const [theme, setTheme] = useState('light');
-  const [alertVisible, setAlertVisible] = useState(false);
+  const [alertMessage, setAlertMessage] = useState(null);
+  const alertTimeoutRef = useRef(null);
 
   useEffect(() => {
     AOS.init({ duration: 800, once: false, mirror: true, offset: 100 });
@@ -26,26 +27,32 @@ const App = () => {
     setTheme(savedTheme);
     document.documentElement.className = savedTheme;
 
-    // Handle right-click
     const handleContextMenu = (e) => {
       e.preventDefault();
-      setAlertVisible(true);
-      setTimeout(() => setAlertVisible(false), 4000);
+      if (alertTimeoutRef.current) {
+        clearTimeout(alertTimeoutRef.current);
+      }
+      setAlertMessage(null);
+      setTimeout(() => {
+        setAlertMessage({
+          text: 'Right-click disabled',
+          subtitle: 'Content protection is active.',
+        });
+      }, 10);
     };
-
     document.addEventListener('contextmenu', handleContextMenu);
     window.addEventListener('scroll', AOS.refresh);
-
     return () => {
       document.removeEventListener('contextmenu', handleContextMenu);
       window.removeEventListener('scroll', AOS.refresh);
+      if (alertTimeoutRef.current) {
+        clearTimeout(alertTimeoutRef.current);
+      }
     };
   }, []);
-
   useEffect(() => {
     AOS.refresh();
   }, [theme]);
-
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
@@ -53,9 +60,21 @@ const App = () => {
     document.documentElement.className = newTheme;
   };
 
+  const showAlert = (message, subtitle) => {
+    if (alertTimeoutRef.current) {
+      clearTimeout(alertTimeoutRef.current);
+    }
+    setAlertMessage(null);
+    setTimeout(() => {
+      setAlertMessage({ text: message, subtitle });
+    }, 10);
+  };
+
   return (
     <div className='relative min-h-screen'>
-      {alertVisible && <Alert message='Right-click disabled' subtitle='Content protection is active.' />}
+      {/* Always render Alert, it handles its own visibility */}
+      <Alert message={alertMessage?.text || ''} subtitle={alertMessage?.subtitle || ''} />
+
       <ParticleBackground theme={theme} />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main>
@@ -75,7 +94,6 @@ const App = () => {
           </Element>
         ))}
       </main>
-
       <ScrollToTopButton />
       <Footer />
     </div>

@@ -53,7 +53,7 @@ const ScrollToTopButton = () => {
       to='home'
       smooth={true}
       duration={500}
-      className='fixed cursor-pointer bottom-14 right-2 w-10 h-10 flex items-center justify-center transition-all z-50 group'
+      className='fixed cursor-pointer bottom-5 right-5 w-10 h-10 flex items-center justify-center transition-all z-50 group'
     >
       {/* Progress circle background */}
       <svg className='absolute w-full h-full' viewBox='0 0 36 36'>
@@ -87,7 +87,7 @@ const ScrollToTopButton = () => {
 
       {/* Button center with hover effect */}
       <div className='absolute inset-0 m-1 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-gradient-to-br from-cyan-400/10 to-blue-500/10 transition-all duration-300'>
-        <i class='bx bxs-to-top' ></i>
+        <i class='bx bxs-to-top'></i>
       </div>
     </Link>
   );
