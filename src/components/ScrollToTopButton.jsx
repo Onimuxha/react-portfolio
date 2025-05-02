@@ -87,7 +87,7 @@ const ScrollToTopButton = () => {
 
       {/* Button center with hover effect */}
       <div className='absolute inset-0 m-1 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-gradient-to-br from-cyan-400/10 to-blue-500/10 transition-all duration-300'>
-        <i class='bx bxs-to-top'></i>
+        <i className='bx bxs-to-top'></i>
       </div>
     </Link>
   );

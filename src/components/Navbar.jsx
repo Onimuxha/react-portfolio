@@ -70,9 +70,9 @@ const Navbar = ({ theme, toggleTheme }) => {
 
           {/* Desktop Navigation */}
           <div className='hidden md:flex items-center space-x-8'>
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <Link
-                key={link.name}
+                key={`nav-item-${link.to || index}`}
                 to={link.to}
                 spy
                 smooth
@@ -113,9 +113,9 @@ const Navbar = ({ theme, toggleTheme }) => {
           }`}
         >
           <div className='flex flex-col space-y-1 py-3 bg-white/95 dark:bg-gray-800/95 rounded-lg shadow-xl backdrop-blur-sm border border-gray-200 dark:border-gray-700'>
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <Link
-                key={link.name}
+                key={`nav-item-${link.to || index}`}
                 to={link.to}
                 spy
                 smooth

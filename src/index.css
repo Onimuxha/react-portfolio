@@ -25,7 +25,7 @@ body {
 /* Khmer font  */
 @font-face {
   font-family: 'OS Siemreap';
-  src: url('../public/fonts/OSSiemreap-Regular.ttf') format('truetype');
+  src: url('/fonts/OSSiemreap-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

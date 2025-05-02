@@ -9,7 +9,7 @@ const Contact = () => {
   const [status, setStatus] = useState({ isSubmitting: false, isSubmitted: false, error: null });
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const validate = () => {
     const newErrors = {};
@@ -178,11 +178,23 @@ const Contact = () => {
     >
       <div className='container mx-auto px-4 max-w-6xl'>
         <div className='text-center mb-16' data-aos='fade-up'>
-          <h2 className='text-4xl font-semibold mb-4 text-gray-800 dark:text-white'>
-            Get In{' '}
-            {/* <LocalizedText>{t('skill.title-skill')}</LocalizedText> */}
-            <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>Touch</span>
-          </h2>
+          <h3 className='text-4xl font-semibold mb-12 text-gray-800 dark:text-white text-center'>
+            {i18n.language === 'kh' ? (
+              <>
+                <span className='text-transparent pb-1 pt-1 bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
+                  <LocalizedText>{t('contact.connect')}</LocalizedText>
+                </span>{' '}
+                <LocalizedText>{t('general.me')}</LocalizedText>
+              </>
+            ) : (
+              <>
+                <LocalizedText>{t('contact.connect')}</LocalizedText>{' '}
+                <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
+                  <LocalizedText>{t('general.me')}</LocalizedText>
+                </span>
+              </>
+            )}
+          </h3>
           <p className='text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto'>
             Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!
           </p>
@@ -198,7 +210,7 @@ const Contact = () => {
                 background: 'linear-gradient(135deg, rgba(21, 94, 117, 0.15) 0%, rgba(8, 51, 68, 0.25) 100%)',
               }}
             >
-              <h3 className='text-2xl font-semibold mb-8 text-white'>Contact Information</h3>
+              <h3 className='text-2xl font-semibold mb-8 text-white'><LocalizedText>{t('contact.contact-info')}</LocalizedText></h3>
 
               {/* Keep existing contact info content */}
               <div className='space-y-6'>
@@ -228,7 +240,7 @@ const Contact = () => {
 
               {/* Keep existing social links section */}
               <div className='mt-12'>
-                <h4 className='text-lg font-semibold mb-4 text-gray-800 dark:text-white'>Follow Me</h4>
+                <h4 className='text-lg font-semibold mb-4 text-gray-800 dark:text-white'><LocalizedText>{t('contact.follow-me')}</LocalizedText></h4>
                 <div className='flex space-x-4'>
                   {socialLinks.map((social, i) => (
                     <a
@@ -311,7 +323,7 @@ const Contact = () => {
                       transition={{ duration: 0.4, delay: 0.6 }}
                       className='text-2xl font-semibold mb-2 text-gray-800 dark:text-white'
                     >
-                      Message Sent!
+                      <LocalizedText>{t('contact.send-success')}</LocalizedText>
                     </motion.h3>
                     <motion.p
                       initial={{ opacity: 0, y: 10 }}
@@ -330,12 +342,12 @@ const Contact = () => {
                       onClick={() => setStatus({ ...status, isSubmitted: false })}
                       className='px-6 py-3 bg-gradient-to-r from-cyan-400 to-blue-500 text-white rounded-lg hover:from-cyan-500 hover:to-blue-600 transition-all duration-300 shadow-md'
                     >
-                      Send Another Message
+                      <LocalizedText>{t('contact.send-another')}</LocalizedText>
                     </motion.button>
                   </motion.div>
                 ) : (
                   <div className='p-8 text-white'>
-                    <h3 className='text-2xl font-semibold mb-6 text-gray-800 dark:text-white'>Send Me a Message</h3>
+                    <h3 className='text-2xl font-semibold mb-6 text-gray-800 dark:text-white'><LocalizedText>{t('contact.send-message')}</LocalizedText></h3>
 
                     {status.error && (
                       <motion.div
@@ -385,10 +397,10 @@ const Contact = () => {
                                 d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
                               ></path>
                             </svg>
-                            Sending...
+                            <LocalizedText>{t('contact.sending')}</LocalizedText>
                           </span>
                         ) : (
-                          <p>Send Message</p>
+                          <p><LocalizedText>{t('contact.send')}</LocalizedText></p>
                         )}
                       </button>
                     </form>

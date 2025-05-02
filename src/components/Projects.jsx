@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import LocalizedText from './LocalizedText';
 
 const Projects = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const projects = {
     academy: [
       {
@@ -204,10 +204,24 @@ const Projects = () => {
 
       <div className='relative z-10 max-w-7xl mx-auto'>
         <div className='text-center mb-16' data-aos='fade-up'>
-          <h2 className='text-4xl font-semibold mb-4 text-gray-800 dark:text-white'>
-            My{' '}
-            <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>Projects</span>
-          </h2>
+          <h3 className='text-4xl font-semibold mb-12 text-gray-800 dark:text-white text-center'>
+            {i18n.language === 'kh' ? (
+              <>
+                <span className='text-transparent pb-1 pt-1 bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
+                  <LocalizedText>{t('project.project')}</LocalizedText>
+                </span>{' '}
+                <LocalizedText>{t('general.my')}</LocalizedText>
+              </>
+            ) : (
+              <>
+                <LocalizedText>{t('general.my')}</LocalizedText>{' '}
+                <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
+                  <LocalizedText>{t('project.project')}</LocalizedText>
+                </span>
+              </>
+            )}
+          </h3>
+
           <p className='text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto'>
             Showcasing my technical journey through <span className='text-cyan-300'>innovative solutions</span> and{' '}
             <span className='text-blue-300'>cutting-edge</span> implementations
@@ -222,7 +236,7 @@ const Projects = () => {
               offset={-100}
               className='px-4 py-2 text-blue-400 hover:text-blue-300 border border-blue-400/30 hover:border-blue-300/50 rounded-lg transition-colors cursor-pointer'
             >
-              Company Projects
+              <LocalizedText>{t('project.company-project')}</LocalizedText>
             </Link>
             <Link
               to='academy-projects'
@@ -231,7 +245,7 @@ const Projects = () => {
               offset={-100}
               className='px-4 py-2 text-cyan-400 hover:text-cyan-300 border border-cyan-400/30 hover:border-cyan-300/50 rounded-lg transition-colors cursor-pointer'
             >
-              Academy Projects
+              <LocalizedText>{t('project.academy-project')}</LocalizedText>
             </Link>
           </div>
         </div>
@@ -239,8 +253,8 @@ const Projects = () => {
         {/* Company Projects */}
         <div className='mb-20' id='company-projects'>
           <div className='flex items-center mb-8' data-aos='fade-up' data-aos-duration='600'>
-            <h3 className='text-2xl md:text-3xl font-semibold text-blue-400 mr-4'>Company Projects</h3>
-            <div className='flex-1 h-px bg-gradient-to-r from-blue-400/30 to-blue-400/0'></div>
+            <h3 className='text-2xl md:text-3xl font-semibold text-blue-400 mr-4'><LocalizedText>{t('project.company-project')}</LocalizedText></h3>
+            <div className='flex-1 mt-2 h-px bg-gradient-to-r from-blue-400/30 to-blue-400/0'></div>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
@@ -255,8 +269,8 @@ const Projects = () => {
         {/* Academy Projects */}
         <div id='academy-projects'>
           <div className='flex items-center mb-8' data-aos='fade-up' data-aos-duration='600'>
-            <h3 className='text-2xl md:text-3xl font-semibold text-cyan-400 mr-4'>Academy Projects</h3>
-            <div className='flex-1 h-px bg-gradient-to-r from-cyan-400/30 to-cyan-400/0'></div>
+            <h3 className='text-2xl md:text-3xl font-semibold text-cyan-400 mr-4'><LocalizedText>{t('project.academy-project')}</LocalizedText></h3>
+            <div className='flex-1 mt-2 h-px bg-gradient-to-r from-cyan-400/30 to-cyan-400/0'></div>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>

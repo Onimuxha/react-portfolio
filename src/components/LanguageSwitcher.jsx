@@ -69,7 +69,7 @@ const LanguageSwitcher = () => {
 
       {/* Dropdown menu with extra smooth transition animation */}
       <div
-        className={`absolute right-0 mt-2 w-44 transition-all duration-400 ease-in-out
+        className={`absolute right-0 mt-2 w-44 transition-all duration-470 ease-in-out
           ${
             isOpen
               ? 'max-h-72 opacity-100 translate-y-0'

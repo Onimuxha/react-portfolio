@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-scroll';
 import Typed from 'typed.js';
+import { useTranslation } from 'react-i18next';
+import LocalizedText from './LocalizedText';
 
 const Hero = () => {
+  const { t, i18n } = useTranslation();
   const typedRef = useRef(null);
   const typedInstance = useRef(null);
   const [greeting, setGreeting] = useState('Hello');
@@ -11,9 +14,9 @@ const Hero = () => {
     // Set time-based greeting
     const getTimeBasedGreeting = () => {
       const hour = new Date().getHours();
-      if (hour < 12) return 'morning'; //អរុណសួស្ដី
-      if (hour < 18) return 'afternoon'; //សាយណ្ណសួស្ដី  //ទិវាសួស្ដី
-      return 'evening'; //សាយ័ណ្ហសួស្ដី 
+      if (hour < 12) return <LocalizedText>{t('hero.morning')}</LocalizedText>;
+      if (hour < 18) return <LocalizedText>{t('hero.afternoon')}</LocalizedText>;
+      return <LocalizedText>{t('hero.evening')}</LocalizedText>;
     };
 
     setGreeting(getTimeBasedGreeting());
@@ -41,7 +44,7 @@ const Hero = () => {
         typedInstance.current.destroy();
       }
     };
-  }, []);
+  }, [t]);
 
   return (
     <section className='relative min-h-screen flex items-center justify-center px-4 bg-gray-900 text-white overflow-hidden'>
@@ -52,8 +55,8 @@ const Hero = () => {
 
       <div className='relative z-10 text-center max-w-4xl px-4'>
         <h1 className='text-[2.5rem] xs:text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[4rem] font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 animate-gradient pb-3 leading-[1.1]'>
-          <span className='inline-block transition-all duration-500 ease-in-out'>Good {greeting}</span>, I'm{' '}
-          <span className='text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]'>Kirito</span>
+          <span className='inline-block transition-all duration-500 ease-in-out py-3'>{greeting}</span>, <LocalizedText>{t('general.i\'m')}</LocalizedText>{' '}
+          <span className='text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]'><LocalizedText>{t('hero.name')}</LocalizedText></span>
         </h1>
 
         <h2 className='text-2xl md:text-4xl mb-8 text-gray-300 font-medium'>

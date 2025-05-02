@@ -1,4 +1,10 @@
 {
+  "general": {
+    "me": "ខ្ញុំ",
+    "i'm": "ខ្ញុំគឺ",
+    "my": "របស់ខ្ញុំ",
+    "name": "ឈ្មោះ"
+  },
   "navbar": {
     "home": "ទំព័រដើម",
     "about": "អំពីខ្ញុំ",
@@ -7,17 +13,43 @@
     "contact": "ទំនាក់ទំនង"
   },
   "hero": {
-    "good-morning": "អរុណសួស្ដី",
-    "good-afternoon": "សាយ័ណ្ហសួស្ដី",
-    "good-evening": "សាយ័ណ្ហសួស្ដី",
-    "i'm": "ខ្ញុំគឺ"
+    "morning": "អរុណសួស្ដី",
+    "afternoon": "សាយ័ណ្ហសួស្ដី",
+    "evening": "សាយ័ណ្ហសួស្ដី",
+    "name": "សុជាតិ"
   },
   "about": {
     "about": "អំពី",
-    "me": "ខ្ញុំ",
-    "who-i'm": "តើខ្ញុំជាអ្នកណា?"
+    "who-i'm": "តើខ្ញុំជាអ្នកណា?",
+    "contact-me": "ទំនាក់ទំនងខ្ញុំ"
   },
   "skill": {
-    "title-skill": "ជំនាញ"
+    "skill": "ជំនាញ",
+    "my-educational": "ការបណ្តុះបណ្តាលរបស់ខ្ញុំ",
+    "main-technologies": "បច្ចេកវិទ្យាគោល"
+  },
+  "project": {
+    "project": "គម្រោង",
+    "company-project": "គម្រោងក្រុមហ៊ុន",
+    "academy-project": "គម្រោងសិក្សា",
+    "my-skills": "ជំនាញរបស់ខ្ញុំ",
+    "my-education": "ការអប់រំរបស់ខ្ញុំ"
+  },
+  "contact": {
+    "connect": "ទាក់ទងមក",
+    "email": "អ៊ីមែល",
+    "phone": "ទូរស័ព្ទ",
+    "address": "អាសយដ្ឋាន",
+    "send-message": "ផ្ញើសារមកខ្ញុំ",
+    "send": "ផ្ញើសារ",
+    "sending": "កំពុងផ្ញើ...",
+    "send-success": "ផ្ញើសារដោយជោគជ័យ",
+    "send-another": "ផ្ញើសារផ្សេងទៀត",
+    "contact-info": "ព័ត៌មានទំនាក់ទំនង",
+    "follow-me": "តាមដានខ្ញុំ"
+  },
+  "footer": {
+    "copyright": "រក្សាសិទ្ធិគ្រប់យ៉ាង",
+    "download-cv": "ទាញយកប្រវត្តិរូប"
   }
 }

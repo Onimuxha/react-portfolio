@@ -1,4 +1,10 @@
 {
+  "general": {
+    "me": "Me",
+    "i'm": "I'm",
+    "my": "My",
+    "name": "Name"
+  },
   "navbar": {
     "home": "Home",
     "about": "About",
@@ -7,19 +13,43 @@
     "contact": "Contact"
   },
   "hero": {
-    "good-morning": "Good morning",
-    "good-afternoon": "Good afternoon",
-    "good-evening": "Good evening",
-    "i'm": "I'm"
+    "morning": "Good morning",
+    "afternoon": "Good afternoon",
+    "evening": "Good evening",
+    "name": "Socheath"
   },
   "about": {
     "about": "About",
-    "me": "Me",
-    "who-i'm": "Who am I?"
+    "who-i'm": "Who am I?",
+    "contact-me": "Contact Me"
   },
   "skill": {
-    "my": "My",
-    "technical": "Technical",
-    "skill": "Skills"
+    "skill": "Skills",
+    "my-educational": "My Educational",
+    "main-technologies": "Main Technologies"
+  },
+  "project": {
+    "project": "Projects",
+    "company-project": "Company Projects",
+    "academy-project": "Academy Projects",
+    "my-skills": "My Skills",
+    "my-education": "My Education"
+  },
+  "contact": {
+    "connect": "Connect with",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "send-message": "Send Me a Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "send-success": "Message sent successfully",
+    "send-another": "Send Another Message",
+    "contact-info": "Contact Information",
+    "follow-me": "Follow Me"
+  },
+  "footer": {
+    "copyright": "All rights reserved",
+    "download-cv": "Download CV"
   }
 }

@@ -95,7 +95,7 @@ const SkillCard = ({ icon, title, description }) => {
 };
 
 const Skills = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const skillsData = [
     {
       skill: 'JavaScript',
@@ -207,9 +207,23 @@ const Skills = () => {
       <div className='container mx-auto px-4 max-w-6xl'>
         <div className='text-center mb-16'>
           <h3 className='text-4xl font-semibold mb-12 text-gray-800 dark:text-white text-center' data-aos='fade-right'>
-            <LocalizedText>{t('skill.title-skill')}</LocalizedText>{' '}
-            <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>Skills</span>
+            {i18n.language === 'kh' ? (
+              <>
+                <span className='text-transparent pb-1 pt-1 bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
+                  <LocalizedText>{t('skill.skill')}</LocalizedText>
+                </span>{' '}
+                <LocalizedText>{t('general.my')}</LocalizedText>
+              </>
+            ) : (
+              <>
+                <LocalizedText>{t('general.my')}</LocalizedText>{' '}
+                <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
+                  <LocalizedText>{t('skill.skill')}</LocalizedText>
+                </span>
+              </>
+            )}
           </h3>
+
           <p
             className='text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed'
             data-aos='fade-up'
@@ -233,10 +247,10 @@ const Skills = () => {
         </div>
 
         <h3
-          className='text-3xl font-semibold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 pb-1'
+          className='text-3xl font-semibold mb-12 pt-1 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 pb-1'
           data-aos='fade-up'
         >
-          Core Technologies
+          <LocalizedText>{t('skill.main-technologies')}</LocalizedText>
         </h3>
 
         <div className='grid grid-cols-1 mb-20 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
@@ -258,7 +272,7 @@ const Skills = () => {
           className='text-3xl font-semibold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 pb-1'
           data-aos='fade-up'
         >
-          My Framework & Tools
+          Core Framework & Tools
         </h3>
 
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>

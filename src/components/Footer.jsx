@@ -19,7 +19,6 @@ const Footer = () => {
             <div className='col-span-1 lg:col-span-2'>
               <h2 className='text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-400 mb-4'>
                 Kirito
-                {/* <LocalizedText>{t('skill.title-skill')}</LocalizedText> */}
               </h2>
               <p className='text-gray-300 mb-5 max-w-md'>
                 Crafting exceptional digital experiences with modern web technologies. Focused on building scalable and
@@ -40,7 +39,7 @@ const Footer = () => {
                       duration={500}
                       className='text-gray-300 hover:text-blue-300 cursor-pointer inline-block py-1 transition-all duration-300 hover:translate-x-2'
                     >
-                      {item.charAt(0).toUpperCase() + item.slice(1)}
+                      <LocalizedText>{t(`navbar.${item}`)}</LocalizedText>
                     </Link>
                   </li>
                 ))}
@@ -49,14 +48,14 @@ const Footer = () => {
 
             {/* Contact Column */}
             <div className='col-span-1'>
-              <h3 className='text-xl font-semibold mb-4 text-blue-200'>Download CV</h3>
+              <h3 className='text-xl font-semibold mb-4 text-blue-200'><LocalizedText>{t('footer.download-cv')}</LocalizedText></h3>
               <p className='text-gray-300 mb-4'>Want to know more? Download my Curriculum Vitae.</p>
               <a
                 href={cvFile}
                 className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white rounded-lg transition-all duration-300 shadow-lg group'
                 download='kiritoss.pdf'
               >
-                Download CV
+                <LocalizedText>{t('footer.download-cv')}</LocalizedText>
                 <i className='bx bxs-download ml-2 text-xl group-hover:translate-y-1 transition-transform duration-300'></i>
               </a>
             </div>
@@ -65,7 +64,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className='pt-8 mt-8 border-t border-white/10 text-center'>
-          <p className='text-sm text-gray-400'>&copy; {currentYear} Kirito. All rights reserved.</p>
+          <p className='text-sm text-gray-400'>&copy; {currentYear} Kirito. <LocalizedText>{t ('footer.copyright')}</LocalizedText></p>
         </div>
       </div>
     </footer>

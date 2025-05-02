@@ -1,12 +1,55 @@
 {
-    "navbar": {
-      "home": "首页",
-      "about": "关于我",
-      "skills": "技能",
-      "projects": "项目",
-      "contact": "联系"
-    },
-    "hero": {
-      "hello": "你好，我是"
-    }
+  "general": {
+    "me": "我",
+    "i'm": "我是",
+    "my": "我的",
+    "name": "名字"
+  },
+  "navbar": {
+    "home": "主页",
+    "about": "关于我",
+    "skills": "技能",
+    "projects": "项目",
+    "contact": "联系"
+  },
+  "hero": {
+    "morning": "早上好",
+    "afternoon": "下午好",
+    "evening": "晚上好",
+    "name": "Socheath"
+  },
+  "about": {
+    "about": "关于",
+    "who-i'm": "我是谁？",
+    "contact-me": "联系我"
+  },
+  "skill": {
+    "skill": "技能",
+    "my-educational": "我的教育背景",
+    "main-technologies": "主要技术"
+  },
+  "project": {
+    "project": "项目",
+    "company-project": "公司项目",
+    "academy-project": "学术项目",
+    "my-skills": "我的技能",
+    "my-education": "我的教育"
+  },
+  "contact": {
+    "connect": "联系我",
+    "email": "电子邮件",
+    "phone": "电话",
+    "address": "地址",
+    "send-message": "发送消息给我",
+    "send": "发送消息",
+    "sending": "发送中...",
+    "send-success": "消息发送成功",
+    "send-another": "发送另一条消息",
+    "contact-info": "联系信息",
+    "follow-me": "关注我"
+  },
+  "footer": {
+    "copyright": "版权所有",
+    "download-cv": "下载简历"
   }
+}
