@@ -82,9 +82,9 @@ const LanguageSwitcher = () => {
         }}
       >
         <div
-          className='py-1 bg-white/95 dark:bg-gray-800/95
+          className='p-2 space-y-2 bg-white/95 dark:bg-gray-800/95
           backdrop-blur-xl border border-gray-200 dark:border-gray-700
-          rounded-lg shadow-xl ${getFontClass()}'
+          rounded-md shadow-xl ${getFontClass()}'
         >
           {languages.map((lang, index) => (
             <button
@@ -93,18 +93,18 @@ const LanguageSwitcher = () => {
                 i18n.changeLanguage(lang.code);
                 setIsOpen(false);
               }}
-              className={`flex items-center w-full px-4 py-3 text-left
-                transition-all duration-300 ease-out
+              className={`flex items-center w-full px-4 py-2.5 text-left font-medium
+                rounded-md transition-all duration-300 ease-out
                 ${
                   i18n.language === lang.code
-                    ? 'bg-gradient-to-r from-cyan-400/10 to-blue-500/10 text-cyan-500 dark:text-cyan-400 font-medium'
+                    ? 'bg-gradient-to-r from-cyan-400/10 to-blue-500/10 text-cyan-500 dark:text-cyan-400'
                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50'
                 }
                 ${lang.fontClass || ''}`}
               style={{
                 transitionDelay: isOpen ? `${index * 50}ms` : '0ms',
               }}
-              aria-label={`Switch to ${lang.name}`}
+              aria-label={`${lang.name}`}
             >
               <div className='flex items-center justify-center w-8 h-6 mr-3'>{lang.flag}</div>
               <span className='text-sm'>{lang.name}</span>
