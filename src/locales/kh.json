@@ -2,6 +2,7 @@
   "general": {
     "me": "ខ្ញុំ",
     "i'm": "ខ្ញុំគឺ",
+    "i'm-a": "ខ្ញុំជា",
     "my": "របស់ខ្ញុំ",
     "name": "ឈ្មោះ"
   },
@@ -14,14 +15,16 @@
   },
   "hero": {
     "morning": "អរុណសួស្ដី",
-    "afternoon": "សាយ័ណ្ហសួស្ដី",
+    "afternoon": "ទិវាសួស្ដី",
     "evening": "សាយ័ណ្ហសួស្ដី",
-    "name": "សុជាតិ"
+    "name": "សុជាតិ",
+    "explore-skill": "មើលជំនាញ",
+    "view-project": "មើលគម្រោង"
   },
   "about": {
     "about": "អំពី",
     "who-i'm": "តើខ្ញុំជាអ្នកណា?",
-    "contact-me": "ទំនាក់ទំនងខ្ញុំ"
+    "contact-me": "ទាក់ទងមកខ្ញុំ"
   },
   "skill": {
     "skill": "ជំនាញ",
@@ -31,7 +34,7 @@
   "project": {
     "project": "គម្រោង",
     "company-project": "គម្រោងក្រុមហ៊ុន",
-    "academy-project": "គម្រោងសិក្សា",
+    "academy-project": "គម្រោងសាលា",
     "my-skills": "ជំនាញរបស់ខ្ញុំ",
     "my-education": "ការអប់រំរបស់ខ្ញុំ"
   },

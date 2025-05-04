@@ -95,8 +95,8 @@ const About = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-8'>
               <div className='bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg border border-gray-200 dark:border-gray-700'>
                 <p className='mb-2'>
-                  <span className='font-semibold text-gray-800 dark:text-white'>Name:</span>
-                  <span className='text-gray-600 dark:text-gray-300 ml-2'>Kirito</span>
+                  <span className='font-semibold text-gray-800 dark:text-white'><LocalizedText>{t('general.name')}</LocalizedText>:</span>
+                  <span className='text-gray-600 dark:text-gray-300 ml-2'><LocalizedText>{t('hero.name')}</LocalizedText></span>
                 </p>
                 <p className='mb-2'>
                   <span className='font-semibold text-gray-800 dark:text-white'>Email:</span>

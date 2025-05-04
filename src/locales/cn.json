@@ -2,6 +2,7 @@
   "general": {
     "me": "我",
     "i'm": "我是",
+    "i'm-a": "我是一个",
     "my": "我的",
     "name": "名字"
   },
@@ -16,7 +17,9 @@
     "morning": "早上好",
     "afternoon": "下午好",
     "evening": "晚上好",
-    "name": "Socheath"
+    "name": "Socheath",
+    "explore-skill": "探索技能",
+    "view-project": "查看项目"
   },
   "about": {
     "about": "关于",

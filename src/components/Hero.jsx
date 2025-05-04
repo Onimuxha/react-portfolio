@@ -47,20 +47,21 @@ const Hero = () => {
   }, [t]);
 
   return (
-    <section className='relative min-h-screen flex items-center justify-center px-4 bg-gray-900 text-white overflow-hidden'>
+    <section className='relative min-h-screen flex items-center justify-center px-4 text-white overflow-hidden'>
       {/* Animated gradient background */}
-      <div className='absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-95'>
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(28,25,25,0.8)_0%,_transparent_70%)] animate-pulse-slow'></div>
-      </div>
+      <div className='absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-50'></div>
 
       <div className='relative z-10 text-center max-w-4xl px-4'>
         <h1 className='text-[2.5rem] xs:text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[4rem] font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 animate-gradient pb-3 leading-[1.1]'>
-          <span className='inline-block transition-all duration-500 ease-in-out py-3'>{greeting}</span>, <LocalizedText>{t('general.i\'m')}</LocalizedText>{' '}
-          <span className='text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]'><LocalizedText>{t('hero.name')}</LocalizedText></span>
+          <span className='inline-block transition-all duration-500 ease-in-out py-3'>{greeting}</span>,{' '}
+          <LocalizedText>{t("general.i'm")}</LocalizedText>{' '}
+          <span className='text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]'>
+            <LocalizedText>{t('hero.name')}</LocalizedText>
+          </span>
         </h1>
 
         <h2 className='text-2xl md:text-4xl mb-8 text-gray-300 font-medium'>
-          I'm a <span ref={typedRef} className='text-cyan-300 font-thin'></span>
+        <LocalizedText>{t('general.i\'m-a')}</LocalizedText> <span ref={typedRef} className='text-cyan-300 font-thin'></span>
         </h2>
 
         <p className='text-lg md:text-xl max-w-2xl mx-auto mb-12 text-gray-300 leading-relaxed'>
@@ -76,7 +77,7 @@ const Hero = () => {
             duration={500}
             className='relative inline-flex items-center justify-center px-8 py-3.5 bg-transparent border-2 border-cyan-400 text-cyan-400 rounded-lg shadow-lg overflow-hidden cursor-pointer transition-all duration-300 group hover:bg-cyan-400/10 hover:shadow-cyan-400/20'
           >
-            <span className='relative z-10 font-medium'>Explore Skills</span>
+            <span className='relative z-10 font-medium'><LocalizedText>{t('hero.explore-skill')}</LocalizedText></span>
             <span className='absolute inset-0 bg-cyan-400/0 group-hover:bg-cyan-400/5 transition-all duration-500'></span>
           </Link>
 
@@ -86,7 +87,7 @@ const Hero = () => {
             duration={500}
             className='relative inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-cyan-400 to-blue-500 font-medium rounded-lg shadow-lg overflow-hidden cursor-pointer transition-all duration-300 group hover:shadow-cyan-400/30'
           >
-            <span className='relative z-10'>View Projects</span>
+            <span className='relative z-10 font-medium'><LocalizedText>{t('hero.view-project')}</LocalizedText></span>
             <span className='absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-all duration-500'></span>
           </Link>
         </div>

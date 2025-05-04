@@ -55,8 +55,8 @@ const LanguageSwitcher = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`flex items-center justify-center w-10 h-10
-          backdrop-blur-md bg-white/30 dark:bg-gray-800/50
-          border border-white/30 dark:border-gray-700/50
+          backdrop-blur-md bg-gray-800/50
+          border border-gray-700/50
           rounded-lg focus:outline-none
           hover:bg-white/40 dark:hover:bg-gray-700/60
           hover:shadow-lg hover:shadow-cyan-400/30

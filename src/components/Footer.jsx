@@ -7,15 +7,18 @@ import LocalizedText from './LocalizedText';
 const Footer = () => {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
+  const navLinksData = [
+    { nameKey: 'navbar.home', to: 'home', icon: 'bx bx-home-alt-2' },
+    { nameKey: 'navbar.about', to: 'about', icon: 'bx bx-user' },
+    { nameKey: 'navbar.skills', to: 'skills', icon: 'bx bx-code-curly' },
+    { nameKey: 'navbar.contact', to: 'contact', icon: 'bx bxl-gmail' },
+  ];
 
   return (
     <footer className='relative bg-gradient-to-br from-gray-900 to-blue-900 text-white'>
-      {/* Main Footer Content with glassmorphism */}
       <div className='container mx-auto px-6 pt-8 pb-6'>
         <div className='backdrop-blur-sm bg-white/5 rounded-2xl p-8 shadow-xl border border-white/10'>
-          {/* Footer Links Grid */}
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8'>
-            {/* Brand Column */}
             <div className='col-span-1 lg:col-span-2'>
               <h2 className='text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-400 mb-4'>
                 Kirito
@@ -27,28 +30,29 @@ const Footer = () => {
               <div className='h-1 w-20 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full'></div>
             </div>
 
-            {/* Quick Links Column */}
             <div className='col-span-1'>
               <h3 className='text-xl font-semibold mb-4 text-blue-200'>Quick Links</h3>
               <ul className='space-y-2'>
-                {['home', 'about', 'skills', 'contact'].map((item) => (
-                  <li key={item} className='transition-all duration-300'>
+                {navLinksData.map(({ nameKey, to, icon }) => (
+                  <li key={to} className='transition-all duration-300'>
                     <Link
-                      to={item}
+                      to={to}
                       smooth={true}
                       duration={500}
                       className='text-gray-300 hover:text-blue-300 cursor-pointer inline-block py-1 transition-all duration-300 hover:translate-x-2'
                     >
-                      <LocalizedText>{t(`navbar.${item}`)}</LocalizedText>
+                      {icon && <i className={`${icon} mr-2`}></i>}
+                      <LocalizedText>{t(nameKey)}</LocalizedText>
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Contact Column */}
             <div className='col-span-1'>
-              <h3 className='text-xl font-semibold mb-4 text-blue-200'><LocalizedText>{t('footer.download-cv')}</LocalizedText></h3>
+              <h3 className='text-xl font-semibold mb-4 text-blue-200'>
+                <LocalizedText>{t('footer.download-cv')}</LocalizedText>
+              </h3>
               <p className='text-gray-300 mb-4'>Want to know more? Download my Curriculum Vitae.</p>
               <a
                 href={cvFile}
@@ -62,9 +66,10 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className='pt-8 mt-8 border-t border-white/10 text-center'>
-          <p className='text-sm text-gray-400'>&copy; {currentYear} Kirito. <LocalizedText>{t ('footer.copyright')}</LocalizedText></p>
+          <p className='text-sm text-gray-400'>
+            &copy; {currentYear} Kirito. <LocalizedText>{t('footer.copyright')}</LocalizedText>
+          </p>
         </div>
       </div>
     </footer>

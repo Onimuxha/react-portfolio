@@ -2,6 +2,7 @@
   "general": {
     "me": "Me",
     "i'm": "I'm",
+    "i'm-a": "I'm a",
     "my": "My",
     "name": "Name"
   },
@@ -16,7 +17,9 @@
     "morning": "Good morning",
     "afternoon": "Good afternoon",
     "evening": "Good evening",
-    "name": "Socheath"
+    "name": "Socheath",
+    "explore-skill": "Explore Skills",
+    "view-project": "View Projects"
   },
   "about": {
     "about": "About",

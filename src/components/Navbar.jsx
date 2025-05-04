@@ -64,7 +64,7 @@ const Navbar = ({ theme, toggleTheme }) => {
             duration={500}
             className='text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent cursor-pointer'
           >
-            <i className='fab fa-maxcdn w-4 h-4 mr-3' />
+            <i class='bx bxl-unity mr-2'></i>
             Kirito
           </Link>
 
