@@ -53,6 +53,9 @@
   },
   "footer": {
     "copyright": "All rights reserved",
-    "download-cv": "Download CV"
+    "download-cv": "Download CV",
+    "confirm": "Download Confirmation",
+    "download": "Download",
+    "cancel": "Cancel"
   }
 }

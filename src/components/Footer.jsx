@@ -1,18 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import cvFile from '../../public/assets/kirito.pdf';
 import { useTranslation } from 'react-i18next';
 import LocalizedText from './LocalizedText';
+import CVDownloadModal from './CVDownloadModal';
 
 const Footer = () => {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const navLinksData = [
     { nameKey: 'navbar.home', to: 'home', icon: 'bx bx-home-alt-2' },
     { nameKey: 'navbar.about', to: 'about', icon: 'bx bx-user' },
     { nameKey: 'navbar.skills', to: 'skills', icon: 'bx bx-code-curly' },
     { nameKey: 'navbar.contact', to: 'contact', icon: 'bx bxl-gmail' },
   ];
+
+  const handleDownloadClick = (e) => {
+    e.preventDefault();
+    setIsModalOpen(true);
+  };
+
+  const handleConfirmDownload = () => {
+    // Create a temporary anchor element to trigger the download
+    const link = document.createElement('a');
+    link.href = cvFile;
+    link.download = 'kiritoss.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Close the modal
+    setIsModalOpen(false);
+
+    // You could also track download analytics here if needed
+    console.log('CV download confirmed and started');
+  };
 
   return (
     <footer className='relative bg-gradient-to-br from-gray-900 to-blue-900 text-white'>
@@ -54,14 +78,13 @@ const Footer = () => {
                 <LocalizedText>{t('footer.download-cv')}</LocalizedText>
               </h3>
               <p className='text-gray-300 mb-4'>Want to know more? Download my Curriculum Vitae.</p>
-              <a
-                href={cvFile}
+              <button
+                onClick={handleDownloadClick}
                 className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white rounded-lg transition-all duration-300 shadow-lg group'
-                download='kiritoss.pdf'
               >
                 <LocalizedText>{t('footer.download-cv')}</LocalizedText>
                 <i className='bx bxs-download ml-2 text-xl group-hover:translate-y-1 transition-transform duration-300'></i>
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -72,6 +95,14 @@ const Footer = () => {
           </p>
         </div>
       </div>
+
+      {/* CV Download Confirmation Modal */}
+      <CVDownloadModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={handleConfirmDownload}
+        fileName='kiritoss.pdf'
+      />
     </footer>
   );
 };
