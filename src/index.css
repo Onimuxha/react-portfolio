@@ -24,14 +24,14 @@ body {
 }
 /* Khmer font  */
 @font-face {
-  font-family: 'OS Siemreap';
-  src: url('/fonts/OSSiemreap-Regular.ttf') format('truetype');
+  font-family: 'Khmer';
+  src: url('/fonts/Khmer.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 .font-khmer {
-  font-family: 'OS Siemreap', sans-serif !important;
+  font-family: 'Khmer', sans-serif !important;
 }
 /* Light Mode */
 @media (prefers-color-scheme: light) {

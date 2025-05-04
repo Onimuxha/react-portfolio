@@ -253,7 +253,9 @@ const Projects = () => {
         {/* Company Projects */}
         <div className='mb-20' id='company-projects'>
           <div className='flex items-center mb-8' data-aos='fade-up' data-aos-duration='600'>
-            <h3 className='text-2xl md:text-3xl font-semibold text-blue-400 mr-4'><LocalizedText>{t('project.company-project')}</LocalizedText></h3>
+            <h3 className='text-2xl md:text-3xl font-semibold text-blue-400 mr-4'>
+              <LocalizedText>{t('project.company-project')}</LocalizedText>
+            </h3>
             <div className='flex-1 mt-2 h-px bg-gradient-to-r from-blue-400/30 to-blue-400/0'></div>
           </div>
 
@@ -269,7 +271,9 @@ const Projects = () => {
         {/* Academy Projects */}
         <div id='academy-projects'>
           <div className='flex items-center mb-8' data-aos='fade-up' data-aos-duration='600'>
-            <h3 className='text-2xl md:text-3xl font-semibold text-cyan-400 mr-4'><LocalizedText>{t('project.academy-project')}</LocalizedText></h3>
+            <h3 className='text-2xl md:text-3xl font-semibold text-cyan-400 mr-4'>
+              <LocalizedText>{t('project.academy-project')}</LocalizedText>
+            </h3>
             <div className='flex-1 mt-2 h-px bg-gradient-to-r from-cyan-400/30 to-cyan-400/0'></div>
           </div>
 
