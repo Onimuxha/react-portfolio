@@ -70,7 +70,7 @@ const About = () => {
           <div className='md:w-1/3 mb-8 md:mb-0 flex justify-center' data-aos='fade-right'>
             <div className='relative w-48 h-48 md:w-56 md:h-56 overflow-hidden rounded-full p-1 bg-gradient-to-br from-cyan-400 to-blue-500 shadow-xl'>
               <div className='relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800'>
-                <img src='/src/assets/profile.jpg' alt='Profile Picture' className='w-full h-full object-cover' />
+                <img src='' alt='Profile Picture' className='w-full h-full object-cover' />
               </div>
             </div>
           </div>

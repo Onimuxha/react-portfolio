@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-scroll';
-import cvFile from '../assets/kirito.pdf';
+import cvFile from '../../public/assets/kirito.pdf';
 import { useTranslation } from 'react-i18next';
 import LocalizedText from './LocalizedText';
 
