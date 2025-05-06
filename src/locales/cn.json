@@ -53,6 +53,9 @@
   },
   "footer": {
     "copyright": "版权所有",
-    "download-cv": "下载简历"
+    "download-cv": "下载简历",
+    "confirm": "下载确认",
+    "download": "下载",
+    "cancel": "取消"
   }
 }

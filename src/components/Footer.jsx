@@ -77,7 +77,7 @@ const Footer = () => {
               <h3 className='text-xl font-semibold mb-4 text-blue-200'>
                 <LocalizedText>{t('footer.download-cv')}</LocalizedText>
               </h3>
-              <p className='text-gray-300 mb-4'>Want to know more? Download my Curriculum Vitae.</p>
+              <p className='text-gray-300 mb-4'>Want to know more? Download my Curriculum Vitae (CV).</p>
               <button
                 onClick={handleDownloadClick}
                 className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white rounded-lg transition-all duration-300 shadow-lg group'
