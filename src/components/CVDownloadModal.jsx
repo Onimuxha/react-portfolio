@@ -10,7 +10,6 @@ const CVDownloadModal = ({ isOpen, onClose, onConfirm, fileName }) => {
   useEffect(() => {
     const getFileSize = async () => {
       try {
-        // First try: fetch the actual file instead of just headers
         try {
           const response = await fetch(cvFile);
           if (response.ok) {
@@ -24,13 +23,12 @@ const CVDownloadModal = ({ isOpen, onClose, onConfirm, fileName }) => {
             } else {
               setFileSize(`${(size / (1024 * 1024)).toFixed(2)} MB`);
             }
-            return; // Exit if successful
+            return;
           }
         } catch (fetchError) {
           console.log('Fetch blob method failed:', fetchError);
         }
 
-        // Second try: use XMLHttpRequest with GET instead of HEAD
         const xhr = new XMLHttpRequest();
         xhr.open('GET', cvFile, true);
         xhr.responseType = 'blob';
@@ -98,7 +96,7 @@ const CVDownloadModal = ({ isOpen, onClose, onConfirm, fileName }) => {
               <p className='text-blue-300 font-medium'>{fileName.split('/').pop()}</p>
               {fileSize ? (
                 <p className='text-gray-400 text-sm mt-1'>
-                  <i className='bx bx-data mr-1'></i> {fileSize}
+                  <i className='bx bxs-data mr-1'></i>{fileSize}
                 </p>
               ) : (
                 <p className='text-gray-400 text-sm mt-1'>
@@ -111,7 +109,7 @@ const CVDownloadModal = ({ isOpen, onClose, onConfirm, fileName }) => {
           <div className='flex gap-3 justify-center'>
             <button
               onClick={onClose}
-              className='px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors duration-300'
+              className='px-4 py-2 bg-red-700 hover:bg-red-600 rounded-lg transition-colors duration-300'
             >
               <LocalizedText>{t('footer.cancel')}</LocalizedText>
             </button>
