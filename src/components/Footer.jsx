@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
-import cvFile from '../../public/assets/kirito.pdf';
 import { useTranslation } from 'react-i18next';
 import LocalizedText from './LocalizedText';
 import CVDownloadModal from './CVDownloadModal';
@@ -25,7 +24,7 @@ const Footer = () => {
   const handleConfirmDownload = () => {
     // Create a temporary anchor element to trigger the download
     const link = document.createElement('a');
-    link.href = cvFile;
+    link.href = '/assets/kirito.pdf';
     link.download = 'kiritoss.pdf';
     document.body.appendChild(link);
     link.click();
