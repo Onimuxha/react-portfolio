@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-scroll';
 import Typed from 'typed.js';
 import { useTranslation } from 'react-i18next';
-import LocalizedText from './LocalizedText';
+import Text from './LocalizedText';
 
 const Hero = () => {
   const { t, i18n } = useTranslation();
@@ -14,9 +14,9 @@ const Hero = () => {
     // Set time-based greeting
     const getTimeBasedGreeting = () => {
       const hour = new Date().getHours();
-      if (hour < 12) return <LocalizedText>{t('hero.morning')}</LocalizedText>;
-      if (hour < 18) return <LocalizedText>{t('hero.afternoon')}</LocalizedText>;
-      return <LocalizedText>{t('hero.evening')}</LocalizedText>;
+      if (hour < 12) return <Text>{t('hero.morning')}</Text>;
+      if (hour < 18) return <Text>{t('hero.afternoon')}</Text>;
+      return <Text>{t('hero.evening')}</Text>;
     };
 
     setGreeting(getTimeBasedGreeting());
@@ -54,14 +54,14 @@ const Hero = () => {
       <div className='relative z-10 text-center max-w-4xl px-4'>
         <h1 className='text-[2.5rem] xs:text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[4rem] font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 animate-gradient pb-3 leading-[1.1]'>
           <span className='inline-block transition-all duration-500 ease-in-out py-3'>{greeting}</span>,{' '}
-          <LocalizedText>{t("general.i'm")}</LocalizedText>{' '}
+          <Text>{t("general.i'm")}</Text>{' '}
           <span className='text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]'>
-            <LocalizedText>{t('hero.name')}</LocalizedText>
+            <Text>{t('hero.name')}</Text>
           </span>
         </h1>
 
         <h2 className='text-2xl md:text-4xl mb-8 text-gray-300 font-medium'>
-        <LocalizedText>{t('general.i\'m-a')}</LocalizedText> <span ref={typedRef} className='text-cyan-300 font-thin'></span>
+        <Text>{t('general.i\'m-a')}</Text> <span ref={typedRef} className='text-cyan-300 font-thin'></span>
         </h2>
 
         <p className='text-lg md:text-xl max-w-2xl mx-auto mb-12 text-gray-300 leading-relaxed'>
@@ -77,7 +77,7 @@ const Hero = () => {
             duration={500}
             className='relative inline-flex items-center justify-center px-8 py-3.5 bg-transparent border-2 border-cyan-400 text-cyan-400 rounded-lg shadow-lg overflow-hidden cursor-pointer transition-all duration-300 group hover:bg-cyan-400/10 hover:shadow-cyan-400/20'
           >
-            <span className='relative z-10 font-medium'><LocalizedText>{t('hero.explore-skill')}</LocalizedText></span>
+            <span className='relative z-10 font-medium'><Text>{t('hero.explore-skill')}</Text></span>
             <span className='absolute inset-0 bg-cyan-400/0 group-hover:bg-cyan-400/5 transition-all duration-500'></span>
           </Link>
 
@@ -87,7 +87,7 @@ const Hero = () => {
             duration={500}
             className='relative inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-cyan-400 to-blue-500 font-medium rounded-lg shadow-lg overflow-hidden cursor-pointer transition-all duration-300 group hover:shadow-cyan-400/30'
           >
-            <span className='relative z-10 font-medium'><LocalizedText>{t('hero.view-project')}</LocalizedText></span>
+            <span className='relative z-10 font-medium'><Text>{t('hero.view-project')}</Text></span>
             <span className='absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-all duration-500'></span>
           </Link>
         </div>

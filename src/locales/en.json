@@ -57,5 +57,9 @@
     "confirm": "Download Confirmation",
     "download": "Download",
     "cancel": "Cancel"
+  },
+  "alert": {
+    "right-click": "Right-click disabled",
+    "protect": "Content protection is active."
   }
 }

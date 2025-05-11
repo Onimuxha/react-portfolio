@@ -4,7 +4,7 @@ import ThemeToggle from './ThemeToggle';
 import MobileMenuButton from './MobileMenuButton';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
-import LocalizedText from './LocalizedText';
+import Text from './LocalizedText';
 
 const Navbar = ({ theme, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,11 +41,11 @@ const Navbar = ({ theme, toggleTheme }) => {
   }, []);
 
   const navLinks = [
-    { name: <LocalizedText>{t('navbar.home')}</LocalizedText>, to: 'home', icon: 'bx bx-home-alt-2' },
-    { name: <LocalizedText>{t('navbar.about')}</LocalizedText>, to: 'about', icon: 'bx bx-user' },
-    { name: <LocalizedText>{t('navbar.skills')}</LocalizedText>, to: 'skills', icon: 'bx bx-code-curly' },
-    { name: <LocalizedText>{t('navbar.projects')}</LocalizedText>, to: 'projects', icon: 'bx bx-briefcase' },
-    { name: <LocalizedText>{t('navbar.contact')}</LocalizedText>, to: 'contact', icon: 'bx bxl-gmail' },
+    { name: <Text>{t('navbar.home')}</Text>, to: 'home', icon: 'bx bx-home-alt-2' },
+    { name: <Text>{t('navbar.about')}</Text>, to: 'about', icon: 'bx bx-user' },
+    { name: <Text>{t('navbar.skills')}</Text>, to: 'skills', icon: 'bx bx-code-curly' },
+    { name: <Text>{t('navbar.projects')}</Text>, to: 'projects', icon: 'bx bx-briefcase' },
+    { name: <Text>{t('navbar.contact')}</Text>, to: 'contact', icon: 'bx bxl-gmail' },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -64,7 +64,7 @@ const Navbar = ({ theme, toggleTheme }) => {
             duration={500}
             className='text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent cursor-pointer'
           >
-            <i class='bx bxl-unity mr-2'></i>
+            <i className='bx bxl-unity mr-2'></i>
             Kirito
           </Link>
 

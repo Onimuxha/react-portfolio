@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import LocalizedText from './LocalizedText';
+import Text from './LocalizedText';
 
 const SkillBar = ({ skill, icon, description, percentage }) => {
   const progressRef = useRef(null);
@@ -210,15 +210,15 @@ const Skills = () => {
             {i18n.language === 'kh' ? (
               <>
                 <span className='text-transparent pb-1 pt-1 bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
-                  <LocalizedText>{t('skill.skill')}</LocalizedText>
+                  <Text>{t('skill.skill')}</Text>
                 </span>{' '}
-                <LocalizedText>{t('general.my')}</LocalizedText>
+                <Text>{t('general.my')}</Text>
               </>
             ) : (
               <>
-                <LocalizedText>{t('general.my')}</LocalizedText>{' '}
+                <Text>{t('general.my')}</Text>{' '}
                 <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
-                  <LocalizedText>{t('skill.skill')}</LocalizedText>
+                  <Text>{t('skill.skill')}</Text>
                 </span>
               </>
             )}
@@ -250,7 +250,7 @@ const Skills = () => {
           className='text-3xl font-semibold mb-12 pt-1 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 pb-1'
           data-aos='fade-up'
         >
-          <LocalizedText>{t('skill.main-technologies')}</LocalizedText>
+          <Text>{t('skill.main-technologies')}</Text>
         </h3>
 
         <div className='grid grid-cols-1 mb-20 sm:grid-cols-2 lg:grid-cols-4 gap-6'>

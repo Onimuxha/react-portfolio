@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
-import LocalizedText from './LocalizedText';
+import Text from './LocalizedText';
 
 const Projects = () => {
   const { t, i18n } = useTranslation();
@@ -135,7 +135,6 @@ const Projects = () => {
           <div className='flex-1 flex flex-col'>
             <div className='mb-4'>
               <h4 className='text-sm font-semibold text-blue-300 mb-1'>Role:</h4>
-              {/* <LocalizedText>{t('skill.title-skill')}</LocalizedText> */}
               <p className='text-gray-300'>{project.role}</p>
             </div>
 
@@ -208,15 +207,15 @@ const Projects = () => {
             {i18n.language === 'kh' ? (
               <>
                 <span className='text-transparent pb-1 pt-1 bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
-                  <LocalizedText>{t('project.project')}</LocalizedText>
+                  <Text>{t('project.project')}</Text>
                 </span>{' '}
-                <LocalizedText>{t('general.my')}</LocalizedText>
+                <Text>{t('general.my')}</Text>
               </>
             ) : (
               <>
-                <LocalizedText>{t('general.my')}</LocalizedText>{' '}
+                <Text>{t('general.my')}</Text>{' '}
                 <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
-                  <LocalizedText>{t('project.project')}</LocalizedText>
+                  <Text>{t('project.project')}</Text>
                 </span>
               </>
             )}
@@ -236,7 +235,7 @@ const Projects = () => {
               offset={-100}
               className='px-4 py-2 text-blue-400 hover:text-blue-300 border border-blue-400/30 hover:border-blue-300/50 rounded-lg transition-colors cursor-pointer'
             >
-              <LocalizedText>{t('project.company-project')}</LocalizedText>
+              <Text>{t('project.company-project')}</Text>
             </Link>
             <Link
               to='academy-projects'
@@ -245,7 +244,7 @@ const Projects = () => {
               offset={-100}
               className='px-4 py-2 text-cyan-400 hover:text-cyan-300 border border-cyan-400/30 hover:border-cyan-300/50 rounded-lg transition-colors cursor-pointer'
             >
-              <LocalizedText>{t('project.academy-project')}</LocalizedText>
+              <Text>{t('project.academy-project')}</Text>
             </Link>
           </div>
         </div>
@@ -254,7 +253,7 @@ const Projects = () => {
         <div className='mb-20' id='company-projects'>
           <div className='flex items-center mb-8' data-aos='fade-up' data-aos-duration='600'>
             <h3 className='text-2xl md:text-3xl font-semibold text-blue-400 mr-4'>
-              <LocalizedText>{t('project.company-project')}</LocalizedText>
+              <Text>{t('project.company-project')}</Text>
             </h3>
             <div className='flex-1 mt-2 h-px bg-gradient-to-r from-blue-400/30 to-blue-400/0'></div>
           </div>
@@ -272,7 +271,7 @@ const Projects = () => {
         <div id='academy-projects'>
           <div className='flex items-center mb-8' data-aos='fade-up' data-aos-duration='600'>
             <h3 className='text-2xl md:text-3xl font-semibold text-cyan-400 mr-4'>
-              <LocalizedText>{t('project.academy-project')}</LocalizedText>
+              <Text>{t('project.academy-project')}</Text>
             </h3>
             <div className='flex-1 mt-2 h-px bg-gradient-to-r from-cyan-400/30 to-cyan-400/0'></div>
           </div>

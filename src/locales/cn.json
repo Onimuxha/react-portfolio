@@ -57,5 +57,9 @@
     "confirm": "下载确认",
     "download": "下载",
     "cancel": "取消"
+  },
+    "alert": {
+    "right-click": "右键点击被禁用",
+    "protect": "保护内容"
   }
 }

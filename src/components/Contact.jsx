@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { handleTelegramSubmission } from './telegramService';
 import { useTranslation } from 'react-i18next';
-import LocalizedText from './LocalizedText';
+import Text from './LocalizedText';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', telegram: '', subject: '', message: '' });
@@ -182,15 +182,15 @@ const Contact = () => {
             {i18n.language === 'kh' ? (
               <>
                 <span className='text-transparent pb-1 pt-1 bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
-                  <LocalizedText>{t('contact.connect')}</LocalizedText>
+                  <Text>{t('contact.connect')}</Text>
                 </span>{' '}
-                <LocalizedText>{t('general.me')}</LocalizedText>
+                <Text>{t('general.me')}</Text>
               </>
             ) : (
               <>
-                <LocalizedText>{t('contact.connect')}</LocalizedText>{' '}
+                <Text>{t('contact.connect')}</Text>{' '}
                 <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
-                  <LocalizedText>{t('general.me')}</LocalizedText>
+                  <Text>{t('general.me')}</Text>
                 </span>
               </>
             )}
@@ -210,7 +210,7 @@ const Contact = () => {
                 background: 'linear-gradient(135deg, rgba(21, 94, 117, 0.15) 0%, rgba(8, 51, 68, 0.25) 100%)',
               }}
             >
-              <h3 className='text-2xl font-semibold mb-8 text-white'><LocalizedText>{t('contact.contact-info')}</LocalizedText></h3>
+              <h3 className='text-2xl font-semibold mb-8 text-white'><Text>{t('contact.contact-info')}</Text></h3>
 
               {/* Keep existing contact info content */}
               <div className='space-y-6'>
@@ -240,7 +240,7 @@ const Contact = () => {
 
               {/* Keep existing social links section */}
               <div className='mt-12'>
-                <h4 className='text-lg font-semibold mb-4 text-gray-800 dark:text-white'><LocalizedText>{t('contact.follow-me')}</LocalizedText></h4>
+                <h4 className='text-lg font-semibold mb-4 text-gray-800 dark:text-white'><Text>{t('contact.follow-me')}</Text></h4>
                 <div className='flex space-x-4'>
                   {socialLinks.map((social, i) => (
                     <a
@@ -323,7 +323,7 @@ const Contact = () => {
                       transition={{ duration: 0.4, delay: 0.6 }}
                       className='text-2xl font-semibold mb-2 text-gray-800 dark:text-white'
                     >
-                      <LocalizedText>{t('contact.send-success')}</LocalizedText>
+                      <Text>{t('contact.send-success')}</Text>
                     </motion.h3>
                     <motion.p
                       initial={{ opacity: 0, y: 10 }}
@@ -342,12 +342,12 @@ const Contact = () => {
                       onClick={() => setStatus({ ...status, isSubmitted: false })}
                       className='px-6 py-3 bg-gradient-to-r from-cyan-400 to-blue-500 text-white rounded-lg hover:from-cyan-500 hover:to-blue-600 transition-all duration-300 shadow-md'
                     >
-                      <LocalizedText>{t('contact.send-another')}</LocalizedText>
+                      <Text>{t('contact.send-another')}</Text>
                     </motion.button>
                   </motion.div>
                 ) : (
                   <div className='p-8 text-white'>
-                    <h3 className='text-2xl font-semibold mb-6 text-gray-800 dark:text-white'><LocalizedText>{t('contact.send-message')}</LocalizedText></h3>
+                    <h3 className='text-2xl font-semibold mb-6 text-gray-800 dark:text-white'><Text>{t('contact.send-message')}</Text></h3>
 
                     {status.error && (
                       <motion.div
@@ -397,10 +397,10 @@ const Contact = () => {
                                 d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
                               ></path>
                             </svg>
-                            <LocalizedText>{t('contact.sending')}</LocalizedText>
+                            <Text>{t('contact.sending')}</Text>
                           </span>
                         ) : (
-                          <p><LocalizedText>{t('contact.send')}</LocalizedText></p>
+                          <p><Text>{t('contact.send')}</Text></p>
                         )}
                       </button>
                     </form>

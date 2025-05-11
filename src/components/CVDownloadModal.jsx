@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import LocalizedText from './LocalizedText';
+import Text from './LocalizedText';
 import cvFile from '../assets/kirito.pdf';
 
 const CVDownloadModal = ({ isOpen, onClose }) => {
@@ -51,7 +51,7 @@ const CVDownloadModal = ({ isOpen, onClose }) => {
       <div className='relative bg-gradient-to-br from-gray-800 to-blue-900 text-white rounded-xl shadow-2xl w-full max-w-md mx-4 overflow-hidden border border-white/10'>
         <div className='px-6 py-4 border-b border-gray-700 flex justify-between items-center'>
           <h3 className='text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-400'>
-            <LocalizedText>{t('footer.confirm')}</LocalizedText>
+            <Text>{t('footer.confirm')}</Text>
           </h3>
           <button onClick={onClose} className='text-gray-400 hover:text-white transition-colors'>
             <i className='bx bx-x text-2xl'></i>
@@ -91,13 +91,13 @@ const CVDownloadModal = ({ isOpen, onClose }) => {
                 shadow-lg shadow-red-500/20 hover:shadow-red-500/30
                 flex items-center gap-2'
             >
-              <LocalizedText>{t('footer.cancel')}</LocalizedText>
+              <Text>{t('footer.cancel')}</Text>
             </button>
             <button
               onClick={handleDownload}
               className='px-4 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 rounded-lg transition-all duration-300 flex items-center'
             >
-              <LocalizedText>{t('footer.download')}</LocalizedText>
+              <Text>{t('footer.download')}</Text>
               <i className='bx bxs-download ml-2'></i>
             </button>
           </div>

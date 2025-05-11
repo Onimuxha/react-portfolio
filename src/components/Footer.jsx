@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
-import LocalizedText from './LocalizedText';
+import Text from './LocalizedText';
 import CVDownloadModal from './CVDownloadModal';
 
 const Footer = () => {
@@ -65,7 +65,7 @@ const Footer = () => {
                       className='text-gray-300 hover:text-blue-300 cursor-pointer inline-block py-1 transition-all duration-300 hover:translate-x-2'
                     >
                       {icon && <i className={`${icon} mr-2`}></i>}
-                      <LocalizedText>{t(nameKey)}</LocalizedText>
+                      <Text>{t(nameKey)}</Text>
                     </Link>
                   </li>
                 ))}
@@ -74,14 +74,14 @@ const Footer = () => {
 
             <div className='col-span-1'>
               <h3 className='text-xl font-semibold mb-4 text-blue-200'>
-                <LocalizedText>{t('footer.download-cv')}</LocalizedText>
+                <Text>{t('footer.download-cv')}</Text>
               </h3>
               <p className='text-gray-300 mb-4'>Do you Want to know more? Download my Curriculum Vitae.</p>
               <button
                 onClick={handleDownloadClick}
                 className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white rounded-lg transition-all duration-300 shadow-lg group'
               >
-                <LocalizedText>{t('footer.download-cv')}</LocalizedText>
+                <Text>{t('footer.download-cv')}</Text>
                 <i className='bx bxs-download ml-2 text-xl group-hover:translate-y-1 transition-transform duration-300'></i>
               </button>
             </div>
@@ -90,7 +90,8 @@ const Footer = () => {
 
         <div className='pt-8 mt-8 border-t border-white/10 text-center'>
           <p className='text-sm text-gray-400'>
-            &copy; {currentYear} Kirito. <LocalizedText>{t('footer.copyright')}</LocalizedText>
+            <Text>footer.cancel</Text>
+            &copy; {currentYear} Kirito. <Text>{t('footer.copyright')}</Text>
           </p>
         </div>
       </div>

@@ -11,6 +11,7 @@ import ScrollToTopButton from './components/ScrollToTopButton';
 import Alert from './components/Alert';
 import ParticleBackground from './components/ParticleBackground';
 import AOS from 'aos';
+import Text from './components/LocalizedText';
 import 'aos/dist/aos.css';
 import 'boxicons/css/boxicons.min.css';
 
@@ -35,8 +36,8 @@ const App = () => {
       setAlertMessage(null);
       setTimeout(() => {
         setAlertMessage({
-          text: 'Right-click disabled',
-          subtitle: 'Content protection is active.',
+          text: <Text>alert.right-click</Text>,
+          subtitle: <Text>alert.protect</Text>,
         });
       }, 10);
     };

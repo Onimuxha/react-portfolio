@@ -1,13 +1,11 @@
 import { useTranslation } from 'react-i18next';
 
-const LocalizedText = ({ children }) => {
-  const { i18n } = useTranslation();
+const Text = ({ children }) => {
+  const { t, i18n } = useTranslation();
 
-  return (
-    <span className={i18n.language === 'kh' ? 'font-khmer' : ''}>
-      {children}
-    </span>
-  );
+  const content = typeof children === 'string' ? t(children) : children;
+
+  return <span className={i18n.language === 'kh' ? 'font-khmer' : ''}>{content}</span>;
 };
 
-export default LocalizedText;
+export default Text;
