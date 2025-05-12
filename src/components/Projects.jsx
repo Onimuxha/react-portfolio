@@ -159,7 +159,7 @@ const Projects = () => {
                 {project.languages.map((lang, i) => (
                   <span
                     key={i}
-                    className='text-xs bg-gray-100 dark:bg-gray-700/50 text-cyan-600 dark:text-cyan-300 px-2 py-1 rounded'
+                    className='text-xs bg-gray-200 dark:bg-gray-700/50 text-cyan-600 dark:text-cyan-300 px-2 py-1 rounded'
                   >
                     {lang}
                   </span>
@@ -173,7 +173,7 @@ const Projects = () => {
                   href={project.github}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='inline-flex items-center text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors text-sm border border-cyan-400/30 hover:border-cyan-300/50 px-3 py-1.5 rounded-lg'
+                  className='inline-flex items-center text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors text-sm border border-cyan-400/90 hover:border-cyan-300/50 px-3 py-1.5 rounded-lg'
                 >
                   <GithubIcon />
                   Code
@@ -184,7 +184,7 @@ const Projects = () => {
                   href={project.deploy}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='inline-flex items-center text-green-600 dark:text-green-400 hover:text-green-500 dark:hover:text-green-300 transition-colors text-sm border border-green-400/30 hover:border-green-300/50 px-3 py-1.5 rounded-lg'
+                  className='inline-flex items-center text-green-600 dark:text-green-400 hover:text-green-500 dark:hover:text-green-300 transition-colors text-sm border border-green-400/90 hover:border-green-300/50 px-3 py-1.5 rounded-lg'
                 >
                   <ExternalLinkIcon />
                   Demo
