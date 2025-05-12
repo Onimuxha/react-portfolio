@@ -367,7 +367,7 @@ const Contact = () => {
                       </motion.div>
                     )}
 
-                    <form onSubmit={handleSubmit} noValidate>
+                    <form onSubmit={handleSubmit} className='py-12' noValidate>
                       <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                         {renderField('name')}
                         {renderField('telegram')}
