@@ -12,10 +12,8 @@ const ScrollToTopButton = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-
       // Check if at top
       setIsAtTop(scrollY < 100);
-
       // Calculate progress percentage
       const progress = (scrollY / (documentHeight - windowHeight)) * 100;
       setScrollProgress(progress);
@@ -30,7 +28,6 @@ const ScrollToTopButton = () => {
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
-
       // Schedule update on next animation frame for smooth performance
       animationFrameRef.current = requestAnimationFrame(updateScrollProgress);
     };
@@ -57,14 +54,15 @@ const ScrollToTopButton = () => {
     >
       {/* Progress circle background */}
       <svg className='absolute w-full h-full' viewBox='0 0 36 36'>
-        {/* Full circle (gray background) */}
+        {/* Full circle (background) */}
         <path
           d='M18 2.0845
             a 15.9155 15.9155 0 0 1 0 31.831
             a 15.9155 15.9155 0 0 1 0 -31.831'
           fill='none'
-          stroke='rgba(55, 65, 81, 0.5)'
+          stroke='rgba(209, 213, 219, 0.5) dark:rgba(55, 65, 81, 0.5)'
           strokeWidth='2'
+          className='text-gray-300 dark:text-gray-600'
         />
         {/* Progress circle (gradient) */}
         <path
@@ -84,9 +82,8 @@ const ScrollToTopButton = () => {
           </linearGradient>
         </defs>
       </svg>
-
       {/* Button center with hover effect */}
-      <div className='absolute inset-0 m-1 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-gradient-to-br from-cyan-400/10 to-blue-500/10 transition-all duration-300'>
+      <div className='absolute inset-0 m-1 bg-white dark:bg-gray-800 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 dark:text-gray-200 group-hover:bg-gradient-to-br from-cyan-400/10 to-blue-500/10 transition-all duration-300 shadow-md'>
         <i className='bx bxs-to-top'></i>
       </div>
     </Link>

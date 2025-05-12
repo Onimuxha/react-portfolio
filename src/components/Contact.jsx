@@ -132,7 +132,7 @@ const Contact = () => {
           onChange={handleChange}
           onBlur={handleBlur}
           rows='5'
-          className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none dark:text-white focus:outline-none focus:ring-0 peer ${
+          className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-gray-800 dark:text-white focus:outline-none focus:ring-0 peer ${
             touched[name] && errors[name]
               ? 'border-red-500 focus:border-red-500'
               : 'border-gray-300 dark:border-gray-600 focus:border-cyan-400 dark:focus:border-cyan-400'
@@ -147,7 +147,7 @@ const Contact = () => {
           value={formData[name]}
           onChange={handleChange}
           onBlur={handleBlur}
-          className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none dark:text-white focus:outline-none focus:ring-0 peer ${
+          className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-gray-800 dark:text-white focus:outline-none focus:ring-0 peer ${
             touched[name] && errors[name]
               ? 'border-red-500 focus:border-red-500'
               : 'border-gray-300 dark:border-gray-600 focus:border-cyan-400 dark:focus:border-cyan-400'
@@ -176,7 +176,7 @@ const Contact = () => {
   return (
     <section
       id='contact'
-      className='py-20 bg-gradient-to-b from-gray-50 via-gray-100 to-gray-200 dark:from-gray-800 dark:via-gray-900 dark:to-gray-900'
+      className='py-20 bg-gradient-to-b from-gray-200 via-gray-100 to-gray-200 dark:from-gray-800 dark:via-gray-900 dark:to-gray-900'
     >
       <div className='container mx-auto px-4 max-w-6xl'>
         <div className='text-center mb-16' data-aos='fade-up'>
@@ -206,13 +206,15 @@ const Contact = () => {
           {/* Contact Info */}
           <div className='lg:w-2/5' data-aos='fade-up'>
             <div
-              className='backdrop-blur-xl bg-gray-900/70  rounded-xl p-8 h-full relative group 
-              transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/20'
+              className='backdrop-blur-xl bg-white/80 dark:bg-gray-900/70 rounded-xl p-8 h-full relative group 
+              transition-all duration-300 shadow-sm hover:shadow-lg dark:hover:shadow-cyan-400/20 hover:shadow-blue-400/20'
               style={{
-                background: 'linear-gradient(135deg, rgba(21, 94, 117, 0.15) 0%, rgba(8, 51, 68, 0.25) 100%)',
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 249, 255, 0.9) 100%)',
+                backgroundImage:
+                  'var(--contact-gradient, linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 249, 255, 0.9) 100%))',
               }}
             >
-              <h3 className='text-2xl font-semibold mb-8 text-white'>
+              <h3 className='text-2xl font-semibold mb-8 text-gray-800 dark:text-white'>
                 <Text>contact.contact-info</Text>
               </h3>
 
@@ -221,7 +223,7 @@ const Contact = () => {
                 {contactInfo.map((item, i) => (
                   <div key={i} className='flex items-start'>
                     <div
-                      className={`flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-400/10 to-blue-500/10 ${item.color} flex items-center justify-center shadow-sm`}
+                      className={`flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-400/20 to-blue-500/10 ${item.color} flex items-center justify-center shadow-sm`}
                     >
                       <i className={`${item.icon} text-xl`}></i>
                     </div>
@@ -265,17 +267,19 @@ const Contact = () => {
               </div>
 
               {/* Add animated border */}
-              <div className='absolute inset-0 rounded-xl border border-cyan-400/20 group-hover:border-cyan-400/50 animate-pulse pointer-events-none'></div>
+              <div className='absolute inset-0 rounded-xl border border-blue-400/30 dark:border-cyan-400/20 group-hover:border-blue-400 dark:group-hover:border-cyan-400/50 animate-pulse pointer-events-none'></div>
             </div>
           </div>
 
           {/* Contact Form */}
           <div className='lg:w-3/5' data-aos='fade-up'>
             <div
-              className='backdrop-blur-xl bg-gray-900/70 rounded-xl overflow-hidden relative group 
-              transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/20'
+              className='backdrop-blur-xl bg-white/80 dark:bg-gray-900/70 rounded-xl overflow-hidden relative group 
+              transition-all duration-300 shadow-sm hover:shadow-lg dark:hover:shadow-cyan-400/20 hover:shadow-blue-400/20'
               style={{
-                background: 'linear-gradient(135deg, rgba(21, 94, 117, 0.15) 0%, rgba(8, 51, 68, 0.25) 100%)',
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 249, 255, 0.9) 100%)',
+                backgroundImage:
+                  'var(--contact-gradient, linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 249, 255, 0.9) 100%))',
               }}
             >
               {/* Keep existing form content */}
@@ -352,7 +356,7 @@ const Contact = () => {
                     </motion.button>
                   </motion.div>
                 ) : (
-                  <div className='p-8 text-white'>
+                  <div className='p-8 text-gray-800 dark:text-white'>
                     <h3 className='text-2xl font-semibold mb-6 text-gray-800 dark:text-white'>
                       <Text>contact.send-message</Text>
                     </h3>
@@ -418,11 +422,22 @@ const Contact = () => {
                 )}
               </AnimatePresence>
               {/* Add animated border */}
-              <div className='absolute inset-0 rounded-xl border border-cyan-400/20 group-hover:border-cyan-400/50 animate-pulse pointer-events-none'></div>
+              <div className='absolute inset-0 rounded-xl border border-blue-400/30 dark:border-cyan-400/20 group-hover:border-blue-400 dark:group-hover:border-cyan-400/50 animate-pulse pointer-events-none'></div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Add CSS variables for theme switching */}
+      <style>{`
+        :root {
+          --contact-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 249, 255, 0.9) 100%);
+        }
+
+        .dark {
+          --contact-gradient: linear-gradient(135deg, rgba(21, 94, 117, 0.15) 0%, rgba(8, 51, 68, 0.25) 100%);
+        }
+      `}</style>
     </section>
   );
 };

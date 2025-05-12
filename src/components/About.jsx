@@ -56,7 +56,7 @@ const About = () => {
   ];
 
   return (
-    <section id='about' className='py-16 bg-gray-50 dark:bg-gray-900 min-h-screen'>
+    <section id='about' className='py-16 bg-gray-100 dark:bg-gray-900 min-h-screen'>
       <div className='container mx-auto px-4'>
         <h3 className='text-4xl font-semibold mb-12 text-gray-800 dark:text-white text-center' data-aos='fade-up'>
           <Text>about.about</Text>{' '}

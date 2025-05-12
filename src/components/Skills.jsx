@@ -47,7 +47,7 @@ const SkillBar = ({ skill, icon, description, percentage }) => {
 
   return (
     <div
-      className='mb-8 group p-6 rounded-xl border border-gray-700/50 bg-gray-800/30 backdrop-blur-sm hover:border-cyan-400/30 transition-all duration-300'
+      className='mb-8 group p-6 rounded-xl border border-gray-300 dark:border-gray-700/50 bg-white/80 dark:bg-gray-800/30 backdrop-blur-sm hover:border-cyan-400/30 transition-all duration-300'
       data-aos='fade-up'
     >
       <div className='flex items-center gap-4 mb-4'>
@@ -56,15 +56,17 @@ const SkillBar = ({ skill, icon, description, percentage }) => {
         </div>
         <div className='flex-grow'>
           <div className='flex justify-between items-center mb-1'>
-            <h3 className='font-semibold text-gray-200 group-hover:text-cyan-400 transition-colors'>{skill}</h3>
-            <span ref={percentageRef} className='font-medium text-cyan-400 dark:text-cyan-300'>
+            <h3 className='font-semibold text-gray-700 dark:text-gray-200 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors'>
+              {skill}
+            </h3>
+            <span ref={percentageRef} className='font-medium text-cyan-600 dark:text-cyan-300'>
               0%
             </span>
           </div>
-          <p className='text-sm text-gray-400 mb-3'>{description}</p>
+          <p className='text-sm text-gray-600 dark:text-gray-400 mb-3'>{description}</p>
         </div>
       </div>
-      <div className='w-full bg-gray-800/50 dark:bg-gray-700/30 rounded-full h-2.5 overflow-hidden backdrop-blur-sm'>
+      <div className='w-full bg-gray-200 dark:bg-gray-700/30 rounded-full h-2.5 overflow-hidden backdrop-blur-sm'>
         <div
           ref={progressRef}
           className='h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full transition-all duration-1000 ease-out shadow-[0_0_8px_rgba(34,211,238,0.4)]'
@@ -78,17 +80,17 @@ const SkillBar = ({ skill, icon, description, percentage }) => {
 const SkillCard = ({ icon, title, description }) => {
   return (
     <div
-      className='h-full p-6 rounded-xl border border-gray-700/50 bg-gray-800/30 dark:bg-gray-800/20 backdrop-blur-sm cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-400/10 hover:border-cyan-400/30 group'
+      className='h-full p-6 rounded-xl border border-gray-300 dark:border-gray-700/50 bg-white/80 dark:bg-gray-800/30 backdrop-blur-sm cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-400/10 hover:border-cyan-400/30 group'
       data-aos='zoom-in'
     >
       <div className='flex flex-col h-full'>
         <div className='mb-5 text-4xl flex justify-center group-hover:scale-110 transition-transform'>
           <i className={`${icon} text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-blue-500`}></i>
         </div>
-        <h3 className='text-xl font-semibold mb-3 text-center text-white group-hover:text-cyan-400 transition-colors'>
+        <h3 className='text-xl font-semibold mb-3 text-center text-gray-700 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors'>
           {title}
         </h3>
-        <p className='text-gray-400 text-center text-sm leading-relaxed flex-grow'>{description}</p>
+        <p className='text-gray-600 dark:text-gray-400 text-center text-sm leading-relaxed flex-grow'>{description}</p>
       </div>
     </div>
   );
@@ -194,7 +196,6 @@ const Skills = () => {
       title: 'Bootstrap',
       description: 'Responsive front-end framework for designing websites and interfaces',
     },
-
     {
       icon: 'bx bxl-tailwind-css',
       title: 'Tailwind CSS (Basic)',
@@ -203,7 +204,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id='skills' className='py-20 bg-gray-900/50 dark:bg-gray-900/80'>
+    <section id='skills' className='py-20 bg-gray-100 dark:bg-gray-900/50'>
       <div className='container mx-auto px-4 max-w-6xl'>
         <div className='text-center mb-16'>
           <h3 className='text-4xl font-semibold mb-12 text-gray-800 dark:text-white text-center' data-aos='fade-right'>
@@ -225,7 +226,7 @@ const Skills = () => {
           </h3>
 
           <p
-            className='text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed'
+            className='text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed'
             data-aos='fade-up'
             data-aos-delay='100'
           >
