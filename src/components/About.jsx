@@ -59,9 +59,9 @@ const About = () => {
     <section id='about' className='py-16 bg-gray-50 dark:bg-gray-900 min-h-screen'>
       <div className='container mx-auto px-4'>
         <h3 className='text-4xl font-semibold mb-12 text-gray-800 dark:text-white text-center' data-aos='fade-up'>
-          <Text>{t('about.about')}</Text>{' '}
+          <Text>about.about</Text>{' '}
           <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 pb-4'>
-            <Text>{t('general.me')}</Text>
+            <Text>general.me</Text>
           </span>
         </h3>
 
@@ -78,7 +78,7 @@ const About = () => {
           {/* About content */}
           <div className='md:w-2/3'>
             <h3 className='text-2xl font-semibold mb-4 text-gray-800 dark:text-white'>
-              <Text>{t("about.who-i'm")}</Text>
+              <Text>about.who-i'm</Text>
             </h3>
             <p className='text-gray-600 dark:text-gray-300 mb-4 leading-relaxed'>
               I'm a <span className='text-cyan-500 dark:text-cyan-400 font-medium'>Full Stack Developer</span> with
@@ -95,8 +95,8 @@ const About = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-8'>
               <div className='bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg border border-gray-200 dark:border-gray-700'>
                 <p className='mb-2'>
-                  <span className='font-semibold text-gray-800 dark:text-white'><Text>{t('general.name')}</Text>:</span>
-                  <span className='text-gray-600 dark:text-gray-300 ml-2'><Text>{t('hero.name')}</Text></span>
+                  <span className='font-semibold text-gray-800 dark:text-white'><Text>general.name</Text>:</span>
+                  <span className='text-gray-600 dark:text-gray-300 ml-2'><Text>hero.name</Text></span>
                 </p>
                 <p className='mb-2'>
                   <span className='font-semibold text-gray-800 dark:text-white'>Email:</span>
@@ -121,7 +121,7 @@ const About = () => {
               duration={500}
               className='inline-block align-middle cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-cyan-400/30 group'
             >
-              <Text>{t('about.contact-me')}</Text>
+              <Text>about.contact-me</Text>
               <i className='fas fa-envelope ml-0 w-0 opacity-0 group-hover:ml-2 group-hover:w-4 group-hover:opacity-100 transition-all duration-300 ease-out'></i>
             </Link>
           </div>
@@ -131,7 +131,7 @@ const About = () => {
           className='text-3xl mt-20 font-semibold mb-12 py-3 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'
           data-aos='fade-up'
         >
-          <Text>{t('skill.my-educational')}</Text>
+          <Text>skill.my-educational</Text>
         </h3>
 
         {/* Mobile timeline */}

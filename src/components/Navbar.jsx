@@ -41,11 +41,11 @@ const Navbar = ({ theme, toggleTheme }) => {
   }, []);
 
   const navLinks = [
-    { name: <Text>{t('navbar.home')}</Text>, to: 'home', icon: 'bx bx-home-alt-2' },
-    { name: <Text>{t('navbar.about')}</Text>, to: 'about', icon: 'bx bx-user' },
-    { name: <Text>{t('navbar.skills')}</Text>, to: 'skills', icon: 'bx bx-code-curly' },
-    { name: <Text>{t('navbar.projects')}</Text>, to: 'projects', icon: 'bx bx-briefcase' },
-    { name: <Text>{t('navbar.contact')}</Text>, to: 'contact', icon: 'bx bxl-gmail' },
+    { name: <Text>navbar.home</Text>, to: 'home', icon: 'bx bx-home-alt-2' },
+    { name: <Text>navbar.about</Text>, to: 'about', icon: 'bx bx-user' },
+    { name: <Text>navbar.skills</Text>, to: 'skills', icon: 'bx bx-code-curly' },
+    { name: <Text>navbar.projects</Text>, to: 'projects', icon: 'bx bx-briefcase' },
+    { name: <Text>navbar.contact</Text>, to: 'contact', icon: 'bx bxl-gmail' },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);

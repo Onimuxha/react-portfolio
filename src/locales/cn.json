@@ -39,6 +39,10 @@
     "my-education": "我的教育"
   },
   "contact": {
+    "name": "你的名字",
+    "telegram": "Telegram 用户名",
+    "subject": "主题",
+    "message": "你的消息",
     "connect": "联系我",
     "email": "电子邮件",
     "phone": "电话",
@@ -49,16 +53,21 @@
     "send-success": "消息发送成功",
     "send-another": "发送另一条消息",
     "contact-info": "联系信息",
-    "follow-me": "关注我"
+    "follow-me": "关注我",
+    "name-required": "姓名是必填项",
+    "telegram-required": "Telegram 用户名是必填项",
+    "subject-required": "主题是必填项",
+    "message-required": "消息是必填项"
   },
   "footer": {
+    "quick-link": "快速链接",
     "copyright": "版权所有",
     "download-cv": "下载简历",
     "confirm": "下载确认",
     "download": "下载",
     "cancel": "取消"
   },
-    "alert": {
+  "alert": {
     "right-click": "右键点击被禁用",
     "protect": "保护内容"
   }

@@ -39,6 +39,10 @@
     "my-education": "My Education"
   },
   "contact": {
+    "name": "Your Name",
+    "telegram": "Telegram Username",
+    "subject": "Subject",
+    "message": "Your Message",
     "connect": "Connect with",
     "email": "Email",
     "phone": "Phone",
@@ -49,9 +53,14 @@
     "send-success": "Message sent successfully",
     "send-another": "Send Another Message",
     "contact-info": "Contact Information",
-    "follow-me": "Follow Me"
+    "follow-me": "Follow Me",
+    "name-required": "Name is required",
+    "telegram-required": "Telegram username is required",
+    "subject-required": "Subject is required",
+    "message-required": "Message is required"
   },
   "footer": {
+    "quick-link": "Quick Links",
     "copyright": "All rights reserved",
     "download-cv": "Download CV",
     "confirm": "Download Confirmation",

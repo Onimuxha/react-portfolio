@@ -11,17 +11,19 @@ const Contact = () => {
   const [touched, setTouched] = useState({});
   const { t, i18n } = useTranslation();
 
+  const fields = {
+    name: 'contact.name-required',
+    telegram: 'contact.telegram-required',
+    subject: 'contact.subject-required',
+    message: 'contact.message-required',
+  };
+
   const validate = () => {
     const newErrors = {};
-    const fields = {
-      name: 'Name is required',
-      telegram: 'Telegram username is required',
-      subject: 'Subject is required',
-      message: 'Message is required',
-    };
-
-    Object.entries(fields).forEach(([key, errorMsg]) => {
-      if (!formData[key].trim()) newErrors[key] = errorMsg;
+    Object.entries(fields).forEach(([key, translationKey]) => {
+      if (!formData[key].trim()) {
+        newErrors[key] = <Text>{translationKey}</Text>;
+      }
     });
 
     setErrors(newErrors);
@@ -161,7 +163,7 @@ const Contact = () => {
             : 'text-gray-500 dark:text-gray-400 peer-focus:text-cyan-400 peer-focus:dark:text-cyan-400'
         }`}
       >
-        {label}
+        <Text>{`contact.${name}`}</Text>
       </label>
       {touched[name] && errors[name] && (
         <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className='mt-1 text-xs text-red-500'>
@@ -182,15 +184,15 @@ const Contact = () => {
             {i18n.language === 'kh' ? (
               <>
                 <span className='text-transparent pb-1 pt-1 bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
-                  <Text>{t('contact.connect')}</Text>
+                  <Text>contact.connect</Text>
                 </span>{' '}
-                <Text>{t('general.me')}</Text>
+                <Text>general.me</Text>
               </>
             ) : (
               <>
-                <Text>{t('contact.connect')}</Text>{' '}
+                <Text>contact.connect</Text>{' '}
                 <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
-                  <Text>{t('general.me')}</Text>
+                  <Text>general.me</Text>
                 </span>
               </>
             )}
@@ -210,7 +212,9 @@ const Contact = () => {
                 background: 'linear-gradient(135deg, rgba(21, 94, 117, 0.15) 0%, rgba(8, 51, 68, 0.25) 100%)',
               }}
             >
-              <h3 className='text-2xl font-semibold mb-8 text-white'><Text>{t('contact.contact-info')}</Text></h3>
+              <h3 className='text-2xl font-semibold mb-8 text-white'>
+                <Text>contact.contact-info</Text>
+              </h3>
 
               {/* Keep existing contact info content */}
               <div className='space-y-6'>
@@ -240,7 +244,9 @@ const Contact = () => {
 
               {/* Keep existing social links section */}
               <div className='mt-12'>
-                <h4 className='text-lg font-semibold mb-4 text-gray-800 dark:text-white'><Text>{t('contact.follow-me')}</Text></h4>
+                <h4 className='text-lg font-semibold mb-4 text-gray-800 dark:text-white'>
+                  <Text>contact.follow-me</Text>
+                </h4>
                 <div className='flex space-x-4'>
                   {socialLinks.map((social, i) => (
                     <a
@@ -323,7 +329,7 @@ const Contact = () => {
                       transition={{ duration: 0.4, delay: 0.6 }}
                       className='text-2xl font-semibold mb-2 text-gray-800 dark:text-white'
                     >
-                      <Text>{t('contact.send-success')}</Text>
+                      <Text>contact.send-success</Text>
                     </motion.h3>
                     <motion.p
                       initial={{ opacity: 0, y: 10 }}
@@ -342,12 +348,14 @@ const Contact = () => {
                       onClick={() => setStatus({ ...status, isSubmitted: false })}
                       className='px-6 py-3 bg-gradient-to-r from-cyan-400 to-blue-500 text-white rounded-lg hover:from-cyan-500 hover:to-blue-600 transition-all duration-300 shadow-md'
                     >
-                      <Text>{t('contact.send-another')}</Text>
+                      <Text>contact.send-another</Text>
                     </motion.button>
                   </motion.div>
                 ) : (
                   <div className='p-8 text-white'>
-                    <h3 className='text-2xl font-semibold mb-6 text-gray-800 dark:text-white'><Text>{t('contact.send-message')}</Text></h3>
+                    <h3 className='text-2xl font-semibold mb-6 text-gray-800 dark:text-white'>
+                      <Text>contact.send-message</Text>
+                    </h3>
 
                     {status.error && (
                       <motion.div
@@ -361,12 +369,12 @@ const Contact = () => {
 
                     <form onSubmit={handleSubmit} noValidate>
                       <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-                        {renderField('name', 'Your Name')}
-                        {renderField('telegram', 'Your Telegram Username')}
+                        {renderField('name')}
+                        {renderField('telegram')}
                       </div>
 
-                      {renderField('subject', 'Subject')}
-                      {renderField('message', 'Your Message', true)}
+                      {renderField('subject')}
+                      {renderField('message', true)}
 
                       <button
                         type='submit'
@@ -397,10 +405,12 @@ const Contact = () => {
                                 d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
                               ></path>
                             </svg>
-                            <Text>{t('contact.sending')}</Text>
+                            <Text>contact.sending</Text>
                           </span>
                         ) : (
-                          <p><Text>{t('contact.send')}</Text></p>
+                          <p>
+                            <Text>contact.send</Text>
+                          </p>
                         )}
                       </button>
                     </form>

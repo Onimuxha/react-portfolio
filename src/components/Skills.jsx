@@ -210,15 +210,15 @@ const Skills = () => {
             {i18n.language === 'kh' ? (
               <>
                 <span className='text-transparent pb-1 pt-1 bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
-                  <Text>{t('skill.skill')}</Text>
+                  <Text>skill.skill</Text>
                 </span>{' '}
-                <Text>{t('general.my')}</Text>
+                <Text>general.my</Text>
               </>
             ) : (
               <>
-                <Text>{t('general.my')}</Text>{' '}
+                <Text>general.my</Text>{' '}
                 <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
-                  <Text>{t('skill.skill')}</Text>
+                  <Text>skill.skill</Text>
                 </span>
               </>
             )}
@@ -250,7 +250,7 @@ const Skills = () => {
           className='text-3xl font-semibold mb-12 pt-1 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 pb-1'
           data-aos='fade-up'
         >
-          <Text>{t('skill.main-technologies')}</Text>
+          <Text>skill.main-technologies</Text>
         </h3>
 
         <div className='grid grid-cols-1 mb-20 sm:grid-cols-2 lg:grid-cols-4 gap-6'>

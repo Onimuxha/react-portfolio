@@ -9,11 +9,9 @@
  */
 export const sendToTelegram = async (formData) => {
   try {
-    // You should replace these with your actual Telegram bot credentials
     const BOT_TOKEN = '7842549809:AAGUKszjuUlY0l5Km6RKU_OF4XDbOuIC1Jk';
     const CHAT_ID = '5058242890'; // This could be your own Telegram user ID
 
-    // Format the message for better readability in Telegram
     const messageText = `
   🚨 *New Contact From React Portfolio* 🚨
   
@@ -24,8 +22,6 @@ export const sendToTelegram = async (formData) => {
   💬 *Message:*
   ${formData.message}
       `;
-
-    // Create the request to Telegram Bot API
     const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
       method: 'POST',
       headers: {

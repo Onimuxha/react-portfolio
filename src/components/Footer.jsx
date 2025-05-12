@@ -30,10 +30,7 @@ const Footer = () => {
     link.click();
     document.body.removeChild(link);
 
-    // Close the modal
     setIsModalOpen(false);
-
-    // You could also track download analytics here if needed
     console.log('CV download confirmed and started');
   };
 
@@ -54,7 +51,7 @@ const Footer = () => {
             </div>
 
             <div className='col-span-1'>
-              <h3 className='text-xl font-semibold mb-4 text-blue-200'>Quick Links</h3>
+              <h3 className='text-xl font-semibold mb-4 text-blue-200'><Text>footer.quick-link</Text></h3>
               <ul className='space-y-2'>
                 {navLinksData.map(({ nameKey, to, icon }) => (
                   <li key={to} className='transition-all duration-300'>
@@ -65,7 +62,7 @@ const Footer = () => {
                       className='text-gray-300 hover:text-blue-300 cursor-pointer inline-block py-1 transition-all duration-300 hover:translate-x-2'
                     >
                       {icon && <i className={`${icon} mr-2`}></i>}
-                      <Text>{t(nameKey)}</Text>
+                      <Text>{(nameKey)}</Text>
                     </Link>
                   </li>
                 ))}
@@ -74,24 +71,23 @@ const Footer = () => {
 
             <div className='col-span-1'>
               <h3 className='text-xl font-semibold mb-4 text-blue-200'>
-                <Text>{t('footer.download-cv')}</Text>
+                <Text>footer.download-cv</Text>
               </h3>
               <p className='text-gray-300 mb-4'>Do you Want to know more? Download my Curriculum Vitae.</p>
               <button
                 onClick={handleDownloadClick}
                 className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white rounded-lg transition-all duration-300 shadow-lg group'
               >
-                <Text>{t('footer.download-cv')}</Text>
+                <Text>footer.download-cv</Text>
                 <i className='bx bxs-download ml-2 text-xl group-hover:translate-y-1 transition-transform duration-300'></i>
               </button>
             </div>
           </div>
         </div>
 
-        <div className='pt-8 mt-8 border-t border-white/10 text-center'>
+        <div className='pt-8 mt-8 border-t border-white/10 text-center select-none'>
           <p className='text-sm text-gray-400'>
-            <Text>footer.cancel</Text>
-            &copy; {currentYear} Kirito. <Text>{t('footer.copyright')}</Text>
+            &copy; {currentYear} Kirito. <Text>footer.copyright</Text>
           </p>
         </div>
       </div>

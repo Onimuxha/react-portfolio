@@ -24,7 +24,7 @@
   "about": {
     "about": "អំពី",
     "who-i'm": "តើខ្ញុំជាអ្នកណា?",
-    "contact-me": "ទាក់ទងមកខ្ញុំ"
+    "contact-me": "ទំនាក់ទំនងខ្ញុំ"
   },
   "skill": {
     "skill": "ជំនាញ",
@@ -39,6 +39,10 @@
     "my-education": "ការអប់រំរបស់ខ្ញុំ"
   },
   "contact": {
+    "name": "ឈ្មោះរបស់អ្នក",
+    "telegram": "ឈ្មោះអ្នកប្រើ Telegram",
+    "subject": "ប្រធានបទ",
+    "message": "សាររបស់អ្នក",
     "connect": "ទាក់ទងមក",
     "email": "អ៊ីមែល",
     "phone": "ទូរស័ព្ទ",
@@ -49,9 +53,14 @@
     "send-success": "ផ្ញើសារដោយជោគជ័យ",
     "send-another": "ផ្ញើសារផ្សេងទៀត",
     "contact-info": "ព័ត៌មានទំនាក់ទំនង",
-    "follow-me": "តាមដានខ្ញុំ"
+    "follow-me": "តាមដានខ្ញុំ",
+    "name-required": "តម្រូវឲ្យបញ្ចូលឈ្មោះ",
+    "telegram-required": "តម្រូវឲ្យបញ្ចូលឈ្មោះអ្នកប្រើ Telegram",
+    "subject-required": "តម្រូវឲ្យបញ្ចូលប្រធានបទ",
+    "message-required": "តម្រូវឲ្យបញ្ចូលសារ"
   },
   "footer": {
+    "quick-link": "តំណភ្ជាប់រហ័ស",
     "copyright": "រក្សាសិទ្ធិគ្រប់យ៉ាង",
     "download-cv": "ទាញយកប្រវត្តិរូប",
     "confirm": "បញ្ជាក់ការទាញយក",
