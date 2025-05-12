@@ -7,34 +7,26 @@ const ScrollToTopButton = () => {
   const animationFrameRef = useRef(null);
 
   useEffect(() => {
-    // Function to calculate scroll progress
     const updateScrollProgress = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-      // Check if at top
       setIsAtTop(scrollY < 100);
-      // Calculate progress percentage
       const progress = (scrollY / (documentHeight - windowHeight)) * 100;
       setScrollProgress(progress);
     };
 
-    // Calculate scroll progress immediately on mount
     updateScrollProgress();
 
-    // Handle scroll event with throttling for performance
     const handleScroll = () => {
-      // Cancel any pending animation frame
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
-      // Schedule update on next animation frame for smooth performance
       animationFrameRef.current = requestAnimationFrame(updateScrollProgress);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Clean up
     return () => {
       window.removeEventListener('scroll', handleScroll);
       if (animationFrameRef.current) {

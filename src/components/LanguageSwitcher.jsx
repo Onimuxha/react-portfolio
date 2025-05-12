@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
-// Custom hook for detecting clicks outside an element
 const useClickOutside = (ref, callback) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -21,7 +20,6 @@ const LanguageSwitcher = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Apply font class based on current language
   const getFontClass = () => {
     return i18n.language === 'kh' ? 'font-khmer' : '';
   };

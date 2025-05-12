@@ -127,7 +127,7 @@ const Projects = () => {
           {/* Header */}
           <div className='flex justify-between items-start mb-4'>
             <h3 className='text-xl font-semibold text-cyan-600 dark:text-cyan-300'>{project.name}</h3>
-            <span className='select-none text-sm text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-700/50 px-2 py-1 rounded'>
+            <span className='select-none text-sm text-gray-600 dark:text-gray-400 bg-gray-200 dark:bg-gray-700/50 px-2 py-1 rounded'>
               {project.period}
             </span>
           </div>

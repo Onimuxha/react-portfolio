@@ -429,7 +429,7 @@ const Contact = () => {
       </div>
 
       {/* Add CSS variables for theme switching */}
-      <style>{`
+      <style jsx global>{`
         :root {
           --contact-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 249, 255, 0.9) 100%);
         }

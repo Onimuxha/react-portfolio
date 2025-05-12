@@ -13,7 +13,6 @@ const SkillBar = ({ skill, icon, description, percentage }) => {
           if (entry.isIntersecting) {
             setTimeout(() => {
               progressRef.current.style.width = `${percentage}%`;
-              // Animate percentage count
               let start = 0;
               const end = percentage;
               const duration = 1500;

@@ -12,7 +12,7 @@ const Footer = () => {
   const navLinksData = [
     { nameKey: 'navbar.home', to: 'home', icon: 'bx bx-home-alt-2' },
     { nameKey: 'navbar.about', to: 'about', icon: 'bx bx-user' },
-    { nameKey: 'navbar.skills', to: 'skills', icon: 'bx bx-code-curly' },
+    { nameKey: 'navbar.skills', to: 'skills', icon: 'bx bx-code-alt' },
     { nameKey: 'navbar.contact', to: 'contact', icon: 'bx bxl-gmail' },
   ];
 
@@ -22,7 +22,6 @@ const Footer = () => {
   };
 
   const handleConfirmDownload = () => {
-    // Create a temporary anchor element to trigger the download
     const link = document.createElement('a');
     link.href = '/assets/kirito.pdf';
     link.download = 'kiritoss.pdf';
@@ -51,7 +50,9 @@ const Footer = () => {
             </div>
 
             <div className='col-span-1'>
-              <h3 className='text-xl font-semibold mb-4 text-blue-200'><Text>footer.quick-link</Text></h3>
+              <h3 className='text-xl font-semibold mb-4 text-blue-200'>
+                <Text>footer.quick-link</Text>
+              </h3>
               <ul className='space-y-2'>
                 {navLinksData.map(({ nameKey, to, icon }) => (
                   <li key={to} className='transition-all duration-300'>
@@ -62,7 +63,7 @@ const Footer = () => {
                       className='text-gray-300 hover:text-blue-300 cursor-pointer inline-block py-1 transition-all duration-300 hover:translate-x-2'
                     >
                       {icon && <i className={`${icon} mr-2`}></i>}
-                      <Text>{(nameKey)}</Text>
+                      <Text>{nameKey}</Text>
                     </Link>
                   </li>
                 ))}

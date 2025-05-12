@@ -26,8 +26,8 @@ const Alert = ({ message, subtitle }) => {
           setIsShowing(false);
           setTimeout(() => {
             setIsVisible(false);
-          }, 500); // Match transition duration
-        }, 3500); // How long alert stays visible
+          }, 500);
+        }, 3500);
       }, 50);
     }
 

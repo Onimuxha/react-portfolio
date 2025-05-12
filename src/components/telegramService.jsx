@@ -10,7 +10,7 @@
 export const sendToTelegram = async (formData) => {
   try {
     const BOT_TOKEN = '7842549809:AAGUKszjuUlY0l5Km6RKU_OF4XDbOuIC1Jk';
-    const CHAT_ID = '5058242890'; // This could be your own Telegram user ID
+    const CHAT_ID = '5058242890';
 
     const messageText = `
   🚨 *New Contact From React Portfolio* 🚨
@@ -61,19 +61,13 @@ export const handleTelegramSubmission = async (
   validate = () => true
 ) => {
   try {
-    // First validate the form data
     const isValid = validate();
 
     if (!isValid) {
       throw new Error('Invalid form data');
     }
-
-    // Send the message to Telegram
     await sendToTelegram(formData);
-
-    // Call success callback
     onSuccess();
-
     return true;
   } catch (error) {
     console.error('Form submission error:', error);

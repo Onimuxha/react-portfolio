@@ -11,7 +11,6 @@ const Hero = () => {
   const [greeting, setGreeting] = useState('Hello');
 
   useEffect(() => {
-    // Set time-based greeting
     const getTimeBasedGreeting = () => {
       const hour = new Date().getHours();
       if (hour < 12) return <Text>hero.morning</Text>;
@@ -24,7 +23,7 @@ const Hero = () => {
     // Update greeting every hour
     const greetingInterval = setInterval(() => {
       setGreeting(getTimeBasedGreeting());
-    }, 3600000); // Update every hour
+    }, 3600000);
 
     if (typedRef.current) {
       typedInstance.current = new Typed(typedRef.current, {
