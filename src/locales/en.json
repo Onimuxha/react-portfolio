@@ -69,6 +69,10 @@
   },
   "alert": {
     "right-click": "Right-click disabled",
-    "protect": "Content protection is active."
+    "f12": "F12 key is disabled",
+    "c+s+j": "Ctrl+Shift+J is disabled",
+    "c+s+i": "Ctrl+Shift+I is disabled", 
+    "c+s+c": "Ctrl+Shift+C is disabled",
+    "protect": "Content protection is active"
   }
 }

@@ -69,6 +69,10 @@
   },
   "alert": {
     "right-click": "右键点击被禁用",
+    "f12": "F12键已被禁用",
+    "c+s+j": "Ctrl+Shift+J 组合键已被禁用",
+    "c+s+i": "Ctrl+Shift+I 组合键已被禁用",
+    "c+s+c": "Ctrl+Shift+C 组合键已被禁用",
     "protect": "保护内容"
   }
 }

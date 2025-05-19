@@ -428,16 +428,20 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Add CSS variables for theme switching */}
-      <style jsx global>{`
-        :root {
-          --contact-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 249, 255, 0.9) 100%);
-        }
-
-        .dark {
-          --contact-gradient: linear-gradient(135deg, rgba(21, 94, 117, 0.15) 0%, rgba(8, 51, 68, 0.25) 100%);
-        }
-      `}</style>
+      {/* Fix for the styled-jsx issue */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          :root {
+            --contact-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 249, 255, 0.9) 100%);
+          }
+    
+          .dark {
+            --contact-gradient: linear-gradient(135deg, rgba(21, 94, 117, 0.15) 0%, rgba(8, 51, 68, 0.25) 100%);
+          }
+        `,
+        }}
+      />
     </section>
   );
 };
