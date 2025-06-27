@@ -9,8 +9,10 @@
  */
 export const sendToTelegram = async (formData) => {
   try {
-    const BOT_TOKEN = '7842549809:AAGUKszjuUlY0l5Km6RKU_OF4XDbOuIC1Jk';
-    const CHAT_ID = '5058242890';
+    const BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+    const CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+
+    console.log('BOT_TOKEN:', BOT_TOKEN, 'CHAT_ID:', CHAT_ID);
 
     const messageText = `
   🚨 *New Contact From React Portfolio* 🚨
