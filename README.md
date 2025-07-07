@@ -1,17 +1,4 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
-## Environment Variables
+## Environment Variables for local
 
 This project requires a `.env` file in the root directory to store sensitive configuration such as your Telegram Bot Token and Chat ID.  
 **Do not commit your `.env` file to version control**—it is already included in `.gitignore` for security.
@@ -29,3 +16,49 @@ Replace the values with your actual Telegram bot token and chat ID.
 
 > **Note:**  
 > After editing your `.env` file, restart the development server to apply changes.
+
+## Deploying to Cloudflare Pages
+
+You can easily deploy this project to [Cloudflare Pages](https://pages.cloudflare.com/):
+
+### 1. Connect Your Repository
+
+- Go to [Cloudflare Pages](https://pages.cloudflare.com/) and log in.
+- Click **Create a Project** and connect your GitHub repository.
+
+### 2. Configure Build Settings
+
+- **Framework preset:** Select `Vite`.
+- **Build command:** `npm run build` (default)
+- **Output directory:** `dist` (default)
+
+### 3. Set Environment Variables
+
+To use your Telegram bot integration, you must set the required environment variables in Cloudflare Pages:
+
+- Go to your project’s **Account Home** > click on three dotted > **Configure settings**.
+
+  ![Cloudflare Pages Environment Variables](public/assets/step1.png)
+
+- Scroll down and find **Variables and Secrets** > click **+Add**
+
+    ![Cloudflare Pages Environment Variables](public/assets/step2.png)
+
+- Add the following variables:
+  - `VITE_TELEGRAM_BOT_TOKEN`
+  - `VITE_TELEGRAM_CHAT_ID`
+- Use your actual Telegram bot token and chat ID as values > **Save**.
+
+  ![Cloudflare Pages Environment Variables](public/assets/step3.png)
+
+
+### 4. Deploy
+
+- After setting up, Cloudflare Pages will automatically build and deploy your site.
+- On future pushes to your repository, Cloudflare will redeploy automatically.
+
+> **Note:**  
+> The `.env` file is only needed for local development and should not be committed to your repository.  
+> For production, always use Cloudflare’s environment variable settings.
+
+For more details, see the [Cloudflare Pages documentation](https://developers.cloudflare.com/pages/).
