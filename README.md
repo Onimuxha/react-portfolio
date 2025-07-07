@@ -17,6 +17,23 @@ Replace the values with your actual Telegram bot token and chat ID.
 > **Note:**  
 > After editing your `.env` file, restart the development server to apply changes.
 
+
+## Adding Your Profile Image
+
+To display your profile image on the site, add your image file named `profile.jpg` to the following location in your project:
+
+```
+public/assets/profile.jpg
+```
+
+Make sure the image is named **exactly** `profile.jpg` and placed inside the `public/assets/` folder.  
+This image will be used as your profile picture on the deployed site.
+
+> **Note:**  
+> If you add `profile.jpg` to `.gitignore`, it will not be uploaded to GitHub or included in deployments from your repository.  
+> To display your profile image on your deployed site, ensure `profile.jpg` is present in your repository before
+
+
 ## Deploying to Cloudflare Pages
 
 You can easily deploy this project to [Cloudflare Pages](https://pages.cloudflare.com/):
