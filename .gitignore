@@ -11,7 +11,7 @@ lerna-debug.log*
 .env
 
 #public/assets/profile
-public/assets/profile
+public/assets/profile.jpg
 
 node_modules
 dist
