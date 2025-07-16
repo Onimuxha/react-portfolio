@@ -10,9 +10,6 @@ lerna-debug.log*
 #.env files
 .env
 
-#public/assets/profile
-public/assets/profile.jpg
-
 node_modules
 dist
 dist-ssr
