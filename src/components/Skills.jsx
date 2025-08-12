@@ -206,7 +206,7 @@ const Skills = () => {
     <section id='skills' className='py-20 bg-gray-100 dark:bg-gray-900/50'>
       <div className='container mx-auto px-4 max-w-6xl'>
         <div className='text-center mb-16'>
-          <h3 className='text-4xl font-semibold mb-12 text-gray-800 dark:text-white text-center' data-aos='fade-right'>
+          <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-2 text-gray-800 dark:text-white text-center' data-aos='fade-up'>
             {i18n.language === 'kh' ? (
               <>
                 <span className='text-transparent pb-1 pt-1 bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
@@ -223,6 +223,7 @@ const Skills = () => {
               </>
             )}
           </h3>
+          <div className="w-24 h-0.5 bg-white mx-auto mb-16"></div>
 
           <p
             className='text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed'
@@ -246,11 +247,8 @@ const Skills = () => {
           ))}
         </div>
 
-        <h3
-          className='text-3xl font-semibold mb-12 pt-1 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 pb-1'
-          data-aos='fade-up'
-        >
-          <Text>skill.main-technologies</Text>
+        <h3 className='text-4xl md:text-6xl font-black tracking-tight mb-9 text-gray-800 dark:text-white text-center' data-aos='fade-up'>
+          <Text>skill.main-technologies</Text>{' '}
         </h3>
 
         <div className='grid grid-cols-1 mb-20 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
@@ -268,11 +266,8 @@ const Skills = () => {
           ))}
         </div>
 
-        <h3
-          className='text-3xl font-semibold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 pb-1'
-          data-aos='fade-up'
-        >
-          Core Framework & Tools
+        <h3 className='text-4xl md:text-6xl font-black tracking-tight mb-9 text-gray-800 dark:text-white text-center' data-aos='fade-up'>
+          Tools & Platforms
         </h3>
 
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>

@@ -72,17 +72,17 @@ const Contact = () => {
     {
       icon: 'bx bxl-telegram',
       title: 'Telegram',
-      content: '@kirito',
+      content: '@socheath',
       color: 'text-blue-500',
       isLink: true,
-      href: 'https://t.me/kirito',
+      href: 'https://t.me/socheath',
     },
     {
       icon: 'bx bxl-gmail',
       title: 'Gmail',
-      content: 'hello@kirito.dev',
+      content: 'hello@pages.dev',
       isLink: true,
-      href: 'mailto:hello@kirito.dev',
+      href: 'mailto:hello@page.dev',
       color: 'text-blue-400',
     },
     {
@@ -132,11 +132,10 @@ const Contact = () => {
           onChange={handleChange}
           onBlur={handleBlur}
           rows='5'
-          className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-gray-800 dark:text-white focus:outline-none focus:ring-0 peer ${
-            touched[name] && errors[name]
-              ? 'border-red-500 focus:border-red-500'
-              : 'border-gray-300 dark:border-gray-600 focus:border-cyan-400 dark:focus:border-cyan-400'
-          }`}
+          className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-gray-800 dark:text-white focus:outline-none focus:ring-0 peer ${touched[name] && errors[name]
+            ? 'border-red-500 focus:border-red-500'
+            : 'border-gray-300 dark:border-gray-600 focus:border-cyan-400 dark:focus:border-cyan-400'
+            }`}
           placeholder=' '
         />
       ) : (
@@ -147,21 +146,19 @@ const Contact = () => {
           value={formData[name]}
           onChange={handleChange}
           onBlur={handleBlur}
-          className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-gray-800 dark:text-white focus:outline-none focus:ring-0 peer ${
-            touched[name] && errors[name]
-              ? 'border-red-500 focus:border-red-500'
-              : 'border-gray-300 dark:border-gray-600 focus:border-cyan-400 dark:focus:border-cyan-400'
-          }`}
+          className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-gray-800 dark:text-white focus:outline-none focus:ring-0 peer ${touched[name] && errors[name]
+            ? 'border-red-500 focus:border-red-500'
+            : 'border-gray-300 dark:border-gray-600 focus:border-cyan-400 dark:focus:border-cyan-400'
+            }`}
           placeholder=' '
         />
       )}
       <label
         htmlFor={name}
-        className={`absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${
-          touched[name] && errors[name]
-            ? 'text-red-500'
-            : 'text-gray-500 dark:text-gray-400 peer-focus:text-cyan-400 peer-focus:dark:text-cyan-400'
-        }`}
+        className={`absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${touched[name] && errors[name]
+          ? 'text-red-500'
+          : 'text-gray-500 dark:text-gray-400 peer-focus:text-cyan-400 peer-focus:dark:text-cyan-400'
+          }`}
       >
         <Text>{`contact.${name}`}</Text>
       </label>
@@ -180,7 +177,7 @@ const Contact = () => {
     >
       <div className='container mx-auto px-4 max-w-6xl'>
         <div className='text-center mb-16' data-aos='fade-up'>
-          <h3 className='text-4xl font-semibold mb-12 text-gray-800 dark:text-white text-center'>
+          <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-2 text-gray-800 dark:text-white text-center' data-aos='fade-up'>
             {i18n.language === 'kh' ? (
               <>
                 <span className='text-transparent pb-1 pt-1 bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
@@ -197,6 +194,8 @@ const Contact = () => {
               </>
             )}
           </h3>
+          <div className="w-24 h-0.5 bg-white mx-auto mb-16"></div>
+
           <p className='text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto'>
             Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!
           </p>
@@ -383,9 +382,8 @@ const Contact = () => {
                       <button
                         type='submit'
                         disabled={status.isSubmitting}
-                        className={`w-full mt-8 px-6 py-3 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-medium hover:from-cyan-500 hover:to-blue-600 transition-all duration-300 shadow-lg ${
-                          status.isSubmitting ? 'opacity-80 cursor-not-allowed' : ''
-                        }`}
+                        className={`w-full mt-8 px-6 py-3 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-medium hover:from-cyan-500 hover:to-blue-600 transition-all duration-300 shadow-lg ${status.isSubmitting ? 'opacity-80 cursor-not-allowed' : ''
+                          }`}
                       >
                         {status.isSubmitting ? (
                           <span className='flex items-center justify-center'>

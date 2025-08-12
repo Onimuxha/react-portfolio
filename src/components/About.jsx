@@ -19,9 +19,8 @@ const Timeline = ({ items }) => {
           {/* Content box with gradient border */}
           <div className={`w-1/2 ${index % 2 === 0 ? 'ml-auto' : 'mr-auto'}`} data-aos='fade-up'>
             <div
-              className={`relative bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-200 dark:border-gray-700 ${
-                index % 2 === 0 ? 'ml-10' : 'mr-10'
-              } group hover:shadow-cyan-400/20 transition-all duration-300`}
+              className={`relative bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-200 dark:border-gray-700 ${index % 2 === 0 ? 'ml-10' : 'mr-10'
+                } group hover:shadow-cyan-400/20 transition-all duration-300`}
             >
               {/* Gradient accent bar - changes position based on index */}
               <div
@@ -58,12 +57,13 @@ const About = () => {
   return (
     <section id='about' className='py-16 bg-gray-100 dark:bg-gray-900 min-h-screen'>
       <div className='container mx-auto px-4'>
-        <h3 className='text-4xl font-semibold mb-12 text-gray-800 dark:text-white text-center' data-aos='fade-up'>
+        <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-2 text-gray-800 dark:text-white text-center' data-aos='fade-up'>
           <Text>about.about</Text>{' '}
           <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 pb-4'>
             <Text>general.me</Text>
           </span>
         </h3>
+        <div className="w-24 h-0.5 bg-white mx-auto mb-16"></div>
 
         <div className='flex flex-col md:flex-row md:space-x-12'>
           {/* Profile image with gradient border */}

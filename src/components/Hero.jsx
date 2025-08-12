@@ -51,7 +51,7 @@ const Hero = () => {
       <div className='absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-50'></div>
 
       <div className='relative z-10 text-center max-w-4xl px-4'>
-        <h1 className='text-[2.5rem] xs:text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[4rem] font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 animate-gradient pb-3 leading-[1.1]'>
+        <h1 className='text-5xl md:text-8xl font-black text-white mb-2 tracking-tight'>
           <span className='inline-block transition-all duration-500 ease-in-out py-3'>{greeting}</span>,{' '}
           <Text>general.i'm</Text>{' '}
           <span className='text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]'>
@@ -59,8 +59,8 @@ const Hero = () => {
           </span>
         </h1>
 
-        <h2 className='text-2xl md:text-4xl mb-8 text-gray-300 font-medium'>
-        <Text>general.i'm-a</Text> <span ref={typedRef} className='text-cyan-300 font-thin'></span>
+        <h2 className='text-2xl mt-9 md:text-4xl mb-8 text-gray-300 font-light tracking-tight'>
+          <Text>general.i'm-a</Text> <span ref={typedRef} className='text-cyan-300 font-thin'></span>
         </h2>
 
         <p className='text-lg md:text-xl max-w-2xl mx-auto mb-12 text-gray-300 leading-relaxed'>

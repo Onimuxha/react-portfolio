@@ -1,9 +1,9 @@
 {
   "general": {
-    "me": "Me",
+    "me": "ME",
     "i'm": "I'm",
     "i'm-a": "I'm a",
-    "my": "My",
+    "my": "MY",
     "name": "Name"
   },
   "navbar": {
@@ -14,27 +14,27 @@
     "contact": "Contact"
   },
   "hero": {
-    "morning": "Good morning",
-    "afternoon": "Good afternoon",
-    "evening": "Good evening",
-    "name": "Socheath",
+    "morning": "GOOD MORNING",
+    "afternoon": "GOOD AFTERNOON",
+    "evening": "GOOD EVENING",
+    "name": "SOCHEATH",
     "explore-skill": "Explore Skills",
     "view-project": "View Projects"
   },
   "about": {
-    "about": "About",
+    "about": "ABOUT",
     "who-i'm": "Who am I?",
     "contact-me": "Contact Me"
   },
   "skill": {
-    "skill": "Skills",
+    "skill": "SKILLS",
     "my-educational": "My Educational",
     "main-technologies": "Main Technologies"
   },
   "project": {
-    "project": "Projects",
-    "company-project": "Company Projects",
-    "academy-project": "Academy Projects",
+    "project": "PROJECTS",
+    "company-project": "COMPANY PROJECTS",
+    "academy-project": "ACADEMY PROJECTS",
     "my-skills": "My Skills",
     "my-education": "My Education"
   },
@@ -43,7 +43,7 @@
     "telegram": "Telegram Username",
     "subject": "Subject",
     "message": "Your Message",
-    "connect": "Connect with",
+    "connect": "CONNECT WITH",
     "email": "Email",
     "phone": "Phone",
     "address": "Address",
