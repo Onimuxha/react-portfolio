@@ -42,7 +42,7 @@ const Hero = () => {
           <span className='inline-block transition-all duration-500 ease-in-out py-3'>{greeting}</span>,{' '}
           <Text>general.i'm</Text>{' '}
           <span
-            className='text-transparent text-outline'
+            className='text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-100'
           >
             <Text>hero.name</Text>
           </span>

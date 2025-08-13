@@ -1,3 +1,4 @@
+import { ArrowUpFromDot } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-scroll';
 
@@ -75,8 +76,8 @@ const ScrollToTopButton = () => {
         </defs>
       </svg>
       {/* Button center with hover effect */}
-      <div className='absolute inset-0 m-1 bg-white dark:bg-gray-800 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 dark:text-gray-200 group-hover:bg-gradient-to-br from-cyan-400/10 to-blue-500/10 transition-all duration-300 shadow-md'>
-        <i className='bx bxs-to-top'></i>
+      <div className='absolute inset-0 m-1 bg-gray-800/70 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-200 group-hover:bg-gradient-to-br from-cyan-400/10 to-blue-500/10 transition-all duration-300 shadow-md'>
+        <ArrowUpFromDot className='w-4 h-4'/>
       </div>
     </Link>
   );

@@ -200,7 +200,7 @@ const Experiences = () => {
 
   return (
     <section id='experiences' className='py-20 bg-gray-50/80 dark:bg-gray-950/90'>
-      <div className='relative z-10 max-w-7xl mx-auto'>
+      <div className='relative z-10 max-w-7xl mx-auto px-2'>
         <div className='text-center mb-16' data-aos='fade-up'>
           <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-4 text-gray-900 dark:text-white'>
             {i18n.language === 'kh' ? (

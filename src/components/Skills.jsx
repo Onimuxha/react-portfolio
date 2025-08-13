@@ -207,7 +207,7 @@ const Skills = () => {
 
   return (
     <section id='skills' className='py-20 bg-gray-50/80 dark:bg-gray-950/90'>
-      <div className='container mx-auto px-4 max-w-6xl'>
+      <div className='container mx-auto px-2 max-w-6xl'>
         <div className='text-center mb-16'>
           <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-4 text-gray-900 dark:text-white'>
             {i18n.language === 'kh' ? (
