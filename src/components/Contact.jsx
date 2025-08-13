@@ -173,28 +173,28 @@ const Contact = () => {
   return (
     <section
       id='contact'
-      className='py-20 bg-gradient-to-b from-gray-200 via-gray-100 to-gray-200 dark:from-gray-800 dark:via-gray-900 dark:to-gray-900'
+      className='py-20 bg-gray-50/80 dark:bg-gray-950/90'
     >
       <div className='container mx-auto px-4 max-w-6xl'>
         <div className='text-center mb-16' data-aos='fade-up'>
-          <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-2 text-gray-800 dark:text-white text-center' data-aos='fade-up'>
+          <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-4 text-gray-900 dark:text-white'>
             {i18n.language === 'kh' ? (
               <>
-                <span className='text-transparent pb-1 pt-1 bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
-                  <Text>contact.connect</Text>
+                <span className='text-transparent py-3 bg-clip-text bg-gradient-to-r from-gray-600 to-gray-900 dark:from-gray-400 dark:to-gray-100'>
+                  <Text>contact.let's</Text>
                 </span>{' '}
-                <Text>general.me</Text>
+                <Text>contact.together</Text>
               </>
             ) : (
               <>
-                <Text>contact.connect</Text>{' '}
-                <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
-                  <Text>general.me</Text>
+                <Text>contact.let's</Text>{' '}
+                <span className='text-transparent bg-clip-text bg-gradient-to-r from-gray-600 to-gray-900 dark:from-gray-400 dark:to-gray-100'>
+                  <Text>contact.together</Text>
                 </span>
               </>
             )}
           </h3>
-          <div className="w-24 h-0.5 bg-white mx-auto mb-16"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full mb-16"></div>
 
           <p className='text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto'>
             Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!
@@ -205,12 +205,12 @@ const Contact = () => {
           {/* Contact Info */}
           <div className='lg:w-2/5' data-aos='fade-up'>
             <div
-              className='backdrop-blur-xl bg-white/80 dark:bg-gray-900/70 rounded-xl p-8 h-full relative group 
-              transition-all duration-300 shadow-sm hover:shadow-lg dark:hover:shadow-cyan-400/20 hover:shadow-blue-400/20'
+              className='backdrop-blur-xl bg-white/90 dark:bg-gray-800/80 rounded-xl p-8 h-full relative group 
+    transition-all duration-300 shadow-lg hover:shadow-xl border border-gray-200/80 dark:border-gray-700/50'
               style={{
-                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 249, 255, 0.9) 100%)',
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%)',
                 backgroundImage:
-                  'var(--contact-gradient, linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 249, 255, 0.9) 100%))',
+                  'var(--contact-gradient, linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%))',
               }}
             >
               <h3 className='text-2xl font-semibold mb-8 text-gray-800 dark:text-white'>
@@ -218,25 +218,34 @@ const Contact = () => {
               </h3>
 
               {/* Keep existing contact info content */}
-              <div className='space-y-6'>
+              <div className="space-y-6">
                 {contactInfo.map((item, i) => (
-                  <div key={i} className='flex items-start'>
-                    <div
-                      className={`flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-400/20 to-blue-500/10 ${item.color} flex items-center justify-center shadow-sm`}
-                    >
-                      <i className={`${item.icon} text-xl`}></i>
+                  <div key={i} className="flex items-start group">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 flex items-center justify-center shadow-sm group-hover:bg-gray-200/50 dark:group-hover:bg-gray-700 transition-all duration-300">
+                      <i className={`${item.icon} text-xl text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100`}></i>
                     </div>
-                    <div className='ml-4'>
-                      <h4 className='text-lg font-semibold text-gray-800 dark:text-white'>{item.title}</h4>
+                    <div className="ml-4">
+                      <h4 className="text-lg font-semibold text-gray-800 dark:text-white">{item.title}</h4>
                       {item.isLink ? (
-                        <a
-                          href={item.href}
-                          className={`text-gray-600 dark:text-gray-300 hover:${item.color} transition-colors`}
+                        <div
+                          onClick={() => {
+                            // Force page navigation
+                            const a = document.createElement('a');
+                            a.href = item.href;
+                            if (item.href.startsWith('http')) {
+                              a.target = '_blank';
+                              a.rel = 'noopener noreferrer';
+                            }
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
+                          }}
+                          className="cursor-pointer text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors duration-300 flex items-center"
                         >
                           {item.content}
-                        </a>
+                        </div>
                       ) : (
-                        <p className='text-gray-600 dark:text-gray-300'>{item.content}</p>
+                        <p className="text-gray-600 dark:text-gray-400">{item.content}</p>
                       )}
                     </div>
                   </div>
@@ -255,33 +264,42 @@ const Contact = () => {
                       href={social.url}
                       target='_blank'
                       rel='noopener noreferrer'
-                      className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${social.bg} ${social.className}`}
+                      className={`
+          w-12 h-12 rounded-xl flex items-center justify-center 
+          transition-all duration-300 shadow-sm
+          bg-white dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600
+          hover:bg-gray-50 dark:hover:bg-gray-600/70
+          hover:shadow-md hover:-translate-y-1
+          group
+        `}
                       data-aos='zoom-in'
                       data-aos-delay={i * 100}
                     >
-                      <i className={`${social.icon} text-2xl`}></i>
+                      <i className={`
+          ${social.icon} text-2xl 
+          text-gray-700 dark:text-gray-300
+          group-hover:text-gray-900 dark:group-hover:text-gray-100
+          transition-colors duration-300
+        `}></i>
                     </a>
                   ))}
                 </div>
               </div>
 
-              {/* Add animated border */}
-              <div className='absolute inset-0 rounded-xl border border-blue-400/30 dark:border-cyan-400/20 group-hover:border-blue-400 dark:group-hover:border-cyan-400/50 animate-pulse pointer-events-none'></div>
             </div>
           </div>
 
           {/* Contact Form */}
           <div className='lg:w-3/5' data-aos='fade-up'>
             <div
-              className='backdrop-blur-xl bg-white/80 dark:bg-gray-900/70 rounded-xl overflow-hidden relative group 
-              transition-all duration-300 shadow-sm hover:shadow-lg dark:hover:shadow-cyan-400/20 hover:shadow-blue-400/20'
+              className='backdrop-blur-xl bg-white/80 dark:bg-gray-800/70 rounded-xl overflow-hidden relative group 
+    transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-gray-400/20 dark:hover:shadow-gray-600/20'
               style={{
-                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 249, 255, 0.9) 100%)',
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%)',
                 backgroundImage:
-                  'var(--contact-gradient, linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 249, 255, 0.9) 100%))',
+                  'var(--contact-gradient, linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%))',
               }}
             >
-              {/* Keep existing form content */}
               <AnimatePresence>
                 {status.isSubmitted ? (
                   <motion.div
@@ -300,7 +318,7 @@ const Contact = () => {
                         damping: 20,
                         delay: 0.1,
                       }}
-                      className='inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/20 text-cyan-400 mb-6'
+                      className='inline-flex items-center justify-center w-20 h-20 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 mb-6'
                     >
                       <motion.svg
                         width='32'
@@ -349,7 +367,7 @@ const Contact = () => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => setStatus({ ...status, isSubmitted: false })}
-                      className='px-6 py-3 bg-gradient-to-r from-cyan-400 to-blue-500 text-white rounded-lg hover:from-cyan-500 hover:to-blue-600 transition-all duration-300 shadow-md'
+                      className='px-6 py-3 bg-gray-800 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-700 dark:hover:bg-gray-600 transition-all duration-300 shadow-md'
                     >
                       <Text>contact.send-another</Text>
                     </motion.button>
@@ -364,7 +382,7 @@ const Contact = () => {
                       <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className='mb-6 p-3 bg-red-100 border border-red-300 text-red-600 rounded-md'
+                        className='mb-6 p-3 bg-red-100 dark:bg-red-900/30 border border-red-300 dark:border-red-700 text-red-600 dark:text-red-300 rounded-md'
                       >
                         <p>{status.error}</p>
                       </motion.div>
@@ -382,7 +400,7 @@ const Contact = () => {
                       <button
                         type='submit'
                         disabled={status.isSubmitting}
-                        className={`w-full mt-8 px-6 py-3 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-medium hover:from-cyan-500 hover:to-blue-600 transition-all duration-300 shadow-lg ${status.isSubmitting ? 'opacity-80 cursor-not-allowed' : ''
+                        className={`w-full mt-8 px-6 py-3 rounded-lg bg-gray-800 dark:bg-gray-700 text-white font-medium hover:bg-gray-700 dark:hover:bg-gray-600 transition-all duration-300 shadow-lg ${status.isSubmitting ? 'opacity-80 cursor-not-allowed' : ''
                           }`}
                       >
                         {status.isSubmitting ? (
@@ -419,8 +437,8 @@ const Contact = () => {
                   </div>
                 )}
               </AnimatePresence>
-              {/* Add animated border */}
-              <div className='absolute inset-0 rounded-xl border border-blue-400/30 dark:border-cyan-400/20 group-hover:border-blue-400 dark:group-hover:border-cyan-400/50 animate-pulse pointer-events-none'></div>
+              {/* Animated border */}
+              <div className='absolute inset-0 rounded-xl border border-gray-300 dark:border-gray-600 group-hover:border-gray-400 dark:group-hover:border-gray-500 pointer-events-none'></div>
             </div>
           </div>
         </div>

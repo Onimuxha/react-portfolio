@@ -3,6 +3,7 @@ import { Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
 import Text from './LocalizedText';
 import CVDownloadModal from './CVDownloadModal';
+import { Home, User2, Code, BriefcaseBusiness, Mail, ChevronsRight, Download } from 'lucide-react';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -10,10 +11,11 @@ const Footer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const navLinksData = [
-    { nameKey: 'navbar.home', to: 'home', icon: 'bx bx-home-alt-2' },
-    { nameKey: 'navbar.about', to: 'about', icon: 'bx bx-user' },
-    { nameKey: 'navbar.skills', to: 'skills', icon: 'bx bx-code-alt' },
-    { nameKey: 'navbar.contact', to: 'contact', icon: 'bx bxl-gmail' },
+    { nameKey: 'navbar.home', to: 'home', icon: <Home size={18} /> },
+    { nameKey: 'navbar.about', to: 'about', icon: <User2 size={18} /> },
+    { nameKey: 'navbar.skills', to: 'skills', icon: <Code size={18} /> },
+    { nameKey: 'navbar.experiences', to: 'experiences', icon: <BriefcaseBusiness size={18} /> },
+    { nameKey: 'navbar.contact', to: 'contact', icon: <Mail size={18} /> },
   ];
 
   const handleDownloadClick = (e) => {
@@ -28,42 +30,43 @@ const Footer = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-
     setIsModalOpen(false);
-    console.log('CV download confirmed and started');
   };
 
   return (
-    <footer className='relative bg-gradient-to-br from-gray-900 to-blue-900 text-white'>
-      <div className='container mx-auto px-6 pt-8 pb-6'>
-        <div className='backdrop-blur-sm bg-white/5 rounded-2xl p-8 shadow-xl border border-white/10'>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8'>
+    <footer className='relative bg-gray-950 text-gray-300'>
+      <div className='container mx-auto px-6 pt-12 pb-8'>
+        <div className='bg-gray-900/80 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-gray-800/50'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10'>
             <div className='col-span-1 lg:col-span-2'>
-              <h2 className='text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-400 mb-4'>
-                Kirito
+              <h2 className='text-3xl font-bold text-gray-100 mb-4 tracking-tight'>
+                <Text>hero.name</Text>
               </h2>
-              <p className='text-gray-300 mb-5 max-w-md'>
+              <p className='text-gray-400 mb-6 max-w-md leading-relaxed'>
                 Crafting exceptional digital experiences with modern web technologies. Focused on building scalable and
                 performant applications.
               </p>
-              <div className='h-1 w-20 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full'></div>
+              <div className='h-px w-20 bg-gradient-to-r from-gray-700 via-gray-500 to-gray-700 rounded-full'></div>
             </div>
 
             <div className='col-span-1'>
-              <h3 className='text-xl font-semibold mb-4 text-blue-200'>
+              <h3 className='text-lg font-medium mb-5 text-gray-200 tracking-wide uppercase'>
                 <Text>footer.quick-link</Text>
               </h3>
-              <ul className='space-y-2'>
+              <ul className='space-y-3'>
                 {navLinksData.map(({ nameKey, to, icon }) => (
-                  <li key={to} className='transition-all duration-300'>
+                  <li key={to}>
                     <Link
                       to={to}
                       smooth={true}
                       duration={500}
-                      className='text-gray-300 hover:text-blue-300 cursor-pointer inline-block py-1 transition-all duration-300 hover:translate-x-2'
+                      className='flex items-center text-gray-400 hover:text-gray-100 cursor-pointer py-2 transition-all duration-300 group'
                     >
-                      {icon && <i className={`${icon} mr-2`}></i>}
+                      {React.cloneElement(icon, {
+                        className: "mr-3 text-gray-500 group-hover:text-gray-300 transition-colors"
+                      })}
                       <Text>{nameKey}</Text>
+                      <ChevronsRight className='ml-auto text-gray-600 group-hover:text-gray-400 transition-colors' />
                     </Link>
                   </li>
                 ))}
@@ -71,29 +74,28 @@ const Footer = () => {
             </div>
 
             <div className='col-span-1'>
-              <h3 className='text-xl font-semibold mb-4 text-blue-200'>
+              <h3 className='text-lg font-medium mb-5 text-gray-200 tracking-wide uppercase'>
                 <Text>footer.download-cv</Text>
               </h3>
-              <p className='text-gray-300 mb-4'>Do you Want to know more? Download my Curriculum Vitae.</p>
+              <p className='text-gray-400 mb-6 leading-relaxed'>Do you want to know more? Download my Curriculum Vitae.</p>
               <button
                 onClick={handleDownloadClick}
-                className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white rounded-lg transition-all duration-300 shadow-lg group'
+                className='inline-flex items-center px-5 py-3 bg-gray-800 hover:bg-gray-700/90 text-gray-100 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg group border border-gray-700/50 hover:border-gray-600/50'
               >
                 <Text>footer.download-cv</Text>
-                <i className='bx bxs-download ml-2 text-xl group-hover:translate-y-1 transition-transform duration-300'></i>
+                <Download className='ml-3 text-lg group-hover:translate-y-0.5 transition-transform' />
               </button>
             </div>
           </div>
         </div>
 
-        <div className='pt-8 mt-8 border-t border-white/10 text-center select-none'>
-          <p className='text-sm text-gray-400'>
+        <div className='pt-10 mt-10 border-t border-gray-800/50 text-center'>
+          <p className='text-sm text-gray-500 tracking-wide'>
             &copy; {currentYear} Kirito. <Text>footer.copyright</Text>
           </p>
         </div>
       </div>
 
-      {/* CV Download Confirmation Modal */}
       <CVDownloadModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

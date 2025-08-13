@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Text from './LocalizedText';
 import cvFile from '../assets/kirito.pdf';
+import { Database, Download, LoaderCircle, X } from 'lucide-react';
 
 const CVDownloadModal = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
@@ -46,35 +47,39 @@ const CVDownloadModal = ({ isOpen, onClose }) => {
 
   return (
     <div className='fixed inset-0 flex items-center justify-center z-50'>
-      <div className='absolute inset-0 bg-black/50 backdrop-blur-sm' onClick={onClose}></div>
+      <div className='absolute inset-0 bg-black/70 backdrop-blur-md' onClick={onClose}></div>
 
-      <div className='relative bg-gradient-to-br from-gray-800 to-blue-900 text-white rounded-xl shadow-2xl w-full max-w-md mx-4 overflow-hidden border border-white/10'>
-        <div className='px-6 py-4 border-b border-gray-700 flex justify-between items-center'>
-          <h3 className='text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-400'>
+      <div className='relative bg-gray-900 text-gray-200 rounded-xl shadow-2xl w-full max-w-md mx-4 overflow-hidden border border-gray-700'>
+        <div className='px-6 py-4 border-b border-gray-800 flex justify-between items-center'>
+          <h3 className='text-xl font-semibold text-gray-100'>
             <Text>footer.confirm</Text>
           </h3>
-          <button onClick={onClose} className='text-gray-400 hover:text-white transition-colors'>
-            <i className='bx bx-x text-2xl'></i>
+          <button
+            onClick={onClose}
+            className='text-gray-400 hover:text-gray-100 transition-colors p-1 rounded-full hover:bg-gray-800'
+          >
+            <X className='bx bx-x text-2xl' />
           </button>
         </div>
 
         <div className='px-6 py-6'>
           <div className='mb-6 text-center'>
-            <div className='w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-blue-600/30 rounded-lg'>
-              <i className='bx bxs-file-pdf text-5xl text-blue-400'></i>
+            <div className='w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gray-800 rounded-lg border border-gray-700'>
+              <i className='bx bxs-file-pdf text-4xl text-gray-300'></i>
             </div>
             <p className='text-gray-300 mb-2'>Are you sure you want to download this file?</p>
-            <div className='bg-white/5 rounded-lg p-4 mt-4'>
-              <p className='text-blue-300 font-medium'>{cvFile.split('/').pop()}</p>
-              <p className='text-gray-400 text-sm mt-1'>
+            <div className='bg-gray-800/50 rounded-lg p-4 mt-4 border border-gray-700/50'>
+              <p className='text-gray-100 font-medium'>{cvFile.split('/').pop()}</p>
+              <p className='text-gray-400 text-sm mt-1 flex items-center justify-center'>
                 {fileSize ? (
                   <>
-                    <i className='bx bxs-data mr-1'></i>
+                    <Database className="mr-1" />
                     {fileSize}
                   </>
                 ) : (
                   <>
-                    <i className='bx bx-loader-alt animate-spin mr-1'></i>Loading size...
+                    <LoaderCircle className='animate-spin mr-1' />
+                    Loading size...
                   </>
                 )}
               </p>
@@ -84,21 +89,16 @@ const CVDownloadModal = ({ isOpen, onClose }) => {
           <div className='flex gap-3 justify-center'>
             <button
               onClick={onClose}
-              className='px-4 py-2 bg-gradient-to-r from-red-500/80 to-red-600/80 
-                hover:from-red-600 hover:to-red-700
-                rounded-lg transition-all duration-300
-                border border-red-500/20 
-                shadow-lg shadow-red-500/20 hover:shadow-red-500/30
-                flex items-center gap-2'
+              className='px-5 py-2.5 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all duration-300 border border-gray-700 hover:border-gray-600 text-gray-300 hover:text-gray-100 flex items-center gap-2 shadow hover:shadow-md'
             >
               <Text>footer.cancel</Text>
             </button>
             <button
               onClick={handleDownload}
-              className='px-4 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 rounded-lg transition-all duration-300 flex items-center'
+              className='px-5 py-2.5 bg-gray-700 hover:bg-gray-600 rounded-lg transition-all duration-300 text-gray-100 hover:text-white flex items-center gap-2 shadow hover:shadow-md border border-gray-600 hover:border-gray-500'
             >
               <Text>footer.download</Text>
-              <i className='bx bxs-download ml-2'></i>
+              <Download size={16} />
             </button>
           </div>
         </div>

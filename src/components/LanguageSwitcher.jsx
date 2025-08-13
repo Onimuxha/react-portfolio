@@ -49,15 +49,15 @@ const LanguageSwitcher = () => {
 
   return (
     <div className={`relative ${getFontClass()}`} ref={dropdownRef}>
-      {/* Flag button with improved glassmorphism */}
+      {/* Flag button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`flex items-center justify-center w-10 h-10
-          backdrop-blur-md bg-gray-800/50
-          border border-gray-700/50
+          backdrop-blur-md bg-black/50
+          border border-gray-700
           rounded-lg focus:outline-none
-          hover:bg-white/40 dark:hover:bg-gray-700/60
-          hover:shadow-lg hover:shadow-cyan-400/30
+          hover:bg-white/20
+          hover:shadow-lg hover:shadow-white/20
           transition-all duration-300`}
         aria-label='Change language'
         aria-expanded={isOpen}
@@ -65,7 +65,7 @@ const LanguageSwitcher = () => {
         <div className='flex items-center justify-center w-8 h-6'>{currentLanguage.flag}</div>
       </button>
 
-      {/* Dropdown menu with extra smooth transition animation */}
+      {/* Dropdown menu */}
       <div
         className={`absolute right-0 mt-2 w-44 transition-all duration-470 ease-in-out
           ${
@@ -80,8 +80,8 @@ const LanguageSwitcher = () => {
         }}
       >
         <div
-          className='p-2 space-y-2 bg-white/95 dark:bg-gray-800/95
-          backdrop-blur-xl border border-gray-200 dark:border-gray-700
+          className='p-2 space-y-2 bg-black/95
+          backdrop-blur-xl border border-gray-700
           rounded-md shadow-xl ${getFontClass()}'
         >
           {languages.map((lang, index) => (
@@ -95,8 +95,8 @@ const LanguageSwitcher = () => {
                 rounded-md transition-all duration-300 ease-out
                 ${
                   i18n.language === lang.code
-                    ? 'bg-gradient-to-r from-cyan-400/10 to-blue-500/10 text-cyan-500 dark:text-cyan-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50'
+                    ? 'bg-white/20 text-white'
+                    : 'text-gray-300 hover:bg-white/10'
                 }
                 ${lang.fontClass || ''}`}
               style={{
@@ -107,7 +107,7 @@ const LanguageSwitcher = () => {
               <div className='flex items-center justify-center w-8 h-6 mr-3'>{lang.flag}</div>
               <span className='text-sm'>{lang.name}</span>
               {i18n.language === lang.code && (
-                <span className='block ml-auto w-1 h-3 bg-gradient-to-b from-cyan-400 to-blue-500 rounded-full'></span>
+                <span className='block ml-auto w-1 h-3 bg-white rounded-full'></span>
               )}
             </button>
           ))}

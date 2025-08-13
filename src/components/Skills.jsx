@@ -46,29 +46,32 @@ const SkillBar = ({ skill, icon, description, percentage }) => {
 
   return (
     <div
-      className='mb-8 group p-6 rounded-xl border border-gray-300 dark:border-gray-700/50 bg-white/80 dark:bg-gray-800/30 backdrop-blur-sm hover:border-cyan-400/30 transition-all duration-300'
+      className='mb-6 group p-6 rounded-xl border border-gray-300/20 dark:border-gray-700/50 bg-white/90 dark:bg-gray-900/50 backdrop-blur-sm hover:border-gray-400/30 dark:hover:border-gray-600/50 transition-all duration-300 shadow-md hover:shadow-lg'
       data-aos='fade-up'
     >
-      <div className='flex items-center gap-4 mb-4'>
-        <div className='text-3xl flex-shrink-0 text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-blue-500'>
+      <div className='flex items-start gap-5 mb-4'>
+        <div className='text-2xl flex-shrink-0 text-gray-800 dark:text-gray-300 p-3 bg-gray-200/50 dark:bg-gray-800/70 rounded-lg group-hover:bg-gray-300/50 dark:group-hover:bg-gray-700/70 transition-colors'>
           <i className={icon}></i>
         </div>
         <div className='flex-grow'>
-          <div className='flex justify-between items-center mb-1'>
-            <h3 className='font-semibold text-gray-700 dark:text-gray-200 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors'>
+          <div className='flex justify-between items-center mb-2'>
+            <h3 className='font-semibold text-gray-900 dark:text-gray-100 group-hover:text-gray-950 dark:group-hover:text-white transition-colors'>
               {skill}
             </h3>
-            <span ref={percentageRef} className='font-medium text-cyan-600 dark:text-cyan-300'>
+            <span
+              ref={percentageRef}
+              className='font-medium text-gray-700 dark:text-gray-300'
+            >
               0%
             </span>
           </div>
-          <p className='text-sm text-gray-600 dark:text-gray-400 mb-3'>{description}</p>
+          <p className='text-gray-700/90 dark:text-gray-400/90 leading-relaxed'>{description}</p>
         </div>
       </div>
-      <div className='w-full bg-gray-200 dark:bg-gray-700/30 rounded-full h-2.5 overflow-hidden backdrop-blur-sm'>
+      <div className='w-full bg-gray-200/70 dark:bg-gray-800/60 rounded-full h-2 overflow-hidden'>
         <div
           ref={progressRef}
-          className='h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full transition-all duration-1000 ease-out shadow-[0_0_8px_rgba(34,211,238,0.4)]'
+          className='h-full bg-gradient-to-r from-gray-700 to-gray-600 dark:from-gray-500 dark:to-gray-400 rounded-full transition-all duration-1000 ease-out'
           style={{ width: '0%' }}
         ></div>
       </div>
@@ -79,17 +82,17 @@ const SkillBar = ({ skill, icon, description, percentage }) => {
 const SkillCard = ({ icon, title, description }) => {
   return (
     <div
-      className='h-full p-6 rounded-xl border border-gray-300 dark:border-gray-700/50 bg-white/80 dark:bg-gray-800/30 backdrop-blur-sm cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-400/10 hover:border-cyan-400/30 group'
+      className='h-full p-7 rounded-xl border border-gray-300/20 dark:border-gray-700/50 bg-white/90 dark:bg-gray-900/50 backdrop-blur-sm cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-400/10 dark:hover:shadow-gray-600/10 hover:border-gray-400/30 dark:hover:border-gray-600/50 group'
       data-aos='zoom-in'
     >
       <div className='flex flex-col h-full'>
-        <div className='mb-5 text-4xl flex justify-center group-hover:scale-110 transition-transform'>
-          <i className={`${icon} text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-blue-500`}></i>
+        <div className='mb-6 text-5xl flex justify-center group-hover:scale-110 transition-transform'>
+          <i className={`${icon} text-gray-800 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100`}></i>
         </div>
-        <h3 className='text-xl font-semibold mb-3 text-center text-gray-700 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors'>
+        <h3 className='text-xl font-semibold mb-4 text-center text-gray-900 dark:text-white group-hover:text-gray-950 dark:group-hover:text-gray-50 transition-colors'>
           {title}
         </h3>
-        <p className='text-gray-600 dark:text-gray-400 text-center text-sm leading-relaxed flex-grow'>{description}</p>
+        <p className='text-gray-700/90 dark:text-gray-400/90 text-center leading-relaxed flex-grow'>{description}</p>
       </div>
     </div>
   );
@@ -203,13 +206,13 @@ const Skills = () => {
   ];
 
   return (
-    <section id='skills' className='py-20 bg-gray-100 dark:bg-gray-900/50'>
+    <section id='skills' className='py-20 bg-gray-50/80 dark:bg-gray-950/90'>
       <div className='container mx-auto px-4 max-w-6xl'>
         <div className='text-center mb-16'>
-          <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-2 text-gray-800 dark:text-white text-center' data-aos='fade-up'>
+          <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-4 text-gray-900 dark:text-white'>
             {i18n.language === 'kh' ? (
               <>
-                <span className='text-transparent pb-1 pt-1 bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
+                <span className='text-transparent py-6 bg-clip-text bg-gradient-to-r from-gray-600 to-gray-900 dark:from-gray-400 dark:to-gray-100'>
                   <Text>skill.skill</Text>
                 </span>{' '}
                 <Text>general.my</Text>
@@ -217,16 +220,15 @@ const Skills = () => {
             ) : (
               <>
                 <Text>general.my</Text>{' '}
-                <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
+                <span className='text-transparent bg-clip-text bg-gradient-to-r from-gray-600 to-gray-900 dark:from-gray-400 dark:to-gray-100'>
                   <Text>skill.skill</Text>
                 </span>
               </>
             )}
           </h3>
-          <div className="w-24 h-0.5 bg-white mx-auto mb-16"></div>
-
+          <div className="w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full mb-16"></div>
           <p
-            className='text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed'
+            className='text-lg text-gray-700/90 dark:text-gray-400/90 max-w-2xl mx-auto leading-relaxed'
             data-aos='fade-up'
             data-aos-delay='100'
           >
@@ -247,8 +249,8 @@ const Skills = () => {
           ))}
         </div>
 
-        <h3 className='text-4xl md:text-6xl font-black tracking-tight mb-9 text-gray-800 dark:text-white text-center' data-aos='fade-up'>
-          <Text>skill.main-technologies</Text>{' '}
+        <h3 className='text-4xl md:text-6xl font-black tracking-tight mb-12 text-gray-900 dark:text-white text-center' data-aos='fade-up'>
+          <Text>skill.main-technologies</Text>
         </h3>
 
         <div className='grid grid-cols-1 mb-20 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
@@ -266,7 +268,7 @@ const Skills = () => {
           ))}
         </div>
 
-        <h3 className='text-4xl md:text-6xl font-black tracking-tight mb-9 text-gray-800 dark:text-white text-center' data-aos='fade-up'>
+        <h3 className='text-4xl md:text-6xl font-black tracking-tight mb-12 text-gray-900 dark:text-white text-center' data-aos='fade-up'>
           Tools & Platforms
         </h3>
 

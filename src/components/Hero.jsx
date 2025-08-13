@@ -3,6 +3,7 @@ import { Link } from 'react-scroll';
 import Typed from 'typed.js';
 import { useTranslation } from 'react-i18next';
 import Text from './LocalizedText';
+import TextType from './TextType'
 
 const Hero = () => {
   const { t, i18n } = useTranslation();
@@ -25,18 +26,6 @@ const Hero = () => {
       setGreeting(getTimeBasedGreeting());
     }, 3600000);
 
-    if (typedRef.current) {
-      typedInstance.current = new Typed(typedRef.current, {
-        strings: ['Web Developer', 'UI/UX Designer', 'Frontend Engineer', 'JavaScript Enthusiast'],
-        typeSpeed: 60,
-        backSpeed: 40,
-        backDelay: 2000,
-        loop: true,
-        showCursor: true,
-        cursorChar: '<div class="inline-block w-[2px] h-8 -mb-1 bg-sky-50"></div>',
-      });
-    }
-
     return () => {
       clearInterval(greetingInterval);
       if (typedInstance.current) {
@@ -46,47 +35,52 @@ const Hero = () => {
   }, [t]);
 
   return (
-    <section className='relative min-h-screen flex items-center justify-center px-4 text-white overflow-hidden'>
+    <section id='home' className='relative min-h-screen flex items-center justify-center px-4 text-white overflow-hidden'>
       {/* Animated gradient background */}
-      <div className='absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-50'></div>
-
       <div className='relative z-10 text-center max-w-4xl px-4'>
         <h1 className='text-5xl md:text-8xl font-black text-white mb-2 tracking-tight'>
           <span className='inline-block transition-all duration-500 ease-in-out py-3'>{greeting}</span>,{' '}
           <Text>general.i'm</Text>{' '}
-          <span className='text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]'>
+          <span
+            className='text-transparent text-outline'
+          >
             <Text>hero.name</Text>
           </span>
         </h1>
 
-        <h2 className='text-2xl mt-9 md:text-4xl mb-8 text-gray-300 font-light tracking-tight'>
-          <Text>general.i'm-a</Text> <span ref={typedRef} className='text-cyan-300 font-thin'></span>
+        <h2 className='text-2xl mt-9 md:text-4xl mb-8 text-gray-700 dark:text-gray-300 font-light tracking-tight text-center'>
+          <Text>general.i'm-a</Text>{' '}
+          <TextType
+            className='font-semibold text-gray-900 dark:text-white'
+            text={["Web Developer", "UI/UX Designer", "Frontend Engineer", "JavaScript Enthusiast"]}
+            typingSpeed={75}
+            pauseDuration={2000}
+            showCursor={true}
+            cursorCharacter="_"
+          />
         </h2>
-
-        <p className='text-lg md:text-xl max-w-2xl mx-auto mb-12 text-gray-300 leading-relaxed'>
-          Crafting <span className='text-cyan-300'>scalable solutions</span> with clean code and intuitive design.
-          Full-stack developer specializing in <span className='text-blue-300'>React</span> and{' '}
-          <span className='text-emerald-300'>Node.js</span>.
+        <p className='text-lg md:text-2xl max-w-2xl mx-auto mb-12 text-gray-600 dark:text-gray-400 leading-relaxed text-center'>
+          Crafting <span className='font-medium text-gray-900 dark:text-gray-100'>scalable solutions</span> with clean code and intuitive design.
+          Full-stack developer specializing in <span className='font-medium text-gray-900 dark:text-gray-100'>React</span> and{' '}
+          <span className='font-medium text-gray-900 dark:text-gray-100'>Node.js</span>.
         </p>
-
         <div className='flex flex-col sm:flex-row justify-center gap-4'>
           <Link
             to='skills'
             smooth={true}
             duration={500}
-            className='relative inline-flex items-center justify-center px-8 py-3.5 bg-transparent border-2 border-cyan-400 text-cyan-400 rounded-lg shadow-lg overflow-hidden cursor-pointer transition-all duration-300 group hover:bg-cyan-400/10 hover:shadow-cyan-400/20'
+            className='relative inline-flex items-center justify-center px-8 py-3.5 bg-transparent border-2 border-gray-400 dark:border-gray-500 text-gray-700 dark:text-gray-300 rounded-lg shadow-sm overflow-hidden cursor-pointer transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-md'
           >
             <span className='relative z-10 font-medium'><Text>hero.explore-skill</Text></span>
-            <span className='absolute inset-0 bg-cyan-400/0 group-hover:bg-cyan-400/5 transition-all duration-500'></span>
           </Link>
 
           <Link
-            to='projects'
+            to='experiences'
             smooth={true}
             duration={500}
-            className='relative inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-cyan-400 to-blue-500 font-medium rounded-lg shadow-lg overflow-hidden cursor-pointer transition-all duration-300 group hover:shadow-cyan-400/30'
+            className='relative inline-flex items-center justify-center px-8 py-3.5 bg-gray-800 dark:bg-gray-700 text-white font-medium rounded-lg shadow-sm overflow-hidden cursor-pointer transition-all duration-300 hover:bg-gray-700 dark:hover:bg-gray-600 hover:shadow-md'
           >
-            <span className='relative z-10 font-medium'><Text>hero.view-project</Text></span>
+            <span className='relative z-10 font-medium'><Text>hero.view-experience</Text></span>
             <span className='absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-all duration-500'></span>
           </Link>
         </div>

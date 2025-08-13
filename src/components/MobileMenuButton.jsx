@@ -7,10 +7,10 @@ const MobileMenuButton = ({ isOpen, toggleOpen }) => {
       className={`
         ml-4 flex items-center justify-center w-10 h-10
         backdrop-blur-sm border
-        bg-gray-800/80
-        border-gray-600/50
+        bg-black/80
+        border-gray-700
         rounded-lg focus:outline-none
-        hover:shadow-lg hover:shadow-cyan-400/10
+        hover:shadow-lg hover:shadow-white/10
         transition-all duration-300
         group
       `}
@@ -26,8 +26,7 @@ const MobileMenuButton = ({ isOpen, toggleOpen }) => {
         <span
           className={`
             absolute h-0.5
-            bg-cyan-500 dark:bg-cyan-400
-            group-hover:bg-cyan-600 dark:group-hover:bg-cyan-300
+            bg-white
             transition-all duration-300
             ${isOpen ? 'w-6 rotate-45 top-2' : 'w-4 -translate-y-2 -translate-x-1'}
           `}
@@ -35,8 +34,7 @@ const MobileMenuButton = ({ isOpen, toggleOpen }) => {
         <span
           className={`
             absolute h-0.5
-            bg-cyan-500 dark:bg-cyan-400
-            group-hover:bg-cyan-600 dark:group-hover:bg-cyan-300
+            bg-white
             transition-all duration-300
             ${isOpen ? 'w-0' : 'w-6'}
           `}
@@ -44,8 +42,7 @@ const MobileMenuButton = ({ isOpen, toggleOpen }) => {
         <span
           className={`
             absolute h-0.5
-            bg-cyan-500 dark:bg-cyan-400
-            group-hover:bg-cyan-600 dark:group-hover:bg-cyan-300
+            bg-white
             transition-all duration-300
             ${isOpen ? 'w-6 -rotate-45 top-2' : 'w-4 translate-y-2 translate-x-1'}
           `}

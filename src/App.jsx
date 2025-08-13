@@ -5,11 +5,11 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
-import Projects from './components/Projects';
+import Experiences from './components/Experiences';
 import Footer from './components/Footer';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import Alert from './components/Alert';
-import ParticleBackground from './components/ParticleBackground';
+import DarkVeil from './components/DarkVeil';
 import AOS from 'aos';
 import Text from './components/LocalizedText';
 import 'aos/dist/aos.css';
@@ -61,20 +61,20 @@ const App = () => {
       }
 
       // Block Ctrl+Shift+I (alternative dev tools shortcut)
-      if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
-        e.preventDefault();
-        if (alertTimeoutRef.current) {
-          clearTimeout(alertTimeoutRef.current);
-        }
-        setAlertMessage(null);
-        setTimeout(() => {
-          setAlertMessage({
-            text: <Text>alert.c+s+i</Text>,
-            subtitle: <Text>alert.protect</Text>,
-          });
-        }, 10);
-        return false;
-      }
+      // if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+      //   e.preventDefault();
+      //   if (alertTimeoutRef.current) {
+      //     clearTimeout(alertTimeoutRef.current);
+      //   }
+      //   setAlertMessage(null);
+      //   setTimeout(() => {
+      //     setAlertMessage({
+      //       text: <Text>alert.c+s+i</Text>,
+      //       subtitle: <Text>alert.protect</Text>,
+      //     });
+      //   }, 10);
+      //   return false;
+      // }
 
       // Block Ctrl+Shift+J (Chrome console shortcut)
       if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
@@ -146,30 +146,33 @@ const App = () => {
 
   return (
     <div className='relative min-h-screen'>
-      {/* Always render Alert, it handles its own visibility */}
+      <div className="fixed inset-0 w-full h-full z-[-1]">
+        <DarkVeil />
+      </div>
       <Alert message={alertMessage?.text || ''} subtitle={alertMessage?.subtitle || ''} />
-
-      <ParticleBackground theme={theme} />
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <main>
-        {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
-          <Element key={section} name={section}>
-            {section === 'home' ? (
-              <Hero />
-            ) : section === 'about' ? (
-              <About />
-            ) : section === 'skills' ? (
-              <Skills />
-            ) : section === 'projects' ? (
-              <Projects />
-            ) : (
-              <Contact />
-            )}
-          </Element>
-        ))}
-      </main>
-      <ScrollToTopButton />
-      <Footer />
+      {/* Main content with relative positioning */}
+      <div className="relative z-10">
+        <Navbar theme={theme} toggleTheme={toggleTheme} />
+        <main>
+          {['home', 'about', 'skills', 'experiences', 'contact'].map((section) => (
+            <Element key={section} name={section}>
+              {section === 'home' ? (
+                <Hero />
+              ) : section === 'about' ? (
+                <About />
+              ) : section === 'skills' ? (
+                <Skills />
+              ) : section === 'experiences' ? (
+                <Experiences />
+              ) : (
+                <Contact />
+              )}
+            </Element>
+          ))}
+        </main>
+        <ScrollToTopButton />
+        <Footer />
+      </div>
     </div>
   );
 };

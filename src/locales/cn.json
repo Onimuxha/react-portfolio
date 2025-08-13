@@ -10,7 +10,7 @@
     "home": "主页",
     "about": "关于我",
     "skills": "技能",
-    "projects": "项目",
+    "experiences": "经历",
     "contact": "联系"
   },
   "hero": {
@@ -19,22 +19,22 @@
     "evening": "晚上好",
     "name": "SOCHEATH",
     "explore-skill": "探索技能",
-    "view-project": "查看项目"
+    "view-experience": "查看经历"
   },
   "about": {
     "about": "关于",
     "who-i'm": "我是谁？",
+    "my-educational": "我的教育背景",
     "contact-me": "联系我"
   },
   "skill": {
     "skill": "技能",
-    "my-educational": "我的教育背景",
     "main-technologies": "主要技术"
   },
-  "project": {
-    "project": "项目",
-    "company-project": "公司项目",
-    "academy-project": "学术项目",
+  "experience": {
+    "experience": "经验",
+    "company-experience": "企业经历",
+    "academy-experience": "学术经历",
     "my-skills": "我的技能",
     "my-education": "我的教育"
   },
@@ -42,8 +42,9 @@
     "name": "你的名字",
     "telegram": "Telegram 用户名",
     "subject": "主题",
+    "let's": "一起工作",
+    "together": "吧 ",
     "message": "你的消息",
-    "connect": "联系我",
     "email": "电子邮件",
     "phone": "电话",
     "address": "地址",

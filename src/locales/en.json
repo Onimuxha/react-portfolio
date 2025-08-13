@@ -10,7 +10,7 @@
     "home": "Home",
     "about": "About",
     "skills": "Skills",
-    "projects": "Projects",
+    "experiences": "Experiences",
     "contact": "Contact"
   },
   "hero": {
@@ -19,22 +19,22 @@
     "evening": "GOOD EVENING",
     "name": "SOCHEATH",
     "explore-skill": "Explore Skills",
-    "view-project": "View Projects"
+    "view-experience": "View Experiences"
   },
   "about": {
     "about": "ABOUT",
     "who-i'm": "Who am I?",
-    "contact-me": "Contact Me"
+    "contact-me": "Contact Me",
+    "my-educational": "MY EDUCATIONAL"
   },
   "skill": {
     "skill": "SKILLS",
-    "my-educational": "My Educational",
     "main-technologies": "Main Technologies"
   },
-  "project": {
-    "project": "PROJECTS",
-    "company-project": "COMPANY PROJECTS",
-    "academy-project": "ACADEMY PROJECTS",
+  "experience": {
+    "experience": "EXPERIENCES",
+    "company-experience": "COMPANY EXPERIENCES",
+    "academy-experience": "ACADEMY EXPERIENCES",
     "my-skills": "My Skills",
     "my-education": "My Education"
   },
@@ -43,7 +43,8 @@
     "telegram": "Telegram Username",
     "subject": "Subject",
     "message": "Your Message",
-    "connect": "CONNECT WITH",
+    "let's": "LET'S WORK",
+    "together": "TOGETHER",
     "email": "Email",
     "phone": "Phone",
     "address": "Address",

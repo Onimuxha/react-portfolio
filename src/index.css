@@ -29,6 +29,12 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'NotoSansKhmer';
+  src: url('/fonts/Niradei-Black.ttf') format('truetype');
+  font-weight: bolder;
+  font-style: normal;
+}
 
 .font-khmer {
   font-family: 'NotoSansKhmer', sans-serif !important;

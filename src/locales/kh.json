@@ -10,31 +10,31 @@
     "home": "ទំព័រដើម",
     "about": "អំពីខ្ញុំ",
     "skills": "ជំនាញ",
-    "projects": "គម្រោង",
+    "experiences": "បទពិសោធន៍",
     "contact": "ទំនាក់ទំនង"
   },
   "hero": {
     "morning": "អរុណសួស្ដី",
     "afternoon": "ទិវាសួស្ដី",
     "evening": "សាយ័ណ្ហសួស្ដី",
-    "name": "សុជាតិ",
+    "name": "SOCHEATH",
     "explore-skill": "មើលជំនាញ",
-    "view-project": "មើលគម្រោង"
+    "view-experience": "មើលបទពិសោធន៍"
   },
   "about": {
     "about": "អំពី",
     "who-i'm": "តើខ្ញុំជាអ្នកណា?",
+    "my-educational": "ការបណ្តុះបណ្តាលរបស់ខ្ញុំ",
     "contact-me": "ទំនាក់ទំនងខ្ញុំ"
   },
   "skill": {
     "skill": "ជំនាញ",
-    "my-educational": "ការបណ្តុះបណ្តាលរបស់ខ្ញុំ",
     "main-technologies": "បច្ចេកវិទ្យាគោល"
   },
-  "project": {
-    "project": "គម្រោង",
-    "company-project": "គម្រោងក្រុមហ៊ុន",
-    "academy-project": "គម្រោងសាលា",
+  "experience": {
+    "experience": "បទពិសោធន៍",
+    "company-experience": "បទពិសោធន៍ក្រុមហ៊ុន",
+    "academy-experience": "បទពិសោធន៍សាលា",
     "my-skills": "ជំនាញរបស់ខ្ញុំ",
     "my-education": "ការអប់រំរបស់ខ្ញុំ"
   },
@@ -43,7 +43,8 @@
     "telegram": "ឈ្មោះអ្នកប្រើ Telegram",
     "subject": "ប្រធានបទ",
     "message": "សាររបស់អ្នក",
-    "connect": "ទាក់ទងមក",
+    "let's": "តោះធ្វើការ",
+    "together": "ជាមួយគ្នា",
     "email": "អ៊ីមែល",
     "phone": "ទូរស័ព្ទ",
     "address": "អាសយដ្ឋាន",

@@ -3,9 +3,9 @@ import { Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
 import Text from './LocalizedText';
 
-const Projects = () => {
+const Experiences = () => {
   const { t, i18n } = useTranslation();
-  const projects = {
+  const experiences = {
     academy: [
       {
         name: 'Neon Chat App',
@@ -119,30 +119,31 @@ const Projects = () => {
   const GithubIcon = () => <i className='bx bxl-github mt-1 mr-1'></i>;
   const ExternalLinkIcon = () => <i className='bx bx-laptop mt-1 mr-1'></i>;
 
-  const ProjectCard = ({ project, index, category }) => {
+  const ExperienceCard = ({ experience, index, category }) => {
     return (
-      <div className='h-full relative group bg-gray-100/90 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300 dark:border-gray-700 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/10'>
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(34,211,238,0.1)_0%,_transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
+      <div className='h-full relative group bg-gray-100/90 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-300 hover:shadow-lg hover:shadow-gray-400/10 dark:hover:shadow-gray-600/10'>
+        <div className='absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(100,116,139,0.1)_0%,_transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
         <div className='relative z-10 p-6 flex flex-col h-full'>
           {/* Header */}
           <div className='flex justify-between items-start mb-4'>
-            <h3 className='text-xl font-semibold text-cyan-600 dark:text-cyan-300'>{project.name}</h3>
+            <h3 className='text-xl font-semibold text-gray-800 dark:text-gray-100'>{experience.name}</h3>
             <span className='select-none text-sm text-gray-600 dark:text-gray-400 bg-gray-200 dark:bg-gray-700/50 px-2 py-1 rounded'>
-              {project.period}
+              {experience.period}
             </span>
           </div>
-          <p className='text-gray-700 dark:text-gray-300 mb-4'>{project.purpose}</p>
+          <p className='text-gray-700 dark:text-gray-300 mb-4'>{experience.purpose}</p>
+
           {/* Content wrapper */}
           <div className='flex-1 flex flex-col'>
             <div className='mb-4'>
-              <h4 className='text-sm font-semibold text-blue-600 dark:text-blue-300 mb-1'>Role:</h4>
-              <p className='text-gray-700 dark:text-gray-300'>{project.role}</p>
+              <h4 className='text-sm font-semibold text-gray-700 dark:text-gray-200 mb-1'>Role:</h4>
+              <p className='text-gray-600 dark:text-gray-400'>{experience.role}</p>
             </div>
 
             <div className='mb-4'>
-              <h4 className='text-sm font-semibold text-emerald-600 dark:text-emerald-300 mb-1'>Responsibilities:</h4>
-              <ul className='list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1'>
-                {project.responsibilities.map((item, i) => (
+              <h4 className='text-sm font-semibold text-gray-700 dark:text-gray-200 mb-1'>Responsibilities:</h4>
+              <ul className='list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1'>
+                {experience.responsibilities.map((item, i) => (
                   <li key={i} className='text-sm'>
                     {item}
                   </li>
@@ -154,12 +155,12 @@ const Projects = () => {
           {/* Footer section */}
           <div className='mt-auto pt-4'>
             <div className='mb-4'>
-              <h4 className='text-sm font-semibold text-purple-600 dark:text-purple-300 mb-1'>Technologies:</h4>
+              <h4 className='text-sm font-semibold text-gray-700 dark:text-gray-200 mb-1'>Technologies:</h4>
               <div className='flex flex-wrap gap-2'>
-                {project.languages.map((lang, i) => (
+                {experience.languages.map((lang, i) => (
                   <span
                     key={i}
-                    className='text-xs bg-gray-200 dark:bg-gray-700/50 text-cyan-600 dark:text-cyan-300 px-2 py-1 rounded'
+                    className='text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded'
                   >
                     {lang}
                   </span>
@@ -168,26 +169,26 @@ const Projects = () => {
             </div>
 
             <div className='flex gap-3'>
-              {project.github && (
+              {experience.github && (
                 <a
-                  href={project.github}
+                  href={experience.github}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='inline-flex items-center text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors text-sm border border-cyan-400/90 hover:border-cyan-300/50 px-3 py-1.5 rounded-lg'
+                  className='inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 px-3 py-1.5 rounded-lg'
                 >
                   <GithubIcon />
-                  Code
+                  <span className='ml-2'>Code</span>
                 </a>
               )}
-              {project.deploy && (
+              {experience.deploy && (
                 <a
-                  href={project.deploy}
+                  href={experience.deploy}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='inline-flex items-center text-green-600 dark:text-green-400 hover:text-green-500 dark:hover:text-green-300 transition-colors text-sm border border-green-400/90 hover:border-green-300/50 px-3 py-1.5 rounded-lg'
+                  className='inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 px-3 py-1.5 rounded-lg'
                 >
                   <ExternalLinkIcon />
-                  Demo
+                  <span className='ml-2'>Demo</span>
                 </a>
               )}
             </div>
@@ -198,100 +199,88 @@ const Projects = () => {
   };
 
   return (
-    <section id='projects' className='relative py-20 px-4 overflow-hidden'>
-      {/* Responsive Background */}
-      <div className='absolute inset-0 bg-gray-200 dark:bg-gray-900'>
-        {/* Dark mode specific elements */}
-        <div className='absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-0 dark:opacity-95'></div>
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(34,211,238,0.1)_0%,_transparent_70%)] animate-pulse-slow opacity-0 dark:opacity-100'></div>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjMDAwMDAwIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiMxMTEiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=')] opacity-0 dark:opacity-20"></div>
-
-        {/* Light mode patterns */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmZmZmIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiNlZWUiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=')] opacity-10 dark:opacity-0"></div>
-        <div className='absolute inset-0 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 opacity-95 dark:opacity-0'></div>
-      </div>
-
+    <section id='experiences' className='py-20 bg-gray-50/80 dark:bg-gray-950/90'>
       <div className='relative z-10 max-w-7xl mx-auto'>
         <div className='text-center mb-16' data-aos='fade-up'>
-          <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-2 text-gray-800 dark:text-white text-center' data-aos='fade-up'>
+          <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-4 text-gray-900 dark:text-white'>
             {i18n.language === 'kh' ? (
               <>
-                <span className='text-transparent pb-1 pt-1 bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
-                  <Text>project.project</Text>
+                <span className='text-transparent bg-clip-text bg-gradient-to-r from-gray-600 to-gray-900 dark:from-gray-400 dark:to-gray-100'>
+                  <Text>experience.experience</Text>
                 </span>{' '}
                 <Text>general.my</Text>
               </>
             ) : (
               <>
                 <Text>general.my</Text>{' '}
-                <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
-                  <Text>project.project</Text>
+                <span className='text-transparent bg-clip-text bg-gradient-to-r from-gray-600 to-gray-900 dark:from-gray-400 dark:to-gray-100'>
+                  <Text>experience.experience</Text>
                 </span>
               </>
             )}
           </h3>
-          <div className="w-24 h-0.5 bg-white mx-auto mb-16"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full mb-16"></div>
 
           <p className='text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto'>
             Showcasing my technical journey through{' '}
-            <span className='text-cyan-600 dark:text-cyan-300'>innovative solutions</span> and{' '}
-            <span className='text-blue-600 dark:text-blue-300'>cutting-edge</span> implementations
+            <span className='font-medium text-gray-800 dark:text-gray-100'>innovative solutions</span> and{' '}
+            <span className='font-medium text-gray-800 dark:text-gray-100'>cutting-edge</span> implementations
           </p>
 
           {/* Navigation links */}
           <div className='flex justify-center gap-6 mt-6'>
             <Link
-              to='company-projects'
+              to='company-experiences'
               smooth={true}
               duration={500}
               offset={-100}
-              className='px-4 py-2 text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 border border-blue-400/90 hover:border-blue-300/50 rounded-lg transition-colors cursor-pointer'
+              className='px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 rounded-lg transition-colors cursor-pointer'
             >
-              <Text>project.company-project</Text>
+              <Text>experience.company-experience</Text>
             </Link>
             <Link
-              to='academy-projects'
+              to='academy-experiences'
               smooth={true}
               duration={500}
               offset={-100}
-              className='px-4 py-2 text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 border border-cyan-400/90 hover:border-cyan-300/50 rounded-lg transition-colors cursor-pointer'
+              className='px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 rounded-lg transition-colors cursor-pointer'
             >
-              <Text>project.academy-project</Text>
+              <Text>experience.academy-experience</Text>
             </Link>
           </div>
         </div>
 
-        {/* Company Projects */}
-        <div className='mb-20' id='company-projects'>
+        {/* Company Experiences */}
+        <div className='mb-20' id='company-experiences'>
           <div className='flex items-center mb-8' data-aos='fade-up' data-aos-duration='600'>
-            <h3 className='text-2xl md:text-3xl font-semibold text-blue-600 dark:text-blue-400 mr-4'>
-              <Text>project.company-project</Text>
+            <h3 className='text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200 mr-4'>
+              <Text>experience.company-experience</Text>
             </h3>
-            <div className='flex-1 mt-2 h-px bg-gradient-to-r from-blue-400/30 to-blue-400/0'></div>
+            <div className='flex-1 mt-2 h-px bg-gradient-to-r from-gray-400/30 to-gray-400/0 dark:from-gray-600/30 dark:to-gray-600/0'></div>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {projects.company.map((project, index) => (
+            {experiences.company.map((experience, index) => (
               <div key={`company-${index}`} data-aos='fade-up' data-aos-delay={index * 100} data-aos-duration='600'>
-                <ProjectCard project={project} index={index} category='company' />
+                <ExperienceCard experience={experience} index={index} category='company' />
               </div>
             ))}
           </div>
         </div>
 
-        {/* Academy Projects */}
-        <div id='academy-projects'>
+        {/* Academy Experiences */}
+        <div id='academy-experiences'>
           <div className='flex items-center mb-8' data-aos='fade-up' data-aos-duration='600'>
-            <h3 className='text-2xl md:text-3xl font-semibold text-cyan-600 dark:text-cyan-400 mr-4'>
-              <Text>project.academy-project</Text>
+            <h3 className='text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200 mr-4'>
+              <Text>experience.academy-experience</Text>
             </h3>
-            <div className='flex-1 mt-2 h-px bg-gradient-to-r from-cyan-400/30 to-cyan-400/0'></div>
+            <div className='flex-1 mt-2 h-px bg-gradient-to-r from-gray-400/30 to-gray-400/0 dark:from-gray-600/30 dark:to-gray-600/0'></div>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {projects.academy.map((project, index) => (
+            {experiences.academy.map((experience, index) => (
               <div key={`academy-${index}`} data-aos='fade-up' data-aos-delay={index * 100} data-aos-duration='600'>
-                <ProjectCard project={project} index={index} category='academy' />
+                <ExperienceCard experience={experience} index={index} category='academy' />
               </div>
             ))}
           </div>
@@ -301,4 +290,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Experiences;
