@@ -3,7 +3,7 @@ import { Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
 import Text from './LocalizedText';
 import CVDownloadModal from './CVDownloadModal';
-import { Home, User2, Code, BriefcaseBusiness, Mail, ChevronsRight, Download } from 'lucide-react';
+import { Home, User2, Code, BriefcaseBusiness, Mail, ChevronsRight, Download, ArrowDownToLine } from 'lucide-react';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -37,7 +37,7 @@ const Footer = () => {
     <footer className='relative bg-gray-950 text-gray-300'>
       <div className='container mx-auto px-2 pt-12 pb-8'>
         <div className='bg-gray-900/80 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-gray-800/50'>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10'>
             <div className='col-span-1 lg:col-span-2'>
               <h2 className='text-3xl font-bold text-gray-100 mb-4 tracking-tight'>
                 <Text>hero.name</Text>
@@ -50,7 +50,7 @@ const Footer = () => {
             </div>
 
             <div className='col-span-1'>
-              <h3 className='text-lg font-medium mb-5 text-gray-200 tracking-wide uppercase'>
+              <h3 className='text-lg font-bold mb-5 text-gray-200 tracking-wide uppercase'>
                 <Text>footer.quick-link</Text>
               </h3>
               <ul className='space-y-3'>
@@ -60,13 +60,18 @@ const Footer = () => {
                       to={to}
                       smooth={true}
                       duration={500}
-                      className='flex items-center text-gray-400 hover:text-gray-100 cursor-pointer py-2 transition-all duration-300 group'
+                      className='flex items-center justify-between text-gray-400 hover:text-gray-100 cursor-pointer py-3 transition-all duration-300 group'
                     >
-                      {React.cloneElement(icon, {
-                        className: "mr-3 text-gray-500 group-hover:text-gray-300 transition-colors"
-                      })}
-                      <Text>{nameKey}</Text>
-                      <ChevronsRight className='ml-auto text-gray-600 group-hover:text-gray-400 transition-colors' />
+                      <div className="flex items-center">
+                        {React.cloneElement(icon, {
+                          className: "mr-3 text-gray-500 group-hover:text-gray-300 transition-colors"
+                        })}
+                        <Text>{nameKey}</Text>
+                      </div>
+                      <div className="relative h-5 w-5 overflow-hidden">
+                        <ChevronsRight className="absolute top-0 left-0 w-5 h-5 transition-transform duration-300 group-hover:translate-x-full" />
+                        <ChevronsRight className="absolute top-0 left-0 w-5 h-5 transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0" />
+                      </div>
                     </Link>
                   </li>
                 ))}
@@ -74,16 +79,22 @@ const Footer = () => {
             </div>
 
             <div className='col-span-1'>
-              <h3 className='text-lg font-medium mb-5 text-gray-200 tracking-wide uppercase'>
+              <h3 className='text-lg font-bold mb-5 text-gray-200 tracking-wide uppercase'>
                 <Text>footer.download-cv</Text>
               </h3>
               <p className='text-gray-400 mb-6 leading-relaxed'>Do you want to know more? Download my Curriculum Vitae.</p>
               <button
                 onClick={handleDownloadClick}
-                className='inline-flex items-center px-5 py-3 bg-gray-800 hover:bg-gray-700/90 text-gray-100 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg group border border-gray-700/50 hover:border-gray-600/50'
-              >
-                <Text>footer.download-cv</Text>
-                <Download className='ml-3 text-lg group-hover:translate-y-0.5 transition-transform' />
+                className="relative inline-flex items-center px-8 py-3 rounded-xl bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-800 text-white border border-gray-700/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition" />
+                <span className="absolute bottom-0 left-1/2 h-px w-0 bg-white transition-all duration-500 group-hover:w-3/4 group-hover:left-[12.5%]" />
+                <span className="relative z-10 font-medium text-lg">
+                  <Text>footer.download-cv</Text>
+                </span>
+                <div className="relative ml-3 h-5 w-5 overflow-hidden">
+                  <ArrowDownToLine className="absolute top-0 left-0 w-5 h-5 transition-transform duration-300 group-hover:translate-y-full" />
+                  <ArrowDownToLine className="absolute top-0 left-0 w-5 h-5 transition-transform duration-300 transform -translate-y-full group-hover:translate-y-0" />
+                </div>
               </button>
             </div>
           </div>

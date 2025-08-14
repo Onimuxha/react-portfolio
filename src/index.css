@@ -2,12 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* Global Reset */
-* {
+/* Global Reset & Base Styles */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+:root {
+  --max-content-width: 100vw;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 body {
@@ -21,28 +35,61 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
-/* Khmer font  */
+
+/* Khmer font */
 @font-face {
   font-family: 'NotoSansKhmer';
   src: url('/fonts/NotoSansKhmer-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
+
 @font-face {
   font-family: 'NotoSansKhmer';
   src: url('/fonts/Niradei-Black.ttf') format('truetype');
-  font-weight: bolder;
+  font-weight: 800; 
   font-style: normal;
+  font-display: swap;
 }
 
 .font-khmer {
-  font-family: 'NotoSansKhmer', sans-serif !important;
+  font-family: 'NotoSansKhmer', sans-serif;
 }
+
 /* Light Mode */
 @media (prefers-color-scheme: light) {
   body {
     background-color: #ffffff;
     color: #213547;
+  }
+}
+
+/* Overflow prevention */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Canvas containment */
+canvas {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100%;
+}
+
+/* Safe area padding for modern devices */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
   }
 }

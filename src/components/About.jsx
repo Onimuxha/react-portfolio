@@ -18,7 +18,7 @@ const Timeline = ({ items }) => {
             <span className="font-medium text-sm group-hover:scale-110 transition-transform">{index + 1}</span>
             <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-gray-300/50 dark:group-hover:border-gray-500/50 animate-pulse"></div>
           </div>
-          
+
           {/* Modern content card */}
           <div className={`w-full lg:w-[45%] ${index % 2 === 0 ? 'lg:ml-auto' : 'lg:mr-auto'} transition-all duration-500`}>
             <div className={`relative bg-white/95 dark:bg-gray-900/95 rounded-2xl p-6 shadow-lg border border-gray-200/50 dark:border-gray-800/50 backdrop-blur-sm ${index % 2 === 0 ? 'lg:ml-14' : 'lg:mr-14'} group-hover:shadow-xl group-hover:border-gray-300/70 dark:group-hover:border-gray-700/70 transition-all duration-300`}>
@@ -135,12 +135,13 @@ const About = () => {
             <div className='pt-6' data-aos='fade-up'>
               <Link
                 to='contact'
-                smooth={true}
+                smooth
                 duration={500}
-                className='inline-flex items-center px-8 py-4 rounded-xl bg-gray-900 dark:bg-gray-800 text-white hover:bg-gray-800 dark:hover:bg-gray-700 transition-all duration-300 shadow-lg hover:shadow-xl group border border-gray-700 dark:border-gray-600'
-              >
-                <span className='font-medium text-lg'>Contact Me</span>
-                <Mail className='ml-3 w-5 h-5 transition-transform group-hover:translate-x-1' />
+                className='relative inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-800 text-white border border-gray-700/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group'>
+                <span className='absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition' />
+                <span className='relative z-10 font-medium text-lg'>Contact Me</span>
+                <Mail className='ml-3 w-5 h-5 transition-transform group-hover:translate-x-2' />
+                <span className='absolute bottom-0 left-1/2 h-px w-0 bg-white transition-all duration-500 group-hover:w-3/4 group-hover:left-[12.5%]' />
               </Link>
             </div>
           </div>

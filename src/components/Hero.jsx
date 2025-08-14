@@ -4,6 +4,8 @@ import Typed from 'typed.js';
 import { useTranslation } from 'react-i18next';
 import Text from './LocalizedText';
 import TextType from './TextType'
+import ShinyText from './ShinyText'
+import { ArrowBigDown, BriefcaseBusiness, TerminalSquare } from 'lucide-react';
 
 const Hero = () => {
   const { t, i18n } = useTranslation();
@@ -41,17 +43,13 @@ const Hero = () => {
         <h1 className='text-5xl md:text-8xl font-black text-white mb-2 tracking-tight'>
           <span className='inline-block transition-all duration-500 ease-in-out py-3'>{greeting}</span>,{' '}
           <Text>general.i'm</Text>{' '}
-          <span
-            className='text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-100'
-          >
-            <Text>hero.name</Text>
-          </span>
+          <ShinyText text='SOCHEATH' disabled={false} speed={3} className='custom-class font-poppins' />
         </h1>
 
-        <h2 className='text-2xl mt-9 md:text-4xl mb-8 text-gray-700 dark:text-gray-300 font-light tracking-tight text-center'>
+        <h2 className='text-2xl mt-9 md:text-4xl mb-8 text-gray-300 font-light tracking-tight text-center'>
           <Text>general.i'm-a</Text>{' '}
           <TextType
-            className='font-semibold text-gray-900 dark:text-white'
+            className='font-semibold text-white'
             text={["Web Developer", "UI/UX Designer", "Frontend Engineer", "JavaScript Enthusiast"]}
             typingSpeed={75}
             pauseDuration={2000}
@@ -59,29 +57,38 @@ const Hero = () => {
             cursorCharacter="_"
           />
         </h2>
-        <p className='text-lg md:text-2xl max-w-2xl mx-auto mb-12 text-gray-600 dark:text-gray-400 leading-relaxed text-center'>
-          Crafting <span className='font-medium text-gray-900 dark:text-gray-100'>scalable solutions</span> with clean code and intuitive design.
-          Full-stack developer specializing in <span className='font-medium text-gray-900 dark:text-gray-100'>React</span> and{' '}
-          <span className='font-medium text-gray-900 dark:text-gray-100'>Node.js</span>.
+        <p className='text-md md:text-xl max-w-2xl mx-auto mb-12 text-gray-400 leading-relaxed text-center'>
+          Crafting <span className='font-medium text-gray-100'>scalable solutions</span> with clean code and intuitive design.
+          Full-stack developer specializing in <a class="text-sky-500 font-medium after:content-['_↗']" target='_blank' href="https://react.dev/">React.js</a> and {' '}
+          <a class="text-sky-500 font-medium after:content-['_↗']" target='_blank' href="https://nodejs.org">Node.js</a>.
         </p>
         <div className='flex flex-col sm:flex-row justify-center gap-4'>
           <Link
             to='skills'
-            smooth={true}
+            smooth
             duration={500}
-            className='relative inline-flex items-center justify-center px-8 py-3.5 bg-transparent border-2 border-gray-400 dark:border-gray-500 text-gray-700 dark:text-gray-300 rounded-lg shadow-sm overflow-hidden cursor-pointer transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-md'
-          >
-            <span className='relative z-10 font-medium'><Text>hero.explore-skill</Text></span>
+            className='relative flex items-center justify-center px-8 py-3.5 rounded-lg border-2 border-gray-500 text-gray-300 hover:text-white bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800/50 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer overflow-hidden group'>
+            {/* Animated background layer */}
+            <span className='absolute inset-0 bg-gradient-to-r from-gray-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity' />
+            <span className='relative z-10 font-medium'>
+              <Text>hero.explore-skill</Text>
+            </span>
+            {/* Animated right arrow */}
+            <TerminalSquare className='ml-2 w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all' />
           </Link>
 
           <Link
             to='experiences'
-            smooth={true}
+            smooth
             duration={500}
-            className='relative inline-flex items-center justify-center px-8 py-3.5 bg-gray-800 dark:bg-gray-700 text-white font-medium rounded-lg shadow-sm overflow-hidden cursor-pointer transition-all duration-300 hover:bg-gray-700 dark:hover:bg-gray-600 hover:shadow-md'
-          >
-            <span className='relative z-10 font-medium'><Text>hero.view-experience</Text></span>
-            <span className='absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-all duration-500'></span>
+            className='relative flex items-center justify-center px-8 py-3.5 rounded-lg bg-gray-700 dark:bg-gray-800 text-white shadow-md hover:shadow-lg transition-all cursor-pointer duration-300 overflow-hidden group'>
+            <span className='relative z-10 font-medium'>
+              <Text>hero.view-experience</Text>
+            </span>
+            {/* Animated hover layer */}
+            <span className='absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity' />
+            {/* Right arrow icon */}
+            <BriefcaseBusiness className='ml-2 w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all' />
           </Link>
         </div>
       </div>
