@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
 import Text from './LocalizedText';
+import { Github, SquareArrowOutUpRight } from 'lucide-react';
 
 const Experiences = () => {
   const { t, i18n } = useTranslation();
@@ -176,7 +177,7 @@ const Experiences = () => {
                   rel='noopener noreferrer'
                   className='inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 px-3 py-1.5 rounded-lg'
                 >
-                  <GithubIcon />
+                  <Github className='w-4 h-4'/>
                   <span className='ml-2'>Code</span>
                 </a>
               )}
@@ -187,7 +188,7 @@ const Experiences = () => {
                   rel='noopener noreferrer'
                   className='inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 px-3 py-1.5 rounded-lg'
                 >
-                  <ExternalLinkIcon />
+                  <SquareArrowOutUpRight className='w-4 h-4'/>
                   <span className='ml-2'>Demo</span>
                 </a>
               )}
