@@ -37,13 +37,13 @@ const Hero = () => {
   }, [t]);
 
   return (
-    <section id='home' className='relative min-h-screen flex items-center justify-center px-4 text-white overflow-hidden'>
+    <section id='home' className='relative min-h-screen flex items-center justify-center px-3 text-white overflow-hidden'>
       {/* Animated gradient background */}
       <div className='relative z-10 text-center max-w-4xl px-4'>
         <h1 className='text-5xl md:text-8xl font-black text-white mb-2 tracking-tight'>
           <span className='inline-block transition-all duration-500 ease-in-out py-3'>{greeting}</span>,{' '}
           <Text>general.i'm</Text>{' '}
-          <ShinyText text='SOCHEATH' disabled={false} speed={3} className='custom-class font-poppins' />
+          <ShinyText text='SOCHEATH' disabled={false} speed={3} className='custom-class' />
         </h1>
 
         <h2 className='text-2xl mt-9 md:text-4xl mb-8 text-gray-300 font-light tracking-tight text-center'>

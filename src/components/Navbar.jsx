@@ -53,7 +53,7 @@ const Navbar = ({ theme, toggleTheme }) => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || isOpen ? 'py-4 bg-gray-900/90 shadow-lg backdrop-blur-sm dark:border-gray-700'
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || isOpen ? 'py-5 bg-gray-900/90 shadow-lg backdrop-blur-sm dark:border-gray-700'
         : 'py-5 bg-transparent'
       }`}>
       <div className='w-full max-w-screen-xl mx-auto px-4 sm:px-6'>
