@@ -69,7 +69,7 @@ const About = () => {
   ];
 
   return (
-    <section id='about' className='py-20 bg-gray-50/80 dark:bg-gray-950/90 min-h-screen'>
+    <section id='about' className='py-20 bg-gray-50/90 dark:bg-gray-950/90 min-h-screen'>
       <div className='container mx-auto px-3 max-w-7xl'>
         <div className='text-center mb-16' data-aos='fade-up'>
           <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-4 text-gray-900 dark:text-white'>
@@ -128,8 +128,8 @@ const About = () => {
                     <p className='text-gray-900 dark:text-gray-100 text-lg'>Socheath Ek Mao</p>
                   </div>
                   <div>
-                    <span className='text-sm font-medium text-gray-500/90 dark:text-gray-400/90'>Email</span>
-                    <p className='text-gray-900 dark:text-gray-100 text-lg'>hello@kirito.dev</p>
+                    <span className='text-sm font-medium text-gray-500/90 dark:text-gray-400/90'>Phone</span>
+                    <p className='text-gray-900 dark:text-gray-100 text-lg'>012 394 857</p>
                   </div>
                 </div>
               </div>
@@ -153,7 +153,7 @@ const About = () => {
                 to='contact'
                 smooth
                 duration={500}
-                className='relative inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-800 text-white border border-gray-700/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group'
+                className='relative inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-800 text-white border border-gray-700/50 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group'
               >
                 <span className='absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition' />
                 <span className='relative z-10 font-medium text-lg'>Contact Me</span>

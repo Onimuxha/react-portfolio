@@ -1,6 +1,21 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import Text from './LocalizedText';
+import {
+  Bootstrap5,
+  Figma,
+  GitHubDark,
+  GitLab,
+  JavaScript,
+  MySQL,
+  NodeJs,
+  ReactQuery,
+  ReactRouter,
+  TailwindCSS,
+  TypeScript,
+  VisualStudioCode,
+  WordPress,
+} from 'developer-icons';
 
 const SkillBar = ({ skill, icon, description, percentage }) => {
   const progressRef = useRef(null);
@@ -46,22 +61,19 @@ const SkillBar = ({ skill, icon, description, percentage }) => {
 
   return (
     <div
-      className='mb-6 group p-6 rounded-xl border border-gray-300/20 dark:border-gray-700/50 bg-white/90 dark:bg-gray-900/50 backdrop-blur-sm hover:border-gray-400/30 dark:hover:border-gray-600/50 transition-all duration-300 shadow-md hover:shadow-lg'
+      className='mb-6 group p-6 rounded-xl border border-gray-300/20 dark:border-gray-700/50 bg-white/90 dark:bg-gray-900/50 backdrop-blur-sm cursor-default hover:border-gray-400/30 dark:hover:border-gray-600/50 transition-all duration-300 shadow-md hover:shadow-lg'
       data-aos='fade-up'
     >
       <div className='flex items-start gap-5 mb-4'>
-        <div className='text-2xl flex-shrink-0 text-gray-800 dark:text-gray-300 p-3 bg-gray-200/50 dark:bg-gray-800/70 rounded-lg group-hover:bg-gray-300/50 dark:group-hover:bg-gray-700/70 transition-colors'>
-          <i className={icon}></i>
-        </div>
+        <span className='text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 p-2 rounded'>
+          {icon}
+        </span>
         <div className='flex-grow'>
           <div className='flex justify-between items-center mb-2'>
             <h3 className='font-semibold text-gray-900 dark:text-gray-100 group-hover:text-gray-950 dark:group-hover:text-white transition-colors'>
               {skill}
             </h3>
-            <span
-              ref={percentageRef}
-              className='font-medium text-gray-700 dark:text-gray-300'
-            >
+            <span ref={percentageRef} className='font-medium text-gray-700 dark:text-gray-300'>
               0%
             </span>
           </div>
@@ -82,12 +94,15 @@ const SkillBar = ({ skill, icon, description, percentage }) => {
 const SkillCard = ({ icon, title, description }) => {
   return (
     <div
-      className='h-full p-7 rounded-xl border border-gray-300/20 dark:border-gray-700/50 bg-white/90 dark:bg-gray-900/50 backdrop-blur-sm cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-400/10 dark:hover:shadow-gray-600/10 hover:border-gray-400/30 dark:hover:border-gray-600/50 group'
+      className='h-full p-7 rounded-xl border border-gray-300/20 dark:border-gray-700/50 bg-white/90 dark:bg-gray-900/50 backdrop-blur-sm cursor-default transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-400/10 dark:hover:shadow-gray-600/10 hover:border-gray-400/30 dark:hover:border-gray-600/50 group'
       data-aos='zoom-in'
     >
       <div className='flex flex-col h-full'>
         <div className='mb-6 text-5xl flex justify-center group-hover:scale-110 transition-transform'>
-          <i className={`${icon} text-gray-800 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100`}></i>
+          {/* {icon} */}
+          <span className='text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 p-2 rounded'>
+            {icon}
+          </span>
         </div>
         <h3 className='text-xl font-semibold mb-4 text-center text-gray-900 dark:text-white group-hover:text-gray-950 dark:group-hover:text-gray-50 transition-colors'>
           {title}
@@ -103,37 +118,37 @@ const Skills = () => {
   const skillsData = [
     {
       skill: 'JavaScript',
-      icon: 'bx bxl-javascript',
+      icon: <JavaScript className='w-7 h-7' />,
       description: 'Modern ES6+, async/await, functional programming',
       percentage: 90,
     },
     {
       skill: 'React.js',
-      icon: 'bx bxl-react',
+      icon: <ReactQuery className='w-7 h-7' />,
       description: 'Hooks, Context API, Redux, Next.js',
       percentage: 85,
     },
     {
       skill: 'Node.js',
-      icon: 'bx bxl-nodejs',
+      icon: <NodeJs className='w-7 h-7' />,
       description: 'Express, RESTful APIs, MongoDB integration',
       percentage: 75,
     },
     {
       skill: 'CSS/Tailwind',
-      icon: 'bx bxl-css3',
+      icon: <TailwindCSS className='w-7 h-7' />,
       description: 'Responsive design, animations, custom themes',
       percentage: 90,
     },
     {
       skill: 'TypeScript',
-      icon: 'bx bxl-typescript',
+      icon: <TypeScript className='w-7 h-7' />,
       description: 'Type safety, interfaces, generics',
       percentage: 80,
     },
     {
       skill: 'Git/GitHub',
-      icon: 'bx bxl-git',
+      icon: <GitHubDark className='w-7 h-7' />,
       description: 'Version control, collaboration, CI/CD',
       percentage: 85,
     },
@@ -141,22 +156,22 @@ const Skills = () => {
 
   const cardData = [
     {
-      icon: 'bx bxl-react',
+      icon: <ReactRouter className='w-7 h-7' />,
       title: 'React.js',
       description: 'Building modern and performant UI components with hooks and context API',
     },
     {
-      icon: 'bx bxl-javascript',
+      icon: <JavaScript className='w-7 h-7' />,
       title: 'JavaScript',
       description: 'ES6+ syntax, async programming, and functional patterns',
     },
     {
-      icon: 'bx bxl-tailwind-css',
+      icon: <TailwindCSS className='w-7 h-7' />,
       title: 'Tailwind CSS',
       description: 'Utility-first CSS framework for rapid UI development',
     },
     {
-      icon: 'bx bxl-nodejs',
+      icon: <NodeJs className='w-7 h-7' />,
       title: 'Node.js',
       description: 'Building scalable server-side applications and APIs',
     },
@@ -164,49 +179,49 @@ const Skills = () => {
 
   const toolsData = [
     {
-      icon: 'bx bxl-github',
+      icon: <GitHubDark className='w-7 h-7' />,
       title: 'GitHub',
       description: 'Version control and collaborative development workflow',
     },
     {
-      icon: 'bx bxl-visual-studio',
+      icon: <VisualStudioCode className='w-7 h-7' />,
       title: 'VS Code',
       description: 'Advanced code editing with extensive plugin ecosystem',
     },
     {
-      icon: 'bx bxl-figma',
+      icon: <Figma className='w-7 h-7' />,
       title: 'Figma',
       description: 'UI/UX design, prototyping, and design system management',
     },
     {
-      icon: 'bx bxl-gitlab',
+      icon: <GitLab className='w-7 h-7' />,
       title: 'GitLab',
       description: 'CI/CD pipelines and DevOps workflows',
     },
     {
-      icon: 'bx bxs-data',
+      icon: <MySQL className='w-7 h-7' />,
       title: 'MySQL',
       description: 'Relational database system for structured data and SQL queries',
     },
     {
-      icon: 'bx bxl-wordpress',
+      icon: <WordPress className='w-7 h-7' />,
       title: 'WordPress',
       description: 'Open-source CMS used to build websites and manage content easily',
     },
     {
-      icon: 'bx bxl-bootstrap',
+      icon: <Bootstrap5 className='w-7 h-7' />,
       title: 'Bootstrap',
       description: 'Responsive front-end framework for designing websites and interfaces',
     },
     {
-      icon: 'bx bxl-tailwind-css',
+      icon: <TailwindCSS className='w-7 h-7' />,
       title: 'Tailwind CSS (Basic)',
       description: 'Utility-first CSS framework for building custom designs quickly',
     },
   ];
 
   return (
-    <section id='skills' className='py-20 bg-gray-50/80 dark:bg-gray-950/90'>
+    <section id='skills' className='py-20 bg-gray-50/90 dark:bg-gray-950/90'>
       <div className='container mx-auto px-3 max-w-6xl'>
         <div className='text-center mb-16'>
           <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-4 text-gray-900 dark:text-white'>
@@ -226,7 +241,7 @@ const Skills = () => {
               </>
             )}
           </h3>
-          <div className="w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full mb-16"></div>
+          <div className='w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full mb-16'></div>
           <p
             className='text-lg text-gray-700/90 dark:text-gray-400/90 max-w-2xl mx-auto leading-relaxed'
             data-aos='fade-up'
@@ -249,7 +264,10 @@ const Skills = () => {
           ))}
         </div>
 
-        <h3 className='text-4xl md:text-6xl font-black tracking-tight mb-12 text-gray-900 dark:text-white text-center' data-aos='fade-up'>
+        <h3
+          className='text-4xl md:text-6xl font-black tracking-tight mb-12 text-gray-900 dark:text-white text-center'
+          data-aos='fade-up'
+        >
           <Text>skill.main-technologies</Text>
         </h3>
 
@@ -268,7 +286,10 @@ const Skills = () => {
           ))}
         </div>
 
-        <h3 className='text-4xl md:text-6xl font-black tracking-tight mb-12 text-gray-900 dark:text-white text-center' data-aos='fade-up'>
+        <h3
+          className='text-4xl md:text-6xl font-black tracking-tight mb-12 text-gray-900 dark:text-white text-center'
+          data-aos='fade-up'
+        >
           Tools & Platforms
         </h3>
 

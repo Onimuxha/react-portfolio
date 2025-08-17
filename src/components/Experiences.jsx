@@ -1,8 +1,8 @@
-import React from 'react';
 import { Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
 import Text from './LocalizedText';
 import { Github, SquareArrowOutUpRight } from 'lucide-react';
+import { Figma, GitHubDark, PostgreSQL, TailwindCSS } from 'developer-icons';
 
 const Experiences = () => {
   const { t, i18n } = useTranslation();
@@ -20,7 +20,12 @@ const Experiences = () => {
         ],
         github: 'https://github.com/yourusername/neon-chat',
         deploy: 'https://neon-chat-demo.com',
-        languages: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
+        languages: [
+          <GitHubDark className='w-7 h-7' />,
+          <PostgreSQL className='w-7 h-7' />,
+          <Figma className='w-7 h-7' />,
+          <TailwindCSS className='w-7 h-7' />,
+        ],
         isDeployed: true,
       },
       {
@@ -31,7 +36,12 @@ const Experiences = () => {
         responsibilities: ['Built responsive UI', 'Integrated API endpoints', 'Optimized image rendering'],
         github: 'https://github.com/yourusername/ai-image-gen',
         deploy: null,
-        languages: ['Next.js', 'Tailwind CSS', 'Stable Diffusion API'],
+        languages: [
+          <GitHubDark className='w-7 h-7' />,
+          <PostgreSQL className='w-7 h-7' />,
+          <Figma className='w-7 h-7' />,
+          <TailwindCSS className='w-7 h-7' />,
+        ],
         isDeployed: false,
       },
       {
@@ -46,7 +56,12 @@ const Experiences = () => {
         ],
         github: 'https://github.com/yourusername/smart-home-dashboard',
         deploy: 'https://smart-home-demo.vercel.app',
-        languages: ['React', 'MQTT.js', 'ThreeJS', 'Socket.io'],
+        languages: [
+          <GitHubDark className='w-7 h-7' />,
+          <PostgreSQL className='w-7 h-7' />,
+          <Figma className='w-7 h-7' />,
+          <TailwindCSS className='w-7 h-7' />,
+        ],
         isDeployed: true,
       },
       {
@@ -61,7 +76,12 @@ const Experiences = () => {
         ],
         github: 'https://github.com/yourusername/edu-platform',
         deploy: null,
-        languages: ['Next.js', 'PostgreSQL', 'Redis', 'TailwindCSS'],
+        languages: [
+          <GitHubDark className='w-7 h-7' />,
+          <PostgreSQL className='w-7 h-7' />,
+          <Figma className='w-7 h-7' />,
+          <TailwindCSS className='w-7 h-7' />,
+        ],
         isDeployed: false,
       },
       {
@@ -72,7 +92,12 @@ const Experiences = () => {
         responsibilities: ['Built responsive dashboard', 'Integrated health data APIs', 'Developed PWA features'],
         github: 'https://github.com/yourusername/health-tracker',
         deploy: 'https://health-tracker-demo.netlify.app',
-        languages: ['React Native', 'D3.js', 'Firebase', 'Redux'],
+        languages: [
+          <GitHubDark className='w-7 h-7' />,
+          <PostgreSQL className='w-7 h-7' />,
+          <Figma className='w-7 h-7' />,
+          <TailwindCSS className='w-7 h-7' />,
+        ],
         isDeployed: true,
       },
       {
@@ -83,7 +108,12 @@ const Experiences = () => {
         responsibilities: ['Created code diff viewer', 'Integrated OpenAI API', 'Built suggestion system'],
         github: 'https://github.com/yourusername/ai-code-reviewer',
         deploy: 'https://code-review-ai.demo.app',
-        languages: ['TypeScript', 'OpenAI API', 'Monaco Editor', 'Express'],
+        languages: [
+          <GitHubDark className='w-7 h-7' />,
+          <PostgreSQL className='w-7 h-7' />,
+          <Figma className='w-7 h-7' />,
+          <TailwindCSS className='w-7 h-7' />,
+        ],
         isDeployed: true,
       },
     ],
@@ -96,7 +126,12 @@ const Experiences = () => {
         responsibilities: ['Built dashboard interface', 'Optimized transaction flow', 'Implemented security features'],
         github: null,
         deploy: 'https://cyberpay.example.com',
-        languages: ['TypeScript', 'React', 'Redux', 'Tailwind CSS'],
+        languages: [
+          <GitHubDark className='w-7 h-7' />,
+          <PostgreSQL className='w-7 h-7' />,
+          <Figma className='w-7 h-7' />,
+          <TailwindCSS className='w-7 h-7' />,
+        ],
         isDeployed: true,
       },
       {
@@ -111,14 +146,16 @@ const Experiences = () => {
         ],
         github: 'https://github.com/company/neonvpn',
         deploy: null,
-        languages: ['Vue.js', 'D3.js', 'SCSS'],
+        languages: [
+          <GitHubDark className='w-7 h-7' />,
+          <PostgreSQL className='w-7 h-7' />,
+          <Figma className='w-7 h-7' />,
+          <TailwindCSS className='w-7 h-7' />,
+        ],
         isDeployed: false,
       },
     ],
   };
-
-  const GithubIcon = () => <i className='bx bxl-github mt-1 mr-1'></i>;
-  const ExternalLinkIcon = () => <i className='bx bx-laptop mt-1 mr-1'></i>;
 
   const ExperienceCard = ({ experience, index, category }) => {
     return (
@@ -161,7 +198,7 @@ const Experiences = () => {
                 {experience.languages.map((lang, i) => (
                   <span
                     key={i}
-                    className='text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded'
+                    className='text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 p-2 rounded'
                   >
                     {lang}
                   </span>
@@ -177,7 +214,7 @@ const Experiences = () => {
                   rel='noopener noreferrer'
                   className='inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 px-3 py-1.5 rounded-lg'
                 >
-                  <Github className='w-4 h-4'/>
+                  <Github className='w-4 h-4' />
                   <span className='ml-2'>Code</span>
                 </a>
               )}
@@ -188,7 +225,7 @@ const Experiences = () => {
                   rel='noopener noreferrer'
                   className='inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 px-3 py-1.5 rounded-lg'
                 >
-                  <SquareArrowOutUpRight className='w-4 h-4'/>
+                  <SquareArrowOutUpRight className='w-4 h-4' />
                   <span className='ml-2'>Demo</span>
                 </a>
               )}
@@ -200,7 +237,7 @@ const Experiences = () => {
   };
 
   return (
-    <section id='experiences' className='py-20 bg-gray-50/80 dark:bg-gray-950/90'>
+    <section id='experiences' className='py-20 bg-gray-50/90 dark:bg-gray-950/90'>
       <div className='relative z-10 max-w-7xl mx-auto px-3'>
         <div className='text-center mb-16' data-aos='fade-up'>
           <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-4 text-gray-900 dark:text-white'>
@@ -220,7 +257,7 @@ const Experiences = () => {
               </>
             )}
           </h3>
-          <div className="w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full mb-16"></div>
+          <div className='w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full mb-16'></div>
 
           <p className='text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto'>
             Showcasing my technical journey through{' '}

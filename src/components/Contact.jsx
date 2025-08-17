@@ -4,6 +4,7 @@ import { handleTelegramSubmission } from './telegramService';
 import { useTranslation } from 'react-i18next';
 import Text from './LocalizedText';
 import { LoaderCircle, SendHorizonal } from 'lucide-react';
+import { Facebook, GitHubDark, Gmail, Instagram, LinkedIn, Telegram, XDark } from 'developer-icons';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', telegram: '', subject: '', message: '' });
@@ -71,7 +72,7 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: 'bx bxl-telegram',
+      icon: <Telegram className='w-7 h-7'/>,
       title: 'Telegram',
       content: '@socheath',
       color: 'text-blue-500',
@@ -79,7 +80,7 @@ const Contact = () => {
       href: 'https://t.me/socheath',
     },
     {
-      icon: 'bx bxl-gmail',
+      icon: <Gmail className='w-7 h-7'/>,
       title: 'Gmail',
       content: 'hello@pages.dev',
       isLink: true,
@@ -87,7 +88,7 @@ const Contact = () => {
       color: 'text-blue-400',
     },
     {
-      icon: 'bx bxs-mobile',
+      icon: <XDark className='w-7 h-7'/>,
       title: 'Phone',
       content: '+81 70-1234-5678',
       isLink: true,
@@ -98,28 +99,20 @@ const Contact = () => {
 
   const socialLinks = [
     {
-      icon: 'bx bxl-github',
+      icon: <GitHubDark className='w-7 h-7'/>,
       url: 'https://github.com',
-      className: 'text-gray-800 dark:text-gray-200 hover:text-white',
-      bg: 'bg-gray-200 dark:bg-gray-700 hover:bg-black dark:hover:bg-black',
     },
     {
-      icon: 'bx bxl-linkedin',
+      icon: <LinkedIn className='w-7 h-7'/>,
       url: 'https://linkedin.com',
-      className: 'text-[#0A66C2] hover:text-white',
-      bg: 'bg-[#0A66C2]/10 hover:bg-[#0A66C2]',
     },
     {
-      icon: 'bx bxl-facebook',
+      icon: <Facebook className='w-7 h-7'/>,
       url: 'https://facebook.com',
-      className: 'text-white hover:text-white',
-      bg: 'bg-[#1877f2] hover:bg-[#166fe5]',
     },
     {
-      icon: 'bx bxl-instagram',
+      icon: <Instagram className='w-7 h-7'/>,
       url: 'https://instagram.com',
-      className: 'text-white opacity-90 hover:opacity-100',
-      bg: 'bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:shadow-lg hover:shadow-[#ee2a7b]/50',
     },
   ];
 
@@ -174,7 +167,7 @@ const Contact = () => {
   return (
     <section
       id='contact'
-      className='py-20 bg-gray-50/80 dark:bg-gray-950/90'
+      className='py-20 bg-gray-50/90 dark:bg-gray-950/90'
     >
       <div className='container mx-auto px-3 max-w-6xl'>
         <div className='text-center mb-16' data-aos='fade-up'>
@@ -223,7 +216,7 @@ const Contact = () => {
                 {contactInfo.map((item, i) => (
                   <div key={i} className="flex items-start group">
                     <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 flex items-center justify-center shadow-sm group-hover:bg-gray-200/50 dark:group-hover:bg-gray-700 transition-all duration-300">
-                      <i className={`${item.icon} text-xl text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100`}></i>
+                      {item.icon}
                     </div>
                     <div className="ml-4">
                       <h4 className="text-lg font-semibold text-gray-800 dark:text-white">{item.title}</h4>
@@ -268,7 +261,8 @@ const Contact = () => {
                       className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 shadow-sm bg-white dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600/70 hover:shadow-md hover:-translate-y-1 group`}
                       data-aos='zoom-in'
                       data-aos-delay={i * 100}>
-                      <i className={`${social.icon} text-2xl text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors duration-300`}></i>
+                      {/* <i className={`${social.icon} text-2xl text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors duration-300`}></i> */}
+                      {social.icon}
                     </a>
                   ))}
                 </div>
