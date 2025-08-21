@@ -37,11 +37,15 @@ const Timeline = ({ items }) => {
 
               <div className='space-y-4'>
                 <div>
-                  <h3 className='text-2xl font-bold text-gray-900 dark:text-gray-50 tracking-tight'>{item.title}</h3>
-                  <p className='text-sm text-gray-500/90 dark:text-gray-400/90 mt-1 font-mono'>{item.period}</p>
+                  <h3 className='text-2xl font-semibold text-gray-900 dark:text-gray-50 tracking-tight'>
+                    {item.title}
+                  </h3>
+                  <p className='text-md md:text-xl mx-auto text-gray-800 dark:text-gray-400 mt-1 font-mono'>
+                    {item.period}
+                  </p>
                 </div>
                 <div className='h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-gray-700'></div>
-                <p className='text-gray-700/90 dark:text-gray-300/90 leading-relaxed tracking-wide'>
+                <p className='text-md md:text-xl mx-auto text-gray-800 dark:text-gray-400 leading-relaxed tracking-wide'>
                   {item.description}
                 </p>
               </div>
@@ -69,7 +73,7 @@ const About = () => {
   ];
 
   return (
-    <section id='about' className='py-20 bg-gray-50/90 dark:bg-gray-950/90 min-h-screen'>
+    <section id='about' className='py-20 bg-gray-100 dark:bg-gray-800 min-h-screen'>
       <div className='container mx-auto px-3 max-w-7xl'>
         <div className='text-center mb-16' data-aos='fade-up'>
           <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-4 text-gray-900 dark:text-white'>
@@ -78,7 +82,10 @@ const About = () => {
               <Text>general.me</Text>
             </span>
           </h3>
-          <div className='w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full'></div>
+          <div className='w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full mb-10'></div>
+          <p className='text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto'>
+            I approach every project with a blend of creativity and technical expertise, ensuring scalable and user-friendly solutions.
+          </p>
         </div>
 
         <div className='flex flex-col lg:flex-row lg:space-x-16'>
@@ -92,8 +99,6 @@ const About = () => {
                   className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent'></div>
-                {/* Corner accents */}
-                <div className='absolute -inset-2 rounded-2xl border-2 border-transparent group-hover:border-gray-300/20 dark:group-hover:border-gray-700/20 transition-all duration-500 pointer-events-none'></div>
               </div>
             </div>
           </div>
@@ -106,12 +111,12 @@ const About = () => {
               </h3>
 
               <div className='space-y-6 text-gray-700/90 dark:text-gray-300/90 leading-relaxed tracking-wide'>
-                <p className='text-lg'>
+                <p className='text-md md:text-xl mx-auto text-gray-800 dark:text-gray-400'>
                   I'm a <span className='font-semibold text-gray-900 dark:text-white'>Full Stack Developer</span> with
                   expertise in modern JavaScript frameworks, specializing in high-performance web applications with
                   intuitive UX and scalable architecture.
                 </p>
-                <p className='text-lg'>
+                <p className='text-md md:text-xl mx-auto mb-12 text-gray-800 dark:text-gray-400'>
                   With <span className='font-semibold text-gray-900 dark:text-white'>5+ years</span> of industry
                   experience, I've delivered solutions ranging from startup MVPs to enterprise-grade systems, with a
                   focus on clean code and cutting-edge technologies.
@@ -125,11 +130,11 @@ const About = () => {
                 <div className='space-y-4'>
                   <div>
                     <span className='text-sm font-medium text-gray-500/90 dark:text-gray-400/90'>Full Name</span>
-                    <p className='text-gray-900 dark:text-gray-100 text-lg'>Socheath Ek Mao</p>
+                    <p className='text-md md:text-xl mx-auto text-gray-800 dark:text-gray-400'>Socheath Ek Mao</p>
                   </div>
                   <div>
                     <span className='text-sm font-medium text-gray-500/90 dark:text-gray-400/90'>Phone</span>
-                    <p className='text-gray-900 dark:text-gray-100 text-lg'>012 394 857</p>
+                    <p className='text-md md:text-xl mx-auto text-gray-800 dark:text-gray-400'>012 394 857</p>
                   </div>
                 </div>
               </div>
@@ -137,11 +142,11 @@ const About = () => {
                 <div className='space-y-4'>
                   <div>
                     <span className='text-sm font-medium text-gray-500/90 dark:text-gray-400/90'>Location</span>
-                    <p className='text-gray-900 dark:text-gray-100 text-lg'>Tokyo, Japan</p>
+                    <p className='text-md md:text-xl mx-auto text-gray-800 dark:text-gray-400'>Tokyo, Japan</p>
                   </div>
                   <div>
                     <span className='text-sm font-medium text-gray-500/90 dark:text-gray-400/90'>Availability</span>
-                    <p className='text-gray-900 dark:text-gray-100 text-lg'>Open for contracts</p>
+                    <p className='text-md md:text-xl mx-auto text-gray-800 dark:text-gray-400'>Open for contracts</p>
                   </div>
                 </div>
               </div>

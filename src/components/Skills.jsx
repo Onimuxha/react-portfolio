@@ -9,11 +9,10 @@ import {
   JavaScript,
   MySQL,
   NodeJs,
-  ReactQuery,
-  ReactRouter,
   TailwindCSS,
   TypeScript,
   VisualStudioCode,
+  React as ReactIcon,
   WordPress,
 } from 'developer-icons';
 
@@ -61,16 +60,17 @@ const SkillBar = ({ skill, icon, description, percentage }) => {
 
   return (
     <div
-      className='mb-6 group p-6 rounded-xl border border-gray-300/20 dark:border-gray-700/50 bg-white/90 dark:bg-gray-900/50 backdrop-blur-sm cursor-default hover:border-gray-400/30 dark:hover:border-gray-600/50 transition-all duration-300 shadow-md hover:shadow-lg'
+      className='mb-6 group p-6 rounded-xl border border-gray-300/20 dark:border-gray-700/50 bg-white/90 dark:bg-gray-900/50 backdrop-blur-sm cursor-default transition-all duration-300 shadow-md'
       data-aos='fade-up'
     >
       <div className='flex items-start gap-5 mb-4'>
-        <span className='text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 p-2 rounded'>
+        <span className='text-xs group-hover:rotate-[15deg] transition-transform bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 p-2 rounded'>
           {icon}
         </span>
         <div className='flex-grow'>
           <div className='flex justify-between items-center mb-2'>
-            <h3 className='font-semibold text-gray-900 dark:text-gray-100 group-hover:text-gray-950 dark:group-hover:text-white transition-colors'>
+            {/* text-md md:text-xl mx-auto text-gray-800 dark:text-gray-400 */}
+            <h3 className='text-md md:text-xl text-gray-800 dark:text-gray-100'>
               {skill}
             </h3>
             <span ref={percentageRef} className='font-medium text-gray-700 dark:text-gray-300'>
@@ -98,16 +98,15 @@ const SkillCard = ({ icon, title, description }) => {
       data-aos='zoom-in'
     >
       <div className='flex flex-col h-full'>
-        <div className='mb-6 text-5xl flex justify-center group-hover:scale-110 transition-transform'>
-          {/* {icon} */}
+        <div className='mb-6 text-5xl flex justify-center group-hover:rotate-[15deg] transition-transform'>
           <span className='text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 p-2 rounded'>
             {icon}
           </span>
         </div>
-        <h3 className='text-xl font-semibold mb-4 text-center text-gray-900 dark:text-white group-hover:text-gray-950 dark:group-hover:text-gray-50 transition-colors'>
+        <h3 className='text-center mb-4 text-md md:text-xl text-gray-800 dark:text-gray-100'>
           {title}
         </h3>
-        <p className='text-gray-700/90 dark:text-gray-400/90 text-center leading-relaxed flex-grow'>{description}</p>
+        <p className='text-center text-gray-700/90 dark:text-gray-400/90 leading-relaxed'>{description}</p>
       </div>
     </div>
   );
@@ -124,7 +123,7 @@ const Skills = () => {
     },
     {
       skill: 'React.js',
-      icon: <ReactQuery className='w-7 h-7' />,
+      icon: <ReactIcon className='w-7 h-7' />,
       description: 'Hooks, Context API, Redux, Next.js',
       percentage: 85,
     },
@@ -156,7 +155,7 @@ const Skills = () => {
 
   const cardData = [
     {
-      icon: <ReactRouter className='w-7 h-7' />,
+      icon: <ReactIcon className='w-7 h-7' />,
       title: 'React.js',
       description: 'Building modern and performant UI components with hooks and context API',
     },
@@ -221,7 +220,10 @@ const Skills = () => {
   ];
 
   return (
-    <section id='skills' className='py-20 bg-gray-50/90 dark:bg-gray-950/90'>
+    <section
+      id='skills'
+      className='py-20 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 min-h-screen'
+    >
       <div className='container mx-auto px-3 max-w-6xl'>
         <div className='text-center mb-16'>
           <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-4 text-gray-900 dark:text-white'>
@@ -241,12 +243,8 @@ const Skills = () => {
               </>
             )}
           </h3>
-          <div className='w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full mb-16'></div>
-          <p
-            className='text-lg text-gray-700/90 dark:text-gray-400/90 max-w-2xl mx-auto leading-relaxed'
-            data-aos='fade-up'
-            data-aos-delay='100'
-          >
+          <div className='w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full mb-10'></div>
+          <p className='text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto'>
             My proficiency across the full development stack and design disciplines
           </p>
         </div>

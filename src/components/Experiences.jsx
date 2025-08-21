@@ -164,7 +164,7 @@ const Experiences = () => {
         <div className='relative z-10 p-6 flex flex-col h-full'>
           {/* Header */}
           <div className='flex justify-between items-start mb-4'>
-            <h3 className='text-xl font-semibold text-gray-800 dark:text-gray-100'>{experience.name}</h3>
+            <h3 className='text-md md:text-xl font-semibold text-gray-800 dark:text-gray-200'>{experience.name}</h3>
             <span className='select-none text-sm text-gray-600 dark:text-gray-400 bg-gray-200 dark:bg-gray-700/50 px-2 py-1 rounded'>
               {experience.period}
             </span>
@@ -174,12 +174,12 @@ const Experiences = () => {
           {/* Content wrapper */}
           <div className='flex-1 flex flex-col'>
             <div className='mb-4'>
-              <h4 className='text-sm font-semibold text-gray-700 dark:text-gray-200 mb-1'>Role:</h4>
+              <h4 className='text-md md:text-xl mx-auto text-gray-800 dark:text-gray-200'>Role:</h4>
               <p className='text-gray-600 dark:text-gray-400'>{experience.role}</p>
             </div>
 
             <div className='mb-4'>
-              <h4 className='text-sm font-semibold text-gray-700 dark:text-gray-200 mb-1'>Responsibilities:</h4>
+              <h4 className='text-md md:text-xl mx-auto text-gray-800 dark:text-gray-200 mb-2'>Responsibilities:</h4>
               <ul className='list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1'>
                 {experience.responsibilities.map((item, i) => (
                   <li key={i} className='text-sm'>
@@ -193,7 +193,7 @@ const Experiences = () => {
           {/* Footer section */}
           <div className='mt-auto pt-4'>
             <div className='mb-4'>
-              <h4 className='text-sm font-semibold text-gray-700 dark:text-gray-200 mb-1'>Technologies:</h4>
+              <h4 className='text-md md:text-xl mx-auto text-gray-800 dark:text-gray-200 mb-2'>Technologies:</h4>
               <div className='flex flex-wrap gap-2'>
                 {experience.languages.map((lang, i) => (
                   <span
@@ -257,35 +257,12 @@ const Experiences = () => {
               </>
             )}
           </h3>
-          <div className='w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full mb-16'></div>
-
-          <p className='text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto'>
+          <div className='w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full mb-10'></div>
+          <p className='text-md md:text-xl mx-auto text-gray-800 dark:text-gray-400 max-w-2xl'>
             Showcasing my technical journey through{' '}
             <span className='font-medium text-gray-800 dark:text-gray-100'>innovative solutions</span> and{' '}
             <span className='font-medium text-gray-800 dark:text-gray-100'>cutting-edge</span> implementations
           </p>
-
-          {/* Navigation links */}
-          <div className='flex justify-center gap-6 mt-6'>
-            <Link
-              to='company-experiences'
-              smooth={true}
-              duration={500}
-              offset={-100}
-              className='px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 rounded-lg transition-colors cursor-pointer'
-            >
-              <Text>experience.company-experience</Text>
-            </Link>
-            <Link
-              to='academy-experiences'
-              smooth={true}
-              duration={500}
-              offset={-100}
-              className='px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 rounded-lg transition-colors cursor-pointer'
-            >
-              <Text>experience.academy-experience</Text>
-            </Link>
-          </div>
         </div>
 
         {/* Company Experiences */}

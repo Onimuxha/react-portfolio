@@ -5,14 +5,11 @@ const MobileMenuButton = ({ isOpen, toggleOpen }) => {
     <button
       onClick={toggleOpen}
       className={`
-        ml-4 flex items-center justify-center w-10 h-10
-        backdrop-blur-sm border
-        bg-black/80
-        border-gray-700
-        rounded-lg focus:outline-none
-        hover:shadow-lg hover:shadow-white/10
-        transition-all duration-300
-        group
+       w-10 h-10 rounded-lg flex items-center justify-center 
+      bg-white/10 backdrop-blur-sm
+      border border-gray-600
+      hover:shadow-md hover:shadow-white/20
+      transition-all duration-300
       `}
       aria-label='Toggle menu'
     >

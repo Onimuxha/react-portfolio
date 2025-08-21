@@ -52,13 +52,11 @@ const LanguageSwitcher = () => {
       {/* Flag button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center justify-center w-10 h-10
-          backdrop-blur-md bg-black/50
-          border border-gray-700
-          rounded-lg focus:outline-none
-          hover:bg-white/20
-          hover:shadow-lg hover:shadow-white/20
-          transition-all duration-300`}
+        className={`w-10 h-10 rounded-lg flex items-center justify-center 
+      bg-white/10 backdrop-blur-sm
+      border border-gray-600
+      hover:shadow-md hover:shadow-white/20
+      transition-all duration-300`}
         aria-label='Change language'
         aria-expanded={isOpen}
       >
@@ -93,11 +91,7 @@ const LanguageSwitcher = () => {
               }}
               className={`flex items-center w-full px-4 py-2.5 text-left font-medium
                 rounded-md transition-all duration-300 ease-out
-                ${
-                  i18n.language === lang.code
-                    ? 'bg-white/20 text-white'
-                    : 'text-gray-300 hover:bg-white/10'
-                }
+                ${i18n.language === lang.code ? 'bg-white/20 text-white' : 'text-gray-300 hover:bg-white/10'}
                 ${lang.fontClass || ''}`}
               style={{
                 transitionDelay: isOpen ? `${index * 50}ms` : '0ms',
@@ -106,9 +100,7 @@ const LanguageSwitcher = () => {
             >
               <div className='flex items-center justify-center w-8 h-6 mr-3'>{lang.flag}</div>
               <span className='text-sm'>{lang.name}</span>
-              {i18n.language === lang.code && (
-                <span className='block ml-auto w-1 h-3 bg-white rounded-full'></span>
-              )}
+              {i18n.language === lang.code && <span className='block ml-auto w-1 h-3 bg-white rounded-full'></span>}
             </button>
           ))}
         </div>

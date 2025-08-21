@@ -59,8 +59,8 @@ const Hero = () => {
         </h2>
         <p className='text-md md:text-xl max-w-2xl mx-auto mb-12 text-gray-400 leading-relaxed text-center'>
           Crafting <span className='font-medium text-gray-100'>scalable solutions</span> with clean code and intuitive design.
-          Full-stack developer specializing in <a class="text-sky-500 font-medium after:content-['_↗']" target='_blank' href="https://react.dev/">React.js</a> and {' '}
-          <a class="text-sky-500 font-medium after:content-['_↗']" target='_blank' href="https://nodejs.org">Node.js</a>.
+          Full-stack developer specializing in <a className="text-sky-500 font-medium after:content-['_↗']" target='_blank' href="https://react.dev/">React.js</a> and {' '}
+          <a className="text-sky-500 font-medium after:content-['_↗']" target='_blank' href="https://nodejs.org">Node.js</a>.
         </p>
         <div className='flex flex-col sm:flex-row justify-center gap-4'>
           <Link

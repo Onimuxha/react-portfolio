@@ -72,7 +72,7 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <Telegram className='w-7 h-7'/>,
+      icon: <Telegram className='w-7 h-7' />,
       title: 'Telegram',
       content: '@socheath',
       color: 'text-blue-500',
@@ -80,7 +80,7 @@ const Contact = () => {
       href: 'https://t.me/socheath',
     },
     {
-      icon: <Gmail className='w-7 h-7'/>,
+      icon: <Gmail className='w-7 h-7' />,
       title: 'Gmail',
       content: 'hello@pages.dev',
       isLink: true,
@@ -88,7 +88,7 @@ const Contact = () => {
       color: 'text-blue-400',
     },
     {
-      icon: <XDark className='w-7 h-7'/>,
+      icon: <XDark className='w-7 h-7' />,
       title: 'Phone',
       content: '+81 70-1234-5678',
       isLink: true,
@@ -99,19 +99,19 @@ const Contact = () => {
 
   const socialLinks = [
     {
-      icon: <GitHubDark className='w-7 h-7'/>,
+      icon: <GitHubDark className='w-7 h-7' />,
       url: 'https://github.com',
     },
     {
-      icon: <LinkedIn className='w-7 h-7'/>,
+      icon: <LinkedIn className='w-7 h-7' />,
       url: 'https://linkedin.com',
     },
     {
-      icon: <Facebook className='w-7 h-7'/>,
+      icon: <Facebook className='w-7 h-7' />,
       url: 'https://facebook.com',
     },
     {
-      icon: <Instagram className='w-7 h-7'/>,
+      icon: <Instagram className='w-7 h-7' />,
       url: 'https://instagram.com',
     },
   ];
@@ -126,10 +126,11 @@ const Contact = () => {
           onChange={handleChange}
           onBlur={handleBlur}
           rows='5'
-          className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-gray-800 dark:text-white focus:outline-none focus:ring-0 peer ${touched[name] && errors[name]
-            ? 'border-red-500 focus:border-red-500'
-            : 'border-gray-300 dark:border-gray-600 focus:border-cyan-400 dark:focus:border-cyan-400'
-            }`}
+          className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-gray-800 dark:text-white focus:outline-none focus:ring-0 peer ${
+            touched[name] && errors[name]
+              ? 'border-red-500 focus:border-red-500'
+              : 'border-gray-300 dark:border-gray-600 focus:border-cyan-400 dark:focus:border-cyan-400'
+          }`}
           placeholder=' '
         />
       ) : (
@@ -140,19 +141,21 @@ const Contact = () => {
           value={formData[name]}
           onChange={handleChange}
           onBlur={handleBlur}
-          className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-gray-800 dark:text-white focus:outline-none focus:ring-0 peer ${touched[name] && errors[name]
-            ? 'border-red-500 focus:border-red-500'
-            : 'border-gray-300 dark:border-gray-600 focus:border-cyan-400 dark:focus:border-cyan-400'
-            }`}
+          className={`block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 appearance-none text-gray-800 dark:text-white focus:outline-none focus:ring-0 peer ${
+            touched[name] && errors[name]
+              ? 'border-red-500 focus:border-red-500'
+              : 'border-gray-300 dark:border-gray-600 focus:border-cyan-400 dark:focus:border-cyan-400'
+          }`}
           placeholder=' '
         />
       )}
       <label
         htmlFor={name}
-        className={`absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${touched[name] && errors[name]
-          ? 'text-red-500'
-          : 'text-gray-500 dark:text-gray-400 peer-focus:text-cyan-400 peer-focus:dark:text-cyan-400'
-          }`}
+        className={`absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${
+          touched[name] && errors[name]
+            ? 'text-red-500'
+            : 'text-gray-500 dark:text-gray-400 peer-focus:text-cyan-400 peer-focus:dark:text-cyan-400'
+        }`}
       >
         <Text>{`contact.${name}`}</Text>
       </label>
@@ -165,10 +168,7 @@ const Contact = () => {
   );
 
   return (
-    <section
-      id='contact'
-      className='py-20 bg-gray-50/90 dark:bg-gray-950/90'
-    >
+    <section id='contact' className='py-20 bg-gray-50 dark:bg-gray-900 min-h-screen'>
       <div className='container mx-auto px-3 max-w-6xl'>
         <div className='text-center mb-16' data-aos='fade-up'>
           <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-4 text-gray-900 dark:text-white'>
@@ -188,9 +188,8 @@ const Contact = () => {
               </>
             )}
           </h3>
-          <div className="w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full mb-16"></div>
-
-          <p className='text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto'>
+          <div className='w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full mb-10'></div>
+          <p className='text-md md:text-xl mx-auto text-gray-800 dark:text-gray-400 max-w-2xl mx-auto'>
             Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!
           </p>
         </div>
@@ -212,14 +211,14 @@ const Contact = () => {
               </h3>
 
               {/* Keep existing contact info content */}
-              <div className="space-y-6">
+              <div className='space-y-6'>
                 {contactInfo.map((item, i) => (
-                  <div key={i} className="flex items-start group">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 flex items-center justify-center shadow-sm group-hover:bg-gray-200/50 dark:group-hover:bg-gray-700 transition-all duration-300">
+                  <div key={i} className='flex items-start group'>
+                    <div className='flex-shrink-0 w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 flex items-center justify-center shadow-sm group-hover:bg-gray-200/50 dark:group-hover:bg-gray-700 transition-all duration-300'>
                       {item.icon}
                     </div>
-                    <div className="ml-4">
-                      <h4 className="text-lg font-semibold text-gray-800 dark:text-white">{item.title}</h4>
+                    <div className='ml-4'>
+                      <h4 className='text-lg font-semibold text-gray-800 dark:text-white'>{item.title}</h4>
                       {item.isLink ? (
                         <div
                           onClick={() => {
@@ -234,18 +233,17 @@ const Contact = () => {
                             a.click();
                             document.body.removeChild(a);
                           }}
-                          className="cursor-pointer text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors duration-300 flex items-center"
+                          className='cursor-pointer text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors duration-300 flex items-center'
                         >
                           {item.content}
                         </div>
                       ) : (
-                        <p className="text-gray-600 dark:text-gray-400">{item.content}</p>
+                        <p className='text-gray-600 dark:text-gray-400'>{item.content}</p>
                       )}
                     </div>
                   </div>
                 ))}
               </div>
-
               {/* Keep existing social links section */}
               <div className='mt-12'>
                 <h4 className='text-lg font-semibold mb-4 text-gray-800 dark:text-white'>
@@ -260,22 +258,21 @@ const Contact = () => {
                       rel='noopener noreferrer'
                       className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 shadow-sm bg-white dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600/70 hover:shadow-md hover:-translate-y-1 group`}
                       data-aos='zoom-in'
-                      data-aos-delay={i * 100}>
+                      data-aos-delay={i * 100}
+                    >
                       {/* <i className={`${social.icon} text-2xl text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors duration-300`}></i> */}
                       {social.icon}
                     </a>
                   ))}
                 </div>
               </div>
-
             </div>
           </div>
 
           {/* Contact Form */}
           <div className='lg:w-3/5' data-aos='fade-up'>
             <div
-              className='backdrop-blur-xl bg-white/80 dark:bg-gray-800/70 rounded-xl overflow-hidden relative group 
-    transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-gray-400/20 dark:hover:shadow-gray-600/20'
+              className='backdrop-blur-xl bg-white/80 dark:bg-gray-800/70 rounded-xl overflow-hidden relative group transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-gray-400/20 dark:hover:shadow-gray-600/20'
               style={{
                 background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%)',
                 backgroundImage:
@@ -382,7 +379,9 @@ const Contact = () => {
                       <button
                         type='submit'
                         disabled={status.isSubmitting}
-                        className={`relative inline-flex items-center justify-center px-8 py-3 rounded-xl bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-800 text-white border border-gray-700/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group w-full mt-8 ${status.isSubmitting ? 'opacity-80 cursor-not-allowed' : ''}`}
+                        className={`relative inline-flex items-center justify-center px-8 py-3 rounded-xl bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-800 text-white border border-gray-700/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group w-full mt-8 ${
+                          status.isSubmitting ? 'opacity-80 cursor-not-allowed' : ''
+                        }`}
                       >
                         <span className='absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition' />
                         <span className='absolute bottom-0 left-1/2 h-px w-0 bg-white transition-all duration-500 group-hover:w-3/4 group-hover:left-[12.5%]' />
@@ -394,9 +393,9 @@ const Contact = () => {
                         ) : (
                           <span className='relative z-10 flex items-center font-medium text-lg'>
                             <Text>contact.send</Text>
-                            <div className="relative h-5 w-5 ml-2 overflow-hidden">
-                              <SendHorizonal className="absolute top-0 left-0 w-5 h-5 transition-transform duration-300 group-hover:translate-x-full" />
-                              <SendHorizonal className="absolute top-0 left-0 w-5 h-5 transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0" />
+                            <div className='relative h-5 w-5 ml-2 overflow-hidden'>
+                              <SendHorizonal className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 group-hover:translate-x-full' />
+                              <SendHorizonal className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0' />
                             </div>
                           </span>
                         )}
@@ -410,10 +409,10 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </div >
+      </div>
 
       {/* Fix for the styled-jsx issue */}
-      < style
+      <style
         dangerouslySetInnerHTML={{
           __html: `
           :root {
@@ -426,7 +425,7 @@ const Contact = () => {
         `,
         }}
       />
-    </section >
+    </section>
   );
 };
 
