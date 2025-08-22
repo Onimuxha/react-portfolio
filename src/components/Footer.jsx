@@ -34,7 +34,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className='relative bg-gray-950 text-gray-300'>
+    <footer className='relative bg-zinc-100 dark:bg-slate-900 text-gray-300'>
       <div className='container mx-auto px-3 pt-12 pb-8'>
         <div className='bg-gray-900/80 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-gray-800/50'>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10'>
@@ -46,7 +46,7 @@ const Footer = () => {
                 Crafting exceptional digital experiences with modern web technologies. Focused on building scalable and
                 performant applications.
               </p>
-              <div className='h-px w-20 bg-gradient-to-r from-gray-700 via-gray-500 to-gray-700 rounded-full'></div>
+              <div className='h-0.5 w-36 bg-gradient-to-r from-gray-700 via-gray-500 to-gray-700 rounded-full'></div>
             </div>
 
             <div className='col-span-1'>
@@ -104,9 +104,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className='pt-10 mt-10 border-t border-gray-800/50 text-center'>
+        <div className='pt-10 mt-10 border-t border-gray-600/50 text-center'>
           <p className='text-sm text-gray-500 tracking-wide'>
-            &copy; {currentYear} Kirito. <Text>footer.copyright</Text>
+            &copy; {currentYear} <Text>hero.name</Text>. <Text>footer.copyright</Text>
           </p>
         </div>
       </div>

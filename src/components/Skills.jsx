@@ -222,7 +222,7 @@ const Skills = () => {
   return (
     <section
       id='skills'
-      className='py-20 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 min-h-screen'
+      className='py-20 bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 min-h-screen'
     >
       <div className='container mx-auto px-3 max-w-6xl'>
         <div className='text-center mb-16'>

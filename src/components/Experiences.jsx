@@ -237,7 +237,7 @@ const Experiences = () => {
   };
 
   return (
-    <section id='experiences' className='py-20 bg-gray-50/90 dark:bg-gray-950/90'>
+    <section id='experiences' className='py-20 bg-zinc-100 dark:bg-slate-900'>
       <div className='relative z-10 max-w-7xl mx-auto px-3'>
         <div className='text-center mb-16' data-aos='fade-up'>
           <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-4 text-gray-900 dark:text-white'>
