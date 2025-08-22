@@ -85,7 +85,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                       el.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className={`relative px-4 py-2.5 text-md font-semibold transition-all duration-300 rounded-full group flex items-center justify-center ${
+                  className={`relative px-4 py-2.5 text-md font-medium transition-all duration-300 rounded-full group flex items-center justify-center ${
                     activeLink === link.to ? 'text-black bg-white' : 'text-gray-300 hover:text-white hover:bg-white/10'
                   }`}
                   style={{ zIndex: activeLink === link.to ? 10 : 'auto' }}

@@ -88,7 +88,7 @@ const Hero = () => {
             to='experiences'
             smooth
             duration={500}
-            className='relative inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-800 text-white border border-gray-700/50 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group'
+            className='relative flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-800 text-white border border-gray-700/50 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group'
           >
             <span className='text-md md:text-xl text-gray-400 leading-relaxed'>
               <Text>hero.view-experience</Text>

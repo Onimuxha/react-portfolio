@@ -189,7 +189,7 @@ const Contact = () => {
             )}
           </h3>
           <div className='w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full mb-10'></div>
-          <p className='text-md md:text-xl mx-auto text-gray-800 dark:text-gray-400 max-w-2xl mx-auto'>
+          <p className='text-md md:text-xl mx-auto text-gray-800 dark:text-gray-400 max-w-2xl'>
             Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!
           </p>
         </div>

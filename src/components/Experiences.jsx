@@ -165,7 +165,7 @@ const Experiences = () => {
           {/* Header */}
           <div className='flex justify-between items-start mb-4'>
             <h3 className='text-md md:text-xl font-semibold text-gray-800 dark:text-gray-200'>{experience.name}</h3>
-            <span className='select-none text-sm text-gray-600 dark:text-gray-400 bg-gray-200 dark:bg-gray-700/50 px-2 py-1 rounded'>
+            <span className='select-none text-sm text-gray-600 dark:text-gray-400 bg-gray-200 dark:bg-gray-700/50 px-2 py-1 rounded-md'>
               {experience.period}
             </span>
           </div>
@@ -271,7 +271,7 @@ const Experiences = () => {
             <h3 className='text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200 mr-4'>
               <Text>experience.company-experience</Text>
             </h3>
-            <div className='flex-1 mt-2 h-px bg-gradient-to-r from-gray-400/30 to-gray-400/0 dark:from-gray-600/30 dark:to-gray-600/0'></div>
+            <div className='flex-1 mt-2 h-0.5 bg-gradient-to-r from-gray-100 to-gray-400 dark:from-gray-600/30 dark:to-gray-600/0'></div>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
@@ -289,7 +289,7 @@ const Experiences = () => {
             <h3 className='text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200 mr-4'>
               <Text>experience.academy-experience</Text>
             </h3>
-            <div className='flex-1 mt-2 h-px bg-gradient-to-r from-gray-400/30 to-gray-400/0 dark:from-gray-600/30 dark:to-gray-600/0'></div>
+            <div className='flex-1 mt-2 h-0.5 bg-gradient-to-r from-gray-100 to-gray-400 dark:from-gray-600/30 dark:to-gray-600/0'></div>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
