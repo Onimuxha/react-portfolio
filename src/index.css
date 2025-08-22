@@ -41,17 +41,17 @@ body {
 
 /* Khmer font */
 @font-face {
-  font-family: 'NiradeiMedium';
+  font-family: 'Niradei';
   src: url('/fonts/Niradei-Medium.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 500; /* medium */
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Niradei Black';
+  font-family: 'Niradei';
   src: url('/fonts/Niradei-Black.ttf') format('truetype');
-  font-weight: 800; 
+  font-weight: 900; /* black */
   font-style: normal;
   font-display: swap;
 }
