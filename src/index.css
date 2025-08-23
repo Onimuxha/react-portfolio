@@ -39,11 +39,16 @@ body {
   min-height: 100dvh;
 }
 
+.highlight-text {
+  @apply font-medium text-gray-800 dark:text-gray-100;
+}
+
 /* Khmer font */
 @font-face {
   font-family: 'Niradei';
   src: url('/fonts/Niradei-Medium.ttf') format('truetype');
-  font-weight: 500; /* medium */
+  font-weight: 500;
+  /* medium */
   font-style: normal;
   font-display: swap;
 }
@@ -51,7 +56,8 @@ body {
 @font-face {
   font-family: 'Niradei';
   src: url('/fonts/Niradei-Black.ttf') format('truetype');
-  font-weight: 900; /* black */
+  font-weight: 900;
+  /* black */
   font-style: normal;
   font-display: swap;
 }
@@ -70,12 +76,15 @@ body {
 
 /* Overflow prevention */
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .no-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
+  display: none;
+  /* Chrome, Safari and Opera */
 }
 
 /* Canvas containment */

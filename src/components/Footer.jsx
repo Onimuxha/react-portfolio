@@ -36,13 +36,13 @@ const Footer = () => {
   return (
     <footer className='relative bg-zinc-100 dark:bg-slate-900 text-gray-300'>
       <div className='container mx-auto px-3 pt-12 pb-8'>
-        <div className='bg-gray-900/80 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-gray-800/50'>
+        <div className='bg-zinc-50 dark:bg-slate-800 backdrop-blur-lg rounded-2xl p-8 shadow-2xl'>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10'>
             <div className='col-span-1 lg:col-span-2'>
-              <h2 className='text-3xl font-bold text-gray-100 mb-4 tracking-tight'>
+              <h2 className='text-3xl font-bold text-slate-600 dark:text-slate-400 mb-4 tracking-tight'>
                 <Text>hero.name</Text>
               </h2>
-              <p className='text-md md:text-xl text-gray-400 mb-6 max-w-lg leading-relaxed'>
+              <p className='text-md md:text-xl text-slate-600 dark:text-slate-400 mb-6 max-w-lg leading-relaxed'>
                 Crafting exceptional digital experiences with modern web technologies. Focused on building scalable and
                 performant applications.
               </p>
@@ -50,7 +50,7 @@ const Footer = () => {
             </div>
 
             <div className='col-span-1'>
-              <h3 className='text-lg font-bold mb-5 text-gray-200 tracking-wide uppercase'>
+              <h3 className='text-lg font-bold mb-5 text-slate-600 dark:text-slate-400 tracking-wide uppercase'>
                 <Text>footer.quick-link</Text>
               </h3>
               <ul className='space-y-3'>
@@ -60,12 +60,12 @@ const Footer = () => {
                       to={to}
                       smooth={true}
                       duration={500}
-                      className='relative flex items-center w-64 justify-between text-gray-400 hover:text-gray-100 cursor-pointer py-3 transition-all duration-300 group'
+                      className='relative flex items-center w-64 justify-between text-slate-600 dark:text-slate-400 hover:text-slate-600 cursor-pointer py-3 transition-all duration-300 group'
                     >
                       <div className='flex items-center'>
                         {React.cloneElement(icon, {
                           className:
-                            'mr-3 text-md md:text-xl text-gray-400 group-hover:text-gray-300 transition-colors',
+                            'mr-3 text-md md:text-xl text-slate-600 dark:text-slate-400 hover:text-slate-600 transition-colors',
                         })}
                         <Text>{nameKey}</Text>
                       </div>
@@ -73,7 +73,7 @@ const Footer = () => {
                         <ChevronsRight className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 group-hover:translate-x-full' />
                         <ChevronsRight className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0' />
                       </div>
-                      <span className='absolute bottom-0 left-0 h-[1px] w-0 bg-white transition-all duration-500 group-hover:w-full' />
+                      <span className='absolute bottom-0 left-0 h-[1px] w-0 bg-black dark:bg-white transition-all duration-500 group-hover:w-full' />
                     </Link>
                   </li>
                 ))}
@@ -81,10 +81,10 @@ const Footer = () => {
             </div>
 
             <div className='col-span-1'>
-              <h3 className='text-lg font-bold mb-5 text-gray-200 tracking-wide uppercase'>
+              <h3 className='text-lg font-bold mb-5 text-slate-600 dark:text-slate-400 tracking-wide uppercase'>
                 <Text>footer.download-cv</Text>
               </h3>
-              <p className='text-md md:text-xl text-gray-400 mb-6'>
+              <p className='text-md md:text-xl text-slate-600 dark:text-slate-400 mb-6'>
                 Do you want to know more? Download my Curriculum Vitae.
               </p>
               <button

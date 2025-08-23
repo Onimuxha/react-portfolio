@@ -198,13 +198,8 @@ const Contact = () => {
           {/* Contact Info */}
           <div className='lg:w-2/5' data-aos='fade-up'>
             <div
-              className='backdrop-blur-xl bg-white/90 dark:bg-gray-800/80 rounded-xl p-8 h-full relative group 
+              className='backdrop-blur-xl bg-zinc-50 dark:bg-slate-800 rounded-xl p-8 h-full relative group 
     transition-all duration-300 shadow-lg hover:shadow-xl border border-gray-200/80 dark:border-gray-700/50'
-              style={{
-                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%)',
-                backgroundImage:
-                  'var(--contact-gradient, linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%))',
-              }}
             >
               <h3 className='text-2xl font-semibold mb-8 text-gray-800 dark:text-white'>
                 <Text>contact.contact-info</Text>
@@ -272,12 +267,7 @@ const Contact = () => {
           {/* Contact Form */}
           <div className='lg:w-3/5' data-aos='fade-up'>
             <div
-              className='backdrop-blur-xl bg-white/80 dark:bg-gray-800/70 rounded-xl overflow-hidden relative group transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-gray-400/20 dark:hover:shadow-gray-600/20'
-              style={{
-                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%)',
-                backgroundImage:
-                  'var(--contact-gradient, linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%))',
-              }}
+              className='backdrop-blur-xl bg-zinc-50 dark:bg-slate-800 rounded-xl overflow-hidden relative group transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-gray-400/20 dark:hover:shadow-gray-600/20'
             >
               <AnimatePresence>
                 {status.isSubmitted ? (
