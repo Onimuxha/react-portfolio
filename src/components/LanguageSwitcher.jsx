@@ -35,7 +35,7 @@ const LanguageSwitcher = () => {
     {
       code: 'kh',
       name: 'ភាសាខ្មែរ',
-      flag: <span className='fi fi-kh'></span>,
+      flag: '🇰🇭',
       fontClass: 'font-khmer',
     },
     {
