@@ -263,7 +263,7 @@ const Skills = () => {
         </div>
 
         <h3
-          className='text-4xl md:text-6xl font-black tracking-tight mb-12 text-gray-900 dark:text-white text-center'
+          className='text-4xl md:text-6xl font-bold tracking-tight mb-12 text-gray-900 dark:text-white text-center'
           data-aos='fade-up'
         >
           <Text>skill.main-technologies</Text>
@@ -285,7 +285,7 @@ const Skills = () => {
         </div>
 
         <h3
-          className='text-4xl md:text-6xl font-black tracking-tight mb-12 text-gray-900 dark:text-white text-center'
+          className='text-4xl md:text-6xl font-bold tracking-tight mb-12 text-gray-900 dark:text-white text-center'
           data-aos='fade-up'
         >
           Tools & Platforms
