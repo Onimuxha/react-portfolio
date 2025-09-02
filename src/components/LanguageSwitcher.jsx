@@ -30,7 +30,7 @@ const LanguageSwitcher = () => {
     {
       code: 'en',
       name: 'English',
-      flag: <span className='fi fi-gb'></span>,
+      flag: '🇬🇧',
     },
     {
       code: 'kh',
@@ -41,7 +41,8 @@ const LanguageSwitcher = () => {
     {
       code: 'zh',
       name: '中文',
-      flag: <span className='fi fi-cn'></span>,
+      // flag: <span className='fi fi-cn'></span>,
+      flag: '🇨🇳',
     },
   ];
 
