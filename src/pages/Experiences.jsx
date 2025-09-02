@@ -1,6 +1,6 @@
 import { Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
-import Text from './LocalizedText';
+import Text from '../components/LocalizedText';
 import { Github, SquareArrowOutUpRight } from 'lucide-react';
 import { Figma, GitHubDark, NextJs, PostgreSQL, ShadcnUI, TailwindCSS, TypeScript, ViteJS } from 'developer-icons';
 

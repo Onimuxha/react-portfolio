@@ -70,7 +70,7 @@ const Navbar = ({ theme, toggleTheme }) => {
             className='flex items-center text-2xl font-bold bg-clip-text bg-gradient-to-r from-gray-400 to-gray-100 text-transparent cursor-pointer'
           >
             <span className='hidden md:inline font-black'>
-              <Text>hero.name</Text>
+              <img src="/text-white.png" className='w-12 h-w-12' alt="" />
             </span>
           </Link>
           {/* Centered Navigation Links */}

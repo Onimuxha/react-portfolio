@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-scroll';
-import Typed from 'typed.js';
 import { useTranslation } from 'react-i18next';
-import Text from './LocalizedText';
-import TextType from './TextType';
-import ShinyText from './ShinyText';
-import { ArrowBigDown, BriefcaseBusiness, TerminalSquare } from 'lucide-react';
+import Text from '../components/LocalizedText';
+import TextType from '../components/TextType';
+import ShinyText from '../components/ShinyText';
+import { BriefcaseBusiness, TerminalSquare } from 'lucide-react';
+
+import { ShootingStars } from "../components/ui/shooting-stars";
+import { StarsBackground } from "../components/ui/stars-background";
 
 const Hero = () => {
   const { t, i18n } = useTranslation();
@@ -98,6 +100,8 @@ const Hero = () => {
           </Link>
         </div>
       </div>
+      <ShootingStars />
+      <StarsBackground />
     </section>
   );
 };

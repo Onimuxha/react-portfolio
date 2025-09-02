@@ -1,15 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Element } from 'react-scroll';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Contact from './components/Contact';
-import Experiences from './components/Experiences';
+import Hero from './pages/Hero';
+import About from './pages/About';
+import Skills from './pages/Skills';
+import Contact from './pages/Contact';
+import Experiences from './pages/Experiences';
 import Footer from './components/Footer';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import Alert from './components/Alert';
-import DarkVeil from './components/DarkVeil';
 import AOS from 'aos';
 import Text from './components/LocalizedText';
 import 'aos/dist/aos.css';
@@ -26,12 +25,12 @@ const App = () => {
       once: false,
       mirror: true,
       offset: 100,
-      debounceDelay: 50,  // Added for better scroll performance
-      throttleDelay: 99    // Added for better scroll performance
+      debounceDelay: 50, // Added for better scroll performance
+      throttleDelay: 99, // Added for better scroll performance
     });
 
-    const savedTheme = localStorage.getItem('theme') ||
-      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const savedTheme =
+      localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     setTheme(savedTheme);
     document.documentElement.className = savedTheme;
 
@@ -89,17 +88,6 @@ const App = () => {
 
   return (
     <div className='relative min-h-screen w-screen overflow-x-hidden'>
-      {/* DarkVeil Background - Fixed Position */}
-      <div className='fixed inset-0 w-screen h-screen z-0 overflow-hidden'>
-        <DarkVeil
-          hueShift={10}
-          noiseIntensity={0.02}
-          scanlineIntensity={0.1}
-          speed={1.5}
-          resolutionScale={1}
-        />
-      </div>
-
       {/* Main Content */}
       <div className='relative z-10'>
         <Navbar theme={theme} toggleTheme={toggleTheme} />
@@ -118,10 +106,7 @@ const App = () => {
         <Footer />
       </div>
 
-      <Alert
-        message={alertMessage?.text || ''}
-        subtitle={alertMessage?.subtitle || ''}
-      />
+      <Alert message={alertMessage?.text || ''} subtitle={alertMessage?.subtitle || ''} />
     </div>
   );
 };

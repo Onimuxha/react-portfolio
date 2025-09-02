@@ -1,6 +1,6 @@
 import { Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
-import Text from './LocalizedText';
+import Text from '../components/LocalizedText';
 import { Mail } from 'lucide-react';
 
 const Timeline = ({ items }) => {

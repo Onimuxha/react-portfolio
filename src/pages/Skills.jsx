@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import Text from './LocalizedText';
+import Text from '../components/LocalizedText';
 import {
   Bootstrap5,
   Figma,

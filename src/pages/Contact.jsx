@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { handleTelegramSubmission } from './telegramService';
+import { handleTelegramSubmission } from '../components/telegramService';
 import { useTranslation } from 'react-i18next';
-import Text from './LocalizedText';
+import Text from '../components/LocalizedText';
 import { LoaderCircle, SendHorizonal } from 'lucide-react';
 import { Facebook, GitHubDark, Gmail, Instagram, LinkedIn, Telegram, XDark } from 'developer-icons';
 

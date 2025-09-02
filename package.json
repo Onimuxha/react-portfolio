@@ -14,6 +14,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "aos": "^2.3.4",
     "boxicons": "^2.1.4",
+    "clsx": "^2.1.1",
     "country-flag-icons": "^1.5.19",
     "developer-icons": "^6.0.3",
     "flag-icons": "^7.3.2",
@@ -35,6 +36,7 @@
     "react-tsparticles": "^2.12.2",
     "react-type-animation": "^3.2.0",
     "react-typed": "^2.0.12",
+    "tailwind-merge": "^3.3.1",
     "tsparticles": "^2.12.0",
     "typed.js": "^2.1.0"
   },
