@@ -60,7 +60,7 @@ export const AnimatedThemeToggler = ({ className }) => {
         }`}
       >
         <IconMoonStars
-          className={`absolute h-5 w-5 text-violet-400 transition-opacity duration-300 sm:h-6 sm:w-6 ${
+          className={`absolute h-5 w-5 text-violet-500 transition-opacity duration-300 sm:h-6 sm:w-6 ${
             isDarkMode ? "opacity-0" : "opacity-100"
           }`}
         />

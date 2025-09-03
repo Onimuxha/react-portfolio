@@ -66,8 +66,8 @@ const Navbar = () => { // Remove theme and toggleTheme props
             <span className='inline'>
               {/* Update logo to work with the new theme toggler */}
               <img
-                src='/text-black.png'
-                className='h-8 w-8 dark:invert md:h-10 md:w-10'
+                src='/text-white.png'
+                className='h-8 w-8 md:h-10 md:w-10'
                 alt='Logo'
               />
             </span>

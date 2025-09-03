@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Text from './LocalizedText';
 import cvFile from '../assets/kirito.pdf';
-import { IconDownload, IconFileTypePdf, IconLoader3, IconServer, IconX } from '@tabler/icons-react';
+import { IconDownload, IconFileTextFilled, IconLoader3, IconServer, IconX } from '@tabler/icons-react';
 
 const CVDownloadModal = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
@@ -64,7 +64,7 @@ const CVDownloadModal = ({ isOpen, onClose }) => {
         <div className='px-6 py-6'>
           <div className='mb-6 text-center'>
             <div className='mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-lg border border-gray-700 bg-gray-800'>
-              <IconFileTypePdf size={30} className='text-gray-300' />
+              <IconFileTextFilled size={30} className='text-gray-300' />
             </div>
             <p className='mb-2 text-gray-300'>Are you sure you want to download this file?</p>
             <div className='mt-4 rounded-lg border border-gray-700/50 bg-gray-800/50 p-4'>

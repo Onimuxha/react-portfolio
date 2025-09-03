@@ -182,7 +182,7 @@ const Experiences = () => {
                   rel='noopener noreferrer'
                   className='inline-flex items-center rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-gray-700 transition-colors hover:border-gray-400 hover:text-gray-900 dark:border-gray-600 dark:text-gray-300 dark:hover:border-gray-500 dark:hover:text-gray-100'
                 >
-                  <IconBrandGithub size={23} />
+                  <IconBrandGithub size={20} />
                   <span className='ml-2'>Code</span>
                 </a>
               )}
@@ -193,7 +193,7 @@ const Experiences = () => {
                   rel='noopener noreferrer'
                   className='inline-flex items-center rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-gray-700 transition-colors hover:border-gray-400 hover:text-gray-900 dark:border-gray-600 dark:text-gray-300 dark:hover:border-gray-500 dark:hover:text-gray-100'
                 >
-                  <IconArrowUpRight size={23} />
+                  <IconArrowUpRight size={20} />
                   <span className='ml-2'>Demo</span>
                 </a>
               )}
