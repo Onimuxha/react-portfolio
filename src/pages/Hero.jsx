@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Text from '../components/LocalizedText';
 import TextType from '../components/TextType';
 import ShinyText from '../components/ShinyText';
-import { BriefcaseBusiness, TerminalSquare } from 'lucide-react';
+import { IconTerminal2, IconBriefcase } from '@tabler/icons-react';
 
 import { ShootingStars } from "../components/ui/shooting-stars";
 import { StarsBackground } from "../components/ui/stars-background";
@@ -83,7 +83,7 @@ const Hero = () => {
             <span className='text-md md:text-xl text-gray-200 leading-relaxed'>
               <Text>hero.explore-skill</Text>
             </span>
-            <TerminalSquare className='ml-2 w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all' />
+            <IconTerminal2 className='ml-2 w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all' />
           </Link>
 
           <Link
@@ -95,7 +95,7 @@ const Hero = () => {
             <span className='text-md md:text-xl text-gray-400 leading-relaxed'>
               <Text>hero.view-experience</Text>
             </span>
-            <BriefcaseBusiness className='ml-2 w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all' />
+            <IconBriefcase className='ml-2 w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all' />
             <span className='absolute bottom-0 left-1/2 h-px w-0 bg-white transition-all duration-500 group-hover:w-3/4 group-hover:left-[12.5%]' />
           </Link>
         </div>

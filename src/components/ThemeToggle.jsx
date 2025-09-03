@@ -1,4 +1,4 @@
-import { Sun, Moon } from "lucide-react";
+import { IconMoonStars, IconSun } from "@tabler/icons-react";
 
 const ThemeToggle = ({ theme, toggleTheme }) => {
   return (
@@ -14,11 +14,11 @@ const ThemeToggle = ({ theme, toggleTheme }) => {
       <div
         className={`relative h-5 w-5 transition-transform duration-500 ${theme === 'light' ? 'rotate-0' : 'rotate-180'}`}
       >
-        <Moon
+        <IconMoonStars
           className={`absolute h-5 w-5 text-violet-400
           transition-opacity duration-300 ${theme === 'light' ? 'opacity-100' : 'opacity-0'}`}
         />
-        <Sun className={`absolute h-5 w-5 text-amber-500 dark:text-yellow-300
+        <IconSun className={`absolute h-5 w-5 text-amber-500 dark:text-yellow-300
           transition-opacity duration-300 ${theme === 'dark' ? 'opacity-100' : 'opacity-0'}`} />
       </div>
     </button>

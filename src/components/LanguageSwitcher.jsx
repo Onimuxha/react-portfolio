@@ -61,7 +61,7 @@ const LanguageSwitcher = () => {
         aria-label='Change language'
         aria-expanded={isOpen}
       >
-        <div className='flex items-center justify-center w-8 h-6'>{currentLanguage.flag}</div>
+        <div className='flex items-center dark:text-white text-slate-900 justify-center w-8 h-6'>{currentLanguage.flag}</div>
       </button>
 
       {/* Dropdown menu */}

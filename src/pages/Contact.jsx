@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { handleTelegramSubmission } from '../components/telegramService';
 import { useTranslation } from 'react-i18next';
 import Text from '../components/LocalizedText';
-import { LoaderCircle, SendHorizonal } from 'lucide-react';
+// import { LoaderCircle, SendHorizonal } from 'lucide-react';
+import { IconLoader3, IconSend2 } from '@tabler/icons-react';
 import { Facebook, GitHubDark, Gmail, Instagram, LinkedIn, Telegram, XDark } from 'developer-icons';
 
 const Contact = () => {
@@ -377,15 +378,15 @@ const Contact = () => {
                         <span className='absolute bottom-0 left-1/2 h-px w-0 bg-white transition-all duration-500 group-hover:w-3/4 group-hover:left-[12.5%]' />
                         {status.isSubmitting ? (
                           <span className='relative z-10 flex items-center font-medium text-lg'>
-                            <LoaderCircle className='animate-spin -ml-1 mr-3 h-5 w-5 text-white' />
+                            <IconLoader3 className='animate-spin -ml-1 mr-3 h-5 w-5 text-white' />
                             <Text>contact.sending</Text>
                           </span>
                         ) : (
                           <span className='relative z-10 flex items-center font-medium text-lg'>
                             <Text>contact.send</Text>
                             <div className='relative h-5 w-5 ml-2 overflow-hidden'>
-                              <SendHorizonal className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 group-hover:translate-x-full' />
-                              <SendHorizonal className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0' />
+                              <IconSend2 className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 group-hover:translate-x-full' />
+                              <IconSend2 className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0' />
                             </div>
                           </span>
                         )}

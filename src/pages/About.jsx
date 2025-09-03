@@ -1,7 +1,7 @@
 import { Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
 import Text from '../components/LocalizedText';
-import { Mail } from 'lucide-react';
+import { IconMail } from '@tabler/icons-react';
 
 const Timeline = ({ items }) => {
   return (
@@ -162,7 +162,7 @@ const About = () => {
               >
                 <span className='absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition' />
                 <span className='relative z-10 font-medium text-lg'>Contact Me</span>
-                <Mail className='ml-3 w-5 h-5 transition-transform group-hover:translate-x-2' />
+                <IconMail className='ml-3 w-5 h-5 transition-transform group-hover:translate-x-2' />
                 <span className='absolute bottom-0 left-1/2 h-px w-0 bg-white transition-all duration-500 group-hover:w-3/4 group-hover:left-[12.5%]' />
               </Link>
             </div>

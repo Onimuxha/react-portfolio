@@ -1,7 +1,6 @@
-import { Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
 import Text from '../components/LocalizedText';
-import { Github, SquareArrowOutUpRight } from 'lucide-react';
+import  { IconBrandGithub, IconArrowUpRight } from '@tabler/icons-react';
 import { Figma, GitHubDark, NextJs, PostgreSQL, ShadcnUI, TailwindCSS, TypeScript, ViteJS } from 'developer-icons';
 
 const Experiences = () => {
@@ -183,7 +182,7 @@ const Experiences = () => {
                   rel='noopener noreferrer'
                   className='inline-flex items-center rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-gray-700 transition-colors hover:border-gray-400 hover:text-gray-900 dark:border-gray-600 dark:text-gray-300 dark:hover:border-gray-500 dark:hover:text-gray-100'
                 >
-                  <Github className='h-4 w-4' />
+                  <IconBrandGithub className='h-4 w-4' />
                   <span className='ml-2'>Code</span>
                 </a>
               )}
@@ -194,7 +193,7 @@ const Experiences = () => {
                   rel='noopener noreferrer'
                   className='inline-flex items-center rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-gray-700 transition-colors hover:border-gray-400 hover:text-gray-900 dark:border-gray-600 dark:text-gray-300 dark:hover:border-gray-500 dark:hover:text-gray-100'
                 >
-                  <SquareArrowOutUpRight className='h-4 w-4' />
+                  <IconArrowUpRight className='h-4 w-4' />
                   <span className='ml-2'>Demo</span>
                 </a>
               )}

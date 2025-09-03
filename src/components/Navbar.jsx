@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import ThemeToggle from './ThemeToggle';
 import MobileMenuButton from './MobileMenuButton';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 import Text from './LocalizedText';
-import { Home, User, Code2, BriefcaseBusiness, Mail } from 'lucide-react';
+import { IconHome, IconUser, IconCode, IconBriefcase2, IconMail } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 
 const Navbar = ({ theme, toggleTheme }) => {
@@ -43,39 +43,40 @@ const Navbar = ({ theme, toggleTheme }) => {
   }, []);
 
   const navLinks = [
-    { name: <Text>navbar.home</Text>, to: 'home', icon: <Home size={18} /> },
-    { name: <Text>navbar.about</Text>, to: 'about', icon: <User size={18} /> },
-    { name: <Text>navbar.skills</Text>, to: 'skills', icon: <Code2 size={18} /> },
-    { name: <Text>navbar.experiences</Text>, to: 'experiences', icon: <BriefcaseBusiness size={18} /> },
-    { name: <Text>navbar.contact</Text>, to: 'contact', icon: <Mail size={18} /> },
+    { name: <Text>navbar.home</Text>, to: 'home', icon: <IconHome size={18} /> },
+    { name: <Text>navbar.about</Text>, to: 'about', icon: <IconUser size={18} /> },
+    { name: <Text>navbar.skills</Text>, to: 'skills', icon: <IconCode size={18} /> },
+    { name: <Text>navbar.experiences</Text>, to: 'experiences', icon: <IconBriefcase2 size={18} /> },
+    { name: <Text>navbar.contact</Text>, to: 'contact', icon: <IconMail size={18} /> },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed left-1/2 top-4 z-50 w-[95%] max-w-4xl -translate-x-1/2 transform rounded-2xl transition-all duration-300 ${
         scrolled || isOpen
-          ? 'py-5 bg-gray-900/90 shadow-lg backdrop-blur-sm dark:border-gray-700'
-          : 'py-5 bg-transparent'
+          ? 'border border-white/20 bg-white/80 py-2 shadow-xl backdrop-blur-md dark:border-gray-700/30 dark:bg-gray-900/80'
+          : 'bg-transparent py-2'
       }`}
     >
-      <div className='w-full max-w-screen-xl mx-auto px-4 sm:px-6'>
-        <div className='flex justify-between  items-center'>
+      <div className='mx-auto w-full px-4 sm:px-6'>
+        <div className='flex items-center justify-between'>
           {/* Logo - Left side */}
           <Link
             to='home'
             smooth
             duration={500}
-            className='flex items-center text-2xl font-bold bg-clip-text bg-gradient-to-r from-gray-400 to-gray-100 text-transparent cursor-pointer'
+            className='flex cursor-pointer items-center bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text text-2xl font-bold text-transparent dark:from-gray-400 dark:to-gray-100'
           >
-            <span className='hidden md:inline font-black'>
-              <img src="/text-white.png" className='w-12 h-w-12' alt="" />
+            <span className='hidden md:inline'>
+              <img src='/text-black.png' className='h-10 w-10 dark:invert' alt='' />
             </span>
           </Link>
+
           {/* Centered Navigation Links */}
-          <div className='hidden lg:flex flex-1 justify-center items-center'>
-            <div className='flex space-x-6'>
+          <div className='hidden flex-1 items-center justify-center lg:flex'>
+            <div className='flex space-x-1 rounded-2xl border border-white/10 bg-white/10 p-1.5 backdrop-blur-sm dark:border-gray-700/20 dark:bg-gray-800/30'>
               {navLinks.map((link) => (
                 <button
                   key={link.to}
@@ -85,19 +86,20 @@ const Navbar = ({ theme, toggleTheme }) => {
                       el.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className={`relative px-4 py-2.5 text-md font-medium transition-all duration-300 rounded-full group flex items-center justify-center ${
-                    activeLink === link.to ? 'text-black bg-white' : 'text-gray-300 hover:text-white hover:bg-white/10'
+                  className={`group relative flex items-center justify-center rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-300 ${
+                    activeLink === link.to
+                      ? 'bg-white text-gray-900 shadow-md dark:bg-gray-800 dark:text-white'
+                      : 'text-gray-600 hover:bg-white/50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800/50 dark:hover:text-white'
                   }`}
                   style={{ zIndex: activeLink === link.to ? 10 : 'auto' }}
                 >
-                  {link.icon && <span className='flex items-center justify-center mr-2'>{link.icon}</span>}
+                  {link.icon && <span className='mr-2 flex items-center justify-center'>{link.icon}</span>}
                   {link.name}
 
                   {activeLink === link.to && (
                     <motion.div
                       layoutId='active-pill'
-                      animate={{ boxShadow: '0 0 0.3rem rgba(255,255,255,0.8)' }}
-                      className='absolute inset-0 bg-white rounded-full shadow-md'
+                      className='absolute inset-0 rounded-xl bg-white shadow-sm dark:bg-gray-800'
                       transition={{ type: 'spring', stiffness: 300, damping: 15 }}
                       style={{ zIndex: -1 }}
                     />
@@ -108,13 +110,13 @@ const Navbar = ({ theme, toggleTheme }) => {
           </div>
 
           {/* Right-aligned Controls - Desktop */}
-          <div className='hidden lg:flex items-center space-x-3 ml-auto'>
+          <div className='ml-auto hidden items-center space-x-2 lg:flex'>
             <LanguageSwitcher />
             <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
           </div>
 
           {/* Mobile Menu Button - Hidden on Desktop */}
-          <div className='lg:hidden flex items-center space-x-3'>
+          <div className='flex items-center space-x-2 lg:hidden'>
             <LanguageSwitcher />
             <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
             <MobileMenuButton isOpen={isOpen} toggleOpen={toggleMenu} />
@@ -123,11 +125,11 @@ const Navbar = ({ theme, toggleTheme }) => {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden transition-all duration-300 ${
-            isOpen ? 'max-h-60 opacity-100 mt-4' : 'max-h-0 opacity-0 overflow-hidden'
+          className={`transition-all duration-300 lg:hidden ${
+            isOpen ? 'mt-4 max-h-60 opacity-100' : 'max-h-0 overflow-hidden opacity-0'
           }`}
         >
-          <div className='flex flex-col space-y-1 py-3 bg-gray-800/95 rounded-lg shadow-xl backdrop-blur-sm border border-gray-700'>
+          <div className='flex flex-col space-y-2 rounded-xl border border-white/20 bg-white/80 py-3 shadow-xl backdrop-blur-lg dark:border-gray-700/30 dark:bg-gray-800/90'>
             {navLinks.map((link) => (
               <button
                 key={link.to}
@@ -138,11 +140,13 @@ const Navbar = ({ theme, toggleTheme }) => {
                   }
                   setIsOpen(false);
                 }}
-                className={`relative px-6 py-3 text-sm font-medium transition-all duration-300 rounded-lg mx-3 group flex items-center ${
-                  activeLink === link.to ? 'text-black bg-white' : 'text-gray-300 hover:text-white hover:bg-white/10'
+                className={`group relative mx-3 flex items-center rounded-lg px-6 py-3 text-sm font-medium transition-all duration-300 ${
+                  activeLink === link.to
+                    ? 'bg-white/70 text-gray-900 dark:bg-gray-700/80 dark:text-white'
+                    : 'text-gray-600 hover:bg-white/50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-white'
                 }`}
               >
-                {link.icon && <span className='flex items-center justify-center mr-2'>{link.icon}</span>}
+                {link.icon && <span className='mr-2 flex items-center justify-center'>{link.icon}</span>}
                 {link.name}
               </button>
             ))}

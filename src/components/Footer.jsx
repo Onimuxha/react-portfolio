@@ -3,7 +3,7 @@ import { Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
 import Text from './LocalizedText';
 import CVDownloadModal from './CVDownloadModal';
-import { Home, User2, Code, BriefcaseBusiness, Mail, ChevronsRight, Download, ArrowDownToLine } from 'lucide-react';
+import { IconHome, IconUser, IconCode, IconBriefcase2, IconMail, IconChevronsRight, IconDownload } from '@tabler/icons-react';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -11,11 +11,11 @@ const Footer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const navLinksData = [
-    { nameKey: 'navbar.home', to: 'home', icon: <Home size={18} /> },
-    { nameKey: 'navbar.about', to: 'about', icon: <User2 size={18} /> },
-    { nameKey: 'navbar.skills', to: 'skills', icon: <Code size={18} /> },
-    { nameKey: 'navbar.experiences', to: 'experiences', icon: <BriefcaseBusiness size={18} /> },
-    { nameKey: 'navbar.contact', to: 'contact', icon: <Mail size={18} /> },
+    { nameKey: 'navbar.home', to: 'home', icon: <IconHome size={18} /> },
+    { nameKey: 'navbar.about', to: 'about', icon: <IconUser size={18} /> },
+    { nameKey: 'navbar.skills', to: 'skills', icon: <IconCode size={18} /> },
+    { nameKey: 'navbar.experiences', to: 'experiences', icon: <IconBriefcase2 size={18} /> },
+    { nameKey: 'navbar.contact', to: 'contact', icon: <IconMail size={18} /> },
   ];
 
   const handleDownloadClick = (e) => {
@@ -70,8 +70,8 @@ const Footer = () => {
                         <Text>{nameKey}</Text>
                       </div>
                       <div className='relative h-5 w-5 overflow-hidden'>
-                        <ChevronsRight className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 group-hover:translate-x-full' />
-                        <ChevronsRight className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0' />
+                        <IconChevronsRight className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 group-hover:translate-x-full' />
+                        <IconChevronsRight className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0' />
                       </div>
                       <span className='absolute bottom-0 left-0 h-[1px] w-0 bg-black dark:bg-white transition-all duration-500 group-hover:w-full' />
                     </Link>
@@ -96,8 +96,8 @@ const Footer = () => {
                   <Text>footer.download-cv</Text>
                 </span>
                 <div className='relative ml-3 h-5 w-5 overflow-hidden'>
-                  <ArrowDownToLine className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 group-hover:translate-y-full' />
-                  <ArrowDownToLine className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 transform -translate-y-full group-hover:translate-y-0' />
+                  <IconDownload className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 group-hover:translate-y-full' />
+                  <IconDownload className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 transform -translate-y-full group-hover:translate-y-0' />
                 </div>
               </button>
             </div>
