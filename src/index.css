@@ -41,6 +41,12 @@ body {
   min-height: 100dvh;
 }
 
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
 .highlight-text {
   @apply font-medium text-gray-800 dark:text-gray-100;
 }

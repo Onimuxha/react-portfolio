@@ -33,7 +33,7 @@ const About = () => {
   }));
 
   return (
-    <section id='about' className='pt-28 min-h-screen bg-gray-100 py-20 dark:bg-gray-900'>
+    <section id='about' className='min-h-screen bg-gray-100 py-20 pt-28 dark:bg-gray-900'>
       <div className='container mx-auto max-w-7xl px-3'>
         <div className='mb-16 text-center' data-aos='fade-up'>
           <h3 className='mb-4 text-5xl font-black tracking-tight text-gray-900 dark:text-white md:text-7xl'>
@@ -73,14 +73,14 @@ const About = () => {
 
               <div className='space-y-6 leading-relaxed tracking-wide text-gray-700/90 dark:text-gray-300/90'>
                 <p className='text-md mx-auto text-gray-800 dark:text-gray-400 md:text-xl'>
-                  I'm a <span className='highlight-text'>Full Stack Developer</span> with
-                  expertise in modern JavaScript frameworks, specializing in high-performance web applications with
-                  intuitive UX and scalable architecture.
+                  I'm a <span className='highlight-text'>Full Stack Developer</span> with expertise in modern JavaScript
+                  frameworks, specializing in high-performance web applications with intuitive UX and scalable
+                  architecture.
                 </p>
                 <p className='text-md mx-auto mb-12 text-gray-800 dark:text-gray-400 md:text-xl'>
-                  With <span className='highlight-text'>5+ years</span> of industry
-                  experience, I've delivered solutions ranging from startup MVPs to enterprise-grade systems, with a
-                  focus on clean code and cutting-edge technologies.
+                  With <span className='highlight-text'>5+ years</span> of industry experience, I've delivered solutions
+                  ranging from startup MVPs to enterprise-grade systems, with a focus on clean code and cutting-edge
+                  technologies.
                 </p>
               </div>
             </div>

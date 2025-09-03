@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import ThemeToggle from './ThemeToggle';
 import MobileMenuButton from './MobileMenuButton';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 import Text from './LocalizedText';
 import { IconHome, IconUser, IconCode, IconBriefcase2, IconMail } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
+import { AnimatedThemeToggler } from '../components/ui/animated-theme-toggler';
 
-const Navbar = ({ theme, toggleTheme }) => {
+const Navbar = () => { // Remove theme and toggleTheme props
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
@@ -64,10 +64,10 @@ const Navbar = ({ theme, toggleTheme }) => {
         <div className='flex items-center justify-between'>
           <Link to='home' smooth duration={500} className='flex cursor-pointer items-center text-2xl font-bold'>
             <span className='inline'>
-              {' '}
+              {/* Update logo to work with the new theme toggler */}
               <img
-                src={theme === 'dark' ? '/text-white.png' : '/text-black.png'}
-                className='h-8 w-8 md:h-10 md:w-10'
+                src='/text-black.png'
+                className='h-8 w-8 dark:invert md:h-10 md:w-10'
                 alt='Logo'
               />
             </span>
@@ -110,13 +110,23 @@ const Navbar = ({ theme, toggleTheme }) => {
           {/* Right-aligned Controls - Desktop */}
           <div className='ml-auto hidden items-center space-x-2 lg:flex'>
             <LanguageSwitcher />
-            <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+            {/* Replace ThemeToggle with AnimatedThemeToggler */}
+            <AnimatedThemeToggler className="w-10 h-10 rounded-lg flex items-center justify-center 
+              bg-white/10 backdrop-blur-sm
+              border border-gray-600
+              hover:shadow-md hover:shadow-white/20
+              transition-all duration-300" />
           </div>
 
           {/* Mobile Menu Button - Hidden on Desktop */}
           <div className='flex items-center space-x-2 lg:hidden'>
             <LanguageSwitcher />
-            <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+            {/* Replace ThemeToggle with AnimatedThemeToggler */}
+            <AnimatedThemeToggler className="w-10 h-10 rounded-lg flex items-center justify-center 
+              bg-white/10 backdrop-blur-sm
+              border border-gray-600
+              hover:shadow-md hover:shadow-white/20
+              transition-all duration-300" />
             <MobileMenuButton isOpen={isOpen} toggleOpen={toggleMenu} />
           </div>
         </div>
