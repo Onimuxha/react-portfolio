@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Text from '../components/LocalizedText';
 import {
@@ -16,20 +16,26 @@ import {
   WordPress,
 } from 'developer-icons';
 
-const SkillBar = ({ skill, icon, description, percentage }) => {
+const CircularProgress = ({ percentage, size = 120, strokeWidth = 8 }) => {
+  const [progress, setProgress] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
   const progressRef = useRef(null);
-  const percentageRef = useRef(null);
+
+  const radius = (size - strokeWidth) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDasharray = circumference;
+  const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
             setTimeout(() => {
-              progressRef.current.style.width = `${percentage}%`;
               let start = 0;
               const end = percentage;
-              const duration = 1500;
+              const duration = 2000;
               const increment = end / (duration / 16);
 
               const timer = setInterval(() => {
@@ -38,13 +44,13 @@ const SkillBar = ({ skill, icon, description, percentage }) => {
                   start = end;
                   clearInterval(timer);
                 }
-                percentageRef.current.textContent = `${Math.floor(start)}%`;
+                setProgress(Math.floor(start));
               }, 16);
             }, 200);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.3 }
     );
 
     if (progressRef.current) {
@@ -56,57 +62,97 @@ const SkillBar = ({ skill, icon, description, percentage }) => {
         observer.unobserve(progressRef.current);
       }
     };
-  }, [percentage]);
+  }, [percentage, isVisible]);
 
   return (
-    <div
-      className='mb-6 group p-6 rounded-xl border border-gray-300/20 dark:border-gray-700/50 bg-white/90 dark:bg-gray-900/50 backdrop-blur-sm cursor-default transition-all duration-300 shadow-md'
-      data-aos='fade-up'
-    >
-      <div className='flex items-start gap-5 mb-4'>
-        <span className='text-xs group-hover:rotate-[15deg] transition-transform bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 p-2 rounded'>
-          {icon}
-        </span>
-        <div className='flex-grow'>
-          <div className='flex justify-between items-center mb-2'>
-            {/* text-md md:text-xl mx-auto text-gray-800 dark:text-gray-400 */}
-            <h3 className='text-md md:text-xl text-gray-800 dark:text-gray-100'>
-              {skill}
-            </h3>
-            <span ref={percentageRef} className='font-medium text-gray-700 dark:text-gray-300'>
-              0%
-            </span>
-          </div>
-          <p className='text-gray-700/90 dark:text-gray-400/90 leading-relaxed'>{description}</p>
-        </div>
-      </div>
-      <div className='w-full bg-gray-200/70 dark:bg-gray-800/60 rounded-full h-2 overflow-hidden'>
-        <div
-          ref={progressRef}
-          className='h-full bg-gradient-to-r from-gray-700 to-gray-600 dark:from-gray-500 dark:to-gray-400 rounded-full transition-all duration-1000 ease-out'
-          style={{ width: '0%' }}
-        ></div>
+    <div ref={progressRef} className='relative flex items-center justify-center'>
+      <svg width={size} height={size} className='-rotate-90 transform'>
+        {/* Background circle */}
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          stroke='currentColor'
+          strokeWidth={strokeWidth}
+          fill='transparent'
+          className='text-slate-200 dark:text-slate-700'
+        />
+        {/* Progress circle */}
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          stroke='currentColor'
+          strokeWidth={strokeWidth}
+          fill='transparent'
+          strokeDasharray={strokeDasharray}
+          strokeDashoffset={strokeDashoffset}
+          strokeLinecap='round'
+          className='text-slate-600 transition-all duration-1000 ease-out dark:text-slate-300'
+        />
+      </svg>
+      <div className='absolute inset-0 flex flex-col items-center justify-center'>
+        <span className='text-2xl font-bold text-slate-700 dark:text-slate-200'>{progress}%</span>
       </div>
     </div>
   );
 };
 
-const SkillCard = ({ icon, title, description }) => {
+const ModernSkillBar = ({ skill, icon, description, percentage }) => {
   return (
     <div
-      className='h-full p-7 rounded-xl border border-gray-300/20 dark:border-gray-700/50 bg-white/90 dark:bg-gray-900/50 backdrop-blur-sm cursor-default transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-400/10 dark:hover:shadow-gray-600/10 hover:border-gray-400/30 dark:hover:border-gray-600/50 group'
+      className='group cursor-default rounded-2xl border border-slate-200/60 bg-white/80 p-8 backdrop-blur-xl transition-all duration-500 hover:scale-[1.02] hover:border-slate-300/80 hover:shadow-2xl hover:shadow-slate-300/20 dark:border-slate-700/60 dark:bg-slate-900/80 dark:hover:border-slate-600/80 dark:hover:shadow-slate-900/40'
+      data-aos='fade-up'
+    >
+      <div className='flex items-center gap-8'>
+        {/* Icon and Progress */}
+        <div className='flex flex-col items-center gap-4'>
+          <div className='rounded-xl bg-slate-100 p-4 transition-transform duration-500 group-hover:rotate-12 dark:bg-slate-800'>
+            <span className='text-slate-600 dark:text-slate-300'>{icon}</span>
+          </div>
+          <CircularProgress percentage={percentage} size={100} strokeWidth={6} />
+        </div>
+        {/* Content */}
+        <div className='min-w-0 flex-1'>
+          <h3 className='mb-3 text-xl font-semibold text-slate-800 transition-colors group-hover:text-slate-900 dark:text-slate-100 dark:group-hover:text-white md:text-2xl'>
+            {skill}
+          </h3>
+          <p className='leading-relaxed text-slate-600 dark:text-slate-400'>{description}</p>
+
+          {/* Decorative line */}
+          <div className='mt-4 h-px bg-gradient-to-r from-slate-300 via-slate-400 to-slate-300 opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-slate-600 dark:via-slate-500 dark:to-slate-600'></div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ModernSkillCard = ({ icon, title, description }) => {
+  return (
+    <div
+      className='group relative h-full cursor-default overflow-hidden rounded-2xl border border-slate-200/60 bg-white/80 p-8 backdrop-blur-xl transition-all duration-500 hover:scale-[1.05] hover:border-slate-300/80 hover:shadow-2xl hover:shadow-slate-300/20 dark:border-slate-700/60 dark:bg-slate-900/80 dark:hover:border-slate-600/80 dark:hover:shadow-slate-900/40'
       data-aos='zoom-in'
     >
-      <div className='flex flex-col h-full'>
-        <div className='mb-6 text-5xl flex justify-center group-hover:rotate-[15deg] transition-transform'>
-          <span className='text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 p-2 rounded'>
-            {icon}
-          </span>
+      <div className='absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-slate-100/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-slate-800/30 dark:via-transparent dark:to-slate-900/50'></div>
+      <div className='relative flex h-full flex-col'>
+        <div className='mb-6 flex justify-center'>
+          <div className='rounded-xl bg-slate-100 p-4 transition-all duration-500 group-hover:rotate-12 group-hover:scale-110 group-hover:bg-slate-200 dark:bg-slate-800 dark:group-hover:bg-slate-700'>
+            <span className='text-slate-600 transition-colors duration-300 group-hover:text-slate-700 dark:text-slate-300 dark:group-hover:text-slate-200'>
+              {icon}
+            </span>
+          </div>
         </div>
-        <h3 className='text-center mb-4 text-md md:text-xl text-gray-800 dark:text-gray-100'>
-          {title}
-        </h3>
-        <p className='text-center text-gray-700/90 dark:text-gray-400/90 leading-relaxed'>{description}</p>
+        {/* Content */}
+        <div className='flex-1 text-center'>
+          <h3 className='mb-4 text-lg font-semibold text-slate-800 transition-colors duration-300 group-hover:text-slate-900 dark:text-slate-100 dark:group-hover:text-white md:text-xl'>
+            {title}
+          </h3>
+          <p className='leading-relaxed text-slate-600 transition-colors duration-300 group-hover:text-slate-700 dark:text-slate-400 dark:group-hover:text-slate-300'>
+            {description}
+          </p>
+        </div>
+        {/* Bottom accent */}
+        <div className='absolute rounded-full bottom-0 left-0 right-0 h-0.5 origin-center scale-x-0 transform bg-gradient-to-r from-slate-300 via-slate-400 to-slate-300 transition-transform duration-500 group-hover:scale-x-100 dark:from-slate-600 dark:via-slate-500 dark:to-slate-600'></div>
       </div>
     </div>
   );
@@ -117,37 +163,37 @@ const Skills = () => {
   const skillsData = [
     {
       skill: 'JavaScript',
-      icon: <JavaScript className='w-7 h-7' />,
+      icon: <JavaScript className='h-7 w-7' />,
       description: 'Modern ES6+, async/await, functional programming',
       percentage: 90,
     },
     {
       skill: 'React.js',
-      icon: <ReactIcon className='w-7 h-7' />,
+      icon: <ReactIcon className='h-7 w-7' />,
       description: 'Hooks, Context API, Redux, Next.js',
       percentage: 85,
     },
     {
       skill: 'Node.js',
-      icon: <NodeJs className='w-7 h-7' />,
+      icon: <NodeJs className='h-7 w-7' />,
       description: 'Express, RESTful APIs, MongoDB integration',
       percentage: 75,
     },
     {
       skill: 'CSS/Tailwind',
-      icon: <TailwindCSS className='w-7 h-7' />,
+      icon: <TailwindCSS className='h-7 w-7' />,
       description: 'Responsive design, animations, custom themes',
       percentage: 90,
     },
     {
       skill: 'TypeScript',
-      icon: <TypeScript className='w-7 h-7' />,
+      icon: <TypeScript className='h-7 w-7' />,
       description: 'Type safety, interfaces, generics',
       percentage: 80,
     },
     {
       skill: 'Git/GitHub',
-      icon: <GitHubDark className='w-7 h-7' />,
+      icon: <GitHubDark className='h-7 w-7 dark:invert' />,
       description: 'Version control, collaboration, CI/CD',
       percentage: 85,
     },
@@ -155,22 +201,22 @@ const Skills = () => {
 
   const cardData = [
     {
-      icon: <ReactIcon className='w-7 h-7' />,
+      icon: <ReactIcon className='h-7 w-7' />,
       title: 'React.js',
       description: 'Building modern and performant UI components with hooks and context API',
     },
     {
-      icon: <JavaScript className='w-7 h-7' />,
+      icon: <JavaScript className='h-7 w-7' />,
       title: 'JavaScript',
       description: 'ES6+ syntax, async programming, and functional patterns',
     },
     {
-      icon: <TailwindCSS className='w-7 h-7' />,
+      icon: <TailwindCSS className='h-7 w-7' />,
       title: 'Tailwind CSS',
       description: 'Utility-first CSS framework for rapid UI development',
     },
     {
-      icon: <NodeJs className='w-7 h-7' />,
+      icon: <NodeJs className='h-7 w-7' />,
       title: 'Node.js',
       description: 'Building scalable server-side applications and APIs',
     },
@@ -178,42 +224,42 @@ const Skills = () => {
 
   const toolsData = [
     {
-      icon: <GitHubDark className='w-7 h-7' />,
+      icon: <GitHubDark className='h-7 w-7 dark:invert' />,
       title: 'GitHub',
       description: 'Version control and collaborative development workflow',
     },
     {
-      icon: <VisualStudioCode className='w-7 h-7' />,
+      icon: <VisualStudioCode className='h-7 w-7' />,
       title: 'VS Code',
       description: 'Advanced code editing with extensive plugin ecosystem',
     },
     {
-      icon: <Figma className='w-7 h-7' />,
+      icon: <Figma className='h-7 w-7' />,
       title: 'Figma',
       description: 'UI/UX design, prototyping, and design system management',
     },
     {
-      icon: <GitLab className='w-7 h-7' />,
+      icon: <GitLab className='h-7 w-7' />,
       title: 'GitLab',
       description: 'CI/CD pipelines and DevOps workflows',
     },
     {
-      icon: <MySQL className='w-7 h-7' />,
+      icon: <MySQL className='h-7 w-7 dark:invert' />,
       title: 'MySQL',
       description: 'Relational database system for structured data and SQL queries',
     },
     {
-      icon: <WordPress className='w-7 h-7' />,
+      icon: <WordPress className='h-7 w-7' />,
       title: 'WordPress',
       description: 'Open-source CMS used to build websites and manage content easily',
     },
     {
-      icon: <Bootstrap5 className='w-7 h-7' />,
+      icon: <Bootstrap5 className='h-7 w-7' />,
       title: 'Bootstrap',
       description: 'Responsive front-end framework for designing websites and interfaces',
     },
     {
-      icon: <TailwindCSS className='w-7 h-7' />,
+      icon: <TailwindCSS className='h-7 w-7' />,
       title: 'Tailwind CSS (Basic)',
       description: 'Utility-first CSS framework for building custom designs quickly',
     },
@@ -222,14 +268,20 @@ const Skills = () => {
   return (
     <section
       id='skills'
-      className='py-20 bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 min-h-screen'
+      className='relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 py-20 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900'
     >
-      <div className='container mx-auto px-3 max-w-6xl'>
-        <div className='text-center mb-16'>
-          <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-4 text-gray-900 dark:text-white'>
+      {/* Background decorative elements */}
+      <div className='absolute inset-0 overflow-hidden'>
+        <div className='absolute -right-40 -top-40 h-80 w-80 rounded-full bg-slate-300/20 blur-3xl dark:bg-slate-700/20'></div>
+        <div className='absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-slate-300/20 blur-3xl dark:bg-slate-700/20'></div>
+      </div>
+
+      <div className='container relative mx-auto max-w-7xl px-4'>
+        <div className='mb-20 text-center'>
+          <h3 className='mb-6 text-5xl font-black tracking-tight text-slate-900 dark:text-white md:text-7xl'>
             {i18n.language === 'kh' ? (
               <>
-                <span className='text-transparent py-6 bg-clip-text bg-gradient-to-r from-gray-600 to-gray-900 dark:from-gray-400 dark:to-gray-100'>
+                <span className='bg-gradient-to-r from-slate-600 to-slate-900 bg-clip-text text-transparent dark:from-slate-400 dark:to-slate-100'>
                   <Text>skill.skill</Text>
                 </span>{' '}
                 <Text>general.my</Text>
@@ -237,21 +289,21 @@ const Skills = () => {
             ) : (
               <>
                 <Text>general.my</Text>{' '}
-                <span className='text-transparent bg-clip-text bg-gradient-to-r from-gray-600 to-gray-900 dark:from-gray-400 dark:to-gray-100'>
+                <span className='bg-gradient-to-r from-slate-600 to-slate-900 bg-clip-text text-transparent dark:from-slate-400 dark:to-slate-100'>
                   <Text>skill.skill</Text>
                 </span>
               </>
             )}
           </h3>
-          <div className='w-24 h-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600 mx-auto rounded-full mb-10'></div>
-          <p className='text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto'>
+          <div className='mx-auto mb-8 h-1.5 w-32 rounded-full bg-gradient-to-r from-slate-400 via-slate-600 to-slate-400 dark:from-slate-500 dark:via-slate-300 dark:to-slate-500'></div>
+          <p className='mx-auto max-w-3xl text-xl leading-relaxed text-slate-600 dark:text-slate-300'>
             My proficiency across the full development stack and design disciplines
           </p>
         </div>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mb-20'>
+        <div className='mb-24 grid grid-cols-1 gap-8 lg:grid-cols-2'>
           {skillsData.map((skill, index) => (
-            <SkillBar
+            <ModernSkillBar
               key={index}
               skill={skill.skill}
               icon={skill.icon}
@@ -263,13 +315,13 @@ const Skills = () => {
         </div>
 
         <h3
-          className='text-4xl md:text-6xl font-bold tracking-tight mb-12 text-gray-900 dark:text-white text-center'
+          className='mb-16 text-center text-4xl font-bold tracking-tight text-slate-900 dark:text-white md:text-6xl'
           data-aos='fade-up'
         >
           <Text>skill.main-technologies</Text>
         </h3>
 
-        <div className='grid grid-cols-1 mb-20 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
+        <div className='mb-24 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4'>
           {cardData.map((card, index) => (
             <div
               key={index}
@@ -279,19 +331,19 @@ const Skills = () => {
               data-aos-offset='100'
               data-aos-easing='ease-out-cubic'
             >
-              <SkillCard icon={card.icon} title={card.title} description={card.description} />
+              <ModernSkillCard icon={card.icon} title={card.title} description={card.description} />
             </div>
           ))}
         </div>
 
         <h3
-          className='text-4xl md:text-6xl font-bold tracking-tight mb-12 text-gray-900 dark:text-white text-center'
+          className='mb-16 text-center text-4xl font-bold tracking-tight text-slate-900 dark:text-white md:text-6xl'
           data-aos='fade-up'
         >
           Tools & Platforms
         </h3>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
+        <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4'>
           {toolsData.map((tool, index) => (
             <div
               key={index}
@@ -301,7 +353,7 @@ const Skills = () => {
               data-aos-offset='100'
               data-aos-easing='ease-out-cubic'
             >
-              <SkillCard icon={tool.icon} title={tool.title} description={tool.description} />
+              <ModernSkillCard icon={tool.icon} title={tool.title} description={tool.description} />
             </div>
           ))}
         </div>

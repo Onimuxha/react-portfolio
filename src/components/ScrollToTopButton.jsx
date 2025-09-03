@@ -1,5 +1,5 @@
-import { ArrowUpFromDot } from 'lucide-react';
-import React, { useState, useEffect, useRef } from 'react';
+import { IconArrowUp } from '@tabler/icons-react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-scroll';
 
 const ScrollToTopButton = () => {
@@ -43,10 +43,10 @@ const ScrollToTopButton = () => {
       to='home'
       smooth={true}
       duration={500}
-      className='fixed cursor-pointer bottom-5 right-5 w-10 h-10 flex items-center justify-center transition-all z-50 group'
+      className='group fixed bottom-5 right-5 z-50 flex h-10 w-10 cursor-pointer items-center justify-center transition-all'
     >
       {/* Progress circle background */}
-      <svg className='absolute w-full h-full' viewBox='0 0 36 36'>
+      <svg className='absolute h-full w-full' viewBox='0 0 36 36'>
         {/* Full circle (background) */}
         <path
           d='M18 2.0845
@@ -76,8 +76,8 @@ const ScrollToTopButton = () => {
         </defs>
       </svg>
       {/* Button center with hover effect */}
-      <div className='absolute inset-0 m-1 bg-gray-800/70 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-200 group-hover:bg-gradient-to-br from-cyan-400/10 to-blue-500/10 transition-all duration-300 shadow-md'>
-        <ArrowUpFromDot className='w-4 h-4'/>
+      <div className='absolute inset-0 m-1 flex items-center justify-center rounded-full bg-gray-800/70 from-cyan-400/10 to-blue-500/10 text-gray-200 shadow-md backdrop-blur-sm transition-all duration-300 group-hover:bg-gradient-to-br'>
+        <IconArrowUp className='h-4 w-4' />
       </div>
     </Link>
   );

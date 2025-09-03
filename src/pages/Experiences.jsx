@@ -16,7 +16,7 @@ const Experiences = () => {
         github: null,
         deploy: 'https://cyberpay.example.com',
         languages: [
-          <GitHubDark className='h-7 w-7' />,
+          <GitHubDark className='h-7 w-7 dark:invert' />,
           <PostgreSQL className='h-7 w-7' />,
           <Figma className='h-7 w-7' />,
           <TailwindCSS className='h-7 w-7' />,
@@ -36,7 +36,7 @@ const Experiences = () => {
         github: 'https://github.com/company/neonvpn',
         deploy: null,
         languages: [
-          <GitHubDark className='h-7 w-7' />,
+          <GitHubDark className='h-7 w-7 dark:invert' />,
           <PostgreSQL className='h-7 w-7' />,
           <Figma className='h-7 w-7' />,
           <TailwindCSS className='h-7 w-7' />,
@@ -79,7 +79,7 @@ const Experiences = () => {
         github: 'https://github.com/yourusername/neon-chat',
         deploy: 'https://neon-chat-demo.com',
         languages: [
-          <GitHubDark className='h-7 w-7' />,
+          <GitHubDark className='h-7 w-7 dark:invert' />,
           <PostgreSQL className='h-7 w-7' />,
           <Figma className='h-7 w-7' />,
           <TailwindCSS className='h-7 w-7' />,
@@ -95,7 +95,7 @@ const Experiences = () => {
         github: 'https://github.com/yourusername/ai-image-gen',
         deploy: null,
         languages: [
-          <GitHubDark className='h-7 w-7' />,
+          <GitHubDark className='h-7 w-7 dark:invert' />,
           <PostgreSQL className='h-7 w-7' />,
           <Figma className='h-7 w-7' />,
           <TailwindCSS className='h-7 w-7' />,
@@ -115,7 +115,7 @@ const Experiences = () => {
         github: 'https://github.com/yourusername/smart-home-dashboard',
         deploy: 'https://smart-home-demo.vercel.app',
         languages: [
-          <GitHubDark className='h-7 w-7' />,
+          <GitHubDark className='h-7 w-7 dark:invert' />,
           <PostgreSQL className='h-7 w-7' />,
           <Figma className='h-7 w-7' />,
           <TailwindCSS className='h-7 w-7' />,

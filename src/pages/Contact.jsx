@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { handleTelegramSubmission } from '../components/telegramService';
 import { useTranslation } from 'react-i18next';
 import Text from '../components/LocalizedText';
-// import { LoaderCircle, SendHorizonal } from 'lucide-react';
 import { IconLoader3, IconSend2 } from '@tabler/icons-react';
 import { Facebook, GitHubDark, Gmail, Instagram, LinkedIn, Telegram, XDark } from 'developer-icons';
 
@@ -89,7 +88,7 @@ const Contact = () => {
       color: 'text-blue-400',
     },
     {
-      icon: <XDark className='w-7 h-7' />,
+      icon: <XDark className='w-7 h-7 dark:invert' />,
       title: 'Phone',
       content: '+81 70-1234-5678',
       isLink: true,
@@ -100,7 +99,7 @@ const Contact = () => {
 
   const socialLinks = [
     {
-      icon: <GitHubDark className='w-7 h-7' />,
+      icon: <GitHubDark className='w-7 h-7 dark:invert' />,
       url: 'https://github.com',
     },
     {

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Text from './LocalizedText';
 import cvFile from '../assets/kirito.pdf';
-import { Database, Download, LoaderCircle, X } from 'lucide-react';
+import { IconDownload, IconFileTypePdf, IconLoader3, IconServer, IconX } from '@tabler/icons-react';
 
 const CVDownloadModal = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
@@ -46,39 +46,38 @@ const CVDownloadModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className='fixed inset-0 flex items-center justify-center z-50'>
+    <div className='fixed inset-0 z-50 flex items-center justify-center'>
       <div className='absolute inset-0 bg-black/70 backdrop-blur-md' onClick={onClose}></div>
-
-      <div className='relative bg-gray-900 text-gray-200 rounded-xl shadow-2xl w-full max-w-md mx-4 overflow-hidden border border-gray-700'>
-        <div className='px-6 py-4 border-b border-gray-800 flex justify-between items-center'>
+      <div className='relative mx-4 w-full max-w-md overflow-hidden rounded-xl border border-gray-700 bg-gray-900 text-gray-200 shadow-2xl'>
+        <div className='flex items-center justify-between border-b border-gray-800 px-6 py-4'>
           <h3 className='text-xl font-semibold text-gray-100'>
             <Text>footer.confirm</Text>
           </h3>
           <button
             onClick={onClose}
-            className='text-gray-400 hover:text-gray-100 transition-colors p-1 rounded-full hover:bg-gray-800'
+            className='rounded-full p-1 text-gray-400 transition-colors hover:bg-gray-800 hover:text-gray-100'
           >
-            <X className='bx bx-x text-2xl' />
+            <IconX size={23} className='hover:rotate-90 transition-all duration-300' />
           </button>
         </div>
 
         <div className='px-6 py-6'>
           <div className='mb-6 text-center'>
-            <div className='w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gray-800 rounded-lg border border-gray-700'>
-              <i className='bx bxs-file-pdf text-4xl text-gray-300'></i>
+            <div className='mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-lg border border-gray-700 bg-gray-800'>
+              <IconFileTypePdf size={30} className='text-gray-300' />
             </div>
-            <p className='text-gray-300 mb-2'>Are you sure you want to download this file?</p>
-            <div className='bg-gray-800/50 rounded-lg p-4 mt-4 border border-gray-700/50'>
-              <p className='text-gray-100 font-medium'>{cvFile.split('/').pop()}</p>
-              <p className='text-gray-400 text-sm mt-1 flex items-center justify-center'>
+            <p className='mb-2 text-gray-300'>Are you sure you want to download this file?</p>
+            <div className='mt-4 rounded-lg border border-gray-700/50 bg-gray-800/50 p-4'>
+              <p className='font-medium text-gray-100'>{cvFile.split('/').pop()}</p>
+              <p className='mt-1 flex items-center justify-center text-sm text-gray-400'>
                 {fileSize ? (
                   <>
-                    <Database className="mr-1" />
+                    <IconServer className='mr-1' />
                     {fileSize}
                   </>
                 ) : (
                   <>
-                    <LoaderCircle className='animate-spin mr-1' />
+                    <IconLoader3 className='mr-1 animate-spin' />
                     Loading size...
                   </>
                 )}
@@ -86,19 +85,19 @@ const CVDownloadModal = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-          <div className='flex gap-3 justify-center'>
+          <div className='flex justify-center gap-3'>
             <button
               onClick={onClose}
-              className='px-5 py-2.5 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all duration-300 border border-gray-700 hover:border-gray-600 text-gray-300 hover:text-gray-100 flex items-center gap-2 shadow hover:shadow-md'
+              className='flex items-center gap-2 rounded-lg border border-gray-700 bg-gray-800 px-5 py-2.5 text-gray-300 shadow transition-all duration-300 hover:border-gray-600 hover:bg-gray-700 hover:text-gray-100 hover:shadow-md'
             >
               <Text>footer.cancel</Text>
             </button>
             <button
               onClick={handleDownload}
-              className='px-5 py-2.5 bg-gray-700 hover:bg-gray-600 rounded-lg transition-all duration-300 text-gray-100 hover:text-white flex items-center gap-2 shadow hover:shadow-md border border-gray-600 hover:border-gray-500'
+              className='flex items-center gap-2 rounded-lg border border-gray-600 bg-gray-700 px-5 py-2.5 text-gray-100 shadow transition-all duration-300 hover:border-gray-500 hover:bg-gray-600 hover:text-white hover:shadow-md'
             >
               <Text>footer.download</Text>
-              <Download size={16} />
+              <IconDownload size={16} />
             </button>
           </div>
         </div>
