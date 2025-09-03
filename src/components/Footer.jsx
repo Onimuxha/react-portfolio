@@ -70,8 +70,8 @@ const Footer = () => {
                         <Text>{nameKey}</Text>
                       </div>
                       <div className='relative h-5 w-5 overflow-hidden'>
-                        <IconChevronsRight className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 group-hover:translate-x-full' />
-                        <IconChevronsRight className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0' />
+                        <IconChevronsRight className='absolute top-0 left-0 w-5 h-5 transition-transform duration-500 group-hover:translate-x-full' />
+                        <IconChevronsRight className='absolute top-0 left-0 w-5 h-5 transition-transform duration-500 transform -translate-x-full group-hover:translate-x-0' />
                       </div>
                       <span className='absolute bottom-0 left-0 h-[1px] w-0 bg-black dark:bg-white transition-all duration-500 group-hover:w-full' />
                     </Link>

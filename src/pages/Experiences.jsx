@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import Text from '../components/LocalizedText';
-import  { IconBrandGithub, IconArrowUpRight } from '@tabler/icons-react';
+import { IconBrandGithub, IconArrowUpRight } from '@tabler/icons-react';
 import { Figma, GitHubDark, NextJs, PostgreSQL, ShadcnUI, TailwindCSS, TypeScript, ViteJS } from 'developer-icons';
 
 const Experiences = () => {
@@ -9,23 +9,23 @@ const Experiences = () => {
     company: [
       {
         name: 'CyberPay Fintech',
-        period: '15 Feb 24 - Present',
+        period: 'Feb 2024 - Present',
         purpose: 'Payment processing platform for crypto transactions',
         role: 'Frontend Lead',
         responsibilities: ['Built dashboard interface', 'Optimized transaction flow', 'Implemented security features'],
         github: null,
         deploy: 'https://cyberpay.example.com',
         languages: [
-          <GitHubDark className='h-7 w-7 dark:invert' />,
-          <PostgreSQL className='h-7 w-7' />,
-          <Figma className='h-7 w-7' />,
-          <TailwindCSS className='h-7 w-7' />,
+          <GitHubDark size={25} className='dark:invert' />,
+          <PostgreSQL size={25} />,
+          <Figma size={25} />,
+          <TailwindCSS size={25} />,
         ],
         isDeployed: true,
       },
       {
         name: 'NeonVPN Dashboard',
-        period: '15 Mar 24 - 30 Apr 24',
+        period: 'Mar 24 - Apr 24',
         purpose: 'Management console for VPN service with data visualization tools ',
         role: 'UI Developer',
         responsibilities: [
@@ -36,10 +36,10 @@ const Experiences = () => {
         github: 'https://github.com/company/neonvpn',
         deploy: null,
         languages: [
-          <GitHubDark className='h-7 w-7 dark:invert' />,
-          <PostgreSQL className='h-7 w-7' />,
-          <Figma className='h-7 w-7' />,
-          <TailwindCSS className='h-7 w-7' />,
+          <GitHubDark size={25} className='dark:invert' />,
+          <PostgreSQL size={25} />,
+          <Figma size={25} />,
+          <TailwindCSS size={25} />,
         ],
         isDeployed: false,
       },
@@ -48,18 +48,18 @@ const Experiences = () => {
     personal: [
       {
         name: 'PeakSlaok',
-        period: '15 Feb 24 - Present',
+        period: 'Feb 24 - Present',
         purpose: 'To write and generate quote',
         role: 'UX/UI Design',
         responsibilities: ['Built dashboard interface', 'Optimized transaction flow', 'Implemented security features'],
         github: null,
         deploy: 'https://aboutyoureadmore.online/',
         languages: [
-          <NextJs className='h-7 w-7' />,
-          <TypeScript className='h-7 w-7' />,
-          <ViteJS className='h-7 w-7' />,
-          <ShadcnUI className='h-7 w-7' />,
-          <TailwindCSS className='h-7 w-7' />,
+          <NextJs size={25} />,
+          <TypeScript size={25} />,
+          <ViteJS size={25} />,
+          <ShadcnUI size={25} />,
+          <TailwindCSS size={25} />,
         ],
         isDeployed: true,
       },
@@ -68,7 +68,7 @@ const Experiences = () => {
     academy: [
       {
         name: 'Neon Chat App',
-        period: '15 Mar 24 - 30 Apr 24',
+        period: 'Mar 24 - Apr 24',
         purpose: 'Real-time messaging platform with end-to-end encryption',
         role: 'Full-stack Developer',
         responsibilities: [
@@ -79,32 +79,32 @@ const Experiences = () => {
         github: 'https://github.com/yourusername/neon-chat',
         deploy: 'https://neon-chat-demo.com',
         languages: [
-          <GitHubDark className='h-7 w-7 dark:invert' />,
-          <PostgreSQL className='h-7 w-7' />,
-          <Figma className='h-7 w-7' />,
-          <TailwindCSS className='h-7 w-7' />,
+          <GitHubDark size={25} className='dark:invert' />,
+          <PostgreSQL size={25} />,
+          <Figma size={25} />,
+          <TailwindCSS size={25} />,
         ],
         isDeployed: true,
       },
       {
         name: 'AI Image Generator',
-        period: '15 Mar 24 - 30 Apr 24',
+        period: 'Mar 24 - Apr 24',
         purpose: 'Stable Diffusion web interface with custom models',
         role: 'Frontend Developer',
         responsibilities: ['Built responsive UI', 'Integrated API endpoints', 'Optimized image rendering'],
         github: 'https://github.com/yourusername/ai-image-gen',
         deploy: null,
         languages: [
-          <GitHubDark className='h-7 w-7 dark:invert' />,
-          <PostgreSQL className='h-7 w-7' />,
-          <Figma className='h-7 w-7' />,
-          <TailwindCSS className='h-7 w-7' />,
+          <GitHubDark size={25} className='dark:invert' />,
+          <PostgreSQL size={25} />,
+          <Figma size={25} />,
+          <TailwindCSS size={25} />,
         ],
         isDeployed: false,
       },
       {
-        name: 'Smart Home IoT Dashboard',
-        period: '1 Jan 24 - 28 Feb 24',
+        name: 'Smart Home IoT',
+        period: 'Jan 24 - Feb 24',
         purpose: 'Centralized control system for IoT devices with real-time monitoring',
         role: 'IoT Frontend Developer',
         responsibilities: [
@@ -115,10 +115,10 @@ const Experiences = () => {
         github: 'https://github.com/yourusername/smart-home-dashboard',
         deploy: 'https://smart-home-demo.vercel.app',
         languages: [
-          <GitHubDark className='h-7 w-7 dark:invert' />,
-          <PostgreSQL className='h-7 w-7' />,
-          <Figma className='h-7 w-7' />,
-          <TailwindCSS className='h-7 w-7' />,
+          <GitHubDark size={25} className='dark:invert' />,
+          <PostgreSQL size={25} />,
+          <Figma size={25} />,
+          <TailwindCSS size={25} />,
         ],
         isDeployed: true,
       },
@@ -166,7 +166,7 @@ const Experiences = () => {
                 {experience.languages.map((lang, i) => (
                   <span
                     key={i}
-                    className='rounded bg-gray-200 p-2 text-xs text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+                    className='rounded-lg bg-gray-200 p-2 text-xs text-gray-700 dark:bg-gray-700 dark:text-gray-300'
                   >
                     {lang}
                   </span>
@@ -182,7 +182,7 @@ const Experiences = () => {
                   rel='noopener noreferrer'
                   className='inline-flex items-center rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-gray-700 transition-colors hover:border-gray-400 hover:text-gray-900 dark:border-gray-600 dark:text-gray-300 dark:hover:border-gray-500 dark:hover:text-gray-100'
                 >
-                  <IconBrandGithub className='h-4 w-4' />
+                  <IconBrandGithub size={23} />
                   <span className='ml-2'>Code</span>
                 </a>
               )}
@@ -193,7 +193,7 @@ const Experiences = () => {
                   rel='noopener noreferrer'
                   className='inline-flex items-center rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-gray-700 transition-colors hover:border-gray-400 hover:text-gray-900 dark:border-gray-600 dark:text-gray-300 dark:hover:border-gray-500 dark:hover:text-gray-100'
                 >
-                  <IconArrowUpRight className='h-4 w-4' />
+                  <IconArrowUpRight size={23} />
                   <span className='ml-2'>Demo</span>
                 </a>
               )}
@@ -205,7 +205,7 @@ const Experiences = () => {
   };
 
   return (
-    <section id='experiences' className='bg-zinc-100 py-20 dark:bg-slate-900'>
+    <section id='experiences' className='relative min-h-screen pt-28 overflow-hidden bg-gray-100 py-20 dark:bg-gray-900'>
       <div className='relative z-10 mx-auto max-w-7xl px-3'>
         <div className='mb-16 text-center' data-aos='fade-up'>
           <h3 className='mb-4 text-5xl font-black tracking-tight text-gray-900 dark:text-white md:text-7xl'>
@@ -232,10 +232,9 @@ const Experiences = () => {
           </p>
         </div>
 
-        {/* Company Experiences */}
         {/* Company Experience */}
         <section>
-          <h3 className='sticky top-16 z-20 border-b border-gray-200 bg-white/80 py-3 text-2xl font-semibold text-gray-800 backdrop-blur-md dark:border-gray-700 dark:bg-gray-900/80 dark:text-gray-200 md:text-3xl'>
+          <h3 className='border-b border-gray-400 py-2 text-2xl font-semibold text-gray-800 dark:border-gray-700 dark:text-gray-200 md:text-3xl'>
             <Text>experience.company-experience</Text>
           </h3>
 
@@ -250,7 +249,7 @@ const Experiences = () => {
 
         {/* Personal Experience */}
         <section className='mt-20'>
-          <h3 className='sticky top-16 z-20 border-b border-gray-200 bg-white/80 py-3 text-2xl font-semibold text-gray-800 backdrop-blur-md dark:border-gray-700 dark:bg-gray-900/80 dark:text-gray-200 md:text-3xl'>
+          <h3 className='border-b border-gray-400 py-2 text-2xl font-semibold text-gray-800 dark:border-gray-700 dark:text-gray-200 md:text-3xl'>
             <Text>experience.personal-experience</Text>
           </h3>
 
@@ -265,7 +264,7 @@ const Experiences = () => {
 
         {/* Academy Experience */}
         <section className='mt-20'>
-          <h3 className='sticky top-16 z-20 border-b border-gray-200 bg-white/80 py-3 text-2xl font-semibold text-gray-800 backdrop-blur-md dark:border-gray-700 dark:bg-gray-900/80 dark:text-gray-200 md:text-3xl'>
+          <h3 className='border-b border-gray-400 py-2 text-2xl font-semibold text-gray-800 dark:border-gray-700 dark:text-gray-200 md:text-3xl'>
             <Text>experience.academy-experience</Text>
           </h3>
           <div className='mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>

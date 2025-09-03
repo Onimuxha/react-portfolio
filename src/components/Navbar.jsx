@@ -54,29 +54,27 @@ const Navbar = ({ theme, toggleTheme }) => {
 
   return (
     <nav
-      className={`fixed left-1/2 top-4 z-50 w-[95%] max-w-4xl -translate-x-1/2 transform rounded-2xl transition-all duration-300 ${
+      className={`fixed left-1/2 top-4 z-50 w-[95%] max-w-6xl -translate-x-1/2 transform rounded-2xl transition-all duration-300 ${
         scrolled || isOpen
-          ? 'border border-white/20 bg-white/80 py-2 shadow-xl backdrop-blur-md dark:border-gray-700/30 dark:bg-gray-900/80'
-          : 'bg-transparent py-2'
+          ? 'bg-slate-900/20 backdrop-blur-sm border border-white/25 rounded-2xl py-3 shadow-2xl shadow-black/25'
+          : 'bg-transparent backdrop-blur-xs border border-white/10 rounded-3xl py-2'
       }`}
     >
       <div className='mx-auto w-full px-4 sm:px-6'>
         <div className='flex items-center justify-between'>
-          {/* Logo - Left side */}
-          <Link
-            to='home'
-            smooth
-            duration={500}
-            className='flex cursor-pointer items-center bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text text-2xl font-bold text-transparent dark:from-gray-400 dark:to-gray-100'
-          >
-            <span className='hidden md:inline'>
-              <img src='/text-black.png' className='h-10 w-10 dark:invert' alt='' />
+          <Link to='home' smooth duration={500} className='flex cursor-pointer items-center text-2xl font-bold'>
+            <span className='inline'>
+              {' '}
+              <img
+                src={theme === 'dark' ? '/text-white.png' : '/text-black.png'}
+                className='h-8 w-8 md:h-10 md:w-10'
+                alt='Logo'
+              />
             </span>
           </Link>
-
           {/* Centered Navigation Links */}
           <div className='hidden flex-1 items-center justify-center lg:flex'>
-            <div className='flex space-x-1 rounded-2xl border border-white/10 bg-white/10 p-1.5 backdrop-blur-sm dark:border-gray-700/20 dark:bg-gray-800/30'>
+            <div className='flex space-x-1 rounded-2xl border p-1.5 backdrop-blur-sm border-gray-700/90 bg-gray-800/40'>
               {navLinks.map((link) => (
                 <button
                   key={link.to}
@@ -88,8 +86,8 @@ const Navbar = ({ theme, toggleTheme }) => {
                   }}
                   className={`group relative flex items-center justify-center rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-300 ${
                     activeLink === link.to
-                      ? 'bg-white text-gray-900 shadow-md dark:bg-gray-800 dark:text-white'
-                      : 'text-gray-600 hover:bg-white/50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800/50 dark:hover:text-white'
+                      ? 'shadow-md bg-gray-800 text-white'
+                      : ' text-gray-300 hover:bg-gray-800/50 hover:text-white'
                   }`}
                   style={{ zIndex: activeLink === link.to ? 10 : 'auto' }}
                 >
@@ -99,7 +97,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                   {activeLink === link.to && (
                     <motion.div
                       layoutId='active-pill'
-                      className='absolute inset-0 rounded-xl bg-white shadow-sm dark:bg-gray-800'
+                      className='absolute inset-0 rounded-xl shadow-sm bg-gray-700'
                       transition={{ type: 'spring', stiffness: 300, damping: 15 }}
                       style={{ zIndex: -1 }}
                     />
@@ -123,7 +121,7 @@ const Navbar = ({ theme, toggleTheme }) => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu with improved styling */}
         <div
           className={`transition-all duration-300 lg:hidden ${
             isOpen ? 'mt-4 max-h-60 opacity-100' : 'max-h-0 overflow-hidden opacity-0'
@@ -140,7 +138,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                   }
                   setIsOpen(false);
                 }}
-                className={`group relative mx-3 flex items-center rounded-lg px-6 py-3 text-sm font-medium transition-all duration-300 ${
+                className={`group relative mx-3 flex items-center rounded-lg px-4 py-3 text-sm font-medium transition-all duration-300 ${
                   activeLink === link.to
                     ? 'bg-white/70 text-gray-900 dark:bg-gray-700/80 dark:text-white'
                     : 'text-gray-600 hover:bg-white/50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-white'
@@ -148,6 +146,7 @@ const Navbar = ({ theme, toggleTheme }) => {
               >
                 {link.icon && <span className='mr-2 flex items-center justify-center'>{link.icon}</span>}
                 {link.name}
+                {activeLink === link.to && <div className='ml-auto h-2 w-2 rounded-full bg-blue-500'></div>}
               </button>
             ))}
           </div>

@@ -72,7 +72,7 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <Telegram className='w-7 h-7' />,
+      icon: <Telegram size={25} />,
       title: 'Telegram',
       content: '@socheath',
       color: 'text-blue-500',
@@ -80,7 +80,7 @@ const Contact = () => {
       href: 'https://t.me/socheath',
     },
     {
-      icon: <Gmail className='w-7 h-7' />,
+      icon: <Gmail size={25} />,
       title: 'Gmail',
       content: 'hello@pages.dev',
       isLink: true,
@@ -88,7 +88,7 @@ const Contact = () => {
       color: 'text-blue-400',
     },
     {
-      icon: <XDark className='w-7 h-7 dark:invert' />,
+      icon: <XDark size={25} className='dark:invert' />,
       title: 'Phone',
       content: '+81 70-1234-5678',
       isLink: true,
@@ -99,19 +99,19 @@ const Contact = () => {
 
   const socialLinks = [
     {
-      icon: <GitHubDark className='w-7 h-7 dark:invert' />,
+      icon: <GitHubDark size={25} className='dark:invert' />,
       url: 'https://github.com',
     },
     {
-      icon: <LinkedIn className='w-7 h-7' />,
+      icon: <LinkedIn size={25} />,
       url: 'https://linkedin.com',
     },
     {
-      icon: <Facebook className='w-7 h-7' />,
+      icon: <Facebook size={25} />,
       url: 'https://facebook.com',
     },
     {
-      icon: <Instagram className='w-7 h-7' />,
+      icon: <Instagram size={25} />,
       url: 'https://instagram.com',
     },
   ];
@@ -168,7 +168,7 @@ const Contact = () => {
   );
 
   return (
-    <section id='contact' className='py-20 bg-slate-200 dark:bg-slate-800 min-h-screen'>
+    <section id='contact' className='relative min-h-screen pt-28 overflow-hidden bg-gray-100 py-20 dark:bg-gray-900'>
       <div className='container mx-auto px-3 max-w-6xl'>
         <div className='text-center mb-16' data-aos='fade-up'>
           <h3 className='text-5xl md:text-7xl font-black tracking-tight mb-4 text-gray-900 dark:text-white'>
@@ -384,8 +384,8 @@ const Contact = () => {
                           <span className='relative z-10 flex items-center font-medium text-lg'>
                             <Text>contact.send</Text>
                             <div className='relative h-5 w-5 ml-2 overflow-hidden'>
-                              <IconSend2 className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 group-hover:translate-x-full' />
-                              <IconSend2 className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0' />
+                              <IconSend2 size={23} className='absolute top-0 left-0 transition-transform duration-300 group-hover:translate-x-full' />
+                              <IconSend2 size={23} className='absolute top-0 left-0 transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0' />
                             </div>
                           </span>
                         )}

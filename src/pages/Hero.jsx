@@ -1,13 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-scroll';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Text from '../components/LocalizedText';
 import TextType from '../components/TextType';
 import ShinyText from '../components/ShinyText';
 import { IconTerminal2, IconBriefcase } from '@tabler/icons-react';
 
-import { ShootingStars } from "../components/ui/shooting-stars";
-import { StarsBackground } from "../components/ui/stars-background";
+import { ShootingStars } from '../components/ui/shooting-stars';
+import { StarsBackground } from '../components/ui/stars-background';
 
 const Hero = () => {
   const { t, i18n } = useTranslation();
@@ -41,16 +40,16 @@ const Hero = () => {
   return (
     <section
       id='home'
-      className='relative min-h-screen flex items-center justify-center px-3 text-white overflow-hidden'
+      className='relative flex min-h-screen items-center justify-center overflow-hidden px-3 text-white'
     >
       {/* Animated gradient background*/}
-      <div className='relative z-10 text-center max-w-4xl px-4'>
-        <h1 className='text-5xl md:text-8xl font-black text-white mb-2 tracking-tight'>
-          <span className='inline-block transition-all duration-500 ease-in-out py-3'>{greeting}</span>,{' '}
+      <div className='relative z-10 max-w-4xl px-4 text-center'>
+        <h1 className='mb-2 text-5xl font-black tracking-tight text-white md:text-8xl'>
+          <span className='inline-block py-3 transition-all duration-500 ease-in-out'>{greeting}</span>,{' '}
           <Text>general.i'm</Text> <ShinyText text='SOCHEATH' disabled={false} speed={3} className='custom-class' />
         </h1>
 
-        <h2 className='text-2xl mt-9 md:text-4xl mb-8 text-gray-300 font-light tracking-tight text-center'>
+        <h2 className='mb-8 mt-9 text-center text-2xl font-light tracking-tight text-gray-300 md:text-4xl'>
           <Text>general.i'm-a</Text>{' '}
           <TextType
             className='font-semibold text-white'
@@ -61,43 +60,54 @@ const Hero = () => {
             cursorCharacter='_'
           />
         </h2>
-        <p className='text-md md:text-xl max-w-2xl mx-auto mb-12 text-gray-400 leading-relaxed text-center'>
+        <p className='text-md mx-auto mb-12 max-w-2xl text-center leading-relaxed text-gray-400 md:text-xl'>
           Crafting <span className='font-medium text-gray-100'>scalable solutions</span> with clean code and intuitive
           design. Full-stack developer specializing in{' '}
-          <a className="text-sky-500 font-medium after:content-['_↗']" target='_blank' href='https://react.dev/'>
+          <a className="font-medium text-sky-500 after:content-['_↗']" target='_blank' href='https://react.dev/'>
             React.js
           </a>{' '}
           and{' '}
-          <a className="text-sky-500 font-medium after:content-['_↗']" target='_blank' href='https://nodejs.org'>
+          <a className="font-medium text-sky-500 after:content-['_↗']" target='_blank' href='https://nodejs.org'>
             Node.js
           </a>
           .
         </p>
-        <div className='flex flex-col sm:flex-row justify-center gap-4'>
-          <Link
-            to='skills'
-            smooth
-            duration={500}
-            className='relative flex items-center justify-center px-8 py-3.5 rounded-lg border-2 border-gray-500 text-gray-300 hover:text-white bg-transparent hover:bg-gray-900 dark:hover:bg-gray-800/50 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer overflow-hidden group'
+        <div className='flex flex-col justify-center gap-16 sm:flex-row'>
+          <button
+            onClick={() => {
+              const skillsSection = document.getElementById('skills');
+              if (skillsSection) {
+                skillsSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className='group relative inline-flex h-14 overflow-hidden rounded-full p-[1px] focus:outline-none' // Added 'group' class here
           >
-            <span className='text-md md:text-xl text-gray-200 leading-relaxed'>
-              <Text>hero.explore-skill</Text>
+            <span className='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]' />
+            <span className='inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 p-3 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl'>
+              <span className='flex translate-x-0 items-center p-5 transition-all duration-500 hover:translate-x-2'>
+                <Text>hero.explore-skill</Text>
+                <IconTerminal2 size={20} className='ml-2' />
+              </span>
             </span>
-            <IconTerminal2 className='ml-2 w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all' />
-          </Link>
+          </button>
 
-          <Link
-            to='experiences'
-            smooth
-            duration={500}
-            className='relative flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-800 text-white border border-gray-700/50 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group'
+          <button
+            onClick={() => {
+              const skillsSection = document.getElementById('experiences');
+              if (skillsSection) {
+                skillsSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className='group relative inline-flex h-14 overflow-hidden rounded-full p-[1px] focus:outline-none' // Added 'group' class here
           >
-            <span className='text-md md:text-xl text-gray-400 leading-relaxed'>
-              <Text>hero.view-experience</Text>
+            <span className='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]' />
+            <span className='inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 p-3 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl'>
+              <span className='flex translate-x-0 items-center p-5 transition-all duration-500 hover:translate-x-2'>
+                <Text>hero.view-experience</Text>
+                <IconBriefcase size={20} className='ml-2' />
+              </span>
             </span>
-            <IconBriefcase className='ml-2 w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all' />
-            <span className='absolute bottom-0 left-1/2 h-px w-0 bg-white transition-all duration-500 group-hover:w-3/4 group-hover:left-[12.5%]' />
-          </Link>
+          </button>
         </div>
       </div>
       <ShootingStars />

@@ -107,7 +107,7 @@ const ModernSkillBar = ({ skill, icon, description, percentage }) => {
       <div className='flex items-center gap-8'>
         {/* Icon and Progress */}
         <div className='flex flex-col items-center gap-4'>
-          <div className='rounded-xl bg-slate-100 p-4 transition-transform duration-500 group-hover:rotate-12 dark:bg-slate-800'>
+          <div className='rounded-lg bg-slate-100 p-2 transition-transform duration-500 group-hover:rotate-12 dark:bg-slate-800'>
             <span className='text-slate-600 dark:text-slate-300'>{icon}</span>
           </div>
           <CircularProgress percentage={percentage} size={100} strokeWidth={6} />
@@ -136,7 +136,7 @@ const ModernSkillCard = ({ icon, title, description }) => {
       <div className='absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-slate-100/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-slate-800/30 dark:via-transparent dark:to-slate-900/50'></div>
       <div className='relative flex h-full flex-col'>
         <div className='mb-6 flex justify-center'>
-          <div className='rounded-xl bg-slate-100 p-4 transition-all duration-500 group-hover:rotate-12 group-hover:scale-110 group-hover:bg-slate-200 dark:bg-slate-800 dark:group-hover:bg-slate-700'>
+          <div className='rounded-lg bg-slate-100 p-2 transition-all duration-500 group-hover:rotate-12 group-hover:scale-110 group-hover:bg-slate-200 dark:bg-slate-800 dark:group-hover:bg-slate-700'>
             <span className='text-slate-600 transition-colors duration-300 group-hover:text-slate-700 dark:text-slate-300 dark:group-hover:text-slate-200'>
               {icon}
             </span>
@@ -163,37 +163,37 @@ const Skills = () => {
   const skillsData = [
     {
       skill: 'JavaScript',
-      icon: <JavaScript className='h-7 w-7' />,
+      icon: <JavaScript size={25} />,
       description: 'Modern ES6+, async/await, functional programming',
       percentage: 90,
     },
     {
       skill: 'React.js',
-      icon: <ReactIcon className='h-7 w-7' />,
+      icon: <ReactIcon size={25} />,
       description: 'Hooks, Context API, Redux, Next.js',
       percentage: 85,
     },
     {
       skill: 'Node.js',
-      icon: <NodeJs className='h-7 w-7' />,
+      icon: <NodeJs size={25} />,
       description: 'Express, RESTful APIs, MongoDB integration',
       percentage: 75,
     },
     {
       skill: 'CSS/Tailwind',
-      icon: <TailwindCSS className='h-7 w-7' />,
+      icon: <TailwindCSS size={25} />,
       description: 'Responsive design, animations, custom themes',
       percentage: 90,
     },
     {
       skill: 'TypeScript',
-      icon: <TypeScript className='h-7 w-7' />,
+      icon: <TypeScript size={25} />,
       description: 'Type safety, interfaces, generics',
       percentage: 80,
     },
     {
       skill: 'Git/GitHub',
-      icon: <GitHubDark className='h-7 w-7 dark:invert' />,
+      icon: <GitHubDark size={25} className='dark:invert' />,
       description: 'Version control, collaboration, CI/CD',
       percentage: 85,
     },
@@ -201,22 +201,22 @@ const Skills = () => {
 
   const cardData = [
     {
-      icon: <ReactIcon className='h-7 w-7' />,
+      icon: <ReactIcon size={25} />,
       title: 'React.js',
       description: 'Building modern and performant UI components with hooks and context API',
     },
     {
-      icon: <JavaScript className='h-7 w-7' />,
+      icon: <JavaScript size={25} />,
       title: 'JavaScript',
       description: 'ES6+ syntax, async programming, and functional patterns',
     },
     {
-      icon: <TailwindCSS className='h-7 w-7' />,
+      icon: <TailwindCSS size={25} />,
       title: 'Tailwind CSS',
       description: 'Utility-first CSS framework for rapid UI development',
     },
     {
-      icon: <NodeJs className='h-7 w-7' />,
+      icon: <NodeJs size={25} />,
       title: 'Node.js',
       description: 'Building scalable server-side applications and APIs',
     },
@@ -224,42 +224,42 @@ const Skills = () => {
 
   const toolsData = [
     {
-      icon: <GitHubDark className='h-7 w-7 dark:invert' />,
+      icon: <GitHubDark size={25} className='dark:invert' />,
       title: 'GitHub',
       description: 'Version control and collaborative development workflow',
     },
     {
-      icon: <VisualStudioCode className='h-7 w-7' />,
+      icon: <VisualStudioCode size={25} />,
       title: 'VS Code',
       description: 'Advanced code editing with extensive plugin ecosystem',
     },
     {
-      icon: <Figma className='h-7 w-7' />,
+      icon: <Figma size={25} />,
       title: 'Figma',
       description: 'UI/UX design, prototyping, and design system management',
     },
     {
-      icon: <GitLab className='h-7 w-7' />,
+      icon: <GitLab size={25} />,
       title: 'GitLab',
       description: 'CI/CD pipelines and DevOps workflows',
     },
     {
-      icon: <MySQL className='h-7 w-7 dark:invert' />,
+      icon: <MySQL size={25} className='dark:invert' />,
       title: 'MySQL',
       description: 'Relational database system for structured data and SQL queries',
     },
     {
-      icon: <WordPress className='h-7 w-7' />,
+      icon: <WordPress size={25} />,
       title: 'WordPress',
       description: 'Open-source CMS used to build websites and manage content easily',
     },
     {
-      icon: <Bootstrap5 className='h-7 w-7' />,
+      icon: <Bootstrap5 size={25} />,
       title: 'Bootstrap',
       description: 'Responsive front-end framework for designing websites and interfaces',
     },
     {
-      icon: <TailwindCSS className='h-7 w-7' />,
+      icon: <TailwindCSS size={25} />,
       title: 'Tailwind CSS (Basic)',
       description: 'Utility-first CSS framework for building custom designs quickly',
     },
@@ -268,14 +268,8 @@ const Skills = () => {
   return (
     <section
       id='skills'
-      className='relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 py-20 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900'
+      className='relative pt-28 min-h-screen overflow-hidden bg-gray-100 py-20 dark:bg-gray-900'
     >
-      {/* Background decorative elements */}
-      <div className='absolute inset-0 overflow-hidden'>
-        <div className='absolute -right-40 -top-40 h-80 w-80 rounded-full bg-slate-300/20 blur-3xl dark:bg-slate-700/20'></div>
-        <div className='absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-slate-300/20 blur-3xl dark:bg-slate-700/20'></div>
-      </div>
-
       <div className='container relative mx-auto max-w-7xl px-4'>
         <div className='mb-20 text-center'>
           <h3 className='mb-6 text-5xl font-black tracking-tight text-slate-900 dark:text-white md:text-7xl'>
