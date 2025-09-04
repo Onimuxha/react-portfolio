@@ -24,7 +24,6 @@ const Hero = () => {
 
     setGreeting(getTimeBasedGreeting());
 
-    // Update greeting every hour
     const greetingInterval = setInterval(() => {
       setGreeting(getTimeBasedGreeting());
     }, 3600000);
@@ -80,7 +79,7 @@ const Hero = () => {
                 skillsSection.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className='group relative inline-flex h-14 overflow-hidden rounded-full p-[1px] focus:outline-none' // Added 'group' class here
+            className='group relative inline-flex h-14 overflow-hidden rounded-full p-[1px] focus:outline-none'
           >
             <span className='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]' />
             <span className='inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 p-3 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl'>
@@ -98,7 +97,7 @@ const Hero = () => {
                 skillsSection.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className='group relative inline-flex h-14 overflow-hidden rounded-full p-[1px] focus:outline-none' // Added 'group' class here
+            className='group relative inline-flex h-14 overflow-hidden rounded-full p-[1px] focus:outline-none'
           >
             <span className='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]' />
             <span className='inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 p-3 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl'>
@@ -110,8 +109,8 @@ const Hero = () => {
           </button>
         </div>
       </div>
-      <ShootingStars />
-      <StarsBackground />
+      <ShootingStars className='z-10' />
+      <StarsBackground className='z-0' />
     </section>
   );
 };
