@@ -109,8 +109,8 @@ const Hero = () => {
           </button>
         </div>
       </div>
-      <ShootingStars className='z-10' />
-      <StarsBackground className='z-0' />
+      <StarsBackground />
+      <ShootingStars />
     </section>
   );
 };
