@@ -53,36 +53,27 @@ const LanguageSwitcher = () => {
       {/* Flag button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-10 h-10 rounded-lg flex items-center justify-center 
-      bg-white/10 backdrop-blur-sm
-      border border-gray-600
-      hover:shadow-md hover:shadow-white/20
-      transition-all duration-300`}
+        className={`flex h-10 w-10 items-center justify-center rounded-lg border border-gray-300/50 border-gray-600 bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md hover:shadow-white/20 dark:border-gray-600/50 dark:bg-gray-700/60`}
         aria-label='Change language'
         aria-expanded={isOpen}
       >
-        <div className='flex items-center dark:text-white text-slate-900 justify-center w-8 h-6'>{currentLanguage.flag}</div>
+        <div className='flex h-6 w-8 items-center justify-center dark:text-white text-gray-900'>{currentLanguage.flag}</div>
       </button>
 
       {/* Dropdown menu */}
       <div
-        className={`absolute right-0 mt-2 w-44 transition-all duration-470 ease-in-out
-          ${
-            isOpen
-              ? 'max-h-72 opacity-100 translate-y-0'
-              : 'max-h-0 opacity-0 -translate-y-2 overflow-hidden pointer-events-none'
-          }`}
+        className={`duration-470 absolute right-0 mt-2 w-44 transition-all ease-in-out ${
+          isOpen
+            ? 'max-h-72 translate-y-0 opacity-100'
+            : 'pointer-events-none max-h-0 -translate-y-2 overflow-hidden opacity-0'
+        }`}
         style={{
           zIndex: 50,
           transformOrigin: 'top center',
           transitionProperty: 'max-height, opacity, transform',
         }}
       >
-        <div
-          className='p-2 space-y-2 bg-black/95
-          backdrop-blur-xl border border-gray-700
-          rounded-md shadow-xl ${getFontClass()}'
-        >
+        <div className='${getFontClass()} space-y-2 rounded-md border border-gray-700 bg-black/95 p-2 shadow-xl backdrop-blur-xl'>
           {languages.map((lang, index) => (
             <button
               key={lang.code}
@@ -90,18 +81,15 @@ const LanguageSwitcher = () => {
                 i18n.changeLanguage(lang.code);
                 setIsOpen(false);
               }}
-              className={`flex items-center w-full px-4 py-2.5 text-left font-medium
-                rounded-md transition-all duration-300 ease-out
-                ${i18n.language === lang.code ? 'bg-white/20 text-white' : 'text-gray-300 hover:bg-white/10'}
-                ${lang.fontClass || ''}`}
+              className={`flex w-full items-center rounded-md px-4 py-2.5 text-left font-medium transition-all duration-300 ease-out ${i18n.language === lang.code ? 'bg-white/20 text-white' : 'text-gray-300 hover:bg-white/10'} ${lang.fontClass || ''}`}
               style={{
                 transitionDelay: isOpen ? `${index * 50}ms` : '0ms',
               }}
               aria-label={`${lang.name}`}
             >
-              <div className='flex items-center justify-center w-8 h-6 mr-3'>{lang.flag}</div>
+              <div className='mr-3 flex h-6 w-8 items-center justify-center'>{lang.flag}</div>
               <span className='text-sm'>{lang.name}</span>
-              {i18n.language === lang.code && <span className='block ml-auto w-1 h-3 bg-white rounded-full'></span>}
+              {i18n.language === lang.code && <span className='ml-auto block h-3 w-1 rounded-full bg-white'></span>}
             </button>
           ))}
         </div>

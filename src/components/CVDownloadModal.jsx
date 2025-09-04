@@ -55,9 +55,9 @@ const CVDownloadModal = ({ isOpen, onClose }) => {
           </h3>
           <button
             onClick={onClose}
-            className='rounded-full p-1 text-gray-400 transition-colors hover:bg-gray-800 hover:text-gray-100'
+            className='rounded-md p-2 text-gray-400'
           >
-            <IconX size={23} className='hover:rotate-90 transition-all duration-300' />
+            <IconX size={23} className='transition-all duration-300 hover:rotate-90' />
           </button>
         </div>
 
@@ -88,16 +88,32 @@ const CVDownloadModal = ({ isOpen, onClose }) => {
           <div className='flex justify-center gap-3'>
             <button
               onClick={onClose}
-              className='flex items-center gap-2 rounded-lg border border-gray-700 bg-gray-800 px-5 py-2.5 text-gray-300 shadow transition-all duration-300 hover:border-gray-600 hover:bg-gray-700 hover:text-gray-100 hover:shadow-md'
+              className='group relative inline-flex h-14 overflow-hidden rounded-full p-[1px] focus:outline-none'
             >
-              <Text>footer.cancel</Text>
+              <span className='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]' />
+              <span className='inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-900 p-3 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl'>
+                <span className='flex items-center p-5 transition-all hover:text-red-500'>
+                  <Text>footer.cancel</Text>
+                  <IconX size={20} className='ml-2 duration-300 group-hover:rotate-90' />
+                </span>
+              </span>
             </button>
+
             <button
               onClick={handleDownload}
-              className='flex items-center gap-2 rounded-lg border border-gray-600 bg-gray-700 px-5 py-2.5 text-gray-100 shadow transition-all duration-300 hover:border-gray-500 hover:bg-gray-600 hover:text-white hover:shadow-md'
+              className='group relative inline-flex h-14 animate-shimmer items-center justify-center overflow-hidden rounded-full border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-all duration-300'
             >
               <Text>footer.download</Text>
-              <IconDownload size={16} />
+              <div className='relative ml-3 h-5 w-5 overflow-hidden'>
+                <IconDownload
+                  size={20}
+                  className='absolute left-0 top-0 transition-all duration-300 group-hover:translate-y-full'
+                />
+                <IconDownload
+                  size={20}
+                  className='absolute left-0 top-0 -translate-y-full transform transition-all duration-300 group-hover:translate-y-0'
+                />
+              </div>
             </button>
           </div>
         </div>

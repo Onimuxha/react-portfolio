@@ -3,7 +3,15 @@ import { Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
 import Text from './LocalizedText';
 import CVDownloadModal from './CVDownloadModal';
-import { IconHome, IconUser, IconCode, IconBriefcase2, IconMail, IconChevronsRight, IconDownload } from '@tabler/icons-react';
+import {
+  IconHome,
+  IconUser,
+  IconCode,
+  IconBriefcase2,
+  IconMail,
+  IconDownload,
+  IconArrowUpRight,
+} from '@tabler/icons-react';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -34,23 +42,23 @@ const Footer = () => {
   };
 
   return (
-    <footer className='relative bg-zinc-100 dark:bg-slate-900 text-gray-300'>
-      <div className='container mx-auto px-3 pt-12 pb-8'>
-        <div className='bg-zinc-50 dark:bg-slate-800 backdrop-blur-lg rounded-2xl p-8 shadow-2xl'>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10'>
+    <footer className='relative bg-zinc-100 text-gray-300 dark:bg-slate-900'>
+      <div className='container mx-auto px-3 pb-8 pt-12'>
+        <div className='rounded-2xl bg-zinc-50 p-8 shadow-2xl backdrop-blur-lg dark:bg-slate-800'>
+          <div className='grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4'>
             <div className='col-span-1 lg:col-span-2'>
-              <h2 className='text-3xl font-bold text-slate-600 dark:text-slate-400 mb-4 tracking-tight'>
+              <h2 className='mb-4 text-3xl font-bold tracking-tight text-slate-600 dark:text-slate-400'>
                 <Text>hero.name</Text>
               </h2>
-              <p className='text-md md:text-xl text-slate-600 dark:text-slate-400 mb-6 max-w-lg leading-relaxed'>
+              <p className='text-md mb-6 max-w-lg leading-relaxed text-slate-600 dark:text-slate-400 md:text-xl'>
                 Crafting exceptional digital experiences with modern web technologies. Focused on building scalable and
                 performant applications.
               </p>
-              <div className='h-0.5 w-36 bg-gradient-to-r from-gray-700 via-gray-500 to-gray-700 rounded-full'></div>
+              <div className='h-0.5 w-36 rounded-full bg-gradient-to-r from-gray-700 via-gray-500 to-gray-700'></div>
             </div>
 
             <div className='col-span-1'>
-              <h3 className='text-lg font-bold mb-5 text-slate-600 dark:text-slate-400 tracking-wide uppercase'>
+              <h3 className='mb-5 text-lg font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400'>
                 <Text>footer.quick-link</Text>
               </h3>
               <ul className='space-y-3'>
@@ -60,7 +68,7 @@ const Footer = () => {
                       to={to}
                       smooth={true}
                       duration={500}
-                      className='relative flex items-center w-64 justify-between text-slate-600 dark:text-slate-400 hover:text-slate-600 cursor-pointer py-3 transition-all duration-300 group'
+                      className='group relative flex w-64 cursor-pointer items-center justify-between py-3 text-slate-600 transition-all duration-300 hover:text-slate-600 dark:text-slate-400'
                     >
                       <div className='flex items-center'>
                         {React.cloneElement(icon, {
@@ -70,10 +78,10 @@ const Footer = () => {
                         <Text>{nameKey}</Text>
                       </div>
                       <div className='relative h-5 w-5 overflow-hidden'>
-                        <IconChevronsRight className='absolute top-0 left-0 w-5 h-5 transition-transform duration-500 group-hover:translate-x-full' />
-                        <IconChevronsRight className='absolute top-0 left-0 w-5 h-5 transition-transform duration-500 transform -translate-x-full group-hover:translate-x-0' />
+                        <IconArrowUpRight className='absolute left-0 top-0 h-5 w-5 transition-transform duration-500 group-hover:translate-x-full' />
+                        <IconArrowUpRight className='absolute left-0 top-0 h-5 w-5 -translate-x-full transform transition-transform duration-500 group-hover:translate-x-0' />
                       </div>
-                      <span className='absolute bottom-0 left-0 h-[1px] w-0 bg-black dark:bg-white transition-all duration-500 group-hover:w-full' />
+                      <span className='absolute bottom-0 left-0 h-[1px] w-0 bg-black transition-all duration-500 group-hover:w-full dark:bg-white' />
                     </Link>
                   </li>
                 ))}
@@ -81,31 +89,28 @@ const Footer = () => {
             </div>
 
             <div className='col-span-1'>
-              <h3 className='text-lg font-bold mb-5 text-slate-600 dark:text-slate-400 tracking-wide uppercase'>
+              <h3 className='mb-5 text-lg font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400'>
                 <Text>footer.download-cv</Text>
               </h3>
-              <p className='text-md md:text-xl text-slate-600 dark:text-slate-400 mb-6'>
+              <p className='text-md mb-6 text-slate-600 dark:text-slate-400 md:text-xl'>
                 Do you want to know more? Download my Curriculum Vitae.
               </p>
               <button
                 onClick={handleDownloadClick}
-                className='relative inline-flex items-center px-8 py-3 rounded-xl bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-800 text-white border border-gray-700/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group'
+                className='relative inline-flex h-14 animate-shimmer items-center justify-center rounded-full border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-all duration-300 overflow-hidden group'
               >
-                <span className='absolute bottom-0 left-1/2 h-px w-0 bg-white transition-all duration-500 group-hover:w-3/4 group-hover:left-[12.5%]' />
-                <span className='relative z-10 font-medium text-lg'>
-                  <Text>footer.download-cv</Text>
-                </span>
+                <Text>hero.view-experience</Text>
                 <div className='relative ml-3 h-5 w-5 overflow-hidden'>
-                  <IconDownload className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 group-hover:translate-y-full' />
-                  <IconDownload className='absolute top-0 left-0 w-5 h-5 transition-transform duration-300 transform -translate-y-full group-hover:translate-y-0' />
+                  <IconDownload className='absolute left-0 top-0 h-5 w-5 transition-transform duration-300 group-hover:translate-y-full' />
+                  <IconDownload className='absolute left-0 top-0 h-5 w-5 -translate-y-full transform transition-transform duration-300 group-hover:translate-y-0' />
                 </div>
               </button>
             </div>
           </div>
         </div>
 
-        <div className='pt-10 mt-10 border-t border-gray-600/50 text-center'>
-          <p className='text-sm text-gray-500 tracking-wide'>
+        <div className='mt-10 border-t border-gray-600/50 pt-10 text-center'>
+          <p className='text-sm tracking-wide text-gray-500'>
             &copy; {currentYear} <Text>hero.name</Text>. <Text>footer.copyright</Text>
           </p>
         </div>

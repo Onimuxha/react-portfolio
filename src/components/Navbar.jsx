@@ -8,7 +8,8 @@ import { IconHome, IconUser, IconCode, IconBriefcase2, IconMail } from '@tabler/
 import { motion } from 'framer-motion';
 import { AnimatedThemeToggler } from '../components/ui/animated-theme-toggler';
 
-const Navbar = () => { // Remove theme and toggleTheme props
+const Navbar = () => {
+  // Remove theme and toggleTheme props
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
@@ -56,40 +57,30 @@ const Navbar = () => { // Remove theme and toggleTheme props
     <nav
       className={`fixed left-1/2 top-4 z-50 w-[95%] max-w-6xl -translate-x-1/2 transform rounded-2xl transition-all duration-300 ${
         scrolled || isOpen
-          ? 'bg-slate-900/20 backdrop-blur-sm border border-white/25 rounded-2xl py-3 shadow-2xl shadow-black/25'
-          : 'bg-transparent backdrop-blur-xs border border-white/10 rounded-3xl py-2'
+          ? 'rounded-2xl border border-white/25 bg-slate-900/20 py-3 shadow-2xl shadow-black/25 backdrop-blur-sm'
+          : 'backdrop-blur-xs rounded-3xl border border-white/10 bg-transparent py-2'
       }`}
     >
       <div className='mx-auto w-full px-4 sm:px-6'>
         <div className='flex items-center justify-between'>
           <Link to='home' smooth duration={500} className='flex cursor-pointer items-center text-2xl font-bold'>
             <span className='inline'>
-              {/* Update logo to work with the new theme toggler */}
-              <img
-                src='/text-white.png'
-                className='h-8 w-8 md:h-10 md:w-10'
-                alt='Logo'
-              />
+              <img src='/text-white.png' className='h-8 w-8 md:h-10 md:w-10' alt='Logo' />
             </span>
           </Link>
           {/* Centered Navigation Links */}
           <div className='hidden flex-1 items-center justify-center lg:flex'>
-            <div className='flex space-x-1 rounded-2xl border p-1.5 backdrop-blur-sm border-gray-700/90 bg-gray-800/40'>
+            <div className='flex space-x-1 rounded-2xl border border-white/10 bg-white/5 px-2 py-1 backdrop-blur-sm'>
               {navLinks.map((link) => (
                 <button
                   key={link.to}
                   onClick={() => {
                     const el = document.getElementById(link.to);
-                    if (el) {
-                      el.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className={`group relative flex items-center justify-center rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-300 ${
-                    activeLink === link.to
-                      ? 'shadow-md bg-gray-800 text-white'
-                      : ' text-gray-300 hover:bg-gray-800/50 hover:text-white'
+                  className={`group relative flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                    activeLink === link.to ? 'text-white' : 'dark:text-gray-400 hover:text-white'
                   }`}
-                  style={{ zIndex: activeLink === link.to ? 10 : 'auto' }}
                 >
                   {link.icon && <span className='mr-2 flex items-center justify-center'>{link.icon}</span>}
                   {link.name}
@@ -97,8 +88,8 @@ const Navbar = () => { // Remove theme and toggleTheme props
                   {activeLink === link.to && (
                     <motion.div
                       layoutId='active-pill'
-                      className='absolute inset-0 rounded-xl shadow-sm bg-gray-700'
-                      transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                      className='absolute inset-0 rounded-xl bg-white/10 backdrop-blur-sm'
+                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                       style={{ zIndex: -1 }}
                     />
                   )}
@@ -110,23 +101,13 @@ const Navbar = () => { // Remove theme and toggleTheme props
           {/* Right-aligned Controls - Desktop */}
           <div className='ml-auto hidden items-center space-x-2 lg:flex'>
             <LanguageSwitcher />
-            {/* Replace ThemeToggle with AnimatedThemeToggler */}
-            <AnimatedThemeToggler className="w-10 h-10 rounded-lg flex items-center justify-center 
-              bg-white/10 backdrop-blur-sm
-              border border-gray-600
-              hover:shadow-md hover:shadow-white/20
-              transition-all duration-300" />
+            <AnimatedThemeToggler className='flex h-10 w-10 items-center justify-center rounded-lg border border-gray-300/50 bg-white/80 dark:border-gray-600/50 dark:bg-gray-700/60 backdrop-blur-sm transition-all duration-300 hover:shadow-md hover:shadow-white/20' />
           </div>
 
           {/* Mobile Menu Button - Hidden on Desktop */}
           <div className='flex items-center space-x-2 lg:hidden'>
             <LanguageSwitcher />
-            {/* Replace ThemeToggle with AnimatedThemeToggler */}
-            <AnimatedThemeToggler className="w-10 h-10 rounded-lg flex items-center justify-center 
-              bg-white/10 backdrop-blur-sm
-              border border-gray-600
-              hover:shadow-md hover:shadow-white/20
-              transition-all duration-300" />
+            <AnimatedThemeToggler className='flex h-10 w-10 items-center justify-center rounded-lg border border-gray-300/50 bg-white/80 dark:border-gray-600/50 dark:bg-gray-700/60 backdrop-blur-sm transition-all duration-300 hover:shadow-md hover:shadow-white/20' />
             <MobileMenuButton isOpen={isOpen} toggleOpen={toggleMenu} />
           </div>
         </div>
