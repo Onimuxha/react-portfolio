@@ -152,7 +152,7 @@ const ModernSkillCard = ({ icon, title, description }) => {
           </p>
         </div>
         {/* Bottom accent */}
-        <div className='absolute rounded-full bottom-0 left-0 right-0 h-0.5 origin-center scale-x-0 transform bg-gradient-to-r from-slate-300 via-slate-400 to-slate-300 transition-transform duration-500 group-hover:scale-x-100 dark:from-slate-600 dark:via-slate-500 dark:to-slate-600'></div>
+        <div className='absolute bottom-0 left-0 right-0 h-0.5 origin-center scale-x-0 transform rounded-full bg-gradient-to-r from-slate-300 via-slate-400 to-slate-300 transition-transform duration-500 group-hover:scale-x-100 dark:from-slate-600 dark:via-slate-500 dark:to-slate-600'></div>
       </div>
     </div>
   );
@@ -266,16 +266,13 @@ const Skills = () => {
   ];
 
   return (
-    <section
-      id='skills'
-      className='relative pt-28 min-h-screen overflow-hidden bg-gray-100 py-20 dark:bg-gray-900'
-    >
+    <section id='skills' className='relative min-h-screen overflow-hidden bg-gray-100 py-20 pt-28 dark:bg-gray-900'>
       <div className='container relative mx-auto max-w-7xl px-4'>
         <div className='mb-20 text-center'>
           <h3 className='mb-6 text-5xl font-black tracking-tight text-slate-900 dark:text-white md:text-7xl'>
             {i18n.language === 'kh' ? (
               <>
-                <span className='bg-gradient-to-r from-slate-600 to-slate-900 bg-clip-text text-transparent dark:from-slate-400 dark:to-slate-100'>
+                <span className='bg-gradient-to-r py-9 from-slate-600 to-slate-900 bg-clip-text text-transparent dark:from-slate-400 dark:to-slate-100'>
                   <Text>skill.skill</Text>
                 </span>{' '}
                 <Text>general.my</Text>
@@ -289,7 +286,7 @@ const Skills = () => {
               </>
             )}
           </h3>
-          <div className='mx-auto mb-8 h-1.5 w-32 rounded-full bg-gradient-to-r from-slate-400 via-slate-600 to-slate-400 dark:from-slate-500 dark:via-slate-300 dark:to-slate-500'></div>
+          <div className='mx-auto mb-10 h-1 w-24 rounded-full bg-gradient-to-r from-gray-300 via-gray-500 to-gray-300 dark:from-gray-600 dark:via-gray-400 dark:to-gray-600'></div>
           <p className='mx-auto max-w-3xl text-xl leading-relaxed text-slate-600 dark:text-slate-300'>
             My proficiency across the full development stack and design disciplines
           </p>
