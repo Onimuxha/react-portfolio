@@ -39,7 +39,7 @@ const Hero = () => {
   return (
     <section
       id='home'
-      className='relative flex min-h-screen items-center justify-center overflow-hidden px-3 text-white'
+      className='relative pt-28 flex min-h-screen items-center justify-center overflow-hidden px-3 text-white'
     >
       {/* Animated gradient background*/}
       <div className='relative z-10 max-w-4xl px-4 text-center'>
@@ -71,7 +71,7 @@ const Hero = () => {
           </a>
           .
         </p>
-        <div className='flex flex-col justify-center gap-16 sm:flex-row'>
+        <div className='flex flex-col justify-center gap-5 sm:flex-row'>
           <button
             onClick={() => {
               const skillsSection = document.getElementById('skills');
@@ -96,7 +96,7 @@ const Hero = () => {
                 skillsSection.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className='animate-shimmer inline-flex h-14 items-center justify-center rounded-full border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50'
+            className='animate-shimmer inline-flex h-14 items-center justify-center rounded-full border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400'
           >
             <span className='flex translate-x-0 items-center transition-all duration-500 hover:translate-x-2'>
               <Text>hero.view-experience</Text>
